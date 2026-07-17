@@ -79,10 +79,11 @@ export default function Home() {
       <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#ece8e1]">
         <video
           className="h-auto w-auto max-h-dvh max-w-full object-contain"
-          src="/AVA%20COMING%20SOON_10.mp4"
+          src="/ava-coming-soon.mp4"
           autoPlay
           loop
           playsInline
+          preload="auto"
         />
         <script
           type="application/ld+json"

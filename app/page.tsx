@@ -81,7 +81,6 @@ export default function Home() {
           className="h-auto w-auto max-h-dvh max-w-full object-contain"
           src="/AVA%20COMING%20SOON_10.mp4"
           autoPlay
-          muted
           loop
           playsInline
         />

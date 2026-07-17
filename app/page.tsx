@@ -9,6 +9,7 @@ import { ServicesSection } from "@/components/sections/services-section";
 import { StorytellingHorizontalSection } from "@/components/sections/storytelling-horizontal-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { LuxuryCursor } from "@/components/ui/luxury-cursor";
+import { ComingSoonVideo } from "@/components/coming-soon-video";
 
 export const metadata: Metadata = {
   title: "AVA Holding | Building the Future with Precision",
@@ -77,14 +78,7 @@ export default function Home() {
   if (SHOW_COMING_SOON) {
     return (
       <div className="fixed inset-0 z-9999 flex items-center justify-center bg-[#ece8e1]">
-        <video
-          className="h-auto w-auto max-h-dvh max-w-full object-contain"
-          src="/ava-coming-soon.mp4"
-          autoPlay
-          loop
-          playsInline
-          preload="auto"
-        />
+        <ComingSoonVideo />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

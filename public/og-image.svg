@@ -1,0 +1,14 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="630" fill="#090909"/>
+<rect x="50" y="50" width="1100" height="530" stroke="#C5A66A" stroke-opacity="0.5"/>
+<path d="M0 420L260 300L430 360L620 250L850 330L1200 210V630H0V420Z" fill="url(#paint0_linear_1_2)" fill-opacity="0.35"/>
+<text x="120" y="280" fill="#C5A66A" font-family="Georgia, serif" font-size="38" letter-spacing="8">AVA HOLDING</text>
+<text x="120" y="350" fill="#F4F1EA" font-family="Georgia, serif" font-size="66">Building the Future</text>
+<text x="120" y="412" fill="#F4F1EA" font-family="Georgia, serif" font-size="66">with Precision</text>
+<defs>
+<linearGradient id="paint0_linear_1_2" x1="600" y1="210" x2="600" y2="630" gradientUnits="userSpaceOnUse">
+<stop stop-color="#C5A66A"/>
+<stop offset="1" stop-color="#090909"/>
+</linearGradient>
+</defs>
+</svg>

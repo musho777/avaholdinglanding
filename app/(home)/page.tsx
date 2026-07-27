@@ -28,8 +28,6 @@ export default function Home() {
     if ((window as any).__avaInit) return;
     (window as any).__avaInit = true;
   }, []);
-
-  // Initialize all features
   usePreloaderInit();
   useSmoothScrollInit();
   useLogoAnimationInit();
@@ -41,10 +39,6 @@ export default function Home() {
 
   return (
     <>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-
       <Preloader />
       <Hero />
       <Header />

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
+// @ts-ignore: allow importing global CSS in Next.js app directory
 import "./globals.css";
 
 const fraunces = Fraunces({

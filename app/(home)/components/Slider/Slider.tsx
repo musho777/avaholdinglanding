@@ -29,7 +29,7 @@ export default function Slider() {
     const trackH = sliderThumbRef.current.parentElement.clientHeight;
     const segment = trackH / images.length;
     sliderThumbRef.current.style.height = Math.max(segment - 6, 14) + "px";
-    sliderThumbRef.current.style.top = currentIndex * segment + 3 + "px";
+    sliderThumbRef.current.style.transform = `translate3d(0, ${currentIndex * segment + 3}px, 0)`;
   };
 
   const goToPrevious = () => {
@@ -51,19 +51,22 @@ export default function Slider() {
           className="slide-track"
           ref={sliderTrackRef}
           style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-            transition: "transform 0.5s ease",
+            transform: `translate3d(-${currentIndex * 100}%, 0, 0)`,
           }}
         >
           {mounted &&
             images.map((image, idx) => (
               <div
                 key={idx}
-                className="slide"
-                style={{
-                  backgroundImage: `url(${image})`,
-                }}
-              />
+                className={`slide ${idx === currentIndex ? "active" : ""}`}
+              >
+                <div
+                  className="slide-inner"
+                  style={{
+                    backgroundImage: `url(${image})`,
+                  }}
+                />
+              </div>
             ))}
         </div>
       </div>

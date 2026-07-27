@@ -1,0 +1,7 @@
+# robots.txt for AVA
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ava-retreat.com/sitemap.xml

@@ -1,79 +1,51 @@
-import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SmoothScrollProvider } from "@/components/providers/smooth-scroll";
+import type { Metadata, Viewport } from "next";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const fraunces = Fraunces({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-fraunces",
+  display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://avaholding.ae"),
-  alternates: {
-    canonical: "/",
-  },
-  applicationName: "AVA Holding",
-  creator: "AVA Holding",
-  publisher: "AVA Holding",
-  title: "AVA Holding | Luxury Construction and Development",
-  description:
-    "AVA Holding creates premium construction and architectural projects with precision engineering, timeless design, and uncompromising execution.",
-  keywords: [
-    "AVA Holding",
-    "luxury construction",
-    "premium development",
-    "architectural engineering",
-    "high-end real estate",
-  ],
+  title: "AVA — Quiet Luxury Residences",
+  description: "AVA — a quiet-luxury residence brand offering premium villas and residences in Mijas, Malaga, Spain.",
+  keywords: ["luxury residences", "villas", "Mijas", "Malaga", "Spain", "quiet luxury", "premium real estate"],
+  authors: [{ name: "AVA" }],
+  creator: "AVA",
+  metadataBase: new URL("https://ava-retreat.com"),
   openGraph: {
-    title: "AVA Holding | Building the Future with Precision",
-    description:
-      "Premium construction, development, design, and engineering for landmark spaces.",
-    url: "https://avaholding.ae",
-    siteName: "AVA Holding",
-    locale: "en_US",
+    title: "AVA — Quiet Luxury Residences",
+    description: "Premium villas and residences in Mijas, Malaga, Spain",
     type: "website",
-    images: [
-      {
-        url: "/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "AVA Holding architectural development showcase",
-      },
-    ],
+    locale: "en_US",
+    siteName: "AVA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AVA Holding | Building the Future with Precision",
-    description:
-      "A premium construction company focused on precision, innovation, and excellence.",
-    images: ["/og-image.svg"],
+    title: "AVA — Quiet Luxury Residences",
+    description: "Premium villas and residences in Mijas, Malaga, Spain",
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
   },
-  category: "construction",
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -82,14 +54,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${cormorant.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-[#ece8e1] text-[#25211c] antialiased">
-        <SmoothScrollProvider>
-          <SiteHeader />
-          {children}
-          <SiteFooter />
-        </SmoothScrollProvider>
-      </body>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

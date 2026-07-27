@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AVA — Next.js
 
-## Getting Started
+This is the AVA landing page, converted from the original single-file HTML
+build into a Next.js 14 (App Router) project.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To build for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+  layout.tsx     — root layout, loads the Fraunces/Inter Google Fonts
+  page.tsx        — the entire page: markup (JSX) + all interaction logic
+  globals.css     — all styling (ported 1:1 from the original <style> block)
+public/
+  assets/         — hero photo, slider photos, all served as real static
+                    files instead of inline base64 (much smaller JS bundle)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## What changed in the conversion
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Markup**: the original static HTML was mechanically converted to JSX
+  (`class` → `className`, `stroke-width` → `strokeWidth`, inline
+  `style="..."` strings → `style={{...}}` objects). The structure and every
+  class name are otherwise identical, so all existing CSS still applies
+  unchanged.
+- **Images**: previously embedded as base64 data URIs directly in the HTML
+  (which made the file over 1MB). They're now real files in `public/assets`,
+  referenced by normal `/assets/...` paths — this is why the JS bundle for
+  the page is only ~6KB instead of megabytes.
+- **Interactivity**: all the vanilla JS (preloader, logo dock animation,
+  smooth scroll, quote reading-wave, waveform player, image slider, location
+  map tabs, drag-to-scroll amenities strip, full-screen menu) is ported
+  as-is into a single `useEffect` in `page.tsx`, running once on mount. It
+  wasn't rewritten into idiomatic React state/hooks — the priority was
+  preserving the exact behavior and timing of every animation without
+  introducing new bugs during the conversion. If you'd like any specific
+  piece (the slider, the menu, etc.) refactored into a proper React
+  component with hooks and props, that's a reasonable next step and can be
+  done incrementally, section by section.
 
-## Deploy on Vercel
+## Fonts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Constantia and Canela (referenced in the font stack as the first choices)
+are commercial fonts not available via any CDN, so they only render for
+visitors who already have them installed locally. Everyone else falls back
+to Fraunces, which is loaded properly via Google Fonts in `layout.tsx`.

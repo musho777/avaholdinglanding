@@ -10,7 +10,7 @@ export function useLogoAnimationInit() {
     if (!logo || !logoSvg || !logoSub || !logoLayer) return;
 
     const headerH = 84;
-    const endWidth = 108;
+    const endWidth = 180;
 
     function setLogo(
       topPx: number,

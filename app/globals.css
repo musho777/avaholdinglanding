@@ -154,7 +154,6 @@ body {
 }
 .logo-svg {
   display: block;
-  width: min(62vw, 620px);
   height: auto;
   color: var(--gold);
   transition:

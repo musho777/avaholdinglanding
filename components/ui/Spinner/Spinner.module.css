@@ -1,0 +1,66 @@
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinner {
+  border-radius: 50%;
+  border-width: 2px;
+  border-style: solid;
+  border-right-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sizes */
+.sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 2px;
+}
+
+.md {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-width: 2px;
+}
+
+.lg {
+  width: 2rem;
+  height: 2rem;
+  border-width: 3px;
+}
+
+.xl {
+  width: 3rem;
+  height: 3rem;
+  border-width: 4px;
+}
+
+/* Colors */
+.primary {
+  border-color: #3a322b;
+  border-right-color: transparent;
+}
+
+.secondary {
+  border-color: #8b7d6b;
+  border-right-color: transparent;
+}
+
+.white {
+  border-color: #ffffff;
+  border-right-color: transparent;
+}
+
+.label {
+  font-size: 0.875rem;
+  color: #8b7d6b;
+}

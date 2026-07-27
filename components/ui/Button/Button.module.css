@@ -1,0 +1,107 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants */
+.primary {
+  background-color: #3a322b;
+  color: #ffffff;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: #221c17;
+}
+
+.secondary {
+  background-color: #8b7d6b;
+  color: #ffffff;
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: #5f5346;
+}
+
+.outline {
+  background-color: transparent;
+  border: 1px solid #3a322b;
+  color: #3a322b;
+}
+
+.outline:hover:not(:disabled) {
+  background-color: #3a322b;
+  color: #ffffff;
+}
+
+.ghost {
+  background-color: transparent;
+  color: #3a322b;
+}
+
+.ghost:hover:not(:disabled) {
+  background-color: rgba(58, 50, 43, 0.1);
+}
+
+/* Sizes */
+.sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.md {
+  padding: 0.625rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* Full Width */
+.fullWidth {
+  width: 100%;
+}
+
+/* Loading */
+.loading {
+  pointer-events: none;
+}
+
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

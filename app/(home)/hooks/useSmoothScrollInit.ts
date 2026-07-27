@@ -1,19 +1,11 @@
 import { useEffect } from "react";
 
-export default function useSmoothScroll() {
+export function useSmoothScrollInit() {
   useEffect(() => {
-    // Eased wheel-driven smooth scroll — desktop mouse/trackpad only;
-    // touch devices keep native momentum scrolling untouched
     if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) return;
-    if (
-      window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
       return;
 
-    // Our own rAF loop already eases the motion — CSS scroll-behavior:smooth
-    // would additionally animate every single scrollTo() call, which stalls
-    // movement almost completely, so disable it for JS-driven scrolling
     document.documentElement.style.scrollBehavior = "auto";
 
     let current = window.scrollY || window.pageYOffset;
@@ -47,21 +39,17 @@ export default function useSmoothScroll() {
       requestAnimationFrame(tick);
     }
 
-    // Keep target in sync if the user scrolls via keyboard, scrollbar drag, etc.
-    const handleScroll = () => {
-      if (!ticking) {
-        current = window.scrollY || window.pageYOffset;
-        target = current;
-      }
-    };
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          current = window.scrollY || window.pageYOffset;
+          target = current;
+        }
+      },
+      { passive: true }
+    );
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("wheel", onWheel, { passive: false });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("wheel", onWheel);
-      document.documentElement.style.scrollBehavior = "";
-    };
   }, []);
 }

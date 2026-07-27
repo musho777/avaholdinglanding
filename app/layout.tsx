@@ -19,8 +19,17 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "AVA — Quiet Luxury Residences",
-  description: "AVA — a quiet-luxury residence brand offering premium villas and residences in Mijas, Malaga, Spain.",
-  keywords: ["luxury residences", "villas", "Mijas", "Malaga", "Spain", "quiet luxury", "premium real estate"],
+  description:
+    "AVA — a quiet-luxury residence brand offering premium villas and residences in Mijas, Malaga, Spain.",
+  keywords: [
+    "luxury residences",
+    "villas",
+    "Mijas",
+    "Malaga",
+    "Spain",
+    "quiet luxury",
+    "premium real estate",
+  ],
   authors: [{ name: "AVA" }],
   creator: "AVA",
   metadataBase: new URL("https://ava-retreat.com"),

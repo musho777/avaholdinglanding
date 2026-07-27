@@ -70,7 +70,7 @@ body {
   background: linear-gradient(180deg, #6b5c4b 0%, #453a2f 45%, #221c17 100%);
 }
 .hero-photo {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background-image: url("/assets/hero-nyc-2.jpg");
   background-size: cover;

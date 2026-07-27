@@ -223,7 +223,7 @@ body {
   transition: color 0.25s ease;
 }
 .header-nav a:hover {
-  color: var(--gold);
+  color: var(--stone);
 }
 .header-nav .book-btn {
   background: var(--stone);

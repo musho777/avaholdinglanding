@@ -8,6 +8,7 @@ import {
   SiteMenu,
   LogoLayer,
   QuoteSection,
+  YerevanLocation,
   Slider,
   Footer,
 } from "./components";
@@ -45,6 +46,7 @@ export default function Home() {
 
       <main id="main-content">
         <QuoteSection />
+        <YerevanLocation />
         <Slider />
       </main>
       <Footer />

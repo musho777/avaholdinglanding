@@ -226,9 +226,10 @@ body {
   color: var(--gold);
 }
 .header-nav .book-btn {
-  background: var(--gold);
-  border: 1px solid var(--gold);
+  background: var(--stone);
+  border: 1px solid var(--stone);
   padding: 0.6rem 1.3rem;
+  border-radius: 6px;
   color: white;
   transition:
     background 0.25s ease,
@@ -236,7 +237,7 @@ body {
 }
 .header-nav .book-btn:hover {
   background: transparent;
-  color: var(--gold);
+  color: var(--stone);
 }
 
 .menu-btn {
@@ -285,7 +286,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 300;
-  background: #6f6459;
+  background: #6c635a;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

@@ -226,17 +226,17 @@ body {
   color: var(--gold);
 }
 .header-nav .book-btn {
-  background: #564940;
-  border: 1px solid #564940;
+  background: var(--gold);
+  border: 1px solid var(--gold);
   padding: 0.6rem 1.3rem;
-  color: #cec4b6;
+  color: white;
   transition:
     background 0.25s ease,
     color 0.25s ease;
 }
 .header-nav .book-btn:hover {
   background: transparent;
-  color: #cec4b6;
+  color: var(--gold);
 }
 
 .menu-btn {

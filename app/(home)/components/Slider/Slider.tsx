@@ -6,15 +6,6 @@ export default function Slider() {
       </div>
       <div className="slide-scrim"></div>
 
-      <div className="slider-top">
-        <button className="pill-btn" data-key="residences">
-          Residences
-        </button>
-        <button className="pill-btn" data-key="gallery">
-          Gallery
-        </button>
-      </div>
-
       <div className="slider-bottom">
         <div className="slide-counter">
           <span className="cur" id="slideCur">
@@ -24,16 +15,7 @@ export default function Slider() {
             / 05
           </span>
         </div>
-        <div className="slider-tabs">
-          <button className="tab-btn" data-key="villas">
-            Villas
-          </button>
-          <button className="tab-btn active" data-key="residences">
-            Residences
-          </button>
-        </div>
       </div>
-
       <div className="slider-arrows">
         <button className="arrow-btn" id="slidePrev" aria-label="Previous slide">
           &#8592;
@@ -42,7 +24,6 @@ export default function Slider() {
           &#8594;
         </button>
       </div>
-
       <div className="slider-peek" id="sliderPeek"></div>
 
       <div className="slider-track">

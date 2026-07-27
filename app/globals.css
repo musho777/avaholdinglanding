@@ -42,7 +42,7 @@ html {
   position: fixed;
   inset: 0;
   z-index: 190;
-  background: #564940;
+  background: #6c635a;
   transition: transform 1.1s cubic-bezier(0.76, 0, 0.24, 1);
 }
 .preloader.hidden {

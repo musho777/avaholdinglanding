@@ -53,15 +53,7 @@ export function useLogoAnimationInit() {
 
     renderHero();
     window.addEventListener("resize", function () {
-      if (!logoLayer) return;
-      if (logoLayer.classList.contains("docked")) {
-        // Reposition docked logo on resize
-        const headerH = getHeaderHeight();
-        const endWidth = getEndWidth();
-        setLogo(headerH / 2, endWidth, 0, 0, 9.6);
-      } else {
-        renderHero();
-      }
+      if (logoLayer && !logoLayer.classList.contains("docked")) renderHero();
     });
   }, []);
 }

@@ -493,9 +493,29 @@ body {
   display: flex;
   gap: 1.5rem;
 }
+.site-menu-foot .foot-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 .site-menu-foot a {
   color: rgba(243, 237, 224, 0.6);
   text-decoration: none;
+}
+.site-menu-foot .menu-book-btn {
+  display: none; /* Hidden by default on desktop */
+  background: var(--stone);
+  border: 1px solid var(--stone);
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  color: white;
+  transition: all 0.25s ease;
+  font-weight: 400;
+}
+.site-menu-foot .menu-book-btn:hover {
+  background: transparent;
+  border-color: var(--stone);
+  color: var(--stone);
 }
 
 /* ---------- CONTENT SECTIONS ---------- */
@@ -1742,6 +1762,20 @@ section.panel {
     gap: 1rem;
   }
 
+  .site-menu-foot .foot-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .site-menu-foot .menu-book-btn {
+    display: block; /* Show on mobile */
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 1.5rem;
+  }
+
   /* Content sections */
   .intro {
     padding: 6rem 1.5rem 4rem;
@@ -2976,6 +3010,11 @@ img {
 }
 
 @media (max-width: 768px) {
+  /* Hide call buttons on mobile to avoid conflict with WhatsApp button */
+  .header-nav .nav-right {
+    display: none;
+  }
+
   .whatsapp-button-wrapper {
     bottom: 1.5rem;
     right: 1.5rem;

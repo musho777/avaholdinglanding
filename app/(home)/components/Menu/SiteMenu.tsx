@@ -25,9 +25,6 @@ export default function SiteMenu() {
             />
           </svg>
         </span>
-        <a href="#contact" className="inquire-btn" data-menu-link>
-          Inquire <span aria-hidden="true">&#8594;</span>
-        </a>
       </div>
 
       <div className="site-menu-body">
@@ -52,11 +49,13 @@ export default function SiteMenu() {
       </div>
 
       <div className="site-menu-foot">
-        <div className="foot-left">
-          <a href="#privacy">Legal</a>
-          <a href="#team">Team</a>
+        <div className="foot-left"></div>
+        <div className="foot-right">
+          <a href="tel:+34951870700">+34 (951) 870-700</a>
+          <a href="#book" className="menu-book-btn">
+            Book a call
+          </a>
         </div>
-        <a href="tel:+34951870700">+34 (951) 870-700</a>
       </div>
     </div>
   );

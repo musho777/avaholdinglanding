@@ -2,12 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-const images = [
-  "/assets/1.jpg",
-  "/assets/2.jpg",
-  "/assets/3.jpg",
-  "/assets/5.jpg",
-];
+const images = ["/assets/1.jpg", "/assets/2.jpg", "/assets/3.jpg", "/assets/5.jpg"];
 
 export default function Slider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -42,8 +37,6 @@ export default function Slider() {
 
   const pad = (n: number) => String(n).padStart(2, "0");
 
-  const nextImage = images[(currentIndex + 1) % images.length];
-
   return (
     <section className="slider" id="slider">
       <div className="slide-viewport">
@@ -56,10 +49,7 @@ export default function Slider() {
         >
           {mounted &&
             images.map((image, idx) => (
-              <div
-                key={idx}
-                className={`slide ${idx === currentIndex ? "active" : ""}`}
-              >
+              <div key={idx} className={`slide ${idx === currentIndex ? "active" : ""}`}>
                 <div
                   className="slide-inner"
                   style={{
@@ -80,29 +70,13 @@ export default function Slider() {
       </div>
 
       <div className="slider-arrows">
-        <button
-          className="arrow-btn"
-          onClick={goToPrevious}
-          aria-label="Previous slide"
-        >
+        <button className="arrow-btn" onClick={goToPrevious} aria-label="Previous slide">
           &#8592;
         </button>
-        <button
-          className="arrow-btn"
-          onClick={goToNext}
-          aria-label="Next slide"
-        >
+        <button className="arrow-btn" onClick={goToNext} aria-label="Next slide">
           &#8594;
         </button>
       </div>
-
-      <div
-        className="slider-peek"
-        onClick={goToNext}
-        style={{
-          backgroundImage: `url(${nextImage})`,
-        }}
-      ></div>
 
       <div className="slider-track">
         <div className="slider-track-thumb" ref={sliderThumbRef}></div>

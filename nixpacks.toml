@@ -2,10 +2,13 @@
 nixPkgs = ["nodejs_18"]
 
 [phases.install]
-cmds = ["npm ci"]
+cmds = ["npm ci --legacy-peer-deps"]
 
 [phases.build]
 cmds = ["npm run build"]
 
 [start]
 cmd = "npm start"
+
+[variables]
+NPM_CONFIG_LEGACY_PEER_DEPS = "true"

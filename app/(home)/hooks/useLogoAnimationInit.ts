@@ -29,8 +29,13 @@ export function useLogoAnimationInit() {
       subFontSize: number
     ) {
       if (!logo || !logoSvg || !logoSub) return;
-      const offsetY = topPx - window.innerHeight / 2;
-      logo.style.transform = "translateY(calc(-50% + " + offsetY + "px))";
+
+      // Use absolute pixel positioning with transition
+      // Add transition to top property for smooth animation
+      logo.style.transition = "transform 1.1s cubic-bezier(0.76, 0, 0.24, 1), top 1.1s cubic-bezier(0.76, 0, 0.24, 1)";
+      logo.style.top = topPx + "px";
+      logo.style.transform = "translateY(-50%)";
+
       logoSvg.style.width = widthPx + "px";
       logoSvg.style.height = widthPx * (116.63 / 382.9) + "px";
       logoSub.style.opacity = String(subOpacity);
@@ -40,20 +45,41 @@ export function useLogoAnimationInit() {
 
     function renderHero() {
       const startWidth = Math.min(window.innerWidth * 0.62, 620);
-      setLogo(window.innerHeight * 0.5, startWidth, 1, 14, 11.5);
+      // Position logo at viewport center
+      setLogo(window.innerHeight / 2, startWidth, 1, 14, 11.5);
     }
 
     (window as any).dockLogo = function () {
       if (!logoLayer) return;
       const headerH = getHeaderHeight();
       const endWidth = getEndWidth();
+      // Position logo at header center (35px mobile, 42px desktop)
       setLogo(headerH / 2, endWidth, 0, 0, 9.6);
       logoLayer.classList.add("docked");
     };
 
     renderHero();
+
+    let lastWidth = window.innerWidth;
+
     window.addEventListener("resize", function () {
-      if (logoLayer && !logoLayer.classList.contains("docked")) renderHero();
+      if (!logoLayer) return;
+
+      const currentWidth = window.innerWidth;
+
+      if (!logoLayer.classList.contains("docked")) {
+        // Update hero position on resize
+        renderHero();
+      } else {
+        // Only update when width changes significantly (orientation, responsive mode)
+        // Ignore height changes (mobile address bar)
+        if (Math.abs(currentWidth - lastWidth) > 100) {
+          const headerH = getHeaderHeight();
+          const endWidth = getEndWidth();
+          setLogo(headerH / 2, endWidth, 0, 0, 9.6);
+          lastWidth = currentWidth;
+        }
+      }
     });
   }, []);
 }

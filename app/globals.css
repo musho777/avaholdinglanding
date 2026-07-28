@@ -8,9 +8,9 @@
   --taupe: #6c635a;
   --off-white: #faf7f2;
 
-  /* Font variables from next/font */
-  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif: var(--font-fraunces), "Constantia", "Canela", Georgia, serif;
+  /* Custom font variables */
+  --font-sans: "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Constantia", Georgia, serif;
 }
 * {
   margin: 0;

@@ -1,0 +1,292 @@
+/* Constantia - Serif Font */
+@font-face {
+  font-family: 'Constantia';
+  src: url('/fonts/Constantia/constan.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Constantia';
+  src: url('/fonts/Constantia/constanb.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Constantia';
+  src: url('/fonts/Constantia/constani.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Constantia';
+  src: url('/fonts/Constantia/constanz.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Helvetica - Sans-Serif Font */
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica/helvetica_regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica/helvetica_bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica/helvetica_light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica/helvetica_oblique.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica/helvetica_boldoblique.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica/helvetica_lightoblique.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Noto Sans Armenian */
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Noto Sans Armenian - Condensed */
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian Condensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_Condensed-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Noto Sans Armenian - Semi-Condensed */
+@font-face {
+  font-family: 'Noto Sans Armenian SemiCondensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_SemiCondensed-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian SemiCondensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_SemiCondensed-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian SemiCondensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_SemiCondensed-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian SemiCondensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_SemiCondensed-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian SemiCondensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_SemiCondensed-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian SemiCondensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_SemiCondensed-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian SemiCondensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_SemiCondensed-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Armenian SemiCondensed';
+  src: url('/fonts/Noto Sans Armenian/NotoSansArmenian_SemiCondensed-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

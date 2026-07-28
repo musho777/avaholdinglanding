@@ -787,7 +787,7 @@ section.panel {
   min-width: 2.6em;
 }
 .waveform {
-  width: 31.25rem;
+  width: 16.25rem;
   max-width: 100%;
   flex: 0 0 auto;
   display: flex;

@@ -17,7 +17,6 @@ import {
   usePreloaderInit,
   useSmoothScrollInit,
   useLogoAnimationInit,
-  useAudioPlayerInit,
   useFooterTabsInit,
   useLocationTabsInit,
   useMenuToggleInit,
@@ -31,7 +30,6 @@ export default function Home() {
   usePreloaderInit();
   useSmoothScrollInit();
   useLogoAnimationInit();
-  useAudioPlayerInit();
   useFooterTabsInit();
   useLocationTabsInit();
   useMenuToggleInit();

@@ -46,7 +46,7 @@ export default function Home() {
 
       <main id="main-content">
         <QuoteSection />
-        <YerevanLocation />
+        {/* <YerevanLocation /> */}
         <Slider />
       </main>
       <Footer />

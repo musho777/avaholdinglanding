@@ -1620,6 +1620,63 @@ section.panel {
     padding: 0 1.5rem;
   }
 
+  /* Fixed book button on mobile */
+  .header-nav .nav-right {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 100;
+    animation: fadeInUp 0.6s ease 0.3s both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .header-nav .book-btn {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    background: var(--gold);
+    color: var(--pine-deep);
+    border-color: var(--gold);
+    font-weight: 500;
+    padding: 0 1.5rem;
+    font-size: 0.72rem;
+    transition: all 0.3s ease;
+    min-height: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    letter-spacing: 0.12em;
+    line-height: 1;
+  }
+
+  .header-nav .book-btn:active {
+    background: var(--gold-dim);
+    color: var(--pine-deep);
+    border-color: var(--gold-dim);
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (hover: hover) {
+    .header-nav .book-btn:hover {
+      background: var(--gold-dim);
+      color: var(--pine-deep);
+      border-color: var(--gold-dim);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    }
+  }
+
   /* Hero responsive */
   .hero-caption {
     bottom: 2.5rem;
@@ -2144,9 +2201,16 @@ img {
     background-position: center;
   }
 
+  .header-nav .nav-right {
+    bottom: 1.2rem;
+    right: 1.2rem;
+  }
+
   .header-nav .book-btn {
-    padding: 0.5rem 1rem;
+    padding: 0 1.4rem;
     font-size: 0.7rem;
+    height: 46px;
+    min-height: 46px;
   }
 
   .menu-btn {
@@ -2181,9 +2245,16 @@ img {
     gap: 1rem;
   }
 
+  .header-nav .nav-right {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
   .header-nav .book-btn {
-    padding: 0.45rem 0.9rem;
-    font-size: 0.65rem;
+    padding: 0 1.3rem;
+    font-size: 0.68rem;
+    height: 46px;
+    min-height: 46px;
   }
 
   .menu-btn {
@@ -2602,9 +2673,17 @@ img {
 
 /* Extra small screens */
 @media (max-width: 375px) {
+  .header-nav .nav-right {
+    bottom: 0.8rem;
+    right: 0.8rem;
+  }
+
   .header-nav .book-btn {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.6rem;
+    padding: 0 1.2rem;
+    font-size: 0.65rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    height: 44px;
+    min-height: 44px;
   }
 
   .menu-btn span#menuBtnLabel {
@@ -2724,6 +2803,18 @@ img {
 
 /* Very small screens (iPhone SE 1st gen, etc.) */
 @media (max-width: 320px) {
+  .header-nav .nav-right {
+    bottom: 0.6rem;
+    right: 0.6rem;
+  }
+
+  .header-nav .book-btn {
+    padding: 0 1rem;
+    font-size: 0.62rem;
+    height: 44px;
+    min-height: 44px;
+  }
+
   .slider-top {
     gap: 0.2rem;
     top: 0.5rem;

@@ -9,8 +9,17 @@ export function useLogoAnimationInit() {
 
     if (!logo || !logoSvg || !logoSub || !logoLayer) return;
 
-    const headerH = 84;
-    const endWidth = 180;
+    const getHeaderHeight = () => {
+      // Match the CSS media query breakpoints
+      if (window.innerWidth <= 480) return 70;
+      return 84;
+    };
+
+    const getEndWidth = () => {
+      // Smaller logo on mobile
+      if (window.innerWidth <= 820) return 140;
+      return 180;
+    };
 
     function setLogo(
       topPx: number,
@@ -36,13 +45,23 @@ export function useLogoAnimationInit() {
 
     (window as any).dockLogo = function () {
       if (!logoLayer) return;
+      const headerH = getHeaderHeight();
+      const endWidth = getEndWidth();
       setLogo(headerH / 2, endWidth, 0, 0, 9.6);
       logoLayer.classList.add("docked");
     };
 
     renderHero();
     window.addEventListener("resize", function () {
-      if (logoLayer && !logoLayer.classList.contains("docked")) renderHero();
+      if (!logoLayer) return;
+      if (logoLayer.classList.contains("docked")) {
+        // Reposition docked logo on resize
+        const headerH = getHeaderHeight();
+        const endWidth = getEndWidth();
+        setLogo(headerH / 2, endWidth, 0, 0, 9.6);
+      } else {
+        renderHero();
+      }
     });
   }, []);
 }

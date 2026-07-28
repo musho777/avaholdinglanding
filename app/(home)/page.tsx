@@ -8,7 +8,6 @@ import {
   SiteMenu,
   LogoLayer,
   QuoteSection,
-  YerevanLocation,
   Slider,
   Footer,
   WhatsAppButton,

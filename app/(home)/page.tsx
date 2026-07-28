@@ -11,6 +11,7 @@ import {
   YerevanLocation,
   Slider,
   Footer,
+  WhatsAppButton,
 } from "./components";
 
 import {
@@ -41,6 +42,7 @@ export default function Home() {
       <Header />
       <SiteMenu />
       <LogoLayer />
+      <WhatsAppButton />
 
       <main id="main-content">
         <QuoteSection />

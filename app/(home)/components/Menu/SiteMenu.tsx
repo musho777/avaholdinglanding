@@ -52,9 +52,9 @@ export default function SiteMenu() {
         <div className="foot-left"></div>
         <div className="foot-right">
           <a href="tel:+34951870700">+34 (951) 870-700</a>
-          <a href="#book" className="menu-book-btn">
+          <button className="menu-book-btn">
             Book a call
-          </a>
+          </button>
         </div>
       </div>
     </div>

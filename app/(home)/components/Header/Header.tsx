@@ -13,9 +13,9 @@ export default function Header() {
         </div>
         <div className="nav-right">
           <a href="tel:+34951870700">+34 (951) 870-700</a>
-          <a href="#book" className="book-btn">
+          <button className="book-btn">
             Book a call
-          </a>
+          </button>
         </div>
       </nav>
     </div>

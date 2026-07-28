@@ -185,6 +185,9 @@ body {
 .logo-svg path {
   fill: currentColor;
 }
+.logo-layer.docked .logo {
+  margin-top: 0.4rem;
+}
 .logo-layer.docked .logo-svg {
   color: #ffffff;
 }

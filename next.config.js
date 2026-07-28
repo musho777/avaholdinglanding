@@ -3,6 +3,9 @@ const nextConfig = {
   // Enable React strict mode for better development practices
   reactStrictMode: true,
 
+  // Required for Railway/Docker deployments
+  output: 'standalone',
+
   // Production optimizations
   compress: true,
   poweredByHeader: false,

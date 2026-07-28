@@ -81,15 +81,6 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
-          <div className="footer-select">
-            <button className="select-btn" id="footerVillas">
-              Select villas
-            </button>
-            <button className="select-btn active" id="footerResidences">
-              Select residences
-            </button>
-          </div>
         </div>
 
         <div className="footer-bottom">
@@ -98,9 +89,6 @@ export default function Footer() {
             <a href="#privacy">Privacy policy</a>
             <a href="#terms">Terms of use</a>
           </div>
-          <p className="footer-credit">
-            Made by <b>Claude</b>
-          </p>
         </div>
       </footer>
 

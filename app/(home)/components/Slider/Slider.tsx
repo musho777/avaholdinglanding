@@ -12,6 +12,8 @@ const images = [
   "/assets/AVA7.jpg",
   "/assets/AVA8.jpg",
   "/assets/AVA9.jpg",
+  "/assets/AVA10.jpg",
+  "/assets/AVA11.jpg",
 ];
 
 export default function Slider() {
@@ -32,6 +34,15 @@ export default function Slider() {
   useEffect(() => {
     updateThumbPosition();
   }, [currentIndex]);
+
+  // Auto-slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const updateThumbPosition = () => {
     if (!sliderThumbRef.current || !sliderThumbRef.current.parentElement) return;

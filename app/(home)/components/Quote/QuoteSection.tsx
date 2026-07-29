@@ -150,12 +150,10 @@ export default function QuoteSection() {
       <div className="quote-inner">
         <div>
           <p className="quote-fill scroll-reveal" id="quoteText">
-            "Each residence is set to hold the view, so the ridge, the water, and the shifting light
-            stay part of daily life, not scenery glimpsed on the way somewhere else."
+            AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE, MEANINGFUL, AND FORWARD-LOOKING FUTURE.
           </p>
           <p className="quote-caption scroll-reveal delay-1">
-            From every vantage point on the property, the outlook changes with the season and the
-            hour. The cabins are built to stay quiet in front of it.
+            Founded in 2006, AVA Holding is one of Armenia's most promising real estate development and construction companies. Its core focus is the creation of multifunctional residential buildings that meet the evolving needs of modern life. Today, one of Armenia's most significant challenges — and opportunities — is to stand among the world's leading innovators. Achieving that visibility would firmly place our country on the global stage. At the same time, in a world advancing at high speed, we believe it is vital not to lose sight of what matters most: people, safety, and the feeling of home. That's why AVA Holding aims to build more than just modern buildings — it creates spaces where people feel warmth, comfort, and belonging. Each project blends forward-thinking architecture with everyday practicality, driven by a deep respect for both place and person, chasing the main manifesto — LIVING PERFECTED.
           </p>
         </div>
 

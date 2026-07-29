@@ -1,0 +1,151 @@
+.formGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: formSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Success message styles */
+.successMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  animation: successFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes successFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.successIcon {
+  margin-bottom: 1.5rem;
+  animation: successIconPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes successIconPop {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.successMessage h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-family: var(--font-serif, "Constantia", Georgia, serif);
+  color: var(--charcoal, #3a322b);
+  letter-spacing: 0.01em;
+  animation: textSlideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+.successMessage p {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-family: var(--font-sans, "Helvetica", sans-serif);
+  color: var(--taupe, #6c635a);
+  animation: textSlideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
+}
+
+@keyframes textSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form field stagger animation */
+.formGrid > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.formGrid > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.formGrid > *:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.formGrid > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .formGrid {
+    gap: 1.25rem;
+  }
+
+  .successMessage {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .successIcon svg {
+    width: 56px;
+    height: 56px;
+  }
+
+  .successMessage h3 {
+    font-size: 1.5rem;
+  }
+
+  .successMessage p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .formGrid {
+    gap: 1rem;
+  }
+
+  .successMessage {
+    padding: 2rem 1rem;
+  }
+
+  .successIcon svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .successMessage h3 {
+    font-size: 1.375rem;
+  }
+
+  .successMessage p {
+    font-size: 0.9375rem;
+  }
+}

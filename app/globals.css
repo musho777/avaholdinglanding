@@ -282,7 +282,7 @@ body {
 .logo-svg {
   display: block;
   height: auto;
-  color: var(--gold);
+  color: var(--stone);
   transition:
     color 0.4s ease,
     width 1.1s cubic-bezier(0.76, 0, 0.24, 1),

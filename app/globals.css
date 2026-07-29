@@ -114,6 +114,12 @@ body {
   object-fit: cover;
   object-position: center 42%;
 }
+
+.hero-gradient {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #1a252f 50%, #0f1419 100%);
+  width: 100%;
+  height: 100%;
+}
 .hero-text-overlay {
   position: absolute;
   top: 50%;
@@ -731,6 +737,7 @@ section.panel {
   padding: 8rem 3rem;
   background: var(--stone);
   overflow: hidden;
+  z-index: 10;
 }
 
 .founder-container {
@@ -836,6 +843,7 @@ section.panel {
   background: var(--stone);
   max-width: 100vw;
   box-sizing: border-box;
+  z-index: 10;
 }
 .quote-bg {
   position: absolute;
@@ -1072,6 +1080,7 @@ section.panel {
   background: var(--pine-deep);
   max-width: 100vw;
   box-sizing: border-box;
+  z-index: 10;
 }
 .slide-viewport {
   position: absolute;

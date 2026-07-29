@@ -9,6 +9,7 @@ import {
   LogoLayer,
   FounderSection,
   QuoteSection,
+  YerevanLocation,
   Slider,
   Footer,
   WhatsAppButton,
@@ -48,7 +49,7 @@ export default function Home() {
 
       <main id="main-content">
         <QuoteSection />
-        {/* <YerevanLocation /> */}
+        <YerevanLocation />
         <Slider />
         <FounderSection />
       </main>

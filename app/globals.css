@@ -135,6 +135,11 @@ body {
   margin-bottom: 0.35em;
   text-align: left;
   padding-left: clamp(30px, 15vw, 180px);
+  opacity: 0;
+}
+
+.hero-text-top.animate {
+  animation: heroTextFadeInUp 0.8s ease-out 0.1s forwards;
 }
 .hero-text-main {
   font-family: "Constantia", serif;
@@ -146,6 +151,11 @@ body {
   white-space: nowrap;
   margin: 0;
   text-align: center;
+  opacity: 0;
+}
+
+.hero-text-main.animate {
+  animation: heroTextFadeInScale 1s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
 }
 .hero-text-bottom {
   font-family: "Constantia", serif;
@@ -156,7 +166,35 @@ body {
   margin: 0;
   text-align: right;
   padding-right: clamp(20px, 8.33vw, 100px);
+  opacity: 0;
 }
+
+.hero-text-bottom.animate {
+  animation: heroTextFadeInUp 0.8s ease-out 1s forwards;
+}
+
+@keyframes heroTextFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroTextFadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .hero-caption {
   position: absolute;
   bottom: 3.5rem;

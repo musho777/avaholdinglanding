@@ -1,4 +1,36 @@
+"use client";
+
+import { useEffect } from "react";
+
 export default function Hero() {
+  useEffect(() => {
+    const preloader = document.getElementById("preloader");
+    if (!preloader) return;
+    if (preloader.classList.contains("hidden")) {
+      setTimeout(() => {
+        document.querySelector(".hero-text-top")?.classList.add("animate");
+        document.querySelector(".hero-text-main")?.classList.add("animate");
+        document.querySelector(".hero-text-bottom")?.classList.add("animate");
+      }, 200);
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      if (preloader.classList.contains("hidden")) {
+        setTimeout(() => {
+          document.querySelector(".hero-text-top")?.classList.add("animate");
+          document.querySelector(".hero-text-main")?.classList.add("animate");
+          document.querySelector(".hero-text-bottom")?.classList.add("animate");
+        }, 200);
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(preloader, { attributes: true, attributeFilter: ["class"] });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="hero-wrapper">
       <section className="hero">

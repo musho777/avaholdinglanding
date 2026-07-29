@@ -2843,7 +2843,7 @@ img {
   }
 
   .footer-top {
-    margin-bottom: 3.5rem;
+    margin-bottom: 0;
     gap: 1.5rem;
   }
 
@@ -2860,7 +2860,7 @@ img {
   }
 
   .footer-mark {
-    padding: 1.5rem 0 3rem;
+    padding: 4.5rem 0;
   }
 
   .footer-mark svg {

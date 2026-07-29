@@ -31,9 +31,7 @@ export default function Footer() {
             <a href="tel:+34951870700" className="footer-phone">
               +34 (951) 870-700
             </a>
-            <a href="mailto:info@ava-retreat.com" className="footer-email">
-              info@ava-retreat.com
-            </a>
+            <p className="footer-email">info@ava-retreat.com</p>
           </div>
         </div>
 

@@ -81,12 +81,18 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/save-call", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", formData);
+      if (!response.ok) {
+        throw new Error("Failed to save call information");
+      }
 
       setIsSuccess(true);
 
@@ -98,6 +104,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
       }, 2000);
     } catch (error) {
       console.error("Error submitting form:", error);
+      alert("Failed to submit the form. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

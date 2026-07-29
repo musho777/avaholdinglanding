@@ -7,6 +7,7 @@ import {
   Header,
   SiteMenu,
   LogoLayer,
+  FounderSection,
   QuoteSection,
   Slider,
   Footer,
@@ -44,6 +45,7 @@ export default function Home() {
       <WhatsAppButton />
 
       <main id="main-content">
+        <FounderSection />
         <QuoteSection />
         {/* <YerevanLocation /> */}
         <Slider />

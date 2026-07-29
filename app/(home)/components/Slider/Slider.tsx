@@ -2,7 +2,17 @@
 
 import { useState, useEffect, useRef } from "react";
 
-const images = ["/assets/1.jpg", "/assets/2.jpg", "/assets/3.jpg", "/assets/5.jpg"];
+const images = [
+  "/assets/AVA1.jpg",
+  "/assets/AVA2.jpg",
+  "/assets/AVA3.jpg",
+  "/assets/AVA4.jpg",
+  "/assets/AVA5.jpg",
+  "/assets/AVA6.jpg",
+  "/assets/AVA7.jpg",
+  "/assets/AVA8.jpg",
+  "/assets/AVA9.jpg",
+];
 
 export default function Slider() {
   const [currentIndex, setCurrentIndex] = useState(0);

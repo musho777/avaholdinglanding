@@ -130,7 +130,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
   const handleClose = () => {
     if (!isSubmitting) {
-      setFormData({ name: "", surname: "", phone: "", email: "" });
+      setFormData({ name: "", surname: "", phone: "", email: "", agreeToEmails: false });
       setErrors({});
       setIsSuccess(false);
       onClose();

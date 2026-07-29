@@ -1,7 +1,7 @@
 .formGrid {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0;
   animation: formSlideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -95,6 +95,12 @@
   animation-delay: 0.1s;
 }
 
+.formGrid > *:nth-child(2) input,
+.formGrid > *:nth-child(3) input,
+.formGrid > *:nth-child(4) input {
+  border-top: none;
+}
+
 .formGrid > *:nth-child(3) {
   animation-delay: 0.15s;
 }
@@ -112,32 +118,35 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0;
+  width: 100%;
 }
 
 .checkboxLabel {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
   cursor: pointer;
   font-family: var(--font-sans, "Helvetica", sans-serif);
-  font-size: 0.9375rem;
-  color: var(--charcoal, #3a322b);
+  font-size: 0.75rem;
+  color: var(--taupe, #6c635a);
   line-height: 1.5;
   user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .checkbox {
-  width: 1.25rem;
-  height: 1.25rem;
-  min-width: 1.25rem;
-  margin-top: 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  min-width: 1rem;
   cursor: pointer;
-  accent-color: var(--gold, #c9a267);
+  accent-color: var(--taupe, #6c635a);
 }
 
 .checkboxLabel:hover {
-  color: var(--gold, #c9a267);
+  color: var(--charcoal, #3a322b);
 }
 
 .checkbox:disabled {
@@ -150,13 +159,14 @@
   font-size: 0.875rem;
   color: #dc2626;
   font-family: var(--font-sans, "Helvetica", sans-serif);
-  padding-left: 2rem;
+  text-align: center;
+  padding: 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 640px) {
   .formGrid {
-    gap: 1.25rem;
+    gap: 0;
   }
 
   .successMessage {
@@ -175,11 +185,32 @@
   .successMessage p {
     font-size: 1rem;
   }
+
+  .checkboxLabel {
+    font-size: 0.6875rem;
+    gap: 0.5rem;
+  }
+
+  .checkbox {
+    width: 0.875rem;
+    height: 0.875rem;
+    min-width: 0.875rem;
+  }
+
+  .submitButton {
+    min-height: 3.5rem;
+    padding: 1.125rem 1.5rem !important;
+    font-size: 0.9375rem !important;
+  }
+
+  .checkboxError {
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 400px) {
   .formGrid {
-    gap: 1rem;
+    gap: 0;
   }
 
   .successMessage {
@@ -198,4 +229,25 @@
   .successMessage p {
     font-size: 0.9375rem;
   }
+
+  .checkboxLabel {
+    font-size: 0.625rem;
+    letter-spacing: 0.03em;
+  }
+
+  .submitButton {
+    min-height: 3.25rem;
+    padding: 1rem 1.25rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  .checkboxError {
+    font-size: 0.6875rem;
+  }
+}
+
+.submitButton {
+  border-radius: 0 !important;
+  min-height: 3.75rem;
+  padding: 1.25rem 2rem !important;
 }

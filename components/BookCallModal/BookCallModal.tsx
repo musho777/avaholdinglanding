@@ -118,9 +118,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
     }
   };
 
-  const handleChange = (field: keyof FormData) => (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChange = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({ ...prev, [field]: e.target.value }));
     // Clear error when user starts typing
     if (errors[field]) {
@@ -175,9 +173,8 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
           <ModalBody>
             <div className={styles.formGrid}>
               <Input
-                label="Name"
                 type="text"
-                placeholder="Enter your name"
+                placeholder="Name"
                 value={formData.name}
                 onChange={handleChange("name")}
                 error={errors.name}
@@ -188,9 +185,8 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
               />
 
               <Input
-                label="Surname"
                 type="text"
-                placeholder="Enter your surname"
+                placeholder="Surname"
                 value={formData.surname}
                 onChange={handleChange("surname")}
                 error={errors.surname}
@@ -201,9 +197,8 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
               />
 
               <Input
-                label="Phone Number"
                 type="tel"
-                placeholder="+1 (555) 000-0000"
+                placeholder="+1 (555) 000-000"
                 value={formData.phone}
                 onChange={handleChange("phone")}
                 error={errors.phone}
@@ -214,7 +209,6 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
               />
 
               <Input
-                label="Email"
                 type="email"
                 placeholder="your.email@example.com"
                 value={formData.email}
@@ -225,51 +219,46 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
                 autoComplete="email"
                 disabled={isSubmitting}
               />
-
-              <div className={styles.checkboxContainer}>
-                <label className={styles.checkboxLabel}>
-                  <input
-                    type="checkbox"
-                    checked={formData.agreeToEmails}
-                    onChange={(e) => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        agreeToEmails: e.target.checked,
-                      }));
-                      // Clear error when user checks the box
-                      if (e.target.checked && errors.agreeToEmails) {
-                        setErrors((prev) => ({ ...prev, agreeToEmails: undefined }));
-                      }
-                    }}
-                    disabled={isSubmitting}
-                    className={styles.checkbox}
-                  />
-                  <span>Agree to receive emails and promotions</span>
-                </label>
-                {errors.agreeToEmails && (
-                  <p className={styles.checkboxError}>{errors.agreeToEmails}</p>
-                )}
-              </div>
             </div>
           </ModalBody>
 
           <ModalFooter>
             <Button
-              type="button"
-              variant="ghost"
-              onClick={handleClose}
-              disabled={isSubmitting}
-            >
-              Cancel
-            </Button>
-            <Button
               type="submit"
-              variant="primary"
+              variant="taupe"
+              fullWidth
+              className={styles.submitButton}
+              size="lg"
               isLoading={isSubmitting}
               disabled={isSubmitting}
             >
               {isSubmitting ? "Submitting..." : "Submit"}
             </Button>
+
+            <div className={styles.checkboxContainer}>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={formData.agreeToEmails}
+                  onChange={(e) => {
+                    setFormData((prev) => ({
+                      ...prev,
+                      agreeToEmails: e.target.checked,
+                    }));
+                    // Clear error when user checks the box
+                    if (e.target.checked && errors.agreeToEmails) {
+                      setErrors((prev) => ({ ...prev, agreeToEmails: undefined }));
+                    }
+                  }}
+                  disabled={isSubmitting}
+                  className={styles.checkbox}
+                />
+                <span>Agree to receive emails and promotions</span>
+              </label>
+              {errors.agreeToEmails && (
+                <p className={styles.checkboxError}>{errors.agreeToEmails}</p>
+              )}
+            </div>
           </ModalFooter>
         </form>
       )}

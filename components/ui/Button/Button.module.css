@@ -70,6 +70,26 @@
   background-color: rgba(206, 196, 182, 0.15);
 }
 
+.taupe {
+  background-color: var(--taupe, #6c635a);
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+  box-shadow: none;
+}
+
+.taupe:hover:not(:disabled) {
+  background-color: #5a5248;
+  transform: none;
+  box-shadow: none;
+}
+
+.taupe:active:not(:disabled) {
+  transform: none;
+  box-shadow: none;
+}
+
 /* Sizes */
 .sm {
   padding: 0.5rem 1rem;
@@ -84,8 +104,9 @@
 }
 
 .lg {
-  padding: 0.875rem 1.75rem;
-  font-size: 1.125rem;
+  min-height: 3.75rem;
+  padding: 1.25rem 2rem;
+  font-size: 1rem;
   line-height: 1;
 }
 

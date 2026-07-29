@@ -11,14 +11,16 @@ export function useLogoAnimationInit() {
 
     const getHeaderHeight = () => {
       // Match the CSS media query breakpoints
-      if (window.innerWidth <= 480) return 70;
-      return 84;
+      if (window.innerWidth <= 480) return 85;
+      return 100;
     };
 
     const getEndWidth = () => {
       // Smaller logo on mobile
-      if (window.innerWidth <= 820) return 140;
-      return 180;
+      if (window.innerWidth <= 375) return 220;
+      if (window.innerWidth <= 480) return 220;
+      if (window.innerWidth <= 820) return 220;
+      return 220;
     };
 
     function setLogo(

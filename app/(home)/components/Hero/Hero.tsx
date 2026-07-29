@@ -9,9 +9,13 @@ export default function Hero() {
     if (preloader.classList.contains("hidden")) {
       setTimeout(() => {
         document.querySelector(".hero-text-top")?.classList.add("animate");
+      }, 500);
+      setTimeout(() => {
         document.querySelector(".hero-text-main")?.classList.add("animate");
+      }, 800);
+      setTimeout(() => {
         document.querySelector(".hero-text-bottom")?.classList.add("animate");
-      }, 200);
+      }, 1300);
       return;
     }
 
@@ -19,9 +23,13 @@ export default function Hero() {
       if (preloader.classList.contains("hidden")) {
         setTimeout(() => {
           document.querySelector(".hero-text-top")?.classList.add("animate");
+        }, 500);
+        setTimeout(() => {
           document.querySelector(".hero-text-main")?.classList.add("animate");
+        }, 800);
+        setTimeout(() => {
           document.querySelector(".hero-text-bottom")?.classList.add("animate");
-        }, 200);
+        }, 1300);
         observer.disconnect();
       }
     });

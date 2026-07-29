@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Modal, ModalBody } from "@/components/ui/Modal/Modal";
 import { YerevanMap } from "@/components/maps";
+import LogoSvg from "@/public/assets/Logo";
 
 export default function Footer() {
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
@@ -37,20 +38,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-mark">
-          <svg viewBox="0 0 382.9 116.63" xmlns="http://www.w3.org/2000/svg" aria-label="AVA">
-            <path
-              fill="currentColor"
-              d="M97.94,116.63c-10.03-14.33-31.08-73.08-48.97-116.63C31.08,43.55,10.03,102.29,0,116.63h13.94s-.78-3.62.24-7.24c.85-2.99,34.78-87.18,34.78-87.18,0,0,33.93,84.19,34.78,87.18,1.03,3.62.24,7.24.24,7.24h13.94Z"
-            />
-            <path
-              fill="currentColor"
-              d="M382.9,116.63c-10.03-14.33-31.08-73.08-48.97-116.63-17.89,43.55-38.94,102.29-48.97,116.63h13.94s-.78-3.62.24-7.24c.85-2.99,34.78-87.18,34.78-87.18,0,0,33.93,84.19,34.78,87.18,1.03,3.62.24,7.24.24,7.24h13.94Z"
-            />
-            <path
-              fill="currentColor"
-              d="M240.42,0c-10.03,14.33-31.08,73.08-48.97,116.63C173.56,73.08,152.51,14.33,142.48,0h13.94s-.78,3.62.24,7.24c.85,2.99,34.78,87.18,34.78,87.18,0,0,33.93-84.19,34.78-87.18,1.03-3.62.24-7.24.24-7.24h13.94Z"
-            />
-          </svg>
+          <LogoSvg aria-label="AVA" />
         </div>
 
         <div className="footer-mid">

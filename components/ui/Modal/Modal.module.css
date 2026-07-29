@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(58, 50, 43, 0.75);
+  background-color: rgba(58, 50, 43, 0.4);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -24,10 +24,11 @@
 }
 
 .modal {
-  background-color: var(--off-white, #faf7f2);
+  background-color: rgba(250, 247, 242, 0.85);
   border-radius: 8px;
   border: 1px solid var(--stone, #cec4b6);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2),
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.2),
     0 10px 20px rgba(0, 0, 0, 0.1);
   max-height: 90vh;
   display: flex;
@@ -117,7 +118,7 @@
 
 /* Body */
 .body {
-  padding: 2rem;
+  padding: 2rem 3.2rem;
 }
 
 /* Footer */

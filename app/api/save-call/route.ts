@@ -4,7 +4,7 @@ import { google } from "googleapis";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, surname, phone, email } = body;
+    const { name, surname, phone, email, agreeToEmails } = body;
 
     // Validate required fields
     if (!name || !surname || !phone || !email) {
@@ -40,12 +40,12 @@ export async function POST(request: NextRequest) {
 
     // Prepare the row data
     const timestamp = new Date().toLocaleString();
-    const values = [[timestamp, name, surname, phone, email]];
+    const values = [[timestamp, name, surname, phone, email, agreeToEmails ? "Yes" : "No"]];
 
     // Append data to the sheet
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "Лист1!A:E", // Russian sheet name
+      range: "Лист1!A:F", // Russian sheet name
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values,

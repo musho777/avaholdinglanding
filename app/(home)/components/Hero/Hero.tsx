@@ -3,13 +3,7 @@ export default function Hero() {
     <div className="hero-wrapper">
       <section className="hero">
         <div className="hero-photo">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="hero-video"
-          >
+          <video autoPlay loop muted playsInline preload="auto" className="hero-video">
             <source src="/assets/hero.mp4" type="video/mp4" />
           </video>
         </div>

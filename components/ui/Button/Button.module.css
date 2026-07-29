@@ -11,6 +11,32 @@
   font-family: var(--font-sans, "Helvetica", sans-serif);
   outline: none;
   letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+}
+
+.button .content {
+  position: relative;
+  z-index: 2;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: left 0.35s ease;
+  z-index: 1;
+}
+
+.button:hover::before {
+  left: 0;
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.94);
 }
 
 .button:focus-visible {
@@ -30,15 +56,12 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.primary:hover:not(:disabled) {
+.primary::before {
   background-color: var(--gold-dim, #a3855c);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.primary:active:not(:disabled) {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.primary:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .secondary {
@@ -46,9 +69,10 @@
   color: #ffffff;
 }
 
-.secondary:hover:not(:disabled) {
+.secondary::before {
   background-color: var(--taupe, #6c635a);
 }
+
 
 .outline {
   background-color: transparent;
@@ -56,8 +80,11 @@
   color: var(--charcoal, #3a322b);
 }
 
-.outline:hover:not(:disabled) {
+.outline::before {
   background-color: var(--stone, #cec4b6);
+}
+
+.outline:hover:not(:disabled) {
   color: #ffffff;
 }
 
@@ -66,9 +93,10 @@
   color: var(--charcoal, #3a322b);
 }
 
-.ghost:hover:not(:disabled) {
+.ghost::before {
   background-color: rgba(206, 196, 182, 0.15);
 }
+
 
 .taupe {
   background-color: var(--taupe, #6c635a);
@@ -79,16 +107,10 @@
   box-shadow: none;
 }
 
-.taupe:hover:not(:disabled) {
-  background-color: #5a5248;
-  transform: none;
-  box-shadow: none;
+.taupe::before {
+  background-color: #4a433c;
 }
 
-.taupe:active:not(:disabled) {
-  transform: none;
-  box-shadow: none;
-}
 
 /* Sizes */
 .sm {
@@ -104,8 +126,8 @@
 }
 
 .lg {
-  min-height: 3.75rem;
-  padding: 1.25rem 2rem;
+  min-height: 4.5rem;
+  padding: 1.5rem 2rem;
   font-size: 1rem;
   line-height: 1;
 }

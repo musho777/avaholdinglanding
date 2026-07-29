@@ -25,7 +25,7 @@ export default function Header() {
               className="book-btn"
               onClick={() => setIsModalOpen(true)}
             >
-              Book a call
+              <span>Book a call</span>
             </button>
           </div>
         </nav>

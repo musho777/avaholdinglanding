@@ -4,7 +4,13 @@ import "./YerevanLocation.css";
 
 // Logo component
 const LogoIcon = () => (
-  <svg width="224" height="224" viewBox="0 0 224 224" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    width="224"
+    height="224"
+    viewBox="0 0 224 224"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       d="M89.1699 204.197V19.8037H94.6225V128.682H129.804V19.8037H135.256V204.213H129.804V133.187H94.6225V204.213H89.1699V204.197Z"
       fill="#DFD8CF"
@@ -25,15 +31,6 @@ const PinIcon = () => (
     />
   </svg>
 );
-
-// Location data - customize these positions for your map
-const locations = [
-  { id: 1, name: "Republic Square", top: "45%", left: "52%", showPin: true },
-  { id: 2, name: "Cascade Complex", top: "38%", left: "48%", showPin: true },
-  { id: 3, name: "Opera Theatre", top: "50%", left: "55%", showPin: true },
-  { id: 4, name: "Northern Avenue", top: "42%", left: "60%", showPin: false },
-  { id: 5, name: "Vernissage", top: "48%", left: "45%", showPin: false },
-];
 
 export default function YerevanLocation() {
   return (
@@ -62,20 +59,6 @@ export default function YerevanLocation() {
         </div>
 
         {/* Location pins and labels */}
-        {locations.map((location) => (
-          <div
-            key={location.id}
-            className="map-location"
-            style={{ top: location.top, left: location.left }}
-          >
-            {location.showPin && (
-              <button className="location-pin" aria-label={location.name}>
-                <PinIcon />
-              </button>
-            )}
-            <span className="location-name">{location.name}</span>
-          </div>
-        ))}
       </div>
     </section>
   );

@@ -14,9 +14,9 @@ export default function FounderSection() {
               thoughtfully considered, from the first sketch to the final touch.
             </p>
             <p className="founder-description scroll-reveal delay-2">
-              Each project reflects our commitment to craftsmanship, innovation, and the belief
-              that great architecture should enhance the way we live, connect us to nature, and
-              stand as a testament to enduring beauty.
+              Each project reflects our commitment to craftsmanship, innovation, and the belief that
+              great architecture should enhance the way we live, connect us to nature, and stand as
+              a testament to enduring beauty.
             </p>
             <div className="founder-signature scroll-reveal delay-3">
               <div className="signature-line"></div>

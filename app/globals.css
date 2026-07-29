@@ -645,7 +645,7 @@ section.panel {
 .founder-section {
   position: relative;
   padding: 8rem 3rem;
-  background: linear-gradient(180deg, var(--off-white) 0%, #f5f1ea 100%);
+  background: var(--stone);
   overflow: hidden;
 }
 

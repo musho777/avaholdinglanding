@@ -149,17 +149,17 @@ export default function QuoteSection() {
       <div className="quote-bg"></div>
       <div className="quote-inner">
         <div>
-          <p className="quote-fill" id="quoteText">
+          <p className="quote-fill scroll-reveal" id="quoteText">
             "Each residence is set to hold the view, so the ridge, the water, and the shifting light
             stay part of daily life, not scenery glimpsed on the way somewhere else."
           </p>
-          <p className="quote-caption">
+          <p className="quote-caption scroll-reveal delay-1">
             From every vantage point on the property, the outlook changes with the season and the
             hour. The cabins are built to stay quiet in front of it.
           </p>
         </div>
 
-        <div className="play-wrap" id="playWrap">
+        <div className="play-wrap scroll-reveal delay-2" id="playWrap">
           <button className="play-btn" id="playBtn" type="button" aria-label="play the audio">
             <div className="button-bg"></div>
             <span className="button-animation">
@@ -174,7 +174,7 @@ export default function QuoteSection() {
           </button>
         </div>
 
-        <div className="waveform-row">
+        <div className="waveform-row scroll-reveal delay-3">
           <span className="wf-time" id="wfElapsed">
             0:00
           </span>
@@ -184,7 +184,7 @@ export default function QuoteSection() {
           </span>
         </div>
 
-        <p className="quote-credit">AVA Studio &amp; Atmosphere Projects</p>
+        <p className="quote-credit scroll-reveal delay-4">AVA Studio &amp; Atmosphere Projects</p>
       </div>
     </section>
   );

@@ -21,6 +21,7 @@ import {
   useFooterTabsInit,
   useLocationTabsInit,
   useMenuToggleInit,
+  useScrollAnimation,
 } from "./hooks";
 
 export default function Home() {
@@ -34,6 +35,7 @@ export default function Home() {
   useFooterTabsInit();
   useLocationTabsInit();
   useMenuToggleInit();
+  useScrollAnimation();
 
   return (
     <>

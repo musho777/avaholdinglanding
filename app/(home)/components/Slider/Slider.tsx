@@ -165,14 +165,14 @@ export default function Slider() {
       </div>
       <div className="slide-scrim"></div>
 
-      <div className="slider-bottom">
+      <div className="slider-bottom scroll-reveal">
         <div className="slide-counter">
           <span className="cur">{pad(currentIndex + 1)}</span>
           <span className="total">/ {pad(images.length)}</span>
         </div>
       </div>
 
-      <div className="slider-arrows">
+      <div className="slider-arrows scroll-reveal delay-1">
         <button className="arrow-btn" onClick={goToPrevious} aria-label="Previous slide">
           &#8592;
         </button>

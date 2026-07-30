@@ -15,13 +15,12 @@ export default function Footer() {
         <div className="footer-top">
           <div className="footer-contact">
             <p className="eyebrow">Contact</p>
-            <p className="eyebrow dim">Sales office</p>
           </div>
           <div className="footer-reach">
             <a href="tel:+37498333372" className="footer-phone">
-              +374 (98) 333372
+              +374 (77) 423333
             </a>
-            <p className="footer-email">info@ava-retreat.com</p>
+            <p className="footer-email">info@avaholding.com</p>
           </div>
         </div>
 

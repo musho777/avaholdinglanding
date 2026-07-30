@@ -59,7 +59,7 @@ export default function SiteMenu() {
         <div className="site-menu-foot">
           <div className="foot-left"></div>
           <div className="foot-right">
-            <a href="tel:+37498333372">+374 (98) 333372</a>
+            <a href="tel:+37498333372">+374 (77) 423333</a>
             <button className="menu-book-btn" onClick={() => setIsModalOpen(true)}>
               <span>BOOK A CALL</span>
             </button>

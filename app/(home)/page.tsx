@@ -6,7 +6,6 @@ import {
   Hero,
   Header,
   SiteMenu,
-  LogoLayer,
   FounderSection,
   QuoteSection,
   YerevanLocation,
@@ -44,7 +43,6 @@ export default function Home() {
       <Hero />
       <Header />
       <SiteMenu />
-      <LogoLayer />
       <WhatsAppButton />
 
       <main id="main-content">

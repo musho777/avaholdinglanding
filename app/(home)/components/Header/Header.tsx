@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BookCallModal } from "@/components/BookCallModal";
+import LogoSvg from "@/public/assets/Logo";
 import { useHeaderScroll } from "../../hooks/useHeaderScroll";
 
 export default function Header() {
@@ -14,6 +15,13 @@ export default function Header() {
         className={`header-shell ${isHidden ? "header-hidden" : ""} ${hasBackground ? "header-with-bg" : ""}`}
         id="headerShell"
       >
+        <div className="logo-layer" id="logoLayer">
+          <div className="logo" id="logo">
+            <LogoSvg className="logo-svg" id="logoSvg" />
+            <div className="logo-sub" id="logoSub"></div>
+          </div>
+        </div>
+
         <nav className="header-nav">
           <div className="nav-left">
             <button className="menu-btn" id="menuBtn" aria-label="Open menu">

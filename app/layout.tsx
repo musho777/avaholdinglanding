@@ -4,31 +4,22 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "AVA — Quiet Luxury Residences",
-  description:
-    "AVA — a quiet-luxury residence brand offering premium villas and residences in Mijas, Malaga, Spain.",
-  keywords: [
-    "luxury residences",
-    "villas",
-    "Mijas",
-    "Malaga",
-    "Spain",
-    "quiet luxury",
-    "premium real estate",
-  ],
+  description: "VA Holding - Real Estate Development Company in Armenia",
+  keywords: ["Yerevan", "Armenia", "quiet luxury", "premium real estate"],
   authors: [{ name: "AVA" }],
   creator: "AVA",
   metadataBase: new URL("https://ava-retreat.com"),
   openGraph: {
-    title: "AVA — Quiet Luxury Residences",
-    description: "Premium villas and residences in Mijas, Malaga, Spain",
+    title: "AVA Holding - Real Estate Development Company in Armenia",
+    description: "AVA Holding - Real Estate Development Company in Armenia",
     type: "website",
     locale: "en_US",
     siteName: "AVA",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AVA — Quiet Luxury Residences",
-    description: "Premium villas and residences in Mijas, Malaga, Spain",
+    title: "AVA Holding - Real Estate Development Company in Armenia",
+    description: "AVA Holding - Real Estate Development Company in Armenia",
   },
   robots: {
     index: true,

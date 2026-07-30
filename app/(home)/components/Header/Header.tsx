@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <>
       <div
-        className={`header-shell ${isHidden ? 'header-hidden' : ''} ${hasBackground ? 'header-with-bg' : ''}`}
+        className={`header-shell ${isHidden ? "header-hidden" : ""} ${hasBackground ? "header-with-bg" : ""}`}
         id="headerShell"
       >
         <nav className="header-nav">
@@ -26,20 +26,14 @@ export default function Header() {
           </div>
           <div className="nav-right">
             <a href="tel:+34951870700">+34 (951) 870-700</a>
-            <button
-              className="book-btn"
-              onClick={() => setIsModalOpen(true)}
-            >
-              <span>Book a call</span>
+            <button className="book-btn" onClick={() => setIsModalOpen(true)}>
+              <span>BOOK A CALL</span>
             </button>
           </div>
         </nav>
       </div>
 
-      <BookCallModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <BookCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

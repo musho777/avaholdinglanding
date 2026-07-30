@@ -60,20 +60,14 @@ export default function SiteMenu() {
           <div className="foot-left"></div>
           <div className="foot-right">
             <a href="tel:+34951870700">+34 (951) 870-700</a>
-            <button
-              className="menu-book-btn"
-              onClick={() => setIsModalOpen(true)}
-            >
-              <span>Book a call</span>
+            <button className="menu-book-btn" onClick={() => setIsModalOpen(true)}>
+              <span>BOOK A CALL</span>
             </button>
           </div>
         </div>
       </div>
 
-      <BookCallModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <BookCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

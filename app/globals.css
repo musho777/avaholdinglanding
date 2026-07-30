@@ -409,7 +409,7 @@ body {
 }
 
 .header-shell.header-with-bg {
-  background-color: var(--charcoal);
+  background-color: var(--taupe);
   backdrop-filter: blur(10px);
 }
 
@@ -445,8 +445,8 @@ body {
   color: var(--stone);
 }
 .header-nav .book-btn {
-  background: var(--taupe);
-  border: 1px solid var(--taupe);
+  background: var(--stone);
+  border: 1px solid var(--stone);
   padding: 0.85rem 2rem;
   border-radius: 6px;
   color: white;

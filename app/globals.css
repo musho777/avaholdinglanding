@@ -449,7 +449,7 @@ body {
   border: 1px solid var(--stone);
   padding: 0.85rem 2rem;
   border-radius: 6px;
-  color: white;
+  color: var(--taupe);
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.25s ease;

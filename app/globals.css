@@ -315,7 +315,6 @@ body {
   z-index: 200;
   transition:
     opacity 0.4s ease,
-    visibility 0s,
     transform 0.4s ease;
   animation: logoLayerFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
@@ -324,14 +323,9 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.4s ease, visibility 0s 0.4s, transform 0.4s ease;
-}
-
-/* Prevent logo transitions when layer is hidden for smooth hide/show */
-.logo-layer.logo-hidden .logo,
-.logo-layer.logo-hidden .logo-svg,
-.logo-layer.logo-hidden .logo-sub {
-  transition: none;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s 0.4s;
 }
 
 @keyframes logoLayerFadeIn {

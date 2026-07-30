@@ -1,22 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { Modal, ModalBody } from "@/components/ui/Modal/Modal";
-import { YerevanMap } from "@/components/maps";
 import LogoSvg from "@/public/assets/Logo";
 
 export default function Footer() {
-  const [isMapModalOpen, setIsMapModalOpen] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState<"spain" | "yerevan" | null>(null);
-
-  const openMapModal = (location: "spain" | "yerevan") => {
-    setSelectedLocation(location);
-    setIsMapModalOpen(true);
-  };
-
-  const closeMapModal = () => {
-    setIsMapModalOpen(false);
-    setSelectedLocation(null);
+  const openGoogleMaps = () => {
+    const address = "Derenik Demirchyan 2-4, Yerevan, Armenia";
+    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+    window.open(googleMapsUrl, "_blank");
   };
 
   return (
@@ -44,7 +34,7 @@ export default function Footer() {
             <div className="footer-location-item">
               <p className="footer-location">Yerevan, Armenia</p>
               <div className="footer-location-row">
-                <button className="map-btn" onClick={() => openMapModal("yerevan")}>
+                <button className="map-btn" onClick={openGoogleMaps}>
                   See on map
                 </button>
                 <button className="social-btn" aria-label="Facebook">
@@ -81,27 +71,6 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-
-      <Modal
-        isOpen={isMapModalOpen}
-        onClose={closeMapModal}
-        title={selectedLocation === "spain" ? "Mijas, Malaga, Spain" : "Yerevan, Armenia"}
-        size="xl"
-      >
-        <ModalBody>
-          {selectedLocation === "yerevan" ? (
-            <div className="map-container">
-              <YerevanMap />
-            </div>
-          ) : (
-            <div className="map-container">
-              <p style={{ textAlign: "center", padding: "2rem", color: "#5f5346" }}>
-                Spain map coming soon...
-              </p>
-            </div>
-          )}
-        </ModalBody>
-      </Modal>
     </>
   );
 }

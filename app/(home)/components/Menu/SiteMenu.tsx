@@ -50,6 +50,9 @@ export default function SiteMenu() {
             <a href="#slider" data-menu-link>
               Gallery
             </a>
+            <a href="#founder" data-menu-link>
+              Vision & Approach
+            </a>
             <a href="#contact" data-menu-link>
               Contact
             </a>

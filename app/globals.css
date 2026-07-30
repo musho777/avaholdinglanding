@@ -844,9 +844,13 @@ section.panel {
 .founder-section {
   position: relative;
   padding: 8rem 3rem;
-  background: var(--stone);
+  background: var(--taupe);
   overflow: hidden;
   z-index: 10;
+}
+
+.founder-section + .founder-section {
+  padding-top: 0;
 }
 
 .founder-container {
@@ -862,15 +866,28 @@ section.panel {
   align-items: center;
 }
 
+.founder-content-reverse {
+  direction: rtl;
+}
+
+.founder-content-reverse > * {
+  direction: ltr;
+}
+
 .founder-text {
   padding-right: 2rem;
+}
+
+.founder-content-reverse .founder-text {
+  padding-right: 0;
+  padding-left: 2rem;
 }
 
 .founder-title {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
-  color: var(--pine-deep);
+  color: var(--off-white);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -880,7 +897,7 @@ section.panel {
   font-family: var(--font-sans);
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   line-height: 1.8;
-  color: var(--taupe);
+  color: var(--stone);
   margin-bottom: 1.5rem;
   text-align: justify;
 }
@@ -888,7 +905,7 @@ section.panel {
 .founder-signature {
   margin-top: 2.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(95, 83, 70, 0.15);
+  border-top: 1px solid rgba(250, 247, 242, 0.2);
 }
 
 .founder-name {
@@ -944,7 +961,7 @@ section.panel {
   opacity: 0.4;
 }
 
-/* .founder-brand-asset {
+.founder-brand-asset {
   position: absolute;
   top: -60px;
   left: -40px;
@@ -953,7 +970,7 @@ section.panel {
   z-index: 3;
   opacity: 0.95;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 4px 16px rgba(34, 28, 23, 0.15));
+  filter: drop-shadow(0 4px 20px rgba(201, 162, 103, 0.3));
 }
 
 .founder-brand-asset img {
@@ -965,7 +982,7 @@ section.panel {
 
 .founder-image-wrapper:hover .founder-brand-asset img {
   transform: scale(1.05) rotate(2deg);
-} */
+}
 
 /* ---------- QUOTE / PLAY SECTION ---------- */
 .quote-section {
@@ -2032,6 +2049,15 @@ section.panel {
     gap: 3rem;
   }
 
+  .founder-content-reverse {
+    direction: ltr;
+  }
+
+  .founder-text {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+
   .founder-image-wrapper {
     min-height: 400px;
     order: -1;
@@ -2044,11 +2070,11 @@ section.panel {
     height: calc(100% - 30px);
   }
 
-  /* .founder-brand-asset {
+  .founder-brand-asset {
     top: -40px;
     left: -30px;
     width: clamp(70px, 10vw, 110px);
-  } */
+  }
 
   .grid-section {
     grid-template-columns: 1fr;
@@ -2691,11 +2717,11 @@ img {
     min-height: 350px;
   }
 
-  /* .founder-brand-asset {
+  .founder-brand-asset {
     top: -30px;
     left: -20px;
     width: clamp(60px, 15vw, 90px);
-  } */
+  }
 }
 
 /* Small mobile breakpoint */
@@ -2719,11 +2745,11 @@ img {
     height: calc(100% - 20px);
   }
 
-  /* .founder-brand-asset {
+  .founder-brand-asset {
     top: -20px;
     left: -15px;
     width: clamp(50px, 18vw, 80px);
-  } */
+  }
 
   .founder-signature {
     margin-top: 2rem;

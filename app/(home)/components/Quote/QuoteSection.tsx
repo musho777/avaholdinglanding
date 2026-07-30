@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function QuoteSection() {
   useEffect(() => {
-    const DURATION = 31;
+    let DURATION = 60;
     const BAR_COUNT = 90;
 
     const quoteText = document.getElementById("quoteText");
@@ -14,6 +14,7 @@ export default function QuoteSection() {
     const waveform = document.getElementById("waveform");
     const wfElapsed = document.getElementById("wfElapsed");
     const wfTotal = document.getElementById("wfTotal");
+    const audioElement = document.getElementById("quoteAudio") as HTMLAudioElement;
 
     if (
       !quoteText ||
@@ -22,9 +23,16 @@ export default function QuoteSection() {
       !playBtnText ||
       !waveform ||
       !wfElapsed ||
-      !wfTotal
+      !wfTotal ||
+      !audioElement
     )
       return;
+
+    // Update duration once audio metadata is loaded
+    audioElement.addEventListener("loadedmetadata", function () {
+      DURATION = audioElement.duration;
+      wfTotal.textContent = formatTime(DURATION);
+    });
 
     wfTotal.textContent = formatTime(DURATION);
 
@@ -93,9 +101,8 @@ export default function QuoteSection() {
     function tick(now: number) {
       if (!isPlaying) return;
       if (lastFrame === null) lastFrame = now;
-      const delta = (now - lastFrame) / 1000;
       lastFrame = now;
-      elapsed = Math.min(DURATION, elapsed + delta);
+      elapsed = audioElement.currentTime;
       render();
       if (elapsed >= DURATION) {
         stop();
@@ -109,6 +116,7 @@ export default function QuoteSection() {
       lastFrame = null;
       playBtnText!.textContent = "Pause";
       playWrap!.classList.add("playing");
+      audioElement.play().catch(err => console.error("Audio play failed:", err));
       rafId = requestAnimationFrame(tick);
     }
 
@@ -116,11 +124,14 @@ export default function QuoteSection() {
       isPlaying = false;
       playBtnText!.textContent = "Play";
       playWrap!.classList.remove("playing");
+      audioElement.pause();
       if (rafId) cancelAnimationFrame(rafId);
     }
 
     function stop() {
       pause();
+      audioElement.currentTime = 0;
+      elapsed = 0;
       playBtnText!.textContent = "Replay";
     }
 
@@ -128,7 +139,10 @@ export default function QuoteSection() {
       if (isPlaying) {
         pause();
       } else {
-        if (elapsed >= DURATION) elapsed = 0;
+        if (elapsed >= DURATION) {
+          elapsed = 0;
+          audioElement.currentTime = 0;
+        }
         play();
       }
     });
@@ -137,8 +151,14 @@ export default function QuoteSection() {
       const rect = waveform!.getBoundingClientRect();
       const pct = (e.clientX - rect.left) / rect.width;
       elapsed = Math.max(0, Math.min(DURATION, pct * DURATION));
+      audioElement.currentTime = elapsed;
       render();
       playBtnText!.textContent = isPlaying ? "Pause" : "Play";
+    });
+
+    // Handle audio ended event
+    audioElement.addEventListener("ended", function () {
+      stop();
     });
 
     render();
@@ -146,6 +166,9 @@ export default function QuoteSection() {
 
   return (
     <section className="quote-section" id="story">
+      <audio id="quoteAudio" preload="auto">
+        <source src="/assets/Ava holding creates-2.wav" type="audio/wav" />
+      </audio>
       <div className="quote-bg"></div>
       <div className="quote-inner">
         <div>

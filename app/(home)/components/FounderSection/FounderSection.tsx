@@ -25,6 +25,13 @@ export default function FounderSection() {
           </div>
 
           <div className="founder-image-wrapper">
+            {/* <div className="founder-brand-asset">
+              <img
+                src="/assets/BrandAssets-03.png"
+                alt="AVA Brand"
+                loading="lazy"
+              />
+            </div> */}
             <div className="founder-image">
               <img
                 src="/assets/view-from-business-startup-teamwork-concept-startup-partners-sitting-coworking-space-talking-about-future-project-looking-through-examples-work-laptop-digital-tablet_176420-8330.avif"

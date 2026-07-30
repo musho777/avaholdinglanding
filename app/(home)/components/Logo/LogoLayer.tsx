@@ -5,7 +5,6 @@ import { useHeaderScroll } from "../../hooks/useHeaderScroll";
 
 export default function LogoLayer() {
   const { isHidden } = useHeaderScroll();
-
   return (
     <div className={`logo-layer ${isHidden ? "logo-hidden" : ""}`} id="logoLayer">
       <div className="logo" id="logo">

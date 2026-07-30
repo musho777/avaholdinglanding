@@ -323,13 +323,6 @@ body {
   opacity: 0;
   display: none;
   pointer-events: none;
-  fill: white !important;
-}
-.logo-layer.logo-show {
-  opacity: 1;
-  display: block;
-  fill: white !important;
-  pointer-events: auto;
 }
 
 @keyframes logoLayerFadeIn {

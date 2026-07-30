@@ -10,7 +10,7 @@ export default function YerevanLocation() {
   };
 
   return (
-    <section className="yerevan-location">
+    <section className="yerevan-location" id="location">
       <div className="map-wrapper">
         <img className="map-image" src="/assets/AVA_Map1.svg" alt="Yerevan map" />
 

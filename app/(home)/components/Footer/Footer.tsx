@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="site-footer" role="contentinfo">
+      <footer className="site-footer" role="contentinfo" id="contact">
         <div className="footer-top">
           <div className="footer-contact">
             <p className="eyebrow">Contact</p>

@@ -42,22 +42,22 @@ export default function SiteMenu() {
           </div>
           <nav className="site-menu-links">
             <a href="#story" data-menu-link>
-              The residences
+              THE RESIDENCES
             </a>
             <a href="#location" data-menu-link>
-              Location
+              LOCATION
             </a>
             <a href="#slider" data-menu-link>
-              Gallery
+              GALLERY
             </a>
             <a href="#founder" data-menu-link>
-              Vision & FOUNDERS
+              VISION & FOUNDERS
             </a>
             <a href="#partners" data-menu-link>
-              Partners
+              PARTNERS
             </a>
             <a href="#contact" data-menu-link>
-              Contact
+              CONTACT
             </a>
           </nav>
         </div>

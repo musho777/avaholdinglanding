@@ -259,6 +259,15 @@ body {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   z-index: 5;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+}
+
+.hero-caption.scroll-icon-hidden {
+  opacity: 0 !important;
+  visibility: hidden;
+  pointer-events: none;
 }
 .scroll-cue {
   display: inline-flex;
@@ -305,10 +314,24 @@ body {
   pointer-events: none;
   z-index: 200;
   transition:
-    transform 0.4s ease,
-    opacity 0.4s ease;
+    opacity 0.4s ease,
+    transform 0.4s ease;
   animation: logoLayerFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
+
+.logo-layer.logo-hidden {
+  opacity: 0;
+  display: none;
+  pointer-events: none;
+  fill: white !important;
+}
+.logo-layer.logo-show {
+  opacity: 1;
+  display: block;
+  fill: white !important;
+  pointer-events: auto;
+}
+
 @keyframes logoLayerFadeIn {
   0% {
     opacity: 0;
@@ -384,8 +407,19 @@ body {
   z-index: 150;
   transition:
     transform 0.4s ease,
-    opacity 0.4s ease;
+    opacity 0.4s ease,
+    background-color 0.4s ease;
 }
+
+.header-shell.header-hidden {
+  transform: translateY(-100%);
+}
+
+.header-shell.header-with-bg {
+  background-color: var(--charcoal);
+  backdrop-filter: blur(10px);
+}
+
 .header-nav {
   max-width: 1920px;
   margin: 0 auto;

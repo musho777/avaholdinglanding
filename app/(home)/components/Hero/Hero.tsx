@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [scrollIconHidden, setScrollIconHidden] = useState(false);
+
   useEffect(() => {
     const preloader = document.getElementById("preloader");
     if (!preloader) return;
@@ -39,6 +41,35 @@ export default function Hero() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateScrollIcon = () => {
+      const currentScrollY = window.scrollY;
+
+      // Hide when scrolling down past 100px
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setScrollIconHidden(true);
+      } else if (currentScrollY < lastScrollY) {
+        setScrollIconHidden(false);
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollIcon);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="hero-wrapper">
       <section className="hero">
@@ -52,7 +83,14 @@ export default function Hero() {
           <h1 className="hero-text-main">WHO CHOOSE</h1>
           <p className="hero-text-bottom">the right moment.</p>
         </div>
-        <p className="hero-caption">
+        <p
+          className="hero-caption"
+          style={{
+            opacity: scrollIconHidden ? 0 : 1,
+            visibility: scrollIconHidden ? 'hidden' : 'visible',
+            transition: 'opacity 0.4s ease, visibility 0.4s ease'
+          }}
+        >
           <span className="scroll-cue">
             <span className="line"></span>Scroll
           </span>

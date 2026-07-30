@@ -2,13 +2,18 @@
 
 import { useState } from "react";
 import { BookCallModal } from "@/components/BookCallModal";
+import { useHeaderScroll } from "../../hooks/useHeaderScroll";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isHidden, hasBackground } = useHeaderScroll();
 
   return (
     <>
-      <div className="header-shell" id="headerShell">
+      <div
+        className={`header-shell ${isHidden ? 'header-hidden' : ''} ${hasBackground ? 'header-with-bg' : ''}`}
+        id="headerShell"
+      >
         <nav className="header-nav">
           <div className="nav-left">
             <button className="menu-btn" id="menuBtn" aria-label="Open menu">

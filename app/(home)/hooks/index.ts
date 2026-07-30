@@ -5,3 +5,4 @@ export { useFooterTabsInit } from "./useFooterTabsInit";
 export { useLocationTabsInit } from "./useLocationTabsInit";
 export { useMenuToggleInit } from "./useMenuToggleInit";
 export { useScrollAnimation } from "./useScrollAnimation";
+export { useHeaderScroll } from "./useHeaderScroll";

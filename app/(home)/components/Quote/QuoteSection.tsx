@@ -8,6 +8,7 @@ export default function QuoteSection() {
     const BAR_COUNT = 90;
 
     const quoteText = document.getElementById("quoteText");
+    const quoteCaption = document.getElementById("quoteCaption");
     const playWrap = document.getElementById("playWrap");
     const playBtn = document.getElementById("playBtn");
     const playBtnText = document.getElementById("playBtnText");
@@ -18,6 +19,7 @@ export default function QuoteSection() {
 
     if (
       !quoteText ||
+      !quoteCaption ||
       !playWrap ||
       !playBtn ||
       !playBtnText ||
@@ -36,19 +38,30 @@ export default function QuoteSection() {
 
     wfTotal.textContent = formatTime(DURATION);
 
-    const rawWords = quoteText.textContent!.trim().split(/\s+/);
-    quoteText.innerHTML = rawWords
-      .map(function (w) {
-        const letters = w
-          .split("")
-          .map(function (ch) {
-            return '<span class="letter">' + ch + "</span>";
-          })
-          .join("");
-        return '<span class="word" style="display:inline-block;">' + letters + "</span>";
-      })
-      .join(" ");
-    const letterEls = Array.from(quoteText.querySelectorAll(".letter")) as HTMLElement[];
+    // Process both quote text and caption
+    function processText(element: HTMLElement) {
+      const rawWords = element.textContent!.trim().split(/\s+/);
+      element.innerHTML = rawWords
+        .map(function (w) {
+          const letters = w
+            .split("")
+            .map(function (ch) {
+              return '<span class="letter">' + ch + "</span>";
+            })
+            .join("");
+          return '<span class="word" style="display:inline-block;">' + letters + "</span>";
+        })
+        .join(" ");
+    }
+
+    processText(quoteText);
+    processText(quoteCaption);
+
+    // Collect all letters from both paragraphs
+    const letterEls = [
+      ...Array.from(quoteText.querySelectorAll(".letter")),
+      ...Array.from(quoteCaption.querySelectorAll(".letter")),
+    ] as HTMLElement[];
 
     // Clear any existing bars before creating new ones
     waveform.innerHTML = "";
@@ -175,7 +188,7 @@ export default function QuoteSection() {
           <p className="quote-fill scroll-reveal" id="quoteText">
             AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE, MEANINGFUL, AND FORWARD-LOOKING FUTURE.
           </p>
-          <p className="quote-caption scroll-reveal delay-1">
+          <p className="quote-caption scroll-reveal delay-1" id="quoteCaption">
             Founded in 2006, AVA Holding is one of Armenia's most promising real estate development and construction companies. Its core focus is the creation of multifunctional residential buildings that meet the evolving needs of modern life. Today, one of Armenia's most significant challenges — and opportunities — is to stand among the world's leading innovators. Achieving that visibility would firmly place our country on the global stage. At the same time, in a world advancing at high speed, we believe it is vital not to lose sight of what matters most: people, safety, and the feeling of home. That's why AVA Holding aims to build more than just modern buildings — it creates spaces where people feel warmth, comfort, and belonging. Each project blends forward-thinking architecture with everyday practicality, driven by a deep respect for both place and person, chasing the main manifesto — LIVING PERFECTED.
           </p>
         </div>

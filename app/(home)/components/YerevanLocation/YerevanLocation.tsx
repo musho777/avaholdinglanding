@@ -26,7 +26,7 @@ export default function YerevanLocation() {
   return (
     <section className="yerevan-location">
       <div className="map-wrapper">
-        <img className="map-image" src="/assets/map.webp" alt="Yerevan map" />
+        <img className="map-image" src="/assets/AVA_Map.svg" alt="Yerevan map" />
 
         {/* Text overlay on the left */}
         <div className="map-text-overlay">
@@ -40,15 +40,7 @@ export default function YerevanLocation() {
           <button className="see-map-btn scroll-reveal delay-3">SEE ON MAP</button>
         </div>
 
-        {/* Top right location label */}
         <div className="location-label-top scroll-reveal delay-1">YEREVAN, ARMENIA</div>
-
-        {/* Logo overlay in center */}
-        <div className="logo-overlay">
-          <LogoIcon />
-        </div>
-
-        {/* Location pins and labels */}
       </div>
     </section>
   );

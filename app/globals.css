@@ -321,7 +321,7 @@ body {
 
 .logo-layer.logo-hidden {
   opacity: 0;
-  display: none;
+  visibility: hidden;
   pointer-events: none;
 }
 

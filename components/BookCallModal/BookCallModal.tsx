@@ -12,16 +12,14 @@ export interface BookCallModalProps {
 }
 
 interface FormData {
-  name: string;
-  surname: string;
+  fullName: string;
   phone: string;
   email: string;
   agreeToEmails: boolean;
 }
 
 interface FormErrors {
-  name?: string;
-  surname?: string;
+  fullName?: string;
   phone?: string;
   email?: string;
   agreeToEmails?: string;
@@ -29,8 +27,7 @@ interface FormErrors {
 
 export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    surname: "",
+    fullName: "",
     phone: "",
     email: "",
     agreeToEmails: false,
@@ -43,18 +40,11 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    // Name validation
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    } else if (formData.name.trim().length < 2) {
-      newErrors.name = "Name must be at least 2 characters";
-    }
-
-    // Surname validation
-    if (!formData.surname.trim()) {
-      newErrors.surname = "Surname is required";
-    } else if (formData.surname.trim().length < 2) {
-      newErrors.surname = "Surname must be at least 2 characters";
+    // Full Name validation
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required";
+    } else if (formData.fullName.trim().length < 2) {
+      newErrors.fullName = "Full name must be at least 2 characters";
     }
 
     // Phone validation
@@ -106,7 +96,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
       // Reset form after success
       setTimeout(() => {
-        setFormData({ name: "", surname: "", phone: "", email: "", agreeToEmails: false });
+        setFormData({ fullName: "", phone: "", email: "", agreeToEmails: false });
         setIsSuccess(false);
         onClose();
       }, 2000);
@@ -128,7 +118,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
   const handleClose = () => {
     if (!isSubmitting) {
-      setFormData({ name: "", surname: "", phone: "", email: "", agreeToEmails: false });
+      setFormData({ fullName: "", phone: "", email: "", agreeToEmails: false });
       setErrors({});
       setIsSuccess(false);
       onClose();
@@ -174,25 +164,13 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
             <div className={styles.formGrid}>
               <Input
                 type="text"
-                placeholder="Name"
-                value={formData.name}
-                onChange={handleChange("name")}
-                error={errors.name}
+                placeholder="Full Name"
+                value={formData.fullName}
+                onChange={handleChange("fullName")}
+                error={errors.fullName}
                 fullWidth
                 required
-                autoComplete="given-name"
-                disabled={isSubmitting}
-              />
-
-              <Input
-                type="text"
-                placeholder="Surname"
-                value={formData.surname}
-                onChange={handleChange("surname")}
-                error={errors.surname}
-                fullWidth
-                required
-                autoComplete="family-name"
+                autoComplete="name"
                 disabled={isSubmitting}
               />
 

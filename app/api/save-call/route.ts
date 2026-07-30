@@ -4,10 +4,10 @@ import { google } from "googleapis";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, surname, phone, email, agreeToEmails } = body;
+    const { fullName, phone, email, agreeToEmails } = body;
 
     // Validate required fields
-    if (!name || !surname || !phone || !email) {
+    if (!fullName || !phone || !email) {
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 }
@@ -40,12 +40,12 @@ export async function POST(request: NextRequest) {
 
     // Prepare the row data
     const timestamp = new Date().toLocaleString();
-    const values = [[timestamp, name, surname, phone, email, agreeToEmails ? "Yes" : "No"]];
+    const values = [[timestamp, fullName, phone, email, agreeToEmails ? "Yes" : "No"]];
 
     // Append data to the sheet
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "Лист1!A:F", // Russian sheet name
+      range: "Лист1!A:E", // Russian sheet name
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values,

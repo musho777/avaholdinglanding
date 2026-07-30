@@ -12,7 +12,7 @@ export default function YerevanLocation() {
   return (
     <section className="yerevan-location">
       <div className="map-wrapper">
-        <img className="map-image" src="/assets/AVA_Map.svg" alt="Yerevan map" />
+        <img className="map-image" src="/assets/AVA_Map1.svg" alt="Yerevan map" />
 
         <div className="map-text-overlay">
           <h2 className="map-title">

@@ -17,9 +17,9 @@ export function useLogoAnimationInit() {
 
     const getEndWidth = () => {
       // Smaller logo on mobile
-      if (window.innerWidth <= 375) return 220;
-      if (window.innerWidth <= 480) return 220;
-      if (window.innerWidth <= 820) return 220;
+      if (window.innerWidth <= 375) return 140;
+      if (window.innerWidth <= 480) return 140;
+      if (window.innerWidth <= 820) return 160;
       return 220;
     };
 
@@ -34,7 +34,8 @@ export function useLogoAnimationInit() {
 
       // Use absolute pixel positioning with transition
       // Add transition to top property for smooth animation
-      logo.style.transition = "transform 1.1s cubic-bezier(0.76, 0, 0.24, 1), top 1.1s cubic-bezier(0.76, 0, 0.24, 1)";
+      logo.style.transition =
+        "transform 1.1s cubic-bezier(0.76, 0, 0.24, 1), top 1.1s cubic-bezier(0.76, 0, 0.24, 1)";
       logo.style.top = topPx + "px";
       logo.style.transform = "translateY(-50%)";
 

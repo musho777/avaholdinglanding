@@ -25,7 +25,7 @@ export default function Header() {
             </button>
           </div>
           <div className="nav-right">
-            <a href="tel:+34951870700">+34 (951) 870-700</a>
+            <a href="tel:+37498333372">+374 (98) 333372</a>
             <button className="book-btn" onClick={() => setIsModalOpen(true)}>
               <span>BOOK A CALL</span>
             </button>

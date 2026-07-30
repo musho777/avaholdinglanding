@@ -28,8 +28,8 @@ export default function Footer() {
             <p className="eyebrow dim">Sales office</p>
           </div>
           <div className="footer-reach">
-            <a href="tel:+34951870700" className="footer-phone">
-              +34 (951) 870-700
+            <a href="tel:+37498333372" className="footer-phone">
+              +374 (98) 333372
             </a>
             <p className="footer-email">info@ava-retreat.com</p>
           </div>

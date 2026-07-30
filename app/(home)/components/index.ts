@@ -6,5 +6,6 @@ export { default as FounderSection } from "./FounderSection";
 export { default as QuoteSection } from "./Quote";
 export { default as YerevanLocation } from "./YerevanLocation";
 export { default as Slider } from "./Slider";
+export { default as Partners } from "./Partners";
 export { default as Footer } from "./Footer";
 export { default as WhatsAppButton } from "./WhatsAppButton";

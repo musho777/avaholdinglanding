@@ -887,7 +887,8 @@ section.panel {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
-  color: var(--off-white);
+  /* color: var(--off-white); */
+  color: var(--stone);
   margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
   line-height: 1.2;

@@ -10,6 +10,7 @@ import {
   QuoteSection,
   YerevanLocation,
   Slider,
+  Partners,
   Footer,
   WhatsAppButton,
 } from "./components";
@@ -53,6 +54,7 @@ export default function Home() {
         <Slider />
         <FounderSection />
       </main>
+      <Partners />
       <Footer />
     </>
   );

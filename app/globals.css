@@ -1779,7 +1779,7 @@ section.panel {
 .site-footer {
   position: relative;
   background: var(--taupe);
-  padding: 0rem 3rem 0;
+  padding: 3rem 3rem 0;
   color: var(--stone);
 }
 .footer-top {
@@ -3017,7 +3017,7 @@ img {
 
   /* Footer */
   .site-footer {
-    padding: 0rem 1.2rem 0;
+    padding: 1.2rem 1.2rem 0;
   }
 
   .footer-top {

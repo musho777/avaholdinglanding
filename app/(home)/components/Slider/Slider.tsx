@@ -17,15 +17,21 @@ const images = [
 ];
 
 export default function Slider() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [mounted, setMounted] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(true);
   const sliderThumbRef = useRef<HTMLDivElement>(null);
   const sliderTrackRef = useRef<HTMLDivElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const dragStartY = useRef(0);
   const swipeStartX = useRef(0);
   const swipeStartY = useRef(0);
+  const autoSlideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Create extended array with clones for infinite loop effect
+  // [last, ...original images..., first]
+  const extendedImages = [images[images.length - 1], ...images, images[0]];
 
   useEffect(() => {
     setMounted(true);
@@ -35,13 +41,62 @@ export default function Slider() {
     updateThumbPosition();
   }, [currentIndex]);
 
-  // Auto-slide every 3 seconds
+  // Handle infinite loop transitions
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 4500);
+    if (!isTransitioning) return;
 
-    return () => clearInterval(interval);
+    const handleTransitionEnd = () => {
+      // When we reach the cloned first slide (at the end)
+      if (currentIndex === extendedImages.length - 1) {
+        setIsTransitioning(false);
+        setCurrentIndex(1); // Jump to real first slide
+      }
+      // When we reach the cloned last slide (at the beginning)
+      else if (currentIndex === 0) {
+        setIsTransitioning(false);
+        setCurrentIndex(extendedImages.length - 2); // Jump to real last slide
+      }
+    };
+
+    const track = sliderTrackRef.current;
+    if (track) {
+      track.addEventListener("transitionend", handleTransitionEnd);
+      return () => track.removeEventListener("transitionend", handleTransitionEnd);
+    }
+  }, [currentIndex, isTransitioning, extendedImages.length]);
+
+  // Re-enable transitions after jumping
+  useEffect(() => {
+    if (!isTransitioning) {
+      const timeout = setTimeout(() => {
+        setIsTransitioning(true);
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [isTransitioning]);
+
+  // Auto-slide with reset capability
+  const startAutoSlide = () => {
+    // Clear existing timeout
+    if (autoSlideTimeoutRef.current) {
+      clearInterval(autoSlideTimeoutRef.current);
+    }
+
+    // Start new interval
+    autoSlideTimeoutRef.current = setInterval(() => {
+      setIsTransitioning(true);
+      setCurrentIndex((prev) => prev + 1);
+    }, 4500);
+  };
+
+  // Initialize auto-slide on mount
+  useEffect(() => {
+    startAutoSlide();
+    return () => {
+      if (autoSlideTimeoutRef.current) {
+        clearInterval(autoSlideTimeoutRef.current);
+      }
+    };
   }, []);
 
   const updateThumbPosition = () => {
@@ -49,16 +104,26 @@ export default function Slider() {
 
     const trackH = sliderThumbRef.current.parentElement.clientHeight;
     const segment = trackH / images.length;
+
+    // Calculate actual index for thumb position (excluding clones)
+    let actualIndex = currentIndex - 1;
+    if (currentIndex === 0) actualIndex = images.length - 1;
+    if (currentIndex === extendedImages.length - 1) actualIndex = 0;
+
     sliderThumbRef.current.style.height = Math.max(segment - 6, 14) + "px";
-    sliderThumbRef.current.style.transform = `translate3d(0, ${currentIndex * segment + 3}px, 0)`;
+    sliderThumbRef.current.style.transform = `translate3d(0, ${actualIndex * segment + 3}px, 0)`;
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev - 1);
+    startAutoSlide(); // Reset the auto-slide interval
   };
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setIsTransitioning(true);
+    setCurrentIndex((prev) => prev + 1);
+    startAutoSlide(); // Reset the auto-slide interval
   };
 
   // Thumb dragging handlers
@@ -81,9 +146,11 @@ export default function Slider() {
       const rect = track.getBoundingClientRect();
       const y = clientY - rect.top;
       const percentage = Math.max(0, Math.min(1, y / rect.height));
-      const newIndex = Math.floor(percentage * images.length);
+      const newActualIndex = Math.floor(percentage * images.length);
+      const newIndex = newActualIndex + 1; // Add 1 for the cloned slide at the beginning
 
-      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < images.length) {
+      if (newIndex !== currentIndex && newIndex >= 1 && newIndex <= images.length) {
+        setIsTransitioning(true);
         setCurrentIndex(newIndex);
       }
     };
@@ -98,6 +165,7 @@ export default function Slider() {
 
     const handleEnd = () => {
       setIsDragging(false);
+      startAutoSlide(); // Reset the auto-slide interval after dragging
     };
 
     if (isDragging) {
@@ -153,6 +221,13 @@ export default function Slider() {
 
   const pad = (n: number) => String(n).padStart(2, "0");
 
+  // Get actual display index (for counter)
+  const getDisplayIndex = () => {
+    if (currentIndex === 0) return images.length - 1;
+    if (currentIndex === extendedImages.length - 1) return 0;
+    return currentIndex - 1;
+  };
+
   return (
     <section className="slider" id="slider">
       <div
@@ -169,10 +244,11 @@ export default function Slider() {
           ref={sliderTrackRef}
           style={{
             transform: `translate3d(-${currentIndex * 100}%, 0, 0)`,
+            transition: isTransitioning ? "transform 0.5s ease-in-out" : "none",
           }}
         >
           {mounted &&
-            images.map((image, idx) => (
+            extendedImages.map((image, idx) => (
               <div key={idx} className={`slide ${idx === currentIndex ? "active" : ""}`}>
                 <div
                   className="slide-inner"
@@ -188,7 +264,7 @@ export default function Slider() {
 
       <div className="slider-bottom scroll-reveal">
         <div className="slide-counter">
-          <span className="cur">{pad(currentIndex + 1)}</span>
+          <span className="cur">{pad(getDisplayIndex() + 1)}</span>
           <span className="total">/ {pad(images.length)}</span>
         </div>
       </div>

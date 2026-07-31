@@ -631,7 +631,7 @@ body {
   background-image: url("/assets/AVA10.jpg");
   background-size: cover;
   background-position: center 42%;
-  margin-top: 15px;
+  margin-top: 11px;
 }
 .site-menu-image-cover {
   position: absolute;
@@ -654,7 +654,7 @@ body {
 .site-menu-links a {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   color: rgba(250, 247, 242, 0.6);
   text-decoration: none;
   transition:
@@ -843,147 +843,187 @@ section.panel {
 }
 
 /* ---------- FOUNDER SECTION ---------- */
-.founder-section {
+/* ---------- MODERN FOUNDER SECTION ---------- */
+.founder-section-modern {
   position: relative;
-  padding: 4rem 3rem;
+  padding: 8rem 3rem;
   background: var(--taupe);
   overflow: hidden;
-  z-index: 10;
 }
 
-.founder-section + .founder-section {
-  padding-top: 0;
-}
-
-.founder-container {
-  max-width: 1240px;
+.founder-modern-container {
+  max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
 
-.founder-content {
+/* Header */
+.founder-modern-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.founder-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.founder-modern-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  color: var(--stone);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Vision Card */
+.founder-vision-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
+  gap: 4rem;
   align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+  padding: 3rem;
+  transition: all 0.3s ease;
 }
 
-.founder-content-reverse {
-  direction: rtl;
+.founder-vision-card:hover {
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.founder-content-reverse > * {
-  direction: ltr;
-}
-
-.founder-text {
-  padding-right: 2rem;
-}
-
-.founder-content-reverse .founder-text {
-  padding-right: 0;
-  padding-left: 2rem;
-}
-
-.founder-title {
-  font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-  font-weight: 400;
-  /* color: var(--off-white); */
-  color: var(--stone);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-
-.founder-description {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  color: var(--stone);
-  margin-bottom: 1.5rem;
-  text-align: justify;
-}
-
-.founder-signature {
-  margin-top: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(250, 247, 242, 0.2);
-}
-
-.founder-name {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  color: var(--gold-dim);
-  letter-spacing: 0.05em;
-  font-style: italic;
-}
-
-.founder-image-wrapper {
+.vision-card-image {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 350px;
-}
-
-.founder-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 2px;
+  aspect-ratio: 4/3;
   overflow: hidden;
-  box-shadow:
-    0 10px 40px rgba(34, 28, 23, 0.12),
-    0 2px 8px rgba(34, 28, 23, 0.08);
-  z-index: 2;
+  border-radius: 2px;
 }
 
-.founder-image img {
+.vision-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  filter: saturate(0.9) contrast(1.05);
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.4s ease;
 }
 
-.founder-image:hover img {
-  transform: scale(1.02);
+.founder-vision-card:hover .vision-card-image img {
+  transform: scale(1.03);
 }
 
-.founder-image-accent {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: calc(100% - 40px);
-  height: calc(100% - 40px);
-  border: 1px solid var(--gold);
+.vision-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.vision-card-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  color: var(--stone);
+  line-height: 1.3;
+}
+
+.vision-card-text {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--stone);
+}
+
+/* Profile Section */
+.founder-modern-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(250, 247, 242, 0.15);
+}
+
+.profile-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--stone);
+  margin-bottom: 0.5rem;
+}
+
+.profile-role {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.profile-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.profile-bio p {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--stone);
+}
+
+.profile-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.highlight-item {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 2px;
-  z-index: 1;
-  pointer-events: none;
-  opacity: 0.4;
+  border-left: 2px solid var(--gold);
+  transition: all 0.3s ease;
 }
 
-.founder-brand-asset {
-  position: absolute;
-  top: -60px;
-  left: -40px;
-  width: clamp(80px, 12vw, 140px);
-  height: auto;
-  z-index: 3;
-  opacity: 0.95;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  filter: drop-shadow(0 4px 20px rgba(201, 162, 103, 0.3));
+.highlight-item:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.founder-brand-asset img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+.highlight-item h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--stone);
+  margin-bottom: 0.75rem;
 }
 
-.founder-image-wrapper:hover .founder-brand-asset img {
-  transform: scale(1.05) rotate(2deg);
+.highlight-item p {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--stone);
 }
 
 /* ---------- QUOTE / PLAY SECTION ---------- */
@@ -1176,7 +1216,6 @@ section.panel {
   display: flex;
   align-items: center;
   gap: 1.4rem;
-  margin-top: 4.5rem;
   max-width: 100%;
   overflow-x: auto;
 }
@@ -1990,16 +2029,21 @@ section.panel {
     gap: 2rem;
   }
 
-  .founder-section {
-    padding: 3rem 2rem;
+  .founder-section-modern {
+    padding: 6rem 2rem;
   }
 
-  .founder-content {
-    gap: 2rem;
+  .founder-modern-container {
+    gap: 4rem;
   }
 
-  .founder-text {
-    padding-right: 0;
+  .founder-vision-card {
+    gap: 3rem;
+    padding: 2.5rem;
+  }
+
+  .profile-grid {
+    gap: 3rem;
   }
 
   .quote-section {
@@ -2037,40 +2081,28 @@ section.panel {
 
 /* Mobile landscape / small tablet breakpoint */
 @media (max-width: 820px) {
-  .founder-section {
-    padding: 2.5rem 1.5rem;
+  .founder-section-modern {
+    padding: 4rem 1.5rem;
   }
 
-  .founder-content {
+  .founder-modern-container {
+    gap: 3rem;
+  }
+
+  .founder-vision-card {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
+    padding: 2rem;
   }
 
-  .founder-content-reverse {
-    direction: ltr;
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .founder-text {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
-  }
-
-  .founder-image-wrapper {
-    min-height: 300px;
-    order: -1;
-  }
-
-  .founder-image-accent {
-    top: -15px;
-    right: -15px;
-    width: calc(100% - 30px);
-    height: calc(100% - 30px);
-  }
-
-  .founder-brand-asset {
-    top: -40px;
-    left: -30px;
-    width: clamp(70px, 10vw, 110px);
+  .profile-header {
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .grid-section {
@@ -2178,7 +2210,7 @@ section.panel {
   }
 
   .site-menu-links a {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   }
 
   .site-menu-foot {
@@ -2247,7 +2279,6 @@ section.panel {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    margin-top: 3rem;
   }
 
   .waveform {
@@ -2706,51 +2737,40 @@ img {
     width: 22px;
   }
 
-  .founder-section {
-    padding: 2rem 1.2rem;
+  .founder-section-modern {
+    padding: 3rem 1.2rem;
   }
 
-  .founder-image-wrapper {
-    min-height: 280px;
+  .founder-vision-card {
+    padding: 1.5rem;
   }
 
-  .founder-brand-asset {
-    top: -30px;
-    left: -20px;
-    width: clamp(60px, 15vw, 90px);
+  .highlight-item {
+    padding: 1.25rem;
   }
 }
 
 /* Small mobile breakpoint */
 @media (max-width: 480px) {
-  .founder-section {
-    padding: 1.5rem 1.2rem;
+  .founder-section-modern {
+    padding: 2.5rem 1.2rem;
   }
 
-  .founder-content {
+  .founder-modern-container {
+    gap: 2.5rem;
+  }
+
+  .founder-vision-card {
     gap: 1.5rem;
+    padding: 1.25rem;
   }
 
-  .founder-image-wrapper {
-    min-height: 250px;
+  .profile-highlights {
+    gap: 1.75rem;
   }
 
-  .founder-image-accent {
-    top: -10px;
-    right: -10px;
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
-  }
-
-  .founder-brand-asset {
-    top: -20px;
-    left: -15px;
-    width: clamp(50px, 18vw, 80px);
-  }
-
-  .founder-signature {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+  .highlight-item {
+    padding: 1rem;
   }
 
   /* Hero */
@@ -2822,7 +2842,7 @@ img {
   }
 
   .site-menu-links a {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
   }
 
   /* Intro section */
@@ -2886,11 +2906,15 @@ img {
     line-height: 1.35;
   }
 
-  .quote-caption,
-  .founder-description {
+  .quote-caption {
     font-size: 0.875rem;
-    margin-top: 1.5rem;
+    margin-bottom: 0.7rem;
     max-width: 100%;
+  }
+
+  .vision-card-text,
+  .profile-bio p {
+    font-size: 0.875rem;
   }
 
   .tab-row {
@@ -3248,10 +3272,15 @@ img {
     line-height: 1.4;
   }
 
-  .quote-caption,
-  .founder-description {
+  .quote-caption {
     font-size: 0.875rem;
-    line-height: 1.7;
+    margin-bottom: 0.7rem;
+  }
+
+  .vision-card-text,
+  .profile-bio p,
+  .highlight-item p {
+    font-size: 0.8125rem;
   }
 
   .play-wrap {

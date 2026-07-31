@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import LogoSvg from "@/public/assets/Logo";
 
 export default function Footer() {
@@ -65,7 +66,7 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>&copy;AVA — 2026 all rights reserved</p>
           <div className="footer-legal">
-            <a href="#privacy">Privacy policy</a>
+            <Link href="/privacy">Privacy policy</Link>
           </div>
         </div>
       </footer>

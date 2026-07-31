@@ -1045,7 +1045,8 @@ section.panel {
 }
 .quote-caption {
   margin: 2rem 0 0;
-  font-size: 0.88rem;
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   color: #6b6154;
   word-wrap: break-word;
   overflow-wrap: break-word;

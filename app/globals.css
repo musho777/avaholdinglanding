@@ -2888,7 +2888,7 @@ img {
 
   .quote-caption,
   .founder-description {
-    font-size: 0.875rem;
+    font-size: 0.80rem;
     margin-top: 1.5rem;
     max-width: 100%;
   }
@@ -3250,8 +3250,7 @@ img {
 
   .quote-caption,
   .founder-description {
-    font-size: 0.875rem;
-    line-height: 1.7;
+    font-size: 0.80rem;
   }
 
   .play-wrap {

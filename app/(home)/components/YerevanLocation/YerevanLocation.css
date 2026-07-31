@@ -7,6 +7,8 @@
 }
 
 .map-wrapper {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .map-image {
@@ -17,6 +19,12 @@
   background-repeat: no-repeat;
   background-position: center;
   /* display: none; */
+}
+
+.map-image svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Text overlay on the left */
@@ -149,8 +157,21 @@
 
 @media (max-width: 768px) {
   .map-wrapper {
-    height: 80vh;
-    min-height: 500px;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .map-image {
+    height: auto;
+    width: auto;
+    min-width: 100%;
+  }
+
+  .map-image svg {
+    height: auto;
+    width: auto;
+    min-width: 150%;
   }
 
   .map-text-overlay {
@@ -184,12 +205,25 @@
 
 @media (max-width: 480px) {
   .map-wrapper {
-    height: 70vh;
-    min-height: 400px;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .map-image {
+    height: auto;
+    width: auto;
+    min-width: 100%;
+  }
+
+  .map-image svg {
+    height: auto;
+    width: auto;
+    min-width: 150%;
   }
 
   .map-text-overlay {
-    top: 14%;
+    top: 5%;
   }
 
   .title-line {

@@ -185,7 +185,11 @@
 
 @media (max-width: 768px) {
   .partners-section {
-    padding: 40px 0;
+    padding: 50px 0;
+  }
+
+  .partners-marquee {
+    padding: 15px 0;
   }
 
   .partners-section::before,
@@ -207,8 +211,8 @@
     height: 70px;
   }
 
-  .partner-item:hover {
-    transform: translateY(-10px);
+  .partner-item:hover .partner-icon {
+    transform: scale(1.08) translateY(-3px);
   }
 
   .partner-icon svg {
@@ -219,7 +223,11 @@
 
 @media (max-width: 480px) {
   .partners-section {
-    padding: 35px 0;
+    padding: 45px 0;
+  }
+
+  .partners-marquee {
+    padding: 20px 0;
   }
 
   .partners-section::before,
@@ -246,8 +254,8 @@
     height: 65px;
   }
 
-  .partner-item:hover {
-    transform: translateY(-8px);
+  .partner-item:hover .partner-icon {
+    transform: scale(1.05) translateY(-2px);
   }
 
   .partner-icon svg {

@@ -15,37 +15,17 @@
 
 .partners-title {
   font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
+  color: var(--stone);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
   text-align: center;
-  margin-bottom: 80px;
-  background: linear-gradient(135deg,
-    var(--stone) 0%,
-    var(--gold) 50%,
-    var(--stone) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
   position: relative;
   display: inline-block;
   width: 100%;
-}
-
-.partners-title::after {
-  content: '';
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 2px;
-  background: linear-gradient(90deg,
-    transparent,
-    var(--gold),
-    transparent);
-  opacity: 0.6;
 }
 
 .partners-marquee {
@@ -112,7 +92,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -146,7 +127,6 @@
 
   .partners-title {
     margin-bottom: 60px;
-    font-size: clamp(2rem, 4.5vw, 3.5rem);
   }
 
   .partners-set {
@@ -227,7 +207,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {

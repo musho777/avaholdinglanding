@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   padding: 50px 0;
-  background: var(--taupe);
+  background: var(--stone);
   overflow: hidden;
 }
 
@@ -43,7 +43,7 @@
   font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
-  color: var(--stone);
+  color: var(--charcoal);
   margin-bottom: 2.5rem;
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -80,8 +80,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 80px;
-  height: 80px;
+  min-width: 120px;
+  height: 120px;
   background: transparent;
   position: relative;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -92,19 +92,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--stone);
+  color: var(--taupe);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
-  opacity: 0.6;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+  opacity: 0.85;
+}
+
+.partner-icon svg .cls-1 {
+  fill: currentColor !important;
+  transition: fill 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .partner-item:hover .partner-icon {
   color: var(--gold);
-  transform: scale(1.3) translateY(-10px);
-  filter: drop-shadow(0 8px 24px rgba(201, 162, 103, 0.8));
-  opacity: 1;
+  transform: scale(1.15) translateY(-5px);
+  filter: drop-shadow(0 8px 24px rgba(201, 162, 103, 0.9));
+  opacity: 1 !important;
+}
+
+.partner-item:hover .partner-icon svg .cls-1 {
+  fill: currentColor !important;
 }
 
 @keyframes scroll {

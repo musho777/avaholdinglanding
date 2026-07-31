@@ -31,7 +31,7 @@ export default function Footer() {
         <div className="footer-mid">
           <div className="footer-locations">
             <div className="footer-location-item">
-              <p className="footer-location">Yerevan, Armenia</p>
+              <p className="footer-location">YEREVAN, ARMENIA</p>
               <div className="footer-location-row">
                 <button className="map-btn" onClick={openGoogleMaps}>
                   See on map

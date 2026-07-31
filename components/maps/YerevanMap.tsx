@@ -48,16 +48,10 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({ className = "" }) => {
         />
 
         {/* Nor Nork */}
-        <path
-          className="map-district"
-          d="M 450 250 L 580 220 L 620 280 L 600 340 L 480 300 Z"
-        />
+        <path className="map-district" d="M 450 250 L 580 220 L 620 280 L 600 340 L 480 300 Z" />
 
         {/* Avan */}
-        <path
-          className="map-district"
-          d="M 350 180 L 480 150 L 580 220 L 450 250 Z"
-        />
+        <path className="map-district" d="M 350 180 L 480 150 L 580 220 L 450 250 Z" />
 
         {/* Erebuni */}
         <path
@@ -86,29 +80,16 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({ className = "" }) => {
         <circle className="map-landmark" cx="400" cy="300" r="8" />
 
         {/* Cascade */}
-        <rect
-          className="map-landmark"
-          x="360"
-          y="260"
-          width="12"
-          height="25"
-          rx="2"
-        />
+        <rect className="map-landmark" x="360" y="260" width="12" height="25" rx="2" />
 
         {/* Opera House */}
         <circle className="map-landmark" cx="380" cy="310" r="6" />
 
         {/* Mother Armenia */}
-        <polygon
-          className="map-landmark"
-          points="280,270 290,280 270,280"
-        />
+        <polygon className="map-landmark" points="280,270 290,280 270,280" />
 
         {/* Tsitsernakaberd Memorial */}
-        <path
-          className="map-landmark"
-          d="M 250 360 L 260 355 L 260 365 Z"
-        />
+        <path className="map-landmark" d="M 250 360 L 260 355 L 260 365 Z" />
       </g>
 
       {/* Labels */}
@@ -168,12 +149,7 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({ className = "" }) => {
           stroke="#5f5346"
           strokeWidth="0.5"
         />
-        <text
-          className="map-text map-text-small"
-          y="-28"
-          textAnchor="middle"
-          fontWeight="600"
-        >
+        <text className="map-text map-text-small" y="-28" textAnchor="middle" fontWeight="600">
           N
         </text>
       </g>

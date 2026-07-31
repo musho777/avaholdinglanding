@@ -1,6 +1,7 @@
 "use client";
 
 import "./YerevanLocation.css";
+import MapSvg from "../MapSvg/MapSvg";
 
 export default function YerevanLocation() {
   const openGoogleMaps = () => {
@@ -12,7 +13,7 @@ export default function YerevanLocation() {
   return (
     <section className="yerevan-location" id="location">
       <div className="map-wrapper">
-        <img className="map-image" src="/assets/AVA_Map1.svg" alt="Yerevan map" />
+        <MapSvg className="map-image" />
 
         <div className="map-text-overlay">
           <h2 className="map-title">
@@ -24,8 +25,6 @@ export default function YerevanLocation() {
             SEE ON MAP
           </button>
         </div>
-
-        <div className="location-label-top scroll-reveal delay-1">YEREVAN, ARMENIA</div>
       </div>
     </section>
   );

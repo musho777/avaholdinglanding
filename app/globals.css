@@ -1189,7 +1189,6 @@ section.panel {
   display: flex;
   align-items: center;
   gap: 1.4rem;
-  margin-top: 4.5rem;
   max-width: 100%;
   overflow-x: auto;
 }
@@ -2259,7 +2258,6 @@ section.panel {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-    margin-top: 3rem;
   }
 
   .waveform {

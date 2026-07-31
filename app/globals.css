@@ -845,7 +845,7 @@ section.panel {
 /* ---------- FOUNDER SECTION ---------- */
 .founder-section {
   position: relative;
-  padding: 4rem 3rem;
+  padding: 0rem 3rem;
   background: var(--taupe);
   overflow: hidden;
   z-index: 10;
@@ -853,6 +853,10 @@ section.panel {
 
 .founder-section + .founder-section {
   padding-top: 0;
+}
+
+.founder-section-reverse {
+  padding-bottom: 2rem;
 }
 
 .founder-container {
@@ -923,6 +927,15 @@ section.panel {
   width: 100%;
   height: 100%;
   min-height: 350px;
+}
+
+.founder-image-wrapper > img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 2px;
 }
 
 .founder-image {
@@ -2888,7 +2901,7 @@ img {
 
   .quote-caption,
   .founder-description {
-    font-size: 0.80rem;
+    font-size: 0.8rem;
     margin-top: 1.5rem;
     max-width: 100%;
   }
@@ -3250,7 +3263,7 @@ img {
 
   .quote-caption,
   .founder-description {
-    font-size: 0.80rem;
+    font-size: 0.8rem;
   }
 
   .play-wrap {

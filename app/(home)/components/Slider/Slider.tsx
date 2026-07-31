@@ -1,6 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const images = [
   "/assets/AVA1.jpg",
@@ -17,87 +19,50 @@ const images = [
 ];
 
 export default function Slider() {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(true);
   const sliderThumbRef = useRef<HTMLDivElement>(null);
-  const sliderTrackRef = useRef<HTMLDivElement>(null);
-  const viewportRef = useRef<HTMLDivElement>(null);
   const dragStartY = useRef(0);
-  const swipeStartX = useRef(0);
-  const swipeStartY = useRef(0);
-  const autoSlideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Create extended array with clones for infinite loop effect
-  // [last, ...original images..., first]
-  const extendedImages = [images[images.length - 1], ...images, images[0]];
+  const autoplayPlugin = useRef(
+    Autoplay({ delay: 4500, stopOnInteraction: false })
+  );
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      duration: 25,
+      skipSnaps: false,
+    },
+    [autoplayPlugin.current]
+  );
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCurrentIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
   useEffect(() => {
     updateThumbPosition();
   }, [currentIndex]);
-
-  // Handle infinite loop transitions
-  useEffect(() => {
-    if (!isTransitioning) return;
-
-    const handleTransitionEnd = () => {
-      // When we reach the cloned first slide (at the end)
-      if (currentIndex === extendedImages.length - 1) {
-        setIsTransitioning(false);
-        setCurrentIndex(1); // Jump to real first slide
-      }
-      // When we reach the cloned last slide (at the beginning)
-      else if (currentIndex === 0) {
-        setIsTransitioning(false);
-        setCurrentIndex(extendedImages.length - 2); // Jump to real last slide
-      }
-    };
-
-    const track = sliderTrackRef.current;
-    if (track) {
-      track.addEventListener("transitionend", handleTransitionEnd);
-      return () => track.removeEventListener("transitionend", handleTransitionEnd);
-    }
-  }, [currentIndex, isTransitioning, extendedImages.length]);
-
-  // Re-enable transitions after jumping
-  useEffect(() => {
-    if (!isTransitioning) {
-      const timeout = setTimeout(() => {
-        setIsTransitioning(true);
-      }, 50);
-      return () => clearTimeout(timeout);
-    }
-  }, [isTransitioning]);
-
-  // Auto-slide with reset capability
-  const startAutoSlide = () => {
-    // Clear existing timeout
-    if (autoSlideTimeoutRef.current) {
-      clearInterval(autoSlideTimeoutRef.current);
-    }
-
-    // Start new interval
-    autoSlideTimeoutRef.current = setInterval(() => {
-      setIsTransitioning(true);
-      setCurrentIndex((prev) => prev + 1);
-    }, 4500);
-  };
-
-  // Initialize auto-slide on mount
-  useEffect(() => {
-    startAutoSlide();
-    return () => {
-      if (autoSlideTimeoutRef.current) {
-        clearInterval(autoSlideTimeoutRef.current);
-      }
-    };
-  }, []);
 
   const updateThumbPosition = () => {
     if (!sliderThumbRef.current || !sliderThumbRef.current.parentElement) return;
@@ -105,26 +70,33 @@ export default function Slider() {
     const trackH = sliderThumbRef.current.parentElement.clientHeight;
     const segment = trackH / images.length;
 
-    // Calculate actual index for thumb position (excluding clones)
-    let actualIndex = currentIndex - 1;
-    if (currentIndex === 0) actualIndex = images.length - 1;
-    if (currentIndex === extendedImages.length - 1) actualIndex = 0;
-
     sliderThumbRef.current.style.height = Math.max(segment - 6, 14) + "px";
-    sliderThumbRef.current.style.transform = `translate3d(0, ${actualIndex * segment + 3}px, 0)`;
+    sliderThumbRef.current.style.transform = `translate3d(0, ${currentIndex * segment + 3}px, 0)`;
   };
 
-  const goToPrevious = () => {
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev - 1);
-    startAutoSlide(); // Reset the auto-slide interval
-  };
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+      autoplayPlugin.current.reset();
+    }
+  }, [emblaApi]);
 
-  const goToNext = () => {
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => prev + 1);
-    startAutoSlide(); // Reset the auto-slide interval
-  };
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+      autoplayPlugin.current.reset();
+    }
+  }, [emblaApi]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) {
+        emblaApi.scrollTo(index);
+        autoplayPlugin.current.reset();
+      }
+    },
+    [emblaApi]
+  );
 
   // Thumb dragging handlers
   const handleThumbMouseDown = (e: React.MouseEvent) => {
@@ -146,12 +118,10 @@ export default function Slider() {
       const rect = track.getBoundingClientRect();
       const y = clientY - rect.top;
       const percentage = Math.max(0, Math.min(1, y / rect.height));
-      const newActualIndex = Math.floor(percentage * images.length);
-      const newIndex = newActualIndex + 1; // Add 1 for the cloned slide at the beginning
+      const newIndex = Math.floor(percentage * images.length);
 
-      if (newIndex !== currentIndex && newIndex >= 1 && newIndex <= images.length) {
-        setIsTransitioning(true);
-        setCurrentIndex(newIndex);
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex < images.length) {
+        scrollTo(newIndex);
       }
     };
 
@@ -165,7 +135,6 @@ export default function Slider() {
 
     const handleEnd = () => {
       setIsDragging(false);
-      startAutoSlide(); // Reset the auto-slide interval after dragging
     };
 
     if (isDragging) {
@@ -181,74 +150,16 @@ export default function Slider() {
       document.removeEventListener("touchmove", handleTouchMove);
       document.removeEventListener("touchend", handleEnd);
     };
-  }, [isDragging, currentIndex]);
-
-  // Swipe handlers for the viewport
-  const handleSwipeStart = (clientX: number, clientY: number) => {
-    swipeStartX.current = clientX;
-    swipeStartY.current = clientY;
-  };
-
-  const handleSwipeEnd = (clientX: number, clientY: number) => {
-    const diffX = swipeStartX.current - clientX;
-    const diffY = Math.abs(swipeStartY.current - clientY);
-
-    // Only trigger if horizontal swipe is dominant
-    if (Math.abs(diffX) > 50 && Math.abs(diffX) > diffY) {
-      if (diffX > 0) {
-        goToNext();
-      } else {
-        goToPrevious();
-      }
-    }
-  };
-
-  const handleViewportMouseDown = (e: React.MouseEvent) => {
-    handleSwipeStart(e.clientX, e.clientY);
-  };
-
-  const handleViewportMouseUp = (e: React.MouseEvent) => {
-    handleSwipeEnd(e.clientX, e.clientY);
-  };
-
-  const handleViewportTouchStart = (e: React.TouchEvent) => {
-    handleSwipeStart(e.touches[0].clientX, e.touches[0].clientY);
-  };
-
-  const handleViewportTouchEnd = (e: React.TouchEvent) => {
-    handleSwipeEnd(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
-  };
+  }, [isDragging, currentIndex, scrollTo]);
 
   const pad = (n: number) => String(n).padStart(2, "0");
 
-  // Get actual display index (for counter)
-  const getDisplayIndex = () => {
-    if (currentIndex === 0) return images.length - 1;
-    if (currentIndex === extendedImages.length - 1) return 0;
-    return currentIndex - 1;
-  };
-
   return (
     <section className="slider" id="slider">
-      <div
-        className="slide-viewport"
-        ref={viewportRef}
-        onMouseDown={handleViewportMouseDown}
-        onMouseUp={handleViewportMouseUp}
-        onTouchStart={handleViewportTouchStart}
-        onTouchEnd={handleViewportTouchEnd}
-        style={{ cursor: "grab", userSelect: "none" }}
-      >
-        <div
-          className="slide-track"
-          ref={sliderTrackRef}
-          style={{
-            transform: `translate3d(-${currentIndex * 100}%, 0, 0)`,
-            transition: isTransitioning ? "transform 0.5s ease-in-out" : "none",
-          }}
-        >
+      <div className="slide-viewport" ref={emblaRef}>
+        <div className="slide-track">
           {mounted &&
-            extendedImages.map((image, idx) => (
+            images.map((image, idx) => (
               <div key={idx} className={`slide ${idx === currentIndex ? "active" : ""}`}>
                 <div
                   className="slide-inner"
@@ -264,16 +175,16 @@ export default function Slider() {
 
       <div className="slider-bottom scroll-reveal">
         <div className="slide-counter">
-          <span className="cur">{pad(getDisplayIndex() + 1)}</span>
+          <span className="cur">{pad(currentIndex + 1)}</span>
           <span className="total">/ {pad(images.length)}</span>
         </div>
       </div>
 
       <div className="slider-arrows scroll-reveal delay-1">
-        <button className="arrow-btn" onClick={goToPrevious} aria-label="Previous slide">
+        <button className="arrow-btn" onClick={scrollPrev} aria-label="Previous slide">
           &#8592;
         </button>
-        <button className="arrow-btn" onClick={goToNext} aria-label="Next slide">
+        <button className="arrow-btn" onClick={scrollNext} aria-label="Next slide">
           &#8594;
         </button>
       </div>

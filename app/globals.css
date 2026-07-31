@@ -898,7 +898,7 @@ section.panel {
 
 .founder-description {
   font-family: var(--font-sans);
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-size: clamp(1.1rem, 1.4vw, 1.2rem);
   color: var(--stone);
   margin-bottom: 1.5rem;
   text-align: justify;
@@ -1046,7 +1046,7 @@ section.panel {
 .quote-caption {
   margin: 2rem 0 0;
   font-family: var(--font-sans);
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-size: clamp(1.1rem, 1.4vw, 1.2rem);
   color: #6b6154;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -2892,7 +2892,7 @@ img {
   }
 
   .quote-caption {
-    font-size: 0.85rem;
+    font-size: 1rem;
     margin-top: 1.5rem;
     max-width: 100%;
   }
@@ -3253,7 +3253,7 @@ img {
   }
 
   .quote-caption {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     line-height: 1.7;
   }
 

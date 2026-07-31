@@ -3,8 +3,8 @@ import "./fonts.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AVA — Quiet Luxury Residences",
-  description: "VA Holding - Real Estate Development Company in Armenia",
+  title: "AVA Holding - Real Estate Development Company in Armenia",
+  description: "AVA Holding - Real Estate Development Company in Armenia",
   keywords: ["Yerevan", "Armenia", "quiet luxury", "premium real estate"],
   authors: [{ name: "AVA" }],
   creator: "AVA",

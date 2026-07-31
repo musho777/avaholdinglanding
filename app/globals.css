@@ -3437,6 +3437,14 @@ img {
   bottom: 2rem;
   right: 2rem;
   z-index: 100;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.whatsapp-button-wrapper.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .whatsapp-button {

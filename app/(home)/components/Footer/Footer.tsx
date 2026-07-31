@@ -66,7 +66,6 @@ export default function Footer() {
           <p>&copy;AVA — 2026 all rights reserved</p>
           <div className="footer-legal">
             <a href="#privacy">Privacy policy</a>
-            <a href="#terms">Terms of use</a>
           </div>
         </div>
       </footer>

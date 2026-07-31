@@ -1,6 +1,32 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function WhatsAppButton() {
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    const footer = document.querySelector(".site-footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setIsHidden(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    observer.observe(footer);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const handleClick = () => {
     // Replace with your actual WhatsApp number
     const phoneNumber = "37498333372"; // Format: country code + number (no + or spaces)
@@ -9,7 +35,7 @@ export default function WhatsAppButton() {
   };
 
   return (
-    <div className="whatsapp-button-wrapper">
+    <div className={`whatsapp-button-wrapper ${isHidden ? "hidden" : ""}`}>
       <button
         className="whatsapp-button"
         onClick={handleClick}

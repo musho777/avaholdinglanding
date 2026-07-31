@@ -1796,7 +1796,6 @@ section.panel {
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 2rem;
-  margin-bottom: 5rem;
 }
 .footer-contact .eyebrow {
   font-size: 0.75rem;
@@ -1832,7 +1831,7 @@ section.panel {
 .footer-mark {
   display: flex;
   justify-content: center;
-  padding: 2rem 0 4rem;
+  padding: 5rem 0;
 }
 .footer-mark svg {
   width: 180px;

@@ -15,11 +15,20 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "AVA",
+    images: [
+      {
+        url: "/assets/AVA1.jpg",
+        width: 1200,
+        height: 800,
+        alt: "AVA Holding - Premium Real Estate in Armenia",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AVA Holding - Real Estate Development Company in Armenia",
     description: "AVA Holding - Real Estate Development Company in Armenia",
+    images: ["/assets/AVA1.jpg"],
   },
   robots: {
     index: true,

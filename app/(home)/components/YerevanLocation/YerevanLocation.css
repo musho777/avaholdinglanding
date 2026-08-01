@@ -31,7 +31,7 @@
 .map-text-overlay {
   position: absolute;
   top: 5%;
-  left: 5%;
+  left: 0;
   z-index: 3;
   max-width: 500px;
 }
@@ -100,7 +100,7 @@
 .location-label-top {
   position: absolute;
   top: 5%;
-  right: 5%;
+  right: 0;
   font-size: 0.85rem;
   color: #555;
   z-index: 3;
@@ -162,7 +162,6 @@
 /* Responsive design */
 @media (max-width: 1024px) {
   .map-text-overlay {
-    left: 3%;
     max-width: 500px;
   }
 
@@ -192,8 +191,6 @@
   }
 
   .map-text-overlay {
-    left: 5%;
-    right: 5%;
     max-width: none;
   }
 

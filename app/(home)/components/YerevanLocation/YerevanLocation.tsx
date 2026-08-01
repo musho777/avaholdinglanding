@@ -43,7 +43,7 @@ export default function YerevanLocation() {
       <div className="map-wrapper" ref={mapWrapperRef}>
         <MapSvg className="map-image" />
 
-        <div className="map-text-overlay">
+        <div className="map-text-overlay container-padding">
           <h2 className="map-title">
             <span className="title-line scroll-reveal">PRIME LOCATION</span>
             <span className="title-line scroll-reveal delay-1">IN THE HEART OF</span>

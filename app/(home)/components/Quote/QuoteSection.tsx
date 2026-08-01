@@ -183,7 +183,7 @@ export default function QuoteSection() {
         <source src="/assets/Ava holding creates-2.wav" type="audio/wav" />
       </audio>
       <div className="quote-bg"></div>
-      <div className="quote-inner">
+      <div className="quote-inner container-padding">
         <div>
           <p className="quote-fill scroll-reveal" id="quoteText">
             AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE, MEANINGFUL, AND FORWARD-LOOKING FUTURE.

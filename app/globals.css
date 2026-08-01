@@ -709,6 +709,25 @@ body {
 .site-menu-foot a {
   color: rgba(243, 237, 224, 0.6);
   text-decoration: none;
+  font-size: 1.5rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.site-menu-foot a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #faf7f2;
+  transition: width 0.4s ease;
+}
+.site-menu-foot a:hover {
+  color: #faf7f2;
+}
+.site-menu-foot a:hover::after {
+  width: 100%;
 }
 .site-menu-foot .menu-book-btn {
   display: none; /* Hidden by default on desktop */
@@ -2220,6 +2239,10 @@ section.panel {
     padding: 0.7rem 1.5rem;
   }
 
+  .site-menu-foot a {
+    font-size: 1.2rem;
+  }
+
   .site-footer {
     padding: 1rem 1.5rem 0;
   }
@@ -2829,6 +2852,10 @@ img {
 
   .site-menu-links a {
     font-size: clamp(1.4rem, 3.5vw, 2rem);
+  }
+
+  .site-menu-foot a {
+    font-size: 1rem;
   }
 
   /* Intro section */

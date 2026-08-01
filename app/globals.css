@@ -602,9 +602,8 @@ body {
 }
 
 .site-menu-body {
-  flex: 1;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   gap: 6vw;
   min-height: 0;
   margin-top: 3rem;
@@ -623,7 +622,6 @@ body {
   background-image: url("/assets/AVA10.jpg");
   background-size: cover;
   background-position: center 42%;
-  margin-top: 15px;
 }
 .site-menu-image-cover {
   position: absolute;
@@ -641,7 +639,8 @@ body {
 .site-menu-links {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  justify-content: flex-end;
+  margin-bottom: -8px;
 }
 .site-menu-links a {
   font-family: var(--font-sans);
@@ -690,6 +689,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: auto;
   padding-top: 1.5rem;
   font-size: 0.72rem;
   text-transform: uppercase;
@@ -702,7 +702,9 @@ body {
 .site-menu-foot .foot-right {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 1.5rem;
+  flex: 1;
 }
 .site-menu-foot a {
   color: rgba(243, 237, 224, 0.6);

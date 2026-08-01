@@ -11,18 +11,19 @@ export function useAnchorScrollInit() {
       const href = link.getAttribute("href");
       if (!href || href === "#") return;
 
-      e.preventDefault();
-
       const targetId = href.substring(1);
       const targetElement = document.getElementById(targetId);
 
       if (targetElement) {
+        e.preventDefault();
+
+        // Use native smooth scroll (lightweight, no custom animation)
         targetElement.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
 
-        // Update URL without triggering a page jump
+        // Update URL
         if (window.history && window.history.pushState) {
           window.history.pushState(null, "", href);
         }

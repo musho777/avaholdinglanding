@@ -2,54 +2,74 @@ import { useEffect } from "react";
 
 export function useSmoothScrollInit() {
   useEffect(() => {
-    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) return;
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+    // Skip on touch devices
+    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) {
+      document.documentElement.style.scrollBehavior = "auto";
       return;
+    }
 
+    // Respect user's motion preferences
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.style.scrollBehavior = "auto";
+      return;
+    }
+
+    // Custom smooth scroll with optimizations
     document.documentElement.style.scrollBehavior = "auto";
 
-    let current = window.scrollY || window.pageYOffset;
+    let current = window.scrollY;
     let target = current;
-    const ease = 0.09;
-    let ticking = false;
+    const ease = 0.15; // Higher value = faster, smoother (was 0.09 before)
+    let rafId: number | null = null;
 
-    function maxScroll() {
-      return document.documentElement.scrollHeight - window.innerHeight;
-    }
+    const lerp = (start: number, end: number, factor: number) => {
+      return start + (end - start) * factor;
+    };
 
-    function onWheel(e: WheelEvent) {
-      e.preventDefault();
-      target += e.deltaY;
-      target = Math.max(0, Math.min(target, maxScroll()));
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(tick);
-      }
-    }
+    const animate = () => {
+      const diff = Math.abs(target - current);
 
-    function tick() {
-      current += (target - current) * ease;
-      if (Math.abs(target - current) < 0.5) {
+      // Stop if close enough (performance optimization)
+      if (diff < 0.5) {
         current = target;
         window.scrollTo(0, current);
-        ticking = false;
+        rafId = null;
         return;
       }
-      window.scrollTo(0, current);
-      requestAnimationFrame(tick);
-    }
 
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (!ticking) {
-          current = window.scrollY || window.pageYOffset;
-          target = current;
-        }
-      },
-      { passive: true }
-    );
+      current = lerp(current, target, ease);
+      window.scrollTo(0, current);
+      rafId = requestAnimationFrame(animate);
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      target += e.deltaY;
+      target = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));
+
+      // Only start animation if not already running
+      if (!rafId) {
+        rafId = requestAnimationFrame(animate);
+      }
+    };
+
+    const onScroll = () => {
+      // Sync on programmatic scrolls
+      if (!rafId) {
+        current = window.scrollY;
+        target = current;
+      }
+    };
 
     window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("scroll", onScroll);
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, []);
 }

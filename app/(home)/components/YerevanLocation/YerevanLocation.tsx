@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./YerevanLocation.css";
 import MapSvg from "../MapSvg/MapSvg";
 
 export default function YerevanLocation() {
   const mapWrapperRef = useRef<HTMLDivElement>(null);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isHoveringMap, setIsHoveringMap] = useState(false);
 
   useEffect(() => {
     const centerScroll = () => {
@@ -32,6 +34,18 @@ export default function YerevanLocation() {
     };
   }, []);
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    setCursorPosition({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseEnter = () => {
+    setIsHoveringMap(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHoveringMap(false);
+  };
+
   const openGoogleMaps = () => {
     const address = "Derenik Demirchyan 2-4, Yerevan, Armenia";
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -40,7 +54,13 @@ export default function YerevanLocation() {
 
   return (
     <section className="yerevan-location" id="location">
-      <div className="map-wrapper" ref={mapWrapperRef}>
+      <div
+        className="map-wrapper"
+        ref={mapWrapperRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <MapSvg className="map-image" />
 
         <div className="map-text-overlay container-padding">
@@ -54,6 +74,21 @@ export default function YerevanLocation() {
           </button>
         </div>
       </div>
+
+      {/* Custom cursor circles - WhatsApp style */}
+      {isHoveringMap && (
+        <div
+          className="custom-cursor-container"
+          style={{
+            left: `${cursorPosition.x}px`,
+            top: `${cursorPosition.y}px`,
+          }}
+        >
+          <div className="cursor-ring cursor-ring-1" />
+          <div className="cursor-ring cursor-ring-2" />
+          <div className="cursor-ring cursor-ring-3" />
+        </div>
+      )}
     </section>
   );
 }

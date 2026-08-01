@@ -9,6 +9,53 @@
 .map-wrapper {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  cursor: default; /* Keep default cursor visible */
+}
+
+/* Custom cursor circles container */
+.custom-cursor-container {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+/* Individual cursor rings */
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/* WhatsApp-style ripple animations with delays */
+.cursor-ring-1 {
+  animation: ripple 4s ease-out infinite;
+}
+
+.cursor-ring-2 {
+  animation: ripple 4s ease-out 1.3s infinite;
+}
+
+.cursor-ring-3 {
+  animation: ripple 4s ease-out 2.6s infinite;
+}
+
+/* Ripple effect - expand and fade out */
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
 }
 
 .map-image {

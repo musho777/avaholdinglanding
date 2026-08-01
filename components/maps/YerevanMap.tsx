@@ -22,7 +22,7 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({ className = "" }) => {
           .map-river { stroke: #8b9daa; stroke-width: 3; fill: none; opacity: 0.6; }
           .map-landmark { fill: #c9a267; stroke: #5f5346; stroke-width: 1.5; }
           .map-text { font-family: var(--font-sans, sans-serif); fill: #3a322b; font-size: 12px; }
-          .map-text-large { font-size: 18px; font-weight: 600; letter-spacing: 0.05em; }
+          .map-text-large { font-size: 18px; font-weight: 600; }
           .map-text-small { font-size: 10px; opacity: 0.8; }
         `}</style>
       </defs>

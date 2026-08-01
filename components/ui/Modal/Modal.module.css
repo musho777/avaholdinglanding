@@ -84,7 +84,6 @@
   font-weight: 400;
   font-family: var(--font-serif, "Constantia", Georgia, serif);
   color: var(--taupe, #6c635a);
-  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
@@ -154,7 +153,6 @@
 
   .title {
     font-size: 1.25rem;
-    letter-spacing: 0.1em;
   }
 
   .closeButton {
@@ -194,7 +192,6 @@
 
   .title {
     font-size: 1.125rem;
-    letter-spacing: 0.08em;
   }
 
   .closeButton {

@@ -9,7 +9,6 @@
       .cls-2 {
         font-family: Helvetica-Regular, Helvetica;
         font-size: 32px;
-        letter-spacing: .07em;
       }
 
       .cls-2, .cls-3 {

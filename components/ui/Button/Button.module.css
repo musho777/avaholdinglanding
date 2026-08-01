@@ -10,7 +10,6 @@
   transition: all 0.25s ease;
   font-family: var(--font-sans, "Helvetica", sans-serif);
   outline: none;
-  letter-spacing: 0.02em;
   position: relative;
   overflow: hidden;
 }
@@ -102,7 +101,6 @@
   background-color: var(--taupe, #6c635a);
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
   font-weight: 400;
   box-shadow: none;
 }

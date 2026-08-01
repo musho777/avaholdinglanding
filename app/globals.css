@@ -1112,7 +1112,7 @@ section.panel {
   font-family: var(--font-serif);
   font-weight: 400;
   text-transform: uppercase;
-  font-size: clamp(1.7rem, 3vw, 2.7rem);
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
   line-height: 1.28;
   margin: 0;
   word-wrap: break-word;

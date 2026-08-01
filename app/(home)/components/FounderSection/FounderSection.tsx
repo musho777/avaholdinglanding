@@ -4,7 +4,7 @@ export default function FounderSection() {
   return (
     <>
       <section className="founder-section" id="founder">
-        <div className="founder-container">
+        <div className="founder-container container-padding">
           <div className="founder-content founder-content-reverse">
             <div className="founder-text">
               <h2 className="founder-title scroll-reveal">VISION & CRAFTSMANSHIP</h2>
@@ -30,7 +30,7 @@ export default function FounderSection() {
         </div>
       </section>
       <section className="founder-section founder-section-reverse">
-        <div className="founder-container">
+        <div className="founder-container container-padding">
           <div className="founder-content">
             <div className="founder-text">
               <h2 className="founder-title scroll-reveal">FOUNDERS</h2>

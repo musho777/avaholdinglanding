@@ -474,16 +474,17 @@ body {
   width: 100%;
 }
 .header-nav .book-btn {
-  background: var(--stone);
+  background: transparent;
   border: 1px solid var(--stone);
   padding: 0.85rem 2rem;
   border-radius: 6px;
-  color: var(--taupe);
+  color: white;
   font-size: 0.9rem;
   font-weight: 500;
   transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
 .header-nav .book-btn span {
@@ -509,6 +510,12 @@ body {
 
 .header-nav .book-btn:active {
   transform: scale(0.94);
+}
+
+.header-with-bg .header-nav .book-btn {
+  background: var(--stone);
+  color: var(--taupe);
+  text-shadow: none;
 }
 
 .menu-btn {

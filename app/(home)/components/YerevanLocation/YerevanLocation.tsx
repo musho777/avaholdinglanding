@@ -6,7 +6,7 @@ import MapSvg from "../MapSvg/MapSvg";
 
 export default function YerevanLocation() {
   const mapWrapperRef = useRef<HTMLDivElement>(null);
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number } | null>(null);
   const [isHoveringMap, setIsHoveringMap] = useState(false);
 
   useEffect(() => {
@@ -44,6 +44,7 @@ export default function YerevanLocation() {
 
   const handleMouseLeave = () => {
     setIsHoveringMap(false);
+    setCursorPosition(null);
   };
 
   const openGoogleMaps = () => {
@@ -76,7 +77,7 @@ export default function YerevanLocation() {
       </div>
 
       {/* Custom cursor circles - WhatsApp style */}
-      {isHoveringMap && (
+      {isHoveringMap && cursorPosition && (
         <div
           className="custom-cursor-container"
           style={{

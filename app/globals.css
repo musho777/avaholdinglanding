@@ -1650,6 +1650,10 @@ section.panel {
     order: -1;
   }
 
+  .quote-controls {
+    align-items: center;
+  }
+
   .quote-inner {
     grid-template-columns: 1fr;
   }
@@ -2226,6 +2230,10 @@ section.panel {
 
   .quote-content {
     gap: 2.5rem;
+  }
+
+  .quote-controls {
+    align-items: center;
   }
 
   .quote-inner {
@@ -3113,6 +3121,10 @@ img {
     gap: 1.5rem;
   }
 
+  .quote-controls {
+    align-items: center;
+  }
+
   .quote-inner {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -3482,6 +3494,10 @@ img {
 
   .quote-content {
     gap: 1rem;
+  }
+
+  .quote-controls {
+    align-items: center;
   }
 
   .quote-inner {

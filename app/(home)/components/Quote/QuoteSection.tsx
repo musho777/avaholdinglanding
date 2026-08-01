@@ -16,6 +16,7 @@ export default function QuoteSection() {
     const wfElapsed = document.getElementById("wfElapsed");
     const wfTotal = document.getElementById("wfTotal");
     const audioElement = document.getElementById("quoteAudio") as HTMLAudioElement;
+    const animPhoto = document.querySelector(".anim-photo") as HTMLElement;
 
     if (
       !quoteText ||
@@ -129,7 +130,7 @@ export default function QuoteSection() {
       lastFrame = null;
       playBtnText!.textContent = "Pause";
       playWrap!.classList.add("playing");
-      audioElement.play().catch(err => console.error("Audio play failed:", err));
+      audioElement.play().catch((err) => console.error("Audio play failed:", err));
       rafId = requestAnimationFrame(tick);
     }
 
@@ -174,7 +175,28 @@ export default function QuoteSection() {
       stop();
     });
 
+    function handleScroll() {
+      if (!animPhoto) return;
+
+      const rect = animPhoto.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const progress = Math.max(
+        0,
+        Math.min(1, 1 - (rect.top + rect.height / 2) / (windowHeight + rect.height / 2))
+      );
+      const translateY = -20 + progress * 20;
+      animPhoto.style.transform = `translate(0%, ${translateY}%)`;
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     render();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
@@ -183,13 +205,33 @@ export default function QuoteSection() {
         <source src="/assets/Ava holding creates-2.wav" type="audio/wav" />
       </audio>
       <div className="quote-bg"></div>
+
+      <div className="photo-wrapper scroll-reveal">
+        <div className="wrap-image anim-photo">
+          <picture className="inner-img">
+            <img src="/assets/architecture.webp" alt="AVA Architecture" className="inner-img" />
+          </picture>
+        </div>
+      </div>
+
       <div className="quote-inner container-padding">
         <div>
           <p className="quote-fill scroll-reveal" id="quoteText">
-            AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE, MEANINGFUL, AND FORWARD-LOOKING FUTURE.
+            AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE,
+            MEANINGFUL, AND FORWARD-LOOKING FUTURE.
           </p>
           <p className="quote-caption scroll-reveal delay-1" id="quoteCaption">
-            Founded in 2006, AVA Holding is one of Armenia's most promising real estate development and construction companies. Its core focus is the creation of multifunctional residential buildings that meet the evolving needs of modern life. Today, one of Armenia's most significant challenges — and opportunities — is to stand among the world's leading innovators. Achieving that visibility would firmly place our country on the global stage. At the same time, in a world advancing at high speed, we believe it is vital not to lose sight of what matters most: people, safety, and the feeling of home. That's why AVA Holding aims to build more than just modern buildings — it creates spaces where people feel warmth, comfort, and belonging. Each project blends forward-thinking architecture with everyday practicality, driven by a deep respect for both place and person, chasing the main manifesto — LIVING PERFECTED.
+            Founded in 2006, AVA Holding is one of Armenia's most promising real estate development
+            and construction companies. Its core focus is the creation of multifunctional
+            residential buildings that meet the evolving needs of modern life. Today, one of
+            Armenia's most significant challenges — and opportunities — is to stand among the
+            world's leading innovators. Achieving that visibility would firmly place our country on
+            the global stage. At the same time, in a world advancing at high speed, we believe it is
+            vital not to lose sight of what matters most: people, safety, and the feeling of home.
+            That's why AVA Holding aims to build more than just modern buildings — it creates spaces
+            where people feel warmth, comfort, and belonging. Each project blends forward-thinking
+            architecture with everyday practicality, driven by a deep respect for both place and
+            person, chasing the main manifesto — LIVING PERFECTED.
           </p>
         </div>
 

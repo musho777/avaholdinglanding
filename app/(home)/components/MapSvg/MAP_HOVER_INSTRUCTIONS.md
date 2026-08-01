@@ -7,7 +7,9 @@ This document explains how to add hover effects to different address points on t
 ### Address 2 Hover Effect
 Currently, `address2` has a hover effect where:
 - When hovering over address2, it changes color to white
-- The 11 route points (`route-rect`) change to black **one by one** (sequentially)
+- The 11 route points (beautiful circular dots) appear in black **one by one** (sequentially)
+- Each dot has a beautiful bounce animation with drop shadow
+- Animation uses cubic-bezier easing for smooth, professional effect
 - When unhovering, everything returns to the original color
 
 ## How to Add Hover Effects to Other Address Points
@@ -50,7 +52,7 @@ The CSS is located in the `<style>` tag inside the `<defs>` section (line 12-14)
 #address1:hover .cls-3{fill:#fff!important}
 ```
 
-#### Address with Route Points (Sequential Animation)
+#### Address with Route Points (Beautiful Sequential Animation)
 ```css
 /* Wrapper for isolation */
 #address2-wrapper{isolation:isolate}
@@ -59,37 +61,50 @@ The CSS is located in the `<style>` tag inside the `<defs>` section (line 12-14)
 #address2-wrapper:hover #address2 .cls-2{stroke:#fff!important}
 #address2-wrapper:hover #address2 .cls-3{fill:#fff!important}
 
-/* Route rectangles base style */
+/* Route dots base style */
 .route-rect{
-  fill:#6a635b;
+  fill:#000;
   opacity:0;
   transform-origin:center;
   transform-box:fill-box;
   pointer-events:none;
-  will-change:opacity,transform
+  will-change:opacity,transform;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))
 }
 
-/* Route rectangles turn black on hover */
+/* Route dots turn black on hover */
 #address2-wrapper:hover #address2-route .route-rect{
   fill:#000!important
 }
 
-/* Animation keyframes */
+/* Beautiful bounce animation keyframes */
 @keyframes routeFlow{
-  0%{opacity:0}
-  100%{opacity:1}
+  0%{opacity:0;transform:scale(0.5)}
+  50%{opacity:1;transform:scale(1.2)}
+  100%{opacity:1;transform:scale(1)}
 }
 
-/* Sequential animation for each route point (1-11) */
+/* Sequential animation for each route dot */
+#address2-wrapper:hover #address2-route .route-rect{
+  animation:routeFlow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards
+}
+
 #address2-wrapper:hover #address2-route .route-rect:nth-child(1){
-  animation:routeFlow 0.3s ease forwards;
   animation-delay:0s
 }
 #address2-wrapper:hover #address2-route .route-rect:nth-child(2){
-  animation:routeFlow 0.3s ease forwards;
-  animation-delay:0.1s
+  animation-delay:0.08s
 }
-/* ... continue for all route points ... */
+/* ... continue for all 11 route dots with 0.08s increments ... */
+```
+
+**SVG Structure for Route Dots:**
+```jsx
+<g id="address2-route">
+  <circle className="route-rect" cx="742" cy="491.65" r="4" />
+  <circle className="route-rect" cx="751.65" cy="487.52" r="4" />
+  <!-- ... 11 circular dots total ... -->
+</g>
 ```
 
 ## Step-by-Step: Adding Hover to a New Address Point
@@ -138,23 +153,29 @@ The CSS is located in the `<style>` tag inside the `<defs>` section (line 12-14)
 
 ### Colors
 - **Address hover color**: Change `#fff` in `stroke:#fff!important` and `fill:#fff!important`
-- **Route points color**: Change `#000` in `fill:#000!important`
-- **Original route color**: Change `#6a635b` in `.route-rect{fill:#6a635b}`
+- **Route dots color**: Change `#000` in `fill:#000!important`
+- **Shadow color**: Change `rgba(0,0,0,0.3)` in `filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))`
 
 ### Timing
-- **Animation speed**: Change `0.3s` in `animation:routeFlow 0.3s ease forwards`
-- **Delay between points**: Change `0.1s` increment in `animation-delay`
-- **Total animation time**: (number of points × 0.1s) + 0.3s
+- **Animation speed**: Change `0.4s` in `animation:routeFlow 0.4s cubic-bezier(...) forwards`
+- **Delay between points**: Change `0.08s` increment in `animation-delay`
+- **Total animation time**: (number of points × 0.08s) + 0.4s = ~1.28s
 
 ### Animation Style
-- **Current**: Points fade in one by one (opacity 0 to 1)
-- **Alternative**: Add scale effect by changing keyframes:
-  ```css
-  @keyframes routeFlow{
-    0%{opacity:0;transform:scale(0.5)}
-    100%{opacity:1;transform:scale(1)}
-  }
-  ```
+- **Current**: Beautiful bounce effect with scale animation
+  - Starts at 50% size (scale 0.5)
+  - Bounces to 120% size (scale 1.2)
+  - Settles at 100% size (scale 1)
+  - Uses cubic-bezier easing for smooth motion
+- **Easing function**: `cubic-bezier(0.34, 1.56, 0.64, 1)` creates the bounce effect
+- **Drop shadow**: Adds depth with `filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))`
+
+### Shape Options
+- **Current**: Circular dots using `<circle>` elements with radius 4
+- **Alternative shapes**:
+  - Arrows: Use SVG path with arrowhead marker
+  - Diamonds: Rotate squares 45 degrees
+  - Custom icons: Replace with any SVG shape
 
 ## Quick Reference
 

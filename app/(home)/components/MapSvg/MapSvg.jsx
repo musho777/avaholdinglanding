@@ -11,9 +11,20 @@ function MapSvg(props) {
       <defs>
         <style>
           {
-            ".cls-1,.cls-2{fill:none}.cls-3{fill:#6a635b}.cls-6{opacity:.2}.cls-2{stroke:#6a635b;stroke-miterlimit:10;stroke-width:3px}#address2-wrapper{isolation:isolate}#address2-wrapper:hover #address2 .cls-2{stroke:#fff!important}#address2-wrapper:hover #address2 .cls-3{fill:#fff!important}.route-rect{fill:#6a635b;stroke:#6a635b;opacity:0;transform-origin:center;transform-box:fill-box;pointer-events:none;will-change:opacity,transform}.route-rect-overlay{fill:none;stroke:none;opacity:0;pointer-events:none}#address2-wrapper:hover #address2-route .route-rect{fill:#000!important;stroke:#000!important}@keyframes routeFlow{0%{opacity:0}100%{opacity:1}}#address2-wrapper:hover #address2-route .route-rect{animation:routeFlow 0.3s ease forwards}#address2-wrapper:hover #address2-route .route-rect:nth-child(1){animation-delay:0s}#address2-wrapper:hover #address2-route .route-rect:nth-child(2){animation-delay:0.1s}#address2-wrapper:hover #address2-route .route-rect:nth-child(3){animation-delay:0.2s}#address2-wrapper:hover #address2-route .route-rect:nth-child(4){animation-delay:0.3s}#address2-wrapper:hover #address2-route .route-rect:nth-child(5){animation-delay:0.4s}#address2-wrapper:hover #address2-route .route-rect:nth-child(6){animation-delay:0.5s}#address2-wrapper:hover #address2-route .route-rect:nth-child(7){animation-delay:0.6s}#address2-wrapper:hover #address2-route .route-rect:nth-child(8){animation-delay:0.7s}#address2-wrapper:hover #address2-route .route-rect:nth-child(9){animation-delay:0.8s}#address2-wrapper:hover #address2-route .route-rect:nth-child(10){animation-delay:0.9s}#address2-wrapper:hover #address2-route .route-rect:nth-child(11){animation-delay:1s}"
+            ".cls-1,.cls-2{fill:none}.cls-3{fill:#6a635b}.cls-6{opacity:.2}.cls-2{stroke:#6a635b;stroke-miterlimit:10;stroke-width:3px}#address2-wrapper{isolation:isolate}#address2-wrapper:hover #address2 .cls-2{stroke:#fff!important}#address2-wrapper:hover #address2 .cls-3{fill:#fff!important}.route-rect{fill:#000;opacity:0;transform-origin:center;transform-box:fill-box;pointer-events:none;will-change:opacity,transform;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))}.route-rect-overlay{fill:none;stroke:none;opacity:0;pointer-events:none}#address2-wrapper:hover #address2-route .route-rect{fill:#000!important}@keyframes routeFlow{0%{opacity:0;transform:scale(0.5)}50%{opacity:1;transform:scale(1.2)}100%{opacity:1;transform:scale(1)}}#address2-wrapper:hover #address2-route .route-rect{animation:routeFlow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards}#address2-wrapper:hover #address2-route .route-rect:nth-child(1){animation-delay:0s}#address2-wrapper:hover #address2-route .route-rect:nth-child(2){animation-delay:0.08s}#address2-wrapper:hover #address2-route .route-rect:nth-child(3){animation-delay:0.16s}#address2-wrapper:hover #address2-route .route-rect:nth-child(4){animation-delay:0.24s}#address2-wrapper:hover #address2-route .route-rect:nth-child(5){animation-delay:0.32s}#address2-wrapper:hover #address2-route .route-rect:nth-child(6){animation-delay:0.4s}#address2-wrapper:hover #address2-route .route-rect:nth-child(7){animation-delay:0.48s}#address2-wrapper:hover #address2-route .route-rect:nth-child(8){animation-delay:0.56s}#address2-wrapper:hover #address2-route .route-rect:nth-child(9){animation-delay:0.64s}#address2-wrapper:hover #address2-route .route-rect:nth-child(10){animation-delay:0.72s}#address2-wrapper:hover #address2-route .route-rect:nth-child(11){animation-delay:0.8s}"
           }
         </style>
+        <marker
+          id="arrowhead"
+          markerWidth="10"
+          markerHeight="10"
+          refX="9"
+          refY="3"
+          orient="auto"
+          markerUnits="strokeWidth"
+        >
+          <path d="M0,0 L0,6 L9,3 z" fill="#000" />
+        </marker>
         <clipPath id="clippath">
           <path className="cls-1" d="M0 0H2606.65V1542.45H0z" />
         </clipPath>
@@ -29679,17 +29690,17 @@ function MapSvg(props) {
             <ellipse className="cls-3" cx={732.93} cy={440.79} rx={17.21} ry={18.62} />
           </g>
           <g id="address2-route">
-            <path className="route-rect" d="M740.64 490.15H743.64V493.15H740.64z" />
-            <path className="route-rect" d="M748.69 486.02H754.6V489.02H748.69z" />
-            <path className="route-rect" d="M759.52 481.3H765.42V484.3H759.52z" />
-            <path className="route-rect" d="M770.35 476.59H776.26V479.59H770.35z" />
-            <path className="route-rect" d="M781.66 474.2H787.57V477.2H781.66z" />
-            <path className="route-rect" d="M793.47 474.2H799.38V477.2H793.47z" />
-            <path className="route-rect" d="M805.28 474.2H811.18V477.2H805.28z" />
-            <path className="route-rect" d="M817.09 474.2H823V477.2H817.09z" />
-            <path className="route-rect" d="M829.6 475.29H832.6V481.20H829.6z" />
-            <path className="route-rect" d="M839.49 481.74H842.49V487.65H839.49z" />
-            <path className="route-rect" d="M848.17 488.85H851.17V491.85H848.17z" />
+            <circle className="route-rect" cx="740" cy="492" r="5" />
+            <circle className="route-rect" cx="752" cy="487" r="5" />
+            <circle className="route-rect" cx="765" cy="481" r="5" />
+            <circle className="route-rect" cx="778" cy="476" r="5" />
+            <circle className="route-rect" cx="791" cy="473" r="5" />
+            <circle className="route-rect" cx="804" cy="472" r="5" />
+            <circle className="route-rect" cx="817" cy="473" r="5" />
+            <circle className="route-rect" cx="830" cy="476" r="5" />
+            <circle className="route-rect" cx="842" cy="481" r="5" />
+            <circle className="route-rect" cx="852" cy="487" r="5" />
+            <circle className="route-rect" cx="860" cy="493" r="5" />
           </g>
         </g>
 

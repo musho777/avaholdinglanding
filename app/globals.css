@@ -544,15 +544,23 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #faf7f2;
+  color: rgba(250, 247, 242, 0.6);
   font-family: var(--font-sans);
   font-size: 0.78rem;
   text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+.close-btn:hover {
+  color: #faf7f2;
 }
 .close-icon {
   width: 22px;
   height: 22px;
   position: relative;
+  transition: transform 0.3s ease;
+}
+.close-btn:hover .close-icon {
+  transform: rotate(90deg);
 }
 .close-icon span {
   position: absolute;

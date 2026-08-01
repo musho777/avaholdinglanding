@@ -1448,15 +1448,15 @@ section.panel {
   display: flex;
   align-items: baseline;
   gap: 0.4rem;
-  font-family: var(--font-serif);
+  font-family: "Helvetica", sans-serif;
   font-weight: 300;
 }
 .slide-counter .cur {
-  font-size: 3.2rem;
+  font-size: 2rem;
   line-height: 1;
 }
 .slide-counter .total {
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.55);
 }
 

@@ -1786,7 +1786,7 @@ section.panel {
 .site-footer {
   position: relative;
   background: var(--taupe);
-  padding: 3rem 3rem 0;
+  padding: 1rem 3rem 0;
   color: var(--stone);
 }
 .footer-top {
@@ -2044,6 +2044,10 @@ section.panel {
   .slider-peek {
     width: 80px;
   }
+
+  .site-footer {
+    padding: 1rem 2rem 0;
+  }
 }
 
 /* Mobile landscape / small tablet breakpoint */
@@ -2215,6 +2219,10 @@ section.panel {
     width: 100%;
     text-align: center;
     padding: 0.7rem 1.5rem;
+  }
+
+  .site-footer {
+    padding: 1rem 1.5rem 0;
   }
 
   /* Content sections */
@@ -2762,6 +2770,10 @@ img {
     padding-top: 1.5rem;
   }
 
+  .site-footer {
+    padding: 1rem 1rem 0;
+  }
+
   /* Hero */
   .hero-caption {
     bottom: 2rem;
@@ -3022,7 +3034,7 @@ img {
 
   /* Footer */
   .site-footer {
-    padding: 1.2rem 1.2rem 0;
+    padding: 1rem 1.2rem 0;
   }
 
   .footer-top {
@@ -3345,6 +3357,10 @@ img {
   .location-stat-number {
     font-size: clamp(2.5rem, 12vw, 5rem);
   }
+
+  .site-footer {
+    padding: 1rem 0.8rem 0;
+  }
 }
 
 /* Very small screens (iPhone SE 1st gen, etc.) */
@@ -3414,6 +3430,10 @@ img {
 
   .slider-track-thumb {
     width: 1px;
+  }
+
+  .site-footer {
+    padding: 1rem 0.6rem 0;
   }
 }
 

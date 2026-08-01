@@ -662,22 +662,40 @@ body {
   opacity: 0;
 }
 .site-menu-links a:nth-child(1) {
-  transition: color 0.3s ease, transform 0.45s ease 0.12s, opacity 0.45s ease 0.12s;
+  transition:
+    color 0.3s ease,
+    transform 0.45s ease 0.12s,
+    opacity 0.45s ease 0.12s;
 }
 .site-menu-links a:nth-child(2) {
-  transition: color 0.3s ease, transform 0.45s ease 0.17s, opacity 0.45s ease 0.17s;
+  transition:
+    color 0.3s ease,
+    transform 0.45s ease 0.17s,
+    opacity 0.45s ease 0.17s;
 }
 .site-menu-links a:nth-child(3) {
-  transition: color 0.3s ease, transform 0.45s ease 0.22s, opacity 0.45s ease 0.22s;
+  transition:
+    color 0.3s ease,
+    transform 0.45s ease 0.22s,
+    opacity 0.45s ease 0.22s;
 }
 .site-menu-links a:nth-child(4) {
-  transition: color 0.3s ease, transform 0.45s ease 0.27s, opacity 0.45s ease 0.27s;
+  transition:
+    color 0.3s ease,
+    transform 0.45s ease 0.27s,
+    opacity 0.45s ease 0.27s;
 }
 .site-menu-links a:nth-child(5) {
-  transition: color 0.3s ease, transform 0.45s ease 0.32s, opacity 0.45s ease 0.32s;
+  transition:
+    color 0.3s ease,
+    transform 0.45s ease 0.32s,
+    opacity 0.45s ease 0.32s;
 }
 .site-menu-links a:nth-child(6) {
-  transition: color 0.3s ease, transform 0.45s ease 0.37s, opacity 0.45s ease 0.37s;
+  transition:
+    color 0.3s ease,
+    transform 0.45s ease 0.37s,
+    opacity 0.45s ease 0.37s;
 }
 .site-menu.open .site-menu-links a {
   transform: translateX(0);
@@ -1354,7 +1372,10 @@ section.panel {
   bottom: 2.4rem;
   z-index: 5;
   color: #fff;
-  max-width: calc(100% - 180px);
+  right: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .slide-counter {
   display: flex;
@@ -1362,7 +1383,6 @@ section.panel {
   gap: 0.4rem;
   font-family: var(--font-serif);
   font-weight: 300;
-  margin-bottom: 1rem;
 }
 .slide-counter .cur {
   font-size: 3.2rem;
@@ -1434,10 +1454,6 @@ section.panel {
 }
 
 .slider-arrows {
-  position: absolute;
-  right: 150px;
-  bottom: 2.4rem;
-  z-index: 5;
   display: flex;
   gap: 0.6rem;
   flex-shrink: 0;
@@ -1473,8 +1489,6 @@ section.panel {
   }
 
   .slider-arrows {
-    right: 70px;
-    bottom: 1.4rem;
     gap: 0.5rem;
   }
 
@@ -1498,10 +1512,6 @@ section.panel {
   .slider-bottom {
     left: 1rem;
     bottom: 1.4rem;
-  }
-
-  .slide-counter {
-    margin-bottom: 0.8rem;
   }
 
   .slide-counter .cur {
@@ -1822,7 +1832,7 @@ section.panel {
   transition: color 0.3s ease;
 }
 .footer-phone::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1849,7 +1859,7 @@ section.panel {
   transition: color 0.3s ease;
 }
 .footer-email::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2020,7 +2030,7 @@ section.panel {
   transition: color 0.3s ease;
 }
 .footer-legal a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
@@ -2109,11 +2119,6 @@ section.panel {
 
   .slider-bottom {
     left: 1.8rem;
-    bottom: 2rem;
-  }
-
-  .slider-arrows {
-    right: 130px;
     bottom: 2rem;
   }
 
@@ -2384,10 +2389,6 @@ section.panel {
     bottom: 0.5rem;
   }
 
-  .slide-counter {
-    margin-bottom: 0.5rem;
-  }
-
   .slide-counter .cur {
     font-size: 2rem;
   }
@@ -2399,11 +2400,6 @@ section.panel {
   .slider-tabs .tab-btn {
     padding: 0.35rem 0.8rem;
     font-size: 0.6rem;
-  }
-
-  .slider-arrows {
-    right: 55px;
-    bottom: 0.5rem;
   }
 
   .arrow-btn {
@@ -3033,11 +3029,6 @@ img {
   .slider-bottom {
     left: 0.8rem;
     bottom: 1rem;
-    max-width: calc(100% - 140px);
-  }
-
-  .slide-counter {
-    margin-bottom: 0.7rem;
   }
 
   .slide-counter .cur {
@@ -3060,8 +3051,6 @@ img {
   }
 
   .slider-arrows {
-    right: 60px;
-    bottom: 1rem;
     gap: 0.4rem;
   }
 
@@ -3386,7 +3375,6 @@ img {
   .slider-bottom {
     left: 0.6rem;
     bottom: 0.8rem;
-    max-width: calc(100% - 110px);
   }
 
   .slider-tabs .tab-btn {
@@ -3395,8 +3383,6 @@ img {
   }
 
   .slider-arrows {
-    right: 50px;
-    bottom: 0.8rem;
     gap: 0.3rem;
   }
 
@@ -3459,7 +3445,6 @@ img {
   .slider-bottom {
     left: 0.5rem;
     bottom: 0.7rem;
-    max-width: calc(100% - 100px);
   }
 
   .slide-counter .cur {
@@ -3473,11 +3458,6 @@ img {
   .slider-tabs .tab-btn {
     padding: 0.35rem 0.7rem;
     font-size: 0.55rem;
-  }
-
-  .slider-arrows {
-    right: 45px;
-    bottom: 0.7rem;
   }
 
   .arrow-btn {

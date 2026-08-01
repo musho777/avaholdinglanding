@@ -50,7 +50,7 @@ export default function YerevanLocation() {
             <span className="title-line scroll-reveal delay-1">YEREVAN</span>
           </h2>
           <button className="see-map-btn scroll-reveal delay-3" onClick={openGoogleMaps}>
-            SEE ON MAP
+            <span>SEE ON MAP</span>
           </button>
         </div>
       </div>

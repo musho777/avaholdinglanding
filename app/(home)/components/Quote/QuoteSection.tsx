@@ -256,7 +256,7 @@ export default function QuoteSection() {
         </div>
 
         <div className="photo-wrapper scroll-reveal">
-          <img src="/assets/2.png" alt="AVA Architecture" className="inner-img" />
+          <img src="/assets/1.png" alt="AVA Architecture" className="inner-img" />
         </div>
       </div>
     </section>

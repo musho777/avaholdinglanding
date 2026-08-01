@@ -21,7 +21,7 @@ export default function Footer() {
             <a href="tel:+37498333372" className="footer-phone">
               +374 (77) 423333
             </a>
-            <p className="footer-email">info@avaholding.com</p>
+            <a href="mailto:info@avaholding.com" className="footer-email">info@avaholding.com</a>
           </div>
         </div>
 

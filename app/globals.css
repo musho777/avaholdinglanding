@@ -1815,18 +1815,54 @@ section.panel {
   font-family: "Helvetica", sans-serif;
   font-weight: 300;
   font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  color: var(--stone);
+  color: rgba(243, 237, 224, 0.6);
   text-decoration: none;
   display: block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.footer-phone::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f3ede0;
+  transition: width 0.4s ease;
+}
+.footer-phone:hover {
+  color: #f3ede0;
+}
+.footer-phone:hover::after {
+  width: 100%;
 }
 .footer-email {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.1rem;
-  color: rgba(243, 237, 224, 0.75);
+  color: rgba(243, 237, 224, 0.5);
   text-decoration: none;
   display: inline-block;
   margin-top: 0.6rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.footer-email::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f3ede0;
+  transition: width 0.4s ease;
+}
+.footer-email:hover {
+  color: #f3ede0;
+}
+.footer-email:hover::after {
+  width: 100%;
 }
 
 .footer-mark {

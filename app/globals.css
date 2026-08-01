@@ -117,7 +117,7 @@ html {
 }
 body {
   font-family: var(--font-sans);
-  background: var(--off-white);
+  background: var(--taupe);
   color: var(--charcoal);
   overflow-x: hidden;
 }
@@ -175,15 +175,14 @@ body {
   width: 100%;
 }
 .hero {
-  position: fixed;
+  position: relative;
   top: 0;
   height: 100vh;
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(180deg, #6b5c4b 0%, #453a2f 45%, #221c17 100%);
 }
 .hero-photo {
-  position: fixed;
+  position: absolute;
   inset: 0;
   filter: saturate(0.88) contrast(1.04) brightness(0.96);
 }

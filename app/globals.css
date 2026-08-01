@@ -1777,7 +1777,7 @@ section.panel {
   font-size: 0.75rem;
   text-transform: uppercase;
   color: rgba(243, 237, 224, 0.55);
-  margin-bottom: 0.3rem;
+  margin-top: 0.6rem;
 }
 .footer-contact .eyebrow.dim {
   color: rgba(243, 237, 224, 0.35);

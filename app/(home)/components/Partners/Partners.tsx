@@ -48,7 +48,7 @@ export default function Partners() {
 
   return (
     <section className="partners-section" id="partners">
-      <div className="partners-container container-padding">
+      <div className="partners-container">
         <div className="partners-marquee">
           <div className="partners-track">
             {mounted && (

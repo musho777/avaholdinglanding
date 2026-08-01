@@ -49,8 +49,6 @@ export default function Partners() {
   return (
     <section className="partners-section" id="partners">
       <div className="partners-container">
-        <h2 className="partners-title scroll-reveal">Our Partners</h2>
-
         <div className="partners-marquee">
           <div className="partners-track">
             {mounted && (

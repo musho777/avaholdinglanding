@@ -1,7 +1,7 @@
 .partners-section {
   position: relative;
   width: 100%;
-  padding: 50px 0;
+  padding: 15px 0;
   background: var(--stone);
   overflow: hidden;
 }
@@ -80,8 +80,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 120px;
-  height: 120px;
   background: transparent;
   position: relative;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -156,7 +154,7 @@
 /* Responsive design */
 @media (max-width: 1024px) {
   .partners-section {
-    padding: 45px 0;
+    padding: 15px 0;
   }
 
   .partners-section::before,
@@ -174,22 +172,21 @@
 
   .partner-item {
     min-width: 80px;
-    height: 80px;
   }
 
   .partner-icon svg {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
   }
 }
 
 @media (max-width: 768px) {
   .partners-section {
-    padding: 50px 0;
+    padding: 5px 0;
   }
 
   .partners-marquee {
-    padding: 15px 0;
+    padding: 10px 0;
   }
 
   .partners-section::before,
@@ -202,13 +199,12 @@
   }
 
   .partners-set {
-    gap: 45px;
-    padding: 0 25px;
+    gap: 35px;
+    padding: 0 20px;
   }
 
   .partner-item {
-    min-width: 70px;
-    height: 70px;
+    min-width: 60px;
   }
 
   .partner-item:hover .partner-icon {
@@ -216,18 +212,18 @@
   }
 
   .partner-icon svg {
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
   }
 }
 
 @media (max-width: 480px) {
   .partners-section {
-    padding: 45px 0;
+    padding: 3px 0;
   }
 
   .partners-marquee {
-    padding: 20px 0;
+    padding: 8px 0;
   }
 
   .partners-section::before,
@@ -245,22 +241,16 @@
   }
 
   .partners-set {
-    gap: 35px;
-    padding: 0 18px;
+    gap: 25px;
+    padding: 0 15px;
   }
 
   .partner-item {
-    min-width: 65px;
-    height: 65px;
+    min-width: 50px;
   }
 
   .partner-item:hover .partner-icon {
     transform: scale(1.05) translateY(-2px);
-  }
-
-  .partner-icon svg {
-    width: 28px;
-    height: 28px;
   }
 
   @keyframes float {

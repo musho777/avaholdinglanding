@@ -2016,9 +2016,24 @@ section.panel {
 .footer-legal a {
   color: rgba(243, 237, 224, 0.45);
   text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.footer-legal a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #f3ede0;
+  transition: width 0.4s ease;
 }
 .footer-legal a:hover {
-  color: var(--stone);
+  color: #f3ede0;
+}
+.footer-legal a:hover::after {
+  width: 100%;
 }
 
 @media (max-width: 820px) {

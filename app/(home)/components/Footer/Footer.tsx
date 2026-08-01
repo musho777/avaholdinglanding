@@ -35,7 +35,7 @@ export default function Footer() {
               <p className="footer-location">YEREVAN, ARMENIA</p>
               <div className="footer-location-row">
                 <button className="map-btn" onClick={openGoogleMaps}>
-                  See on map
+                  <span>See on map</span>
                 </button>
                 <button className="social-btn" aria-label="Facebook">
                   <svg viewBox="0 0 24 24" fill="currentColor">

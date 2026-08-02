@@ -48,7 +48,7 @@ export default function YerevanLocation() {
   const mapWrapperRef = useRef<HTMLDivElement>(null);
   const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number } | null>(null);
   const [isHoveringMap, setIsHoveringMap] = useState(false);
-  const [hoveredLocation, setHoveredLocation] = useState<number | null>(null);
+  const [hoveredLocation, setHoveredLocation] = useState<number | null>(1); // Always show card 1 for testing
   const previousHoveredRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -113,27 +113,27 @@ export default function YerevanLocation() {
     setCursorPosition(null);
   };
 
-  // Add class to address wrapper when card is hovered
-  useEffect(() => {
-    // Remove class from previous hovered location
-    if (previousHoveredRef.current) {
-      const prevWrapper = document.getElementById(`address${previousHoveredRef.current}-wrapper`);
-      if (prevWrapper) {
-        prevWrapper.classList.remove("hovered-by-card");
-      }
-    }
+  // Add class to address wrapper when card is hovered - DISABLED FOR TESTING
+  // useEffect(() => {
+  //   // Remove class from previous hovered location
+  //   if (previousHoveredRef.current) {
+  //     const prevWrapper = document.getElementById(`address${previousHoveredRef.current}-wrapper`);
+  //     if (prevWrapper) {
+  //       prevWrapper.classList.remove("hovered-by-card");
+  //     }
+  //   }
 
-    // Add class to new hovered location
-    if (hoveredLocation) {
-      const wrapper = document.getElementById(`address${hoveredLocation}-wrapper`);
-      if (wrapper) {
-        wrapper.classList.add("hovered-by-card");
-      }
-    }
+  //   // Add class to new hovered location
+  //   if (hoveredLocation) {
+  //     const wrapper = document.getElementById(`address${hoveredLocation}-wrapper`);
+  //     if (wrapper) {
+  //       wrapper.classList.add("hovered-by-card");
+  //     }
+  //   }
 
-    // Update ref
-    previousHoveredRef.current = hoveredLocation;
-  }, [hoveredLocation]);
+  //   // Update ref
+  //   previousHoveredRef.current = hoveredLocation;
+  // }, [hoveredLocation]);
 
   const openGoogleMaps = (address: string) => {
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;

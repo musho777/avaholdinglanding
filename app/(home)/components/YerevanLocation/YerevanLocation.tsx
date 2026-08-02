@@ -12,7 +12,7 @@ const locations = [
     driveTime: "5",
     driveUnit: "Min on Foot",
     address: "Republic Square, Yerevan, Armenia",
-    image: "/assets/usa.avif", // Add your image path
+    image: "/assets/usa.jpg", // Add your image path
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const locations = [
     driveTime: "3",
     driveUnit: "Min on Foot",
     address: "Lovers' Park, Yerevan",
-    image: "/assets/LoversPark.jpg", // Add your image path
+    image: "/assets/lovers_park.jpg", // Add your image path
   },
   {
     id: 3,
@@ -34,14 +34,14 @@ const locations = [
     name: "Cascade",
     driveTime: "4",
     driveUnit: "MIN DRIVE BY CAR",
-    image: "/assets/location-1.jpeg", // Add your image path
+    image: "/assets/location-1.jpg", // Add your image path
   },
   {
     id: 5,
     name: "OPERA",
     driveTime: "4",
     driveUnit: "MIN DRIVE BY CAR",
-    image: "/assets/opera.png", // Add your image path
+    image: "/assets/opera.jpg", // Add your image path
   },
 ];
 

@@ -158,6 +158,17 @@ export default function YerevanLocation() {
         >
           <MapSvg className="map-image" />
 
+          <div className="map-text-overlay container-padding">
+            <h2 className="map-title">
+              <span className="title-line scroll-reveal">PRIME LOCATION</span>
+              <span className="title-line scroll-reveal delay-1">IN THE HEART OF</span>
+              <span className="title-line scroll-reveal delay-1">YEREVAN</span>
+            </h2>
+            <button className="see-map-btn scroll-reveal delay-3" onClick={() => openGoogleMaps("Derenik Demirchyan 2-4, Yerevan, Armenia")}>
+              <span>SEE ON MAP</span>
+            </button>
+          </div>
+
           {/* Single Floating Location Card - appears on hover */}
           {hoveredLocation && (
             <div className="location-card-popup">

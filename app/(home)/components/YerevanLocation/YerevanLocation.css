@@ -515,13 +515,18 @@
 }
 
 @media (max-width: 768px) {
+  .yerevan-location {
+    overflow-x: auto;
+  }
+
   .map-wrapper {
     min-height: 550px;
   }
 
   .location-card-popup {
     right: 1rem;
-    top: 1.5rem;
+    top: auto;
+    bottom: 1.5rem;
   }
 
   .floating-location-card {
@@ -570,13 +575,18 @@
 }
 
 @media (max-width: 480px) {
+  .yerevan-location {
+    overflow-x: auto;
+  }
+
   .map-wrapper {
     min-height: 500px;
   }
 
   .location-card-popup {
     right: 0.75rem;
-    top: 1rem;
+    top: auto;
+    bottom: 1rem;
   }
 
   .floating-location-card {

@@ -1361,7 +1361,7 @@ section.panel {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: var(--charcoal);
+  background: var(--taupe);
   transition: background 0.25s ease;
   z-index: 1;
 }

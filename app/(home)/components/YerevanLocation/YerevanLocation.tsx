@@ -48,7 +48,7 @@ export default function YerevanLocation() {
   const mapWrapperRef = useRef<HTMLDivElement>(null);
   const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number } | null>(null);
   const [isHoveringMap, setIsHoveringMap] = useState(false);
-  const [hoveredLocation, setHoveredLocation] = useState<number | null>(1); // Always show card 1 for testing
+  const [hoveredLocation, setHoveredLocation] = useState<number | null>(null);
 
   useEffect(() => {
     const centerScroll = () => {

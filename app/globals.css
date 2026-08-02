@@ -1142,7 +1142,7 @@ section.panel {
   font-family: var(--font-sans);
   font-size: clamp(0.95rem, 1.2vw, 1.05rem);
   color: var(--stone);
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
   text-align: left;
 }
 

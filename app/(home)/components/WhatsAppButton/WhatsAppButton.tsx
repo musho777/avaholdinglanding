@@ -4,12 +4,13 @@ import { useEffect, useState } from "react";
 
 export default function WhatsAppButton() {
   const [isHidden, setIsHidden] = useState(false);
+  const [inFounder, setInFounder] = useState(false);
 
   useEffect(() => {
     const footer = document.querySelector(".site-footer");
-    if (!footer) return;
+    const founderSection = document.querySelector("#founder");
 
-    const observer = new IntersectionObserver(
+    const footerObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           setIsHidden(entry.isIntersecting);
@@ -20,10 +21,28 @@ export default function WhatsAppButton() {
       }
     );
 
-    observer.observe(footer);
+    const founderObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          setInFounder(entry.isIntersecting);
+        });
+      },
+      {
+        threshold: 0.5,
+      }
+    );
+
+    if (footer) {
+      footerObserver.observe(footer);
+    }
+
+    if (founderSection) {
+      founderObserver.observe(founderSection);
+    }
 
     return () => {
-      observer.disconnect();
+      footerObserver.disconnect();
+      founderObserver.disconnect();
     };
   }, []);
 
@@ -37,7 +56,7 @@ export default function WhatsAppButton() {
   return (
     <div className={`whatsapp-button-wrapper ${isHidden ? "hidden" : ""}`}>
       <button
-        className="whatsapp-button"
+        className={`whatsapp-button ${inFounder ? "in-founder" : ""}`}
         onClick={handleClick}
         aria-label="Contact us on WhatsApp"
         type="button"

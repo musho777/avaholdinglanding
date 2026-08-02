@@ -3877,6 +3877,11 @@ img {
   color: #cec4b6;
 }
 
+.whatsapp-button.in-founder {
+  background: #ffffff;
+  color: var(--gold-dim);
+}
+
 .whatsapp-wave {
   position: absolute;
   top: 50%;
@@ -3888,6 +3893,10 @@ img {
   border: 1px solid #6c635a;
   opacity: 0;
   pointer-events: none;
+}
+
+.whatsapp-button.in-founder .whatsapp-wave {
+  border: 1px solid var(--gold-dim);
 }
 
 .whatsapp-wave-1 {
@@ -3907,6 +3916,11 @@ img {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   background: #cec4b6;
   color: #6c635a;
+}
+
+.whatsapp-button.in-founder:hover {
+  background: var(--gold-dim);
+  color: #ffffff;
 }
 
 .whatsapp-button:hover .whatsapp-wave {

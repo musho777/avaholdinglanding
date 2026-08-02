@@ -4,9 +4,15 @@ import React from "react";
 
 export interface YerevanMapProps {
   className?: string;
+  hoveredLocation?: number | null;
+  onLocationHover?: (locationId: number | null) => void;
 }
 
-export const YerevanMap: React.FC<YerevanMapProps> = ({ className = "" }) => {
+export const YerevanMap: React.FC<YerevanMapProps> = ({
+  className = "",
+  hoveredLocation = null,
+  onLocationHover
+}) => {
   return (
     <svg
       viewBox="0 0 800 600"
@@ -20,10 +26,16 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({ className = "" }) => {
           .map-district:hover { fill: #c9a267; }
           .map-road { stroke: #5f5346; stroke-width: 1; fill: none; opacity: 0.4; }
           .map-river { stroke: #8b9daa; stroke-width: 3; fill: none; opacity: 0.6; }
-          .map-landmark { fill: #c9a267; stroke: #5f5346; stroke-width: 1.5; }
+          .map-landmark { fill: #c9a267; stroke: #5f5346; stroke-width: 1.5; transition: all 0.3s ease; cursor: pointer; }
+          .map-landmark:hover { fill: #b8926b; stroke: #3a322b; stroke-width: 2; filter: drop-shadow(0 0 8px rgba(201, 162, 103, 0.6)); }
+          .map-landmark.highlighted { fill: #b8926b; stroke: #3a322b; stroke-width: 2.5; filter: drop-shadow(0 0 12px rgba(201, 162, 103, 0.8)); animation: pulse 1.5s ease-in-out infinite; }
           .map-text { font-family: var(--font-sans, sans-serif); fill: #3a322b; font-size: 12px; }
           .map-text-large { font-size: 18px; font-weight: 600; }
           .map-text-small { font-size: 10px; opacity: 0.8; }
+          @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+          }
         `}</style>
       </defs>
 
@@ -77,19 +89,52 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({ className = "" }) => {
       {/* Landmarks */}
       <g id="landmarks">
         {/* Republic Square */}
-        <circle className="map-landmark" cx="400" cy="300" r="8" />
+        <circle
+          className={`map-landmark ${hoveredLocation === 1 ? 'highlighted' : ''}`}
+          cx="400"
+          cy="300"
+          r="8"
+          onMouseEnter={() => onLocationHover?.(1)}
+          onMouseLeave={() => onLocationHover?.(null)}
+        />
 
         {/* Cascade */}
-        <rect className="map-landmark" x="360" y="260" width="12" height="25" rx="2" />
+        <rect
+          className={`map-landmark ${hoveredLocation === 2 ? 'highlighted' : ''}`}
+          x="360"
+          y="260"
+          width="12"
+          height="25"
+          rx="2"
+          onMouseEnter={() => onLocationHover?.(2)}
+          onMouseLeave={() => onLocationHover?.(null)}
+        />
 
         {/* Opera House */}
-        <circle className="map-landmark" cx="380" cy="310" r="6" />
+        <circle
+          className={`map-landmark ${hoveredLocation === 3 ? 'highlighted' : ''}`}
+          cx="380"
+          cy="310"
+          r="6"
+          onMouseEnter={() => onLocationHover?.(3)}
+          onMouseLeave={() => onLocationHover?.(null)}
+        />
 
         {/* Mother Armenia */}
-        <polygon className="map-landmark" points="280,270 290,280 270,280" />
+        <polygon
+          className={`map-landmark ${hoveredLocation === 4 ? 'highlighted' : ''}`}
+          points="280,270 290,280 270,280"
+          onMouseEnter={() => onLocationHover?.(4)}
+          onMouseLeave={() => onLocationHover?.(null)}
+        />
 
         {/* Tsitsernakaberd Memorial */}
-        <path className="map-landmark" d="M 250 360 L 260 355 L 260 365 Z" />
+        <path
+          className={`map-landmark ${hoveredLocation === 5 ? 'highlighted' : ''}`}
+          d="M 250 360 L 260 355 L 260 365 Z"
+          onMouseEnter={() => onLocationHover?.(5)}
+          onMouseLeave={() => onLocationHover?.(null)}
+        />
       </g>
 
       {/* Labels */}

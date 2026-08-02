@@ -6,10 +6,460 @@
   background-color: rgba(200, 194, 182);
 }
 
+.location-container {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
 .map-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 650px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  cursor: default; /* Keep default cursor visible */
+  cursor: default;
+}
+
+/* Toggle Button */
+.cards-toggle-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 101;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 245, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 103, 0.4);
+  color: #5f5346;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(58, 50, 43, 0.15);
+}
+
+.cards-toggle-btn:hover {
+  background: linear-gradient(135deg, #c9a267 0%, #b8926b 100%);
+  color: white;
+  border-color: #c9a267;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 162, 103, 0.3);
+}
+
+.cards-toggle-btn.active {
+  background: linear-gradient(135deg, #c9a267 0%, #b8926b 100%);
+  color: white;
+  border-color: #c9a267;
+}
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.toggle-text {
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Floating Cards Overlay - Bottom Position */
+.location-cards-overlay {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  max-width: 100%;
+  width: calc(100% - 4rem);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.location-cards-overlay.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.location-cards-overlay.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(100%);
+  pointer-events: none;
+}
+
+.overlay-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.overlay-title {
+  font-family: serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #3a322b;
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.overlay-divider {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, #c9a267, transparent);
+}
+
+/* Floating Cards Scroll Container - Horizontal */
+.location-cards-scroll {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.5rem;
+  scroll-behavior: smooth;
+}
+
+.location-cards-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.location-cards-scroll::-webkit-scrollbar-track {
+  background: rgba(95, 83, 70, 0.1);
+  border-radius: 3px;
+}
+
+.location-cards-scroll::-webkit-scrollbar-thumb {
+  background: rgba(201, 162, 103, 0.5);
+  border-radius: 3px;
+}
+
+.location-cards-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 162, 103, 0.8);
+}
+
+/* Individual Floating Card - Horizontal Layout */
+.floating-location-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 248, 245, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 162, 103, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(58, 50, 43, 0.12);
+  animation: fadeInUp 0.6s ease-out backwards;
+  overflow: hidden;
+  min-width: 280px;
+  max-width: 320px;
+  flex-shrink: 0;
+}
+
+.floating-location-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, #c9a267, #5f5346);
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: left;
+}
+
+.floating-location-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 32px rgba(58, 50, 43, 0.2);
+  border-color: rgba(201, 162, 103, 0.6);
+}
+
+.floating-location-card:hover::before {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.card-selected {
+  border-color: #c9a267;
+  background: linear-gradient(135deg, rgba(201, 162, 103, 0.15) 0%, rgba(255, 255, 255, 0.95) 100%);
+  transform: translateY(-8px);
+}
+
+.card-selected::before {
+  transform: scaleX(1);
+}
+
+.card-hovered {
+  border-color: #c9a267;
+  background: linear-gradient(135deg, rgba(201, 162, 103, 0.12) 0%, rgba(255, 255, 255, 0.95) 100%);
+  box-shadow: 0 8px 32px rgba(201, 162, 103, 0.25);
+}
+
+/* Card Number */
+.card-number {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-family: serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: rgba(201, 162, 103, 0.2);
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.floating-location-card:hover .card-number,
+.card-selected .card-number {
+  color: rgba(201, 162, 103, 0.4);
+  transform: scale(1.1);
+}
+
+/* Card Content */
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card-title {
+  font-family: serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #3a322b;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: 0.3px;
+}
+
+.card-district {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #c9a267;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.card-description {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #5f5346;
+  margin: 0.75rem 0 1rem 0;
+  opacity: 0.9;
+}
+
+/* Card Button */
+.card-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid #c9a267;
+  color: #c9a267;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.813rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-view-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #c9a267;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.card-view-btn:hover::before {
+  left: 0;
+}
+
+.card-view-btn:hover {
+  color: white;
+  border-color: #c9a267;
+}
+
+.card-view-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.card-view-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes routeFlow {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Simulate hover state when card is hovered - matches MapSvg.jsx :hover exactly */
+#address1-wrapper.hovered-by-card #address1 .cls-2,
+#address2-wrapper.hovered-by-card #address2 .cls-2,
+#address3-wrapper.hovered-by-card #address3 .cls-2,
+#address4-wrapper.hovered-by-card #address4 .cls-2,
+#address5-wrapper.hovered-by-card #address5 .cls-2 {
+  stroke: #fff !important;
+}
+
+#address1-wrapper.hovered-by-card #address1 .cls-3,
+#address2-wrapper.hovered-by-card #address2 .cls-3,
+#address3-wrapper.hovered-by-card #address3 .cls-3,
+#address4-wrapper.hovered-by-card #address4 .cls-3,
+#address5-wrapper.hovered-by-card #address5 .cls-3 {
+  fill: #fff !important;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect,
+#address2-wrapper.hovered-by-card #address2-route .route-rect,
+#address3-wrapper.hovered-by-card #address3-route .route-rect,
+#address4-wrapper.hovered-by-card #address4-route .route-rect,
+#address5-wrapper.hovered-by-card #address5-route .route-rect {
+  fill: #6a635b !important;
+  animation: routeFlow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Animation delays matching MapSvg.jsx */
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(1),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(1),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(1),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(1),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(1) {
+  animation-delay: 0s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(2),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(2),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(2),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(2),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(2) {
+  animation-delay: 0.08s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(3),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(3),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(3),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(3),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(3) {
+  animation-delay: 0.16s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(4),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(4),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(4),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(4),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(4) {
+  animation-delay: 0.24s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(5),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(5),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(5),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(5),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(6),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(6),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(6),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(6),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(6) {
+  animation-delay: 0.4s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(7),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(7),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(7),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(7),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(7) {
+  animation-delay: 0.48s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(8),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(8),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(8),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(8),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(8) {
+  animation-delay: 0.56s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(9),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(9),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(9),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(9),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(9) {
+  animation-delay: 0.64s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(10),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(10),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(10),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(10),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(10) {
+  animation-delay: 0.72s;
+}
+
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(11),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(11),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(11),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(11),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(11) {
+  animation-delay: 0.8s;
 }
 
 /* Custom cursor circles container */
@@ -73,6 +523,7 @@
   height: auto;
   display: block;
 }
+
 
 /* Text overlay on the left */
 .map-text-overlay {
@@ -208,6 +659,36 @@
 
 /* Responsive design */
 @media (max-width: 1024px) {
+  .cards-toggle-btn {
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.813rem;
+  }
+
+  .location-cards-overlay {
+    width: calc(100% - 3rem);
+    bottom: 1.5rem;
+  }
+
+  .location-cards-overlay.visible {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .overlay-title {
+    font-size: 1.25rem;
+  }
+
+  .floating-location-card {
+    padding: 1.25rem;
+    min-width: 260px;
+    max-width: 300px;
+  }
+
+  .card-title {
+    font-size: 1.125rem;
+  }
+
   .map-text-overlay {
     max-width: 500px;
   }
@@ -220,9 +701,73 @@
 
 @media (max-width: 768px) {
   .map-wrapper {
-    height: auto;
-    overflow-x: auto;
-    overflow-y: hidden;
+    min-height: 550px;
+  }
+
+  .cards-toggle-btn {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.625rem;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+  }
+
+  .toggle-text {
+    display: none;
+  }
+
+  .location-cards-overlay {
+    width: calc(100% - 2rem);
+    bottom: 1.5rem;
+  }
+
+  .location-cards-overlay.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .location-cards-overlay.hidden {
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+  }
+
+  .overlay-title {
+    font-size: 1.125rem;
+  }
+
+  .overlay-header {
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .location-cards-scroll {
+    gap: 0.75rem;
+  }
+
+  .floating-location-card {
+    padding: 1rem;
+    min-width: 240px;
+    max-width: 260px;
+  }
+
+  .card-number {
+    font-size: 2rem;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.813rem;
+  }
+
+  .card-view-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
   }
 
   .map-image {
@@ -266,9 +811,66 @@
 
 @media (max-width: 480px) {
   .map-wrapper {
-    height: auto;
-    overflow-x: auto;
-    overflow-y: hidden;
+    min-height: 500px;
+  }
+
+  .cards-toggle-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 40px;
+    height: 40px;
+    padding: 0.5rem;
+  }
+
+  .toggle-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .location-cards-overlay {
+    width: calc(100% - 1.5rem);
+    bottom: 1rem;
+  }
+
+  .overlay-header {
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .overlay-title {
+    font-size: 1rem;
+  }
+
+  .location-cards-scroll {
+    gap: 0.625rem;
+  }
+
+  .floating-location-card {
+    padding: 0.875rem;
+    min-width: 220px;
+    max-width: 240px;
+  }
+
+  .card-number {
+    font-size: 1.75rem;
+  }
+
+  .card-title {
+    font-size: 0.938rem;
+  }
+
+  .card-district {
+    font-size: 0.688rem;
+  }
+
+  .card-description {
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.75rem 0;
+  }
+
+  .card-view-btn {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.688rem;
   }
 
   .map-image {
@@ -310,3 +912,114 @@
     height: 20px;
   }
 }
+
+/* Address 1 specific (12-18) */
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(12) { animation-delay: 0.88s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(13) { animation-delay: 0.96s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(14) { animation-delay: 1.04s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(15) { animation-delay: 1.12s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(16) { animation-delay: 1.2s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(17) { animation-delay: 1.28s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(18) { animation-delay: 1.36s; }
+
+/* Address 3 specific (12-27) */
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(12) { animation-delay: 0.88s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(13) { animation-delay: 0.96s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(14) { animation-delay: 1.04s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(15) { animation-delay: 1.12s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(16) { animation-delay: 1.2s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(17) { animation-delay: 1.28s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(18) { animation-delay: 1.36s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(19) { animation-delay: 1.44s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(20) { animation-delay: 1.52s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(21) { animation-delay: 1.6s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(22) { animation-delay: 1.68s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(23) { animation-delay: 1.76s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(24) { animation-delay: 1.84s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(25) { animation-delay: 1.92s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(26) { animation-delay: 2s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(27) { animation-delay: 2.08s; }
+
+/* Address 4 specific (12-84) */
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(12) { animation-delay: 0.88s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(13) { animation-delay: 0.96s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(14) { animation-delay: 1.04s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(15) { animation-delay: 1.12s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(16) { animation-delay: 1.2s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(17) { animation-delay: 1.28s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(18) { animation-delay: 1.36s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(19) { animation-delay: 1.44s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(20) { animation-delay: 1.52s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(21) { animation-delay: 1.6s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(22) { animation-delay: 1.68s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(23) { animation-delay: 1.76s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(24) { animation-delay: 1.84s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(25) { animation-delay: 1.92s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(26) { animation-delay: 2s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(27) { animation-delay: 2.08s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(28) { animation-delay: 2.16s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(29) { animation-delay: 2.24s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(30) { animation-delay: 2.32s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(31) { animation-delay: 2.4s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(32) { animation-delay: 2.56s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(33) { animation-delay: 2.64s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(34) { animation-delay: 2.72s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(35) { animation-delay: 2.80s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(36) { animation-delay: 2.88s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(37) { animation-delay: 2.96s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(38) { animation-delay: 3.04s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(39) { animation-delay: 3.12s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(40) { animation-delay: 3.20s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(41) { animation-delay: 3.28s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(42) { animation-delay: 3.36s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(43) { animation-delay: 3.44s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(44) { animation-delay: 3.52s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(45) { animation-delay: 3.60s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(46) { animation-delay: 3.68s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(47) { animation-delay: 3.76s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(48) { animation-delay: 3.84s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(49) { animation-delay: 3.92s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(50) { animation-delay: 4.00s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(n+51) { animation-delay: calc(4.08s + (var(--i, 0) * 0.08s)); }
+
+/* Address 5 specific (12-93) */
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(12) { animation-delay: 0.88s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(13) { animation-delay: 0.96s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(14) { animation-delay: 1.04s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(15) { animation-delay: 1.12s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(16) { animation-delay: 1.2s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(17) { animation-delay: 1.28s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(18) { animation-delay: 1.36s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(19) { animation-delay: 1.44s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(20) { animation-delay: 1.52s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(21) { animation-delay: 1.6s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(22) { animation-delay: 1.68s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(23) { animation-delay: 1.76s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(24) { animation-delay: 1.84s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(25) { animation-delay: 1.92s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(26) { animation-delay: 2s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(27) { animation-delay: 2.08s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(28) { animation-delay: 2.16s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(29) { animation-delay: 2.24s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(30) { animation-delay: 2.32s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(31) { animation-delay: 2.4s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(32) { animation-delay: 2.48s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(33) { animation-delay: 2.56s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(34) { animation-delay: 2.64s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(35) { animation-delay: 2.72s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(36) { animation-delay: 2.80s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(37) { animation-delay: 2.88s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(38) { animation-delay: 2.96s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(39) { animation-delay: 3.04s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(40) { animation-delay: 3.12s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(41) { animation-delay: 3.20s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(42) { animation-delay: 3.28s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(43) { animation-delay: 3.36s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(44) { animation-delay: 3.44s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(45) { animation-delay: 3.52s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(46) { animation-delay: 3.60s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(47) { animation-delay: 3.68s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(48) { animation-delay: 3.76s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(49) { animation-delay: 3.84s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(50) { animation-delay: 3.92s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(n+51) { animation-delay: calc(4.00s + (var(--i, 0) * 0.08s)); }

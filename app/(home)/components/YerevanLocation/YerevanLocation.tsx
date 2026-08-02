@@ -190,11 +190,10 @@ export default function YerevanLocation() {
                     <div className="card-content">
                       <div className="card-text-wrapper">
                         <h3 className="card-location-name">{location.name.toUpperCase()}</h3>
-                        <p className="card-address">{location.address}</p>
                       </div>
                       <div className="card-time-wrapper">
+                        <p className="card-address">{location.address}</p>
                         <span className="card-drive-time">{location.driveTime}</span>
-                        <span className="card-drive-unit">{location.driveUnit}</span>
                       </div>
                     </div>
                   </div>

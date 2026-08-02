@@ -1144,6 +1144,7 @@ section.panel {
 
 .photo-wrapper {
   z-index: 1;
+  margin-top: -120px;
 }
 
 .wrap-image {
@@ -1648,6 +1649,7 @@ section.panel {
     flex: 1;
     max-width: 100%;
     order: -1;
+    margin-top: 0px;
   }
 
   .quote-controls {

@@ -47,11 +47,11 @@ export default function YerevanLocation() {
     setCursorPosition(null);
   };
 
-  const openGoogleMaps = () => {
-    const address = "Derenik Demirchyan 2-4, Yerevan, Armenia";
-    const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
-    window.open(googleMapsUrl, "_blank");
-  };
+  // const openGoogleMaps = () => {
+  //   const address = "Derenik Demirchyan 2-4, Yerevan, Armenia";
+  //   const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+  //   window.open(googleMapsUrl, "_blank");
+  // };
 
   return (
     <section className="yerevan-location" id="location">

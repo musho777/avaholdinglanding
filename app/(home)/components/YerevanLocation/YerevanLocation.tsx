@@ -12,7 +12,7 @@ const locations = [
     driveTime: "5",
     driveUnit: "MIN DRIVE BY CAR",
     address: "Republic Square, Yerevan, Armenia",
-    image: "/assets/location-1.jpeg", // Add your image path
+    image: "/assets/location-2.jpeg", // Add your image path
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const locations = [
     driveTime: "8",
     driveUnit: "MIN DRIVE BY CAR",
     address: "Cascade, Tamanyan St, Yerevan",
-    image: "/images/location-2.jpg", // Add your image path
+    image: "/assets/location-1.jpeg",
   },
   {
     id: 3,
@@ -32,11 +32,10 @@ const locations = [
   },
   {
     id: 4,
-    name: "Tsaghkadzor Ski Resort",
-    driveTime: "45",
+    name: "Cascade",
+    driveTime: "5",
     driveUnit: "MIN DRIVE BY CAR",
-    address: "Tsaghkadzor, Armenia",
-    image: "/images/location-4.jpg", // Add your image path
+    image: "/assets/location-1.jpeg", // Add your image path
   },
   {
     id: 5,
@@ -158,6 +157,20 @@ export default function YerevanLocation() {
         >
           <MapSvg className="map-image" />
 
+          <div className="map-text-overlay container-padding">
+            <h2 className="map-title">
+              <span className="title-line scroll-reveal">PRIME LOCATION</span>
+              <span className="title-line scroll-reveal delay-1">IN THE HEART OF</span>
+              <span className="title-line scroll-reveal delay-1">YEREVAN</span>
+            </h2>
+            <button
+              className="see-map-btn scroll-reveal delay-3"
+              onClick={() => openGoogleMaps("Derenik Demirchyan 2-4, Yerevan, Armenia")}
+            >
+              <span>SEE ON MAP</span>
+            </button>
+          </div>
+
           {/* Single Floating Location Card - appears on hover */}
           {hoveredLocation && (
             <div className="location-card-popup">
@@ -179,21 +192,6 @@ export default function YerevanLocation() {
                       <div className="card-drive-time">{location.driveTime}</div>
                       <div className="card-drive-unit">{location.driveUnit}</div>
                       <h3 className="card-location-name">{location.name}</h3>
-                      <button
-                        className="card-location-pin"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          openGoogleMaps(location.address);
-                        }}
-                        aria-label="View on map"
-                      >
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      </button>
                     </div>
                   </div>
                 );

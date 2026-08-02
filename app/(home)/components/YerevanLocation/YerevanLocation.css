@@ -63,6 +63,17 @@
   z-index: 1;
 }
 
+.card-image-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(250, 247, 242, 0.85);
+  border-radius: 12px;
+}
+
 .card-image {
   width: 100%;
   height: 100%;
@@ -207,92 +218,92 @@
   animation: routeFlow 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
-/* Animation delays matching MapSvg.jsx */
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(1),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(1),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(1),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(1),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(1) {
+/* Animation delays matching MapSvg.jsx - Reversed to animate from end to start */
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(1),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(1),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(1),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(1),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(1) {
   animation-delay: 0s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(2),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(2),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(2),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(2),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(2) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(2),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(2),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(2),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(2),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(2) {
   animation-delay: 0.08s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(3),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(3),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(3),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(3),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(3) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(3),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(3),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(3),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(3),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(3) {
   animation-delay: 0.16s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(4),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(4),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(4),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(4),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(4) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(4),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(4),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(4),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(4),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(4) {
   animation-delay: 0.24s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(5),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(5),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(5),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(5),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(5) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(5),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(5),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(5),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(5),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(5) {
   animation-delay: 0.32s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(6),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(6),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(6),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(6),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(6) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(6),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(6),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(6),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(6),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(6) {
   animation-delay: 0.4s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(7),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(7),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(7),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(7),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(7) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(7),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(7),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(7),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(7),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(7) {
   animation-delay: 0.48s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(8),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(8),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(8),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(8),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(8) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(8),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(8),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(8),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(8),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(8) {
   animation-delay: 0.56s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(9),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(9),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(9),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(9),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(9) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(9),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(9),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(9),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(9),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(9) {
   animation-delay: 0.64s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(10),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(10),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(10),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(10),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(10) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(10),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(10),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(10),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(10),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(10) {
   animation-delay: 0.72s;
 }
 
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(11),
-#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-child(11),
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(11),
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(11),
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(11) {
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(11),
+#address2-wrapper.hovered-by-card #address2-route .route-rect:nth-last-child(11),
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(11),
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(11),
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(11) {
   animation-delay: 0.8s;
 }
 
@@ -349,6 +360,7 @@
   overflow: hidden;
   background-repeat: no-repeat;
   background-position: center;
+  z-index: 2;
   /* display: none; */
 }
 
@@ -366,6 +378,7 @@
   left: 0;
   z-index: 3;
   max-width: 500px;
+  pointer-events: none;
 }
 
 .map-title {
@@ -401,6 +414,7 @@
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
+  pointer-events: auto;
 }
 
 .see-map-btn span {
@@ -636,112 +650,112 @@
 }
 
 /* Address 1 specific (12-18) */
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(12) { animation-delay: 0.88s; }
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(13) { animation-delay: 0.96s; }
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(14) { animation-delay: 1.04s; }
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(15) { animation-delay: 1.12s; }
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(16) { animation-delay: 1.2s; }
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(17) { animation-delay: 1.28s; }
-#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-child(18) { animation-delay: 1.36s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(12) { animation-delay: 0.88s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(13) { animation-delay: 0.96s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(14) { animation-delay: 1.04s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(15) { animation-delay: 1.12s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(16) { animation-delay: 1.2s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(17) { animation-delay: 1.28s; }
+#address1-wrapper.hovered-by-card #address1-route .route-rect:nth-last-child(18) { animation-delay: 1.36s; }
 
 /* Address 3 specific (12-27) */
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(12) { animation-delay: 0.88s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(13) { animation-delay: 0.96s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(14) { animation-delay: 1.04s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(15) { animation-delay: 1.12s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(16) { animation-delay: 1.2s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(17) { animation-delay: 1.28s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(18) { animation-delay: 1.36s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(19) { animation-delay: 1.44s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(20) { animation-delay: 1.52s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(21) { animation-delay: 1.6s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(22) { animation-delay: 1.68s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(23) { animation-delay: 1.76s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(24) { animation-delay: 1.84s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(25) { animation-delay: 1.92s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(26) { animation-delay: 2s; }
-#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-child(27) { animation-delay: 2.08s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(12) { animation-delay: 0.88s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(13) { animation-delay: 0.96s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(14) { animation-delay: 1.04s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(15) { animation-delay: 1.12s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(16) { animation-delay: 1.2s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(17) { animation-delay: 1.28s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(18) { animation-delay: 1.36s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(19) { animation-delay: 1.44s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(20) { animation-delay: 1.52s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(21) { animation-delay: 1.6s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(22) { animation-delay: 1.68s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(23) { animation-delay: 1.76s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(24) { animation-delay: 1.84s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(25) { animation-delay: 1.92s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(26) { animation-delay: 2s; }
+#address3-wrapper.hovered-by-card #address3-route .route-rect:nth-last-child(27) { animation-delay: 2.08s; }
 
 /* Address 4 specific (12-84) */
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(12) { animation-delay: 0.88s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(13) { animation-delay: 0.96s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(14) { animation-delay: 1.04s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(15) { animation-delay: 1.12s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(16) { animation-delay: 1.2s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(17) { animation-delay: 1.28s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(18) { animation-delay: 1.36s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(19) { animation-delay: 1.44s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(20) { animation-delay: 1.52s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(21) { animation-delay: 1.6s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(22) { animation-delay: 1.68s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(23) { animation-delay: 1.76s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(24) { animation-delay: 1.84s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(25) { animation-delay: 1.92s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(26) { animation-delay: 2s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(27) { animation-delay: 2.08s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(28) { animation-delay: 2.16s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(29) { animation-delay: 2.24s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(30) { animation-delay: 2.32s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(31) { animation-delay: 2.4s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(32) { animation-delay: 2.56s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(33) { animation-delay: 2.64s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(34) { animation-delay: 2.72s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(35) { animation-delay: 2.80s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(36) { animation-delay: 2.88s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(37) { animation-delay: 2.96s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(38) { animation-delay: 3.04s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(39) { animation-delay: 3.12s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(40) { animation-delay: 3.20s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(41) { animation-delay: 3.28s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(42) { animation-delay: 3.36s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(43) { animation-delay: 3.44s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(44) { animation-delay: 3.52s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(45) { animation-delay: 3.60s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(46) { animation-delay: 3.68s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(47) { animation-delay: 3.76s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(48) { animation-delay: 3.84s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(49) { animation-delay: 3.92s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(50) { animation-delay: 4.00s; }
-#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-child(n+51) { animation-delay: calc(4.08s + (var(--i, 0) * 0.08s)); }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(12) { animation-delay: 0.88s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(13) { animation-delay: 0.96s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(14) { animation-delay: 1.04s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(15) { animation-delay: 1.12s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(16) { animation-delay: 1.2s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(17) { animation-delay: 1.28s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(18) { animation-delay: 1.36s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(19) { animation-delay: 1.44s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(20) { animation-delay: 1.52s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(21) { animation-delay: 1.6s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(22) { animation-delay: 1.68s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(23) { animation-delay: 1.76s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(24) { animation-delay: 1.84s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(25) { animation-delay: 1.92s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(26) { animation-delay: 2s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(27) { animation-delay: 2.08s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(28) { animation-delay: 2.16s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(29) { animation-delay: 2.24s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(30) { animation-delay: 2.32s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(31) { animation-delay: 2.4s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(32) { animation-delay: 2.56s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(33) { animation-delay: 2.64s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(34) { animation-delay: 2.72s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(35) { animation-delay: 2.80s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(36) { animation-delay: 2.88s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(37) { animation-delay: 2.96s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(38) { animation-delay: 3.04s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(39) { animation-delay: 3.12s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(40) { animation-delay: 3.20s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(41) { animation-delay: 3.28s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(42) { animation-delay: 3.36s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(43) { animation-delay: 3.44s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(44) { animation-delay: 3.52s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(45) { animation-delay: 3.60s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(46) { animation-delay: 3.68s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(47) { animation-delay: 3.76s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(48) { animation-delay: 3.84s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(49) { animation-delay: 3.92s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(50) { animation-delay: 4.00s; }
+#address4-wrapper.hovered-by-card #address4-route .route-rect:nth-last-child(n+51) { animation-delay: calc(4.08s + (var(--i, 0) * 0.08s)); }
 
 /* Address 5 specific (12-93) */
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(12) { animation-delay: 0.88s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(13) { animation-delay: 0.96s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(14) { animation-delay: 1.04s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(15) { animation-delay: 1.12s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(16) { animation-delay: 1.2s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(17) { animation-delay: 1.28s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(18) { animation-delay: 1.36s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(19) { animation-delay: 1.44s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(20) { animation-delay: 1.52s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(21) { animation-delay: 1.6s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(22) { animation-delay: 1.68s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(23) { animation-delay: 1.76s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(24) { animation-delay: 1.84s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(25) { animation-delay: 1.92s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(26) { animation-delay: 2s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(27) { animation-delay: 2.08s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(28) { animation-delay: 2.16s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(29) { animation-delay: 2.24s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(30) { animation-delay: 2.32s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(31) { animation-delay: 2.4s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(32) { animation-delay: 2.48s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(33) { animation-delay: 2.56s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(34) { animation-delay: 2.64s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(35) { animation-delay: 2.72s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(36) { animation-delay: 2.80s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(37) { animation-delay: 2.88s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(38) { animation-delay: 2.96s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(39) { animation-delay: 3.04s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(40) { animation-delay: 3.12s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(41) { animation-delay: 3.20s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(42) { animation-delay: 3.28s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(43) { animation-delay: 3.36s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(44) { animation-delay: 3.44s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(45) { animation-delay: 3.52s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(46) { animation-delay: 3.60s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(47) { animation-delay: 3.68s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(48) { animation-delay: 3.76s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(49) { animation-delay: 3.84s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(50) { animation-delay: 3.92s; }
-#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-child(n+51) { animation-delay: calc(4.00s + (var(--i, 0) * 0.08s)); }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(12) { animation-delay: 0.88s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(13) { animation-delay: 0.96s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(14) { animation-delay: 1.04s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(15) { animation-delay: 1.12s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(16) { animation-delay: 1.2s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(17) { animation-delay: 1.28s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(18) { animation-delay: 1.36s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(19) { animation-delay: 1.44s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(20) { animation-delay: 1.52s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(21) { animation-delay: 1.6s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(22) { animation-delay: 1.68s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(23) { animation-delay: 1.76s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(24) { animation-delay: 1.84s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(25) { animation-delay: 1.92s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(26) { animation-delay: 2s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(27) { animation-delay: 2.08s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(28) { animation-delay: 2.16s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(29) { animation-delay: 2.24s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(30) { animation-delay: 2.32s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(31) { animation-delay: 2.4s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(32) { animation-delay: 2.48s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(33) { animation-delay: 2.56s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(34) { animation-delay: 2.64s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(35) { animation-delay: 2.72s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(36) { animation-delay: 2.80s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(37) { animation-delay: 2.88s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(38) { animation-delay: 2.96s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(39) { animation-delay: 3.04s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(40) { animation-delay: 3.12s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(41) { animation-delay: 3.20s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(42) { animation-delay: 3.28s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(43) { animation-delay: 3.36s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(44) { animation-delay: 3.44s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(45) { animation-delay: 3.52s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(46) { animation-delay: 3.60s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(47) { animation-delay: 3.68s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(48) { animation-delay: 3.76s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(49) { animation-delay: 3.84s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(50) { animation-delay: 3.92s; }
+#address5-wrapper.hovered-by-card #address5-route .route-rect:nth-last-child(n+51) { animation-delay: calc(4.00s + (var(--i, 0) * 0.08s)); }

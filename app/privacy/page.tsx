@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect } from "react";
+import StaticHeader from "@/components/StaticHeader";
 import "./privacy.css";
 
 export default function PrivacyPolicy() {
@@ -26,25 +26,13 @@ export default function PrivacyPolicy() {
   }, []);
 
   return (
-    <div className="privacy-page">
-      <div className="privacy-header fade-in">
-        <Link href="/" className="back-button book-btn">
-          <span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M19 12H5M5 12L12 19M5 12L12 5"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            BACK TO HOME
-          </span>
-        </Link>
-        <h1 className="privacy-title">Privacy Policy</h1>
-        <p className="privacy-subtitle">Last updated: January 2026</p>
-      </div>
+    <>
+      <StaticHeader />
+      <div className="privacy-page">
+        <div className="privacy-header fade-in">
+          <h1 className="privacy-title">Privacy Policy</h1>
+          <p className="privacy-subtitle">Last updated: January 2026</p>
+        </div>
 
       <div className="privacy-content">
         <section className="privacy-section fade-in">
@@ -158,5 +146,6 @@ export default function PrivacyPolicy() {
         </section>
       </div>
     </div>
+    </>
   );
 }

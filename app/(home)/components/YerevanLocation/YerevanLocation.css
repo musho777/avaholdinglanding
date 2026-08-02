@@ -34,22 +34,20 @@
 /* Individual Floating Card - New Design */
 .floating-location-card {
   position: relative;
-  background: var(--off-white, #faf7f2);
   border: none;
-  border-radius: 12px;
-  padding: 1.5rem 1.375rem;
+  border-radius: 16px;
+  padding: 0;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   animation: fadeInUp 0.6s ease-out backwards;
   overflow: hidden;
-  min-width: 240px;
-  max-width: 280px;
-  min-height: 280px;
+  width: 380px;
+  height: 260px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 /* Card Image - visible by default */
@@ -59,19 +57,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 1;
   z-index: 1;
-}
-
-.card-image-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(250, 247, 242, 0.85);
-  border-radius: 12px;
 }
 
 .card-image {
@@ -79,24 +65,80 @@
   height: 100%;
   background-size: cover;
   background-position: center;
+  border-radius: 16px;
 }
 
-/* Card Content */
+/* Dark gradient overlay at the bottom */
+.card-gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 2;
+  border-radius: 16px;
+}
+
+/* Card Content - Bottom positioned */
 .card-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 1.4rem 1.65rem;
+  gap: 1.3rem;
 }
 
-/* Drive Time - Large Number */
-.card-drive-time {
+/* Left side - Location name and address */
+.card-text-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Location Name - Large serif title */
+.card-location-name {
   font-family: var(--font-serif, "Constantia", Georgia, serif);
-  font-size: 5rem;
-  font-weight: 300;
-  line-height: 0.9;
-  color: var(--charcoal, #3a322b);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
+  margin: 0;
+  width: 100%;
+}
+
+/* Address */
+.card-address {
+  font-family: var(--font-sans, "Helvetica", sans-serif);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: white;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Right side - Time and unit */
+.card-time-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  white-space: nowrap;
+}
+
+/* Drive Time */
+.card-drive-time {
+  font-family: var(--font-sans, "Helvetica", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: white;
   margin: 0;
 }
 
@@ -105,21 +147,9 @@
   font-family: var(--font-sans, "Helvetica", sans-serif);
   font-size: 0.75rem;
   font-weight: 400;
-  color: var(--pine, #5f5346);
-  text-transform: uppercase;
-  letter-spacing: 1.3px;
-  margin-top: 0.4rem;
-  margin-bottom: auto;
-}
-
-/* Location Name */
-.card-location-name {
-  font-family: var(--font-serif, "Constantia", Georgia, serif);
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: var(--charcoal, #3a322b);
-  margin: 1.25rem 0 0.75rem 0;
-  line-height: 1.3;
+  color: white;
+  opacity: 0.85;
+  margin: 0;
 }
 
 /* Location Pin Button */
@@ -512,10 +542,20 @@
   }
 
   .floating-location-card {
-    padding: 1.25rem;
-    min-width: 200px;
-    max-width: 240px;
-    min-height: 240px;
+    width: 380px;
+    height: 280px;
+  }
+
+  .card-location-name {
+    font-size: 1.5rem;
+  }
+
+  .card-address {
+    font-size: 0.8rem;
+  }
+
+  .card-content {
+    padding: 1.5rem 1.75rem;
   }
 
   .map-text-overlay {
@@ -544,10 +584,20 @@
   }
 
   .floating-location-card {
-    padding: 1.125rem;
-    min-width: 180px;
-    max-width: 220px;
-    min-height: 220px;
+    width: 330px;
+    height: 240px;
+  }
+
+  .card-location-name {
+    font-size: 1.35rem;
+  }
+
+  .card-address {
+    font-size: 0.75rem;
+  }
+
+  .card-content {
+    padding: 1.35rem 1.5rem;
   }
 
   .map-image {
@@ -605,18 +655,28 @@
   }
 
   .floating-location-card {
-    padding: 1rem;
-    min-width: 180px;
-    max-width: 200px;
-    min-height: 200px;
-  }
-
-  .card-drive-time {
-    font-size: 4rem;
+    width: 280px;
+    height: 210px;
   }
 
   .card-location-name {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+  }
+
+  .card-address {
+    font-size: 0.7rem;
+  }
+
+  .card-drive-time {
+    font-size: 0.9rem;
+  }
+
+  .card-drive-unit {
+    font-size: 0.7rem;
+  }
+
+  .card-content {
+    padding: 1.1rem 1.3rem;
   }
 
   .map-image {

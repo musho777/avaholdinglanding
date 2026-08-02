@@ -9,39 +9,38 @@ const locations = [
   {
     id: 1,
     name: "American University of Armenia",
-    driveTime: "5",
-    driveUnit: "Min on Foot",
-    address: "Republic Square, Yerevan, Armenia",
-    image: "/assets/usa.jpg", // Add your image path
+    driveTime: "5-10min",
+    driveUnit: "Walking",
+    address: "40 Marshal Baghramyan Avenue",
+    image: "/assets/usa.jpg",
   },
   {
     id: 2,
-    name: "Lovers' Park",
-    driveTime: "3",
-    driveUnit: "Min on Foot",
-    address: "Lovers' Park, Yerevan",
-    image: "/assets/lovers_park.jpg", // Add your image path
+    name: "Lovers'Park",
+    driveTime: "5 min Walking",
+    address: "21 Marshal Baghramyan Ave",
+    image: "/assets/lovers_park.jpg",
   },
   {
     id: 3,
-    name: "National Academy of Sciences",
-    driveTime: "3",
-    driveUnit: "Min on Foot",
-    image: "/assets/academia.jpg", // Add your image path
+    name: "NATIONAL ACADEMY OF SCIENCES OF ARMENIA",
+    driveTime: "12 min Walking",
+    address: "24 Marshal Baghramyan Avenue",
+    image: "/assets/academia.jpg",
   },
   {
     id: 4,
-    name: "Cascade",
-    driveTime: "4",
-    driveUnit: "MIN DRIVE BY CAR",
-    image: "/assets/location-1.jpg", // Add your image path
+    name: "Cascade Complex",
+    driveTime: "12 min Walking",
+    address: "10 Tamanyan Street",
+    image: "/assets/location-1.jpg",
   },
   {
     id: 5,
-    name: "OPERA",
-    driveTime: "4",
-    driveUnit: "MIN DRIVE BY CAR",
-    image: "/assets/opera.jpg", // Add your image path
+    name: "Armenian Opera and Ballet Theatre",
+    driveTime: "14 min Walking",
+    address: "54 Tumanyan Street",
+    image: "/assets/opera.jpg",
   },
 ];
 
@@ -183,13 +182,20 @@ export default function YerevanLocation() {
                         className="card-image"
                         style={{ backgroundImage: `url(${location.image})` }}
                       ></div>
+                      {/* Dark gradient overlay */}
+                      <div className="card-gradient-overlay"></div>
                     </div>
 
-                    {/* Card Content */}
+                    {/* Card Content - Bottom positioned */}
                     <div className="card-content">
-                      <div className="card-drive-time">{location.driveTime}</div>
-                      <div className="card-drive-unit">{location.driveUnit}</div>
-                      <h3 className="card-location-name">{location.name}</h3>
+                      <div className="card-text-wrapper">
+                        <h3 className="card-location-name">{location.name.toUpperCase()}</h3>
+                        <p className="card-address">{location.address}</p>
+                      </div>
+                      <div className="card-time-wrapper">
+                        <span className="card-drive-time">{location.driveTime}</span>
+                        <span className="card-drive-unit">{location.driveUnit}</span>
+                      </div>
                     </div>
                   </div>
                 );

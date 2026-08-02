@@ -396,6 +396,9 @@ body {
   color: #ffffff;
   width: 220px;
 }
+.header-with-bg .logo-layer.docked .logo-svg {
+  color: #cec4b6;
+}
 .logo-sub {
   font-family: var(--font-sans);
   font-weight: 400;

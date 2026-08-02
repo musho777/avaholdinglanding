@@ -29982,26 +29982,7 @@ function MapSvg(props) {
           transform="rotate(-23.51 742.144 491.653)"
           d="M740.64 490.15H743.64V493.15H740.64z"
         /> */}
-        <path
-          className="cls-1"
-          transform="rotate(-88.62 961.026 367.842)"
-          d="M958.03 366.34H964.03V369.34H958.03z"
-        />
-        <path
-          className="cls-1"
-          transform="rotate(-88.62 961.317 355.846)"
-          d="M958.32 354.35H964.32V357.35H958.32z"
-        />
-        <path
-          className="cls-1"
-          transform="rotate(-88.62 961.607 343.85)"
-          d="M958.61 342.35H964.61V345.35H958.61z"
-        />
-        <path
-          className="cls-1"
-          transform="rotate(-88.62 961.862 333.32)"
-          d="M960.33 331.82H963.4000000000001V334.82H960.33z"
-        />
+
         <path
           className="cls-1"
           d="M843.86 477.76L843.83 477.27 846.83 477.11 846.85 477.62 843.86 477.76z"

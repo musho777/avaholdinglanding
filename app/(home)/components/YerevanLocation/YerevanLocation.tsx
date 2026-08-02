@@ -64,7 +64,7 @@ export default function YerevanLocation() {
       >
         <MapSvg className="map-image" />
 
-        <div className="map-text-overlay container-padding">
+        {/* <div className="map-text-overlay container-padding">
           <h2 className="map-title">
             <span className="title-line scroll-reveal">PRIME LOCATION</span>
             <span className="title-line scroll-reveal delay-1">IN THE HEART OF</span>
@@ -73,7 +73,7 @@ export default function YerevanLocation() {
           <button className="see-map-btn scroll-reveal delay-3" onClick={openGoogleMaps}>
             <span>SEE ON MAP</span>
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Custom cursor circles - WhatsApp style */}

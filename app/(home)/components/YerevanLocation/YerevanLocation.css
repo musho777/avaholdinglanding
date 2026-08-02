@@ -131,6 +131,8 @@
 .card-time-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
   white-space: nowrap;
   width: 100%;
 }
@@ -595,7 +597,11 @@
   }
 
   .card-address {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .card-drive-time {
+    font-size: 0.8rem;
   }
 
   .card-content {
@@ -666,11 +672,11 @@
   }
 
   .card-address {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .card-drive-time {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 
   .card-drive-unit {
@@ -679,6 +685,10 @@
 
   .card-content {
     padding: 1.1rem 1.3rem;
+  }
+
+  .card-time-wrapper {
+    gap: 0.5rem;
   }
 
   .map-image {

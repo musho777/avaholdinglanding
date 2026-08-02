@@ -29904,7 +29904,7 @@ function MapSvg(props) {
             <circle className="route-rect" cx="653.54" cy="411.3" r="5" />
             <circle className="route-rect" cx="665.57" cy="411.89" r="5" />
             <circle className="route-rect" cx="677.59" cy="412.25" r="5" />
-            <circle className="route-rect" cx="686.63" cy="410.96" r="5" />
+            <circle className="route-rect" cx="689.58" cy="412.56" r="5" />
             <circle className="route-rect" cx="701.58" cy="412.88" r="5" />
             <circle className="route-rect" cx="713.55" cy="413.38" r="5" />
             <circle className="route-rect" cx="725.5" cy="414.1" r="5" />

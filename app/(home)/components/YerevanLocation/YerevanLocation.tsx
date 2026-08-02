@@ -10,36 +10,36 @@ const locations = [
     id: 1,
     name: "American University of Armenia",
     driveTime: "5",
-    driveUnit: "MIN DRIVE BY CAR",
+    driveUnit: "Min on Foot",
     address: "Republic Square, Yerevan, Armenia",
     image: "/assets/usa.avif", // Add your image path
   },
   {
     id: 2,
     name: "Lovers' Park",
-    driveTime: "8",
-    driveUnit: "MIN DRIVE BY CAR",
+    driveTime: "3",
+    driveUnit: "Min on Foot",
     address: "Lovers' Park, Yerevan",
     image: "/assets/LoversPark.jpg", // Add your image path
   },
   {
     id: 3,
     name: "National Academy of Sciences",
-    driveTime: "15",
-    driveUnit: "MIN DRIVE BY CAR",
+    driveTime: "3",
+    driveUnit: "Min on Foot",
     image: "/assets/academia.jpg", // Add your image path
   },
   {
     id: 4,
     name: "Cascade",
-    driveTime: "5",
+    driveTime: "4",
     driveUnit: "MIN DRIVE BY CAR",
     image: "/assets/location-1.jpeg", // Add your image path
   },
   {
     id: 5,
     name: "OPERA",
-    driveTime: "60",
+    driveTime: "4",
     driveUnit: "MIN DRIVE BY CAR",
     image: "/assets/opera.png", // Add your image path
   },

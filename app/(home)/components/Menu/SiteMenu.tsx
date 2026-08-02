@@ -51,10 +51,7 @@ export default function SiteMenu() {
               GALLERY
             </a>
             <a href="#founder" data-menu-link>
-              VISION & FOUNDERS
-            </a>
-            <a href="#partners" data-menu-link>
-              PARTNERS
+              FOUNDERS
             </a>
             <a href="#contact" data-menu-link>
               CONTACT

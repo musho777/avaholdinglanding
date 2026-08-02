@@ -701,12 +701,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-bottom: -8px;
+  gap: 0.5rem;
+  margin-bottom: -7px;
 }
 .site-menu-links a {
   font-family: var(--font-sans);
   font-weight: 400;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-size: clamp(1.4rem, 3vw, 2rem);
   color: rgba(250, 247, 242, 0.6);
   text-decoration: none;
   position: relative;
@@ -2537,7 +2538,7 @@ section.panel {
   }
 
   .site-menu-links a {
-    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    font-size: clamp(1.3rem, 2.8vw, 1.8rem);
   }
 
   .site-menu-foot {
@@ -3217,7 +3218,7 @@ img {
   }
 
   .site-menu-links a {
-    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   }
 
   .site-menu-foot a {

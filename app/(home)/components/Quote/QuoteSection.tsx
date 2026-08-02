@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function QuoteSection() {
   useEffect(() => {
-    let DURATION = 60;
+    let DURATION = 72;
     const BAR_COUNT = 90;
 
     const quoteText = document.getElementById("quoteText");
@@ -235,7 +235,7 @@ export default function QuoteSection() {
               </span>
               <div className="waveform" id="waveform"></div>
               <span className="wf-time" id="wfTotal">
-                0:31
+                1:12
               </span>
             </div>
             <div className="play-wrap scroll-reveal delay-2" id="playWrap">

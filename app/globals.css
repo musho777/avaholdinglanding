@@ -930,7 +930,7 @@ section.panel {
 /* ---------- FOUNDER SECTION ---------- */
 .founder-section {
   position: relative;
-  padding: 8rem 0;
+  padding: 5rem 0;
   background: var(--taupe);
   overflow: hidden;
   z-index: 10;
@@ -1079,6 +1079,93 @@ section.panel {
 
 .founder-image-wrapper:hover .founder-brand-asset img {
   transform: scale(1.05) rotate(2deg);
+}
+
+/* Centered Founder Layout */
+.founder-content-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.founder-image-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 247, 242, 0.05);
+  border: 2px solid rgba(201, 162, 103, 0.2);
+  box-shadow: 0 10px 40px rgba(34, 28, 23, 0.1);
+}
+
+.founder-image-circle svg {
+  width: 120px;
+  height: 120px;
+}
+
+.founder-header {
+  margin-bottom: 2rem;
+}
+
+.founder-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--stone);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.founder-role {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: var(--gold);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.founder-bio {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.founder-paragraph {
+  font-family: var(--font-sans);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: var(--stone);
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.founder-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.founder-signature-centered {
+  margin-top: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.signature-line-centered {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(201, 162, 103, 0.4) 20%,
+    rgba(201, 162, 103, 0.4) 80%,
+    transparent
+  );
 }
 
 /* ---------- QUOTE / PLAY SECTION ---------- */
@@ -2203,7 +2290,7 @@ section.panel {
   }
 
   .founder-section {
-    padding: 6rem 0 5rem;
+    padding: 4rem 0;
   }
 
   .founder-content {
@@ -2212,6 +2299,25 @@ section.panel {
 
   .founder-text {
     padding-right: 0;
+  }
+
+  .founder-image-circle {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-image-circle svg {
+    width: 110px;
+    height: 110px;
+  }
+
+  .founder-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-bio {
+    max-width: 650px;
   }
 
   .quote-section {
@@ -2266,7 +2372,7 @@ section.panel {
 /* Mobile landscape / small tablet breakpoint */
 @media (max-width: 820px) {
   .founder-section {
-    padding: 5rem 0 4rem;
+    padding: 3.5rem 0;
   }
 
   .founder-content {
@@ -2293,6 +2399,29 @@ section.panel {
     right: -15px;
     width: calc(100% - 30px);
     height: calc(100% - 30px);
+  }
+
+  .founder-image-circle {
+    width: 160px;
+    height: 160px;
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-image-circle svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .founder-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-bio {
+    max-width: 100%;
+  }
+
+  .founder-signature-centered {
+    margin-top: 2rem;
   }
 
   .founder-brand-asset {
@@ -2932,7 +3061,7 @@ img {
   }
 
   .founder-section {
-    padding: 4rem 0 3.5rem;
+    padding: 3rem 0;
   }
 
   .founder-image-wrapper {
@@ -2944,16 +3073,51 @@ img {
     left: -20px;
     width: clamp(60px, 15vw, 90px);
   }
+
+  .founder-image-circle {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-image-circle svg {
+    width: 90px;
+    height: 90px;
+  }
+
+  .founder-signature-centered {
+    margin-top: 2rem;
+  }
 }
 
 /* Small mobile breakpoint */
 @media (max-width: 480px) {
   .founder-section {
-    padding: 3.5rem 0 3rem;
+    padding: 2.5rem 0;
   }
 
   .founder-content {
     gap: 1.5rem;
+  }
+
+  .founder-image-circle {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.2rem;
+  }
+
+  .founder-image-circle svg {
+    width: 75px;
+    height: 75px;
+  }
+
+  .founder-header {
+    margin-bottom: 1.2rem;
+  }
+
+  .founder-signature-centered {
+    margin-top: 1.5rem;
+    max-width: 300px;
   }
 
   .founder-image-wrapper {

@@ -9,39 +9,38 @@ const locations = [
   {
     id: 1,
     name: "American University of Armenia",
-    driveTime: "5",
-    driveUnit: "Min on Foot",
-    address: "Republic Square, Yerevan, Armenia",
-    image: "/assets/usa.avif", // Add your image path
+    driveTime: "5-10min",
+    driveUnit: "Walking",
+    address: "40 Marshal Baghramyan Avenue",
+    image: "/assets/usa.jpg",
   },
   {
     id: 2,
-    name: "Lovers' Park",
-    driveTime: "3",
-    driveUnit: "Min on Foot",
-    address: "Lovers' Park, Yerevan",
-    image: "/assets/LoversPark.jpg", // Add your image path
+    name: "Lovers'Park",
+    driveTime: "5 min Walking",
+    address: "21 Marshal Baghramyan Ave",
+    image: "/assets/lovers_park.jpg",
   },
   {
     id: 3,
-    name: "National Academy of Sciences",
-    driveTime: "3",
-    driveUnit: "Min on Foot",
-    image: "/assets/academia.jpg", // Add your image path
+    name: "NATIONAL ACADEMY OF SCIENCES OF ARMENIA",
+    driveTime: "12 min Walking",
+    address: "24 Marshal Baghramyan Avenue",
+    image: "/assets/academia.jpg",
   },
   {
     id: 4,
-    name: "Cascade",
-    driveTime: "4",
-    driveUnit: "MIN DRIVE BY CAR",
-    image: "/assets/location-1.jpeg", // Add your image path
+    name: "Cascade Complex",
+    driveTime: "12 min Walking",
+    address: "10 Tamanyan Street",
+    image: "/assets/location-1.jpg",
   },
   {
     id: 5,
-    name: "OPERA",
-    driveTime: "4",
-    driveUnit: "MIN DRIVE BY CAR",
-    image: "/assets/opera.png", // Add your image path
+    name: "Armenian Opera and Ballet Theatre",
+    driveTime: "14 min Walking",
+    address: "54 Tumanyan Street",
+    image: "/assets/opera.jpg",
   },
 ];
 
@@ -49,7 +48,7 @@ export default function YerevanLocation() {
   const mapWrapperRef = useRef<HTMLDivElement>(null);
   const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number } | null>(null);
   const [isHoveringMap, setIsHoveringMap] = useState(false);
-  const [hoveredLocation, setHoveredLocation] = useState<number | null>(null);
+  const [hoveredLocation, setHoveredLocation] = useState<number | null>(1); // Always show card 1 for testing
   const previousHoveredRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -114,27 +113,27 @@ export default function YerevanLocation() {
     setCursorPosition(null);
   };
 
-  // Add class to address wrapper when card is hovered
-  useEffect(() => {
-    // Remove class from previous hovered location
-    if (previousHoveredRef.current) {
-      const prevWrapper = document.getElementById(`address${previousHoveredRef.current}-wrapper`);
-      if (prevWrapper) {
-        prevWrapper.classList.remove("hovered-by-card");
-      }
-    }
+  // Add class to address wrapper when card is hovered - DISABLED FOR TESTING
+  // useEffect(() => {
+  //   // Remove class from previous hovered location
+  //   if (previousHoveredRef.current) {
+  //     const prevWrapper = document.getElementById(`address${previousHoveredRef.current}-wrapper`);
+  //     if (prevWrapper) {
+  //       prevWrapper.classList.remove("hovered-by-card");
+  //     }
+  //   }
 
-    // Add class to new hovered location
-    if (hoveredLocation) {
-      const wrapper = document.getElementById(`address${hoveredLocation}-wrapper`);
-      if (wrapper) {
-        wrapper.classList.add("hovered-by-card");
-      }
-    }
+  //   // Add class to new hovered location
+  //   if (hoveredLocation) {
+  //     const wrapper = document.getElementById(`address${hoveredLocation}-wrapper`);
+  //     if (wrapper) {
+  //       wrapper.classList.add("hovered-by-card");
+  //     }
+  //   }
 
-    // Update ref
-    previousHoveredRef.current = hoveredLocation;
-  }, [hoveredLocation]);
+  //   // Update ref
+  //   previousHoveredRef.current = hoveredLocation;
+  // }, [hoveredLocation]);
 
   const openGoogleMaps = (address: string) => {
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -183,13 +182,19 @@ export default function YerevanLocation() {
                         className="card-image"
                         style={{ backgroundImage: `url(${location.image})` }}
                       ></div>
+                      {/* Dark gradient overlay */}
+                      <div className="card-gradient-overlay"></div>
                     </div>
 
-                    {/* Card Content */}
+                    {/* Card Content - Bottom positioned */}
                     <div className="card-content">
-                      <div className="card-drive-time">{location.driveTime}</div>
-                      <div className="card-drive-unit">{location.driveUnit}</div>
-                      <h3 className="card-location-name">{location.name}</h3>
+                      <div className="card-text-wrapper">
+                        <h3 className="card-location-name">{location.name.toUpperCase()}</h3>
+                      </div>
+                      <div className="card-time-wrapper">
+                        <p className="card-address">{location.address}</p>
+                        <span className="card-drive-time">{location.driveTime}</span>
+                      </div>
                     </div>
                   </div>
                 );

@@ -1087,34 +1087,47 @@ section.panel {
 /* Centered Founder Layout */
 .founder-content-centered {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 900px;
+  gap: 3rem;
+  align-items: stretch;
+  max-width: 1920px;
   margin: 0 auto;
-  text-align: center;
 }
 
-.founder-image-circle {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 2rem;
+.founder-left-section {
+  flex: 0 0 40%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(250, 247, 242, 0.05);
-  border: 2px solid rgba(201, 162, 103, 0.2);
-  box-shadow: 0 10px 40px rgba(34, 28, 23, 0.1);
+}
+
+.founder-right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 0;
+}
+
+.founder-image-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .founder-image-circle svg {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
 }
 
 .founder-header {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
+  text-align: left;
 }
 
 .founder-name {
@@ -1125,6 +1138,7 @@ section.panel {
   margin-bottom: 0.75rem;
   line-height: 1.2;
   letter-spacing: 0.02em;
+  text-align: left;
 }
 
 .founder-role {
@@ -1134,11 +1148,12 @@ section.panel {
   font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  text-align: left;
 }
 
 .founder-bio {
-  max-width: 750px;
-  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
 }
 
 .founder-paragraph {
@@ -1147,6 +1162,7 @@ section.panel {
   color: var(--stone);
   margin-bottom: 0.8rem;
   text-align: left;
+  word-wrap: break-word;
 }
 
 .founder-paragraph:last-child {
@@ -2305,23 +2321,22 @@ section.panel {
     padding-right: 0;
   }
 
+  .founder-content-centered {
+    gap: 3rem;
+  }
+
   .founder-image-circle {
     width: 180px;
     height: 180px;
-    margin-bottom: 1.5rem;
-  }
-
-  .founder-image-circle svg {
-    width: 110px;
-    height: 110px;
+    margin-bottom: 0;
   }
 
   .founder-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
   }
 
   .founder-bio {
-    max-width: 650px;
+    max-width: 100%;
   }
 
   .quote-section {
@@ -2405,19 +2420,29 @@ section.panel {
     height: calc(100% - 30px);
   }
 
+  .founder-content-centered {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .founder-left-section {
+    flex: 1;
+    order: -1;
+  }
+
+  .founder-right-section {
+    flex: 1;
+  }
+
   .founder-image-circle {
     width: 160px;
     height: 160px;
-    margin-bottom: 1.5rem;
-  }
-
-  .founder-image-circle svg {
-    width: 100px;
-    height: 100px;
+    margin-bottom: 0;
   }
 
   .founder-header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
+    text-align: center;
   }
 
   .founder-bio {
@@ -3078,15 +3103,14 @@ img {
     width: clamp(60px, 15vw, 90px);
   }
 
-  .founder-image-circle {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 1.5rem;
+  .founder-content-centered {
+    gap: 2rem;
   }
 
-  .founder-image-circle svg {
-    width: 90px;
-    height: 90px;
+  .founder-image-circle {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 0;
   }
 
   .founder-signature-centered {
@@ -3104,19 +3128,12 @@ img {
     gap: 1.5rem;
   }
 
-  .founder-image-circle {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 1.2rem;
-  }
-
-  .founder-image-circle svg {
-    width: 75px;
-    height: 75px;
+  .founder-content-centered {
+    gap: 1.5rem;
   }
 
   .founder-header {
-    margin-bottom: 1.2rem;
+    margin-bottom: 0;
   }
 
   .founder-signature-centered {

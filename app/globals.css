@@ -999,10 +999,9 @@ section.panel {
 }
 
 .founder-name {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 0.95rem;
   color: var(--gold-dim);
-  font-style: italic;
 }
 
 .founder-image-wrapper {

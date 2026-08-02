@@ -11,7 +11,7 @@ export default function FounderSection() {
           </div>
 
           <div className="founder-header scroll-reveal delay-1">
-            <h2 className="founder-name">Eduard Ghazaryan</h2>
+            <h2 className="founder-name">EDUARD GHAZARYAN</h2>
             <p className="founder-role">Founder of AVA Holding and Developer of AVA Residences</p>
           </div>
 

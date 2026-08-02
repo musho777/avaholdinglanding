@@ -8,43 +8,43 @@ import MapSvg from "../MapSvg/MapSvg";
 const locations = [
   {
     id: 1,
-    name: "Derenik Demirchyan 2-4",
-    district: "Yerevan",
-    description: "Premium office location in the heart of Yerevan's business district.",
-    address: "Derenik Demirchyan 2-4, Yerevan, Armenia",
-    coordinates: { x: 0, y: 0 },
+    name: "Republic Square",
+    driveTime: "5",
+    driveUnit: "MIN DRIVE BY CAR",
+    address: "Republic Square, Yerevan, Armenia",
+    image: "/assets/location-1.jpeg", // Add your image path
   },
   {
     id: 2,
-    name: "Northern Branch",
-    district: "Yerevan",
-    description: "Strategic location with excellent connectivity and modern amenities.",
-    address: "Northern District, Yerevan, Armenia",
-    coordinates: { x: 0, y: 0 },
+    name: "Cascade Complex",
+    driveTime: "8",
+    driveUnit: "MIN DRIVE BY CAR",
+    address: "Cascade, Tamanyan St, Yerevan",
+    image: "/images/location-2.jpg", // Add your image path
   },
   {
     id: 3,
-    name: "Central Office",
-    district: "Yerevan",
-    description: "Prime central location with easy access to major landmarks.",
-    address: "Central District, Yerevan, Armenia",
-    coordinates: { x: 0, y: 0 },
+    name: "Zvartnots Airport",
+    driveTime: "15",
+    driveUnit: "MIN DRIVE BY CAR",
+    address: "Zvartnots International Airport",
+    image: "/images/location-3.jpg", // Add your image path
   },
   {
     id: 4,
-    name: "Eastern Branch",
-    district: "Yerevan",
-    description: "Modern facilities in a rapidly developing area.",
-    address: "Eastern District, Yerevan, Armenia",
-    coordinates: { x: 0, y: 0 },
+    name: "Tsaghkadzor Ski Resort",
+    driveTime: "45",
+    driveUnit: "MIN DRIVE BY CAR",
+    address: "Tsaghkadzor, Armenia",
+    image: "/images/location-4.jpg", // Add your image path
   },
   {
     id: 5,
-    name: "Southern Branch",
-    district: "Yerevan",
-    description: "Well-connected location with excellent transport links.",
-    address: "Southern District, Yerevan, Armenia",
-    coordinates: { x: 0, y: 0 },
+    name: "Lake Sevan",
+    driveTime: "60",
+    driveUnit: "MIN DRIVE BY CAR",
+    address: "Lake Sevan, Armenia",
+    image: "/images/location-5.jpg", // Add your image path
   },
 ];
 
@@ -52,8 +52,6 @@ export default function YerevanLocation() {
   const mapWrapperRef = useRef<HTMLDivElement>(null);
   const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number } | null>(null);
   const [isHoveringMap, setIsHoveringMap] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState<number | null>(null);
-  const [showCards, setShowCards] = useState(true);
   const [hoveredLocation, setHoveredLocation] = useState<number | null>(null);
   const previousHoveredRef = useRef<number | null>(null);
 
@@ -76,9 +74,33 @@ export default function YerevanLocation() {
     // Re-center on window resize
     window.addEventListener("resize", centerScroll);
 
+    // Add hover listeners to address wrappers
+    const addHoverListeners = () => {
+      for (let i = 1; i <= 5; i++) {
+        const wrapper = document.getElementById(`address${i}-wrapper`);
+        if (wrapper) {
+          wrapper.addEventListener("mouseenter", () => setHoveredLocation(i));
+          wrapper.addEventListener("mouseleave", () => setHoveredLocation(null));
+        }
+      }
+    };
+
+    // Add listeners after a short delay to ensure SVG is loaded
+    const listenersTimeoutId = setTimeout(addHoverListeners, 200);
+
     return () => {
       clearTimeout(timeoutId);
+      clearTimeout(listenersTimeoutId);
       window.removeEventListener("resize", centerScroll);
+
+      // Clean up hover listeners
+      for (let i = 1; i <= 5; i++) {
+        const wrapper = document.getElementById(`address${i}-wrapper`);
+        if (wrapper) {
+          wrapper.removeEventListener("mouseenter", () => setHoveredLocation(i));
+          wrapper.removeEventListener("mouseleave", () => setHoveredLocation(null));
+        }
+      }
     };
   }, []);
 
@@ -101,7 +123,7 @@ export default function YerevanLocation() {
     if (previousHoveredRef.current) {
       const prevWrapper = document.getElementById(`address${previousHoveredRef.current}-wrapper`);
       if (prevWrapper) {
-        prevWrapper.classList.remove('hovered-by-card');
+        prevWrapper.classList.remove("hovered-by-card");
       }
     }
 
@@ -109,7 +131,7 @@ export default function YerevanLocation() {
     if (hoveredLocation) {
       const wrapper = document.getElementById(`address${hoveredLocation}-wrapper`);
       if (wrapper) {
-        wrapper.classList.add('hovered-by-card');
+        wrapper.classList.add("hovered-by-card");
       }
     }
 
@@ -132,69 +154,52 @@ export default function YerevanLocation() {
           onMouseMove={handleMouseMove}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          data-hovered-location={hoveredLocation || ''}
+          data-hovered-location={hoveredLocation || ""}
         >
           <MapSvg className="map-image" />
 
-          {/* Toggle Button */}
-          <button
-            className={`cards-toggle-btn ${showCards ? 'active' : ''}`}
-            onClick={() => setShowCards(!showCards)}
-            aria-label={showCards ? 'Hide locations' : 'Show locations'}
-          >
-            <span className="toggle-icon">
-              {showCards ? (
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M15 10L5 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 6h12M4 10h12M4 14h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              )}
-            </span>
-            <span className="toggle-text">{showCards ? 'Hide Locations' : 'Show Locations'}</span>
-          </button>
+          {/* Single Floating Location Card - appears on hover */}
+          {hoveredLocation && (
+            <div className="location-card-popup">
+              {(() => {
+                const location = locations.find((loc) => loc.id === hoveredLocation);
+                if (!location) return null;
+                return (
+                  <div className="floating-location-card">
+                    {/* Card Image - background */}
+                    <div className="card-image-wrapper">
+                      <div
+                        className="card-image"
+                        style={{ backgroundImage: `url(${location.image})` }}
+                      ></div>
+                    </div>
 
-          {/* Floating Location Cards */}
-          <div className={`location-cards-overlay ${showCards ? 'visible' : 'hidden'}`}>
-            <div className="overlay-header">
-              <h2 className="overlay-title">Premium Locations</h2>
-              <div className="overlay-divider"></div>
-            </div>
-
-            <div className="location-cards-scroll">
-              {locations.map((location, index) => (
-                <div
-                  key={location.id}
-                  className={`floating-location-card ${selectedLocation === location.id ? "card-selected" : ""} ${hoveredLocation === location.id ? "card-hovered" : ""}`}
-                  onClick={() => setSelectedLocation(location.id)}
-                  onMouseEnter={() => setHoveredLocation(location.id)}
-                  onMouseLeave={() => setHoveredLocation(null)}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="card-number">{String(index + 1).padStart(2, '0')}</div>
-                  <div className="card-content">
-                    <h3 className="card-title">{location.name}</h3>
-                    <span className="card-district">{location.district}</span>
-                    <p className="card-description">{location.description}</p>
-                    <button
-                      className="card-view-btn"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openGoogleMaps(location.address);
-                      }}
-                    >
-                      <span>View Location</span>
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M6 12L10 8L6 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </button>
+                    {/* Card Content */}
+                    <div className="card-content">
+                      <div className="card-drive-time">{location.driveTime}</div>
+                      <div className="card-drive-unit">{location.driveUnit}</div>
+                      <h3 className="card-location-name">{location.name}</h3>
+                      <button
+                        className="card-location-pin"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          openGoogleMaps(location.address);
+                        }}
+                        aria-label="View on map"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                            fill="currentColor"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })()}
             </div>
-          </div>
+          )}
         </div>
       </div>
 

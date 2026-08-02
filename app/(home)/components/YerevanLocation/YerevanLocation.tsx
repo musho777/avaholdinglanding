@@ -8,27 +8,26 @@ import MapSvg from "../MapSvg/MapSvg";
 const locations = [
   {
     id: 1,
-    name: "Republic Square",
+    name: "American University of Armenia",
     driveTime: "5",
     driveUnit: "MIN DRIVE BY CAR",
     address: "Republic Square, Yerevan, Armenia",
-    image: "/assets/location-2.jpeg", // Add your image path
+    image: "/assets/usa.avif", // Add your image path
   },
   {
     id: 2,
-    name: "Cascade Complex",
+    name: "Lovers' Park",
     driveTime: "8",
     driveUnit: "MIN DRIVE BY CAR",
-    address: "Cascade, Tamanyan St, Yerevan",
-    image: "/assets/location-1.jpeg",
+    address: "Lovers' Park, Yerevan",
+    image: "/assets/LoversPark.jpg", // Add your image path
   },
   {
     id: 3,
-    name: "Zvartnots Airport",
+    name: "National Academy of Sciences",
     driveTime: "15",
     driveUnit: "MIN DRIVE BY CAR",
-    address: "Zvartnots International Airport",
-    image: "/images/location-3.jpg", // Add your image path
+    image: "/assets/academia.jpg", // Add your image path
   },
   {
     id: 4,
@@ -39,11 +38,10 @@ const locations = [
   },
   {
     id: 5,
-    name: "Lake Sevan",
+    name: "OPERA",
     driveTime: "60",
     driveUnit: "MIN DRIVE BY CAR",
-    address: "Lake Sevan, Armenia",
-    image: "/images/location-5.jpg", // Add your image path
+    image: "/assets/opera.png", // Add your image path
   },
 ];
 

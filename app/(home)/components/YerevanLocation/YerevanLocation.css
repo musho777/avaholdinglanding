@@ -226,13 +226,38 @@
   }
 }
 
+/* Animated circle around address points on hover */
+@keyframes circlePulse {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+/* Add pseudo-element circle behind address points */
+#address1 .cls-3,
+#address2 .cls-3,
+#address3 .cls-3,
+#address4 .cls-3,
+#address5 .cls-3 {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
 /* Simulate hover state when card is hovered - matches MapSvg.jsx :hover exactly */
 #address1-wrapper.hovered-by-card #address1 .cls-2,
 #address2-wrapper.hovered-by-card #address2 .cls-2,
 #address3-wrapper.hovered-by-card #address3 .cls-2,
 #address4-wrapper.hovered-by-card #address4 .cls-2,
 #address5-wrapper.hovered-by-card #address5 .cls-2 {
-  stroke: #fff !important;
+  stroke: #c9a267 !important;
 }
 
 #address1-wrapper.hovered-by-card #address1 .cls-3,
@@ -240,7 +265,7 @@
 #address3-wrapper.hovered-by-card #address3 .cls-3,
 #address4-wrapper.hovered-by-card #address4 .cls-3,
 #address5-wrapper.hovered-by-card #address5 .cls-3 {
-  fill: #fff !important;
+  fill: #c9a267 !important;
 }
 
 #address1-wrapper.hovered-by-card #address1-route .route-rect,

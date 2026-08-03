@@ -30,6 +30,18 @@ export default function Home() {
   useEffect(() => {
     if ((window as any).__avaInit) return;
     (window as any).__avaInit = true;
+
+    // Disable browser scroll restoration
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    // Force scroll to top on mobile devices to prevent scroll restoration issues
+    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
   }, []);
   usePreloaderInit();
   useSmoothScrollInit();

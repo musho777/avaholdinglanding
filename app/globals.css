@@ -4034,7 +4034,7 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url("/assets/AVA2.jpg");
+  background-image: url("/assets/bently.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -4049,6 +4049,23 @@ img {
   bottom: 0;
   background: rgba(0, 0, 0, 0.3);
   z-index: 1;
+}
+
+.century-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--taupe);
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.century-section.century-scrolled::after {
+  opacity: 1;
 }
 
 .century-content {

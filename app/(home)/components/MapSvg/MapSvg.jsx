@@ -29744,8 +29744,8 @@ function MapSvg(props) {
         <g id="address5-wrapper">
           <g id="address5">
             <circle className="address-circle" cx={1584.25} cy={1104.55} r={30} />
-            <path className="cls-2" d="M1584.25 1141.66L1584.25 1108.47" />
-            <ellipse className="cls-3" cx={1584.25} cy={1104.55} rx={17.21} ry={18.62} />
+            <path className="cls-2" d="M1584.25 1133L1584.25 1108.47" />
+            <ellipse className="cls-3" cx={1584.25} cy={1104.55} rx={12} ry={13} />
           </g>
           <g id="address5-route">
             <circle className="route-rect" cx="1549.61" cy="1138.03" r="5" />
@@ -29846,8 +29846,8 @@ function MapSvg(props) {
         <g id="address4-wrapper">
           <g id="address4">
             <circle className="address-circle" cx={1619.78} cy={784.42} r={30} />
-            <path className="cls-2" d="M1619.78 826.49L1619.78 788.66" />
-            <ellipse className="cls-3" cx={1619.78} cy={784.42} rx={17.21} ry={18.62} />
+            <path className="cls-2" d="M1619.78 815L1619.78 788.66" />
+            <ellipse className="cls-3" cx={1619.78} cy={784.42} rx={12} ry={13} />
           </g>
           <g id="address4-route">
             <circle className="route-rect" cx="1618.60" cy="842.69" r="5" />
@@ -29939,8 +29939,8 @@ function MapSvg(props) {
         <g id="address1-wrapper">
           <g id="address1">
             <circle className="address-circle" cx={961.9} cy={280.98} r={30} />
-            <path className="cls-2" d="M961.9 323.06L961.9 285.22" />
-            <ellipse className="cls-3" cx={961.9} cy={280.98} rx={17.21} ry={18.62} />
+            <path className="cls-2" d="M961.9 312L961.9 285.22" />
+            <ellipse className="cls-3" cx={961.9} cy={280.98} rx={12} ry={13} />
           </g>
           <g id="address1-route">
             <circle className="route-rect" cx="961.87" cy="333.32" r="5" />
@@ -29966,8 +29966,8 @@ function MapSvg(props) {
         <g id="address3-wrapper">
           <g id="address3">
             <circle className="address-circle" cx={613.16} cy={292.54} r={30} />
-            <path className="cls-2" d="M613.16 296.79L613.16 334.62" />
-            <ellipse className="cls-3" cx={613.16} cy={292.54} rx={17.21} ry={18.62} />
+            <path className="cls-2" d="M613.16 296.79L613.16 323" />
+            <ellipse className="cls-3" cx={613.16} cy={292.54} rx={12} ry={13} />
           </g>
           <g id="address3-route">
             <circle className="route-rect" cx="608.44" cy="351.7" r="5" />
@@ -30002,8 +30002,8 @@ function MapSvg(props) {
         <g id="address2-wrapper">
           <g id="address2">
             <circle className="address-circle" cx={732.93} cy={440.79} r={30} />
-            <path className="cls-2" d="M732.93 482.86L732.93 445.03" />
-            <ellipse className="cls-3" cx={732.93} cy={440.79} rx={17.21} ry={18.62} />
+            <path className="cls-2" d="M732.93 471L732.93 445.03" />
+            <ellipse className="cls-3" cx={732.93} cy={440.79} rx={12} ry={13} />
           </g>
           <g id="address2-route">
             <circle className="route-rect" cx="740" cy="492" r="5" />

@@ -4024,3 +4024,194 @@ img {
     font-size: 1.25rem;
   }
 }
+
+/* ---------- CENTURY SECTION ---------- */
+.century-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url("/assets/AVA2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.century-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.century-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--off-white);
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.century-text-top,
+.century-text-bottom {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.century-text-top {
+  font-size: 50px;
+}
+
+.century-text-bottom {
+  font-size: 50px;
+  margin-top: 1rem;
+}
+
+.century-text-top.century-exit-left {
+  animation: exitToLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: none !important;
+}
+
+.century-text-bottom.century-exit-right {
+  animation: exitToRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: none !important;
+}
+
+.century-text-top.century-enter-from-left {
+  animation: enterFromLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: none !important;
+}
+
+.century-text-bottom.century-enter-from-right {
+  animation: enterFromRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: none !important;
+}
+
+@keyframes exitToLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+}
+
+@keyframes exitToRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(150%);
+  }
+}
+
+@keyframes enterFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(150%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.century-scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  animation: centuryScrollBounce 3s ease-in-out infinite;
+}
+
+.century-scroll-indicator svg {
+  display: block;
+}
+
+@keyframes centuryScrollBounce {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.1;
+    transform: translateX(-50%) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .century-text-top,
+  .century-text-bottom {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .century-content {
+    padding: 0 1.5rem;
+  }
+
+  .century-text-top,
+  .century-text-bottom {
+    font-size: 32px;
+  }
+
+  .century-text-bottom {
+    margin-top: 0.75rem;
+  }
+
+  .century-scroll-indicator {
+    bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .century-content {
+    padding: 0 1rem;
+  }
+
+  .century-text-top,
+  .century-text-bottom {
+    font-size: 24px;
+    letter-spacing: 0.03em;
+  }
+
+  .century-text-bottom {
+    margin-top: 0.5rem;
+  }
+
+  .century-scroll-indicator {
+    bottom: 1.5rem;
+  }
+}

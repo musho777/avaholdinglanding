@@ -9,6 +9,7 @@ export default function QuoteSection() {
 
     const quoteText = document.getElementById("quoteText");
     const quoteCaption = document.getElementById("quoteCaption");
+    const quoteCaptionTwo = document.getElementById("quoteCaptionTwo");
     const playWrap = document.getElementById("playWrap");
     const playBtn = document.getElementById("playBtn");
     const playBtnText = document.getElementById("playBtnText");
@@ -21,6 +22,7 @@ export default function QuoteSection() {
     if (
       !quoteText ||
       !quoteCaption ||
+      !quoteCaptionTwo ||
       !playWrap ||
       !playBtn ||
       !playBtnText ||
@@ -57,11 +59,13 @@ export default function QuoteSection() {
 
     processText(quoteText);
     processText(quoteCaption);
+    processText(quoteCaptionTwo);
 
-    // Collect all letters from both paragraphs
+    // Collect all letters from all paragraphs
     const letterEls = [
       ...Array.from(quoteText.querySelectorAll(".letter")),
       ...Array.from(quoteCaption.querySelectorAll(".letter")),
+      ...Array.from(quoteCaptionTwo.querySelectorAll(".letter")),
     ] as HTMLElement[];
 
     // Clear any existing bars before creating new ones
@@ -213,13 +217,16 @@ export default function QuoteSection() {
               AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE,
               MEANINGFUL, AND FORWARD-LOOKING FUTURE.
             </p>
-            <p className="quote-caption scroll-reveal delay-1" id="quoteCaption">
+            <p className="quote-caption scroll-reveal delay-1" id="quoteCaption" style={{ marginBottom: '0' }}>
               Founded in 2006, AVA Holding is one of Armenia's most promising real estate
               development and construction companies. Its core focus is the creation of
               multifunctional residential buildings that meet the evolving needs of modern life.
               Today, one of Armenia's most significant challenges — and opportunities — is to stand
               among the world's leading innovators. Achieving that visibility would firmly place our
-              country on the global stage. At the same time, in a world advancing at high speed, we
+              country on the global stage.
+            </p>
+            <p className="quote-caption scroll-reveal delay-1" id="quoteCaptionTwo" style={{ margin: '0' }}>
+              At the same time, in a world advancing at high speed, we
               believe it is vital not to lose sight of what matters most: people, safety, and the
               feeling of home. That's why AVA Holding aims to build more than just modern buildings
               — it creates spaces where people feel warmth, comfort, and belonging. Each project

@@ -1238,7 +1238,6 @@ section.panel {
 .quote-text-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
 .quote-controls {

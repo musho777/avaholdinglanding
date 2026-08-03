@@ -665,14 +665,13 @@ body {
 .site-menu-body {
   display: flex;
   align-items: flex-end;
-  gap: 6vw;
+  gap: 4vw;
   min-height: 0;
-  margin-top: 3rem;
+  margin-top: auto;
 }
 .site-menu-image {
   position: relative;
   width: 24vw;
-  max-width: 340px;
   height: 70vh;
   flex-shrink: 0;
   overflow: hidden;

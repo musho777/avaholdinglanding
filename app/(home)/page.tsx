@@ -7,7 +7,6 @@ import {
   Header,
   SiteMenu,
   CenturySection,
-  FounderSection,
   QuoteSection,
   YerevanLocation,
   Slider,
@@ -54,7 +53,6 @@ export default function Home() {
         <YerevanLocation />
         <Slider />
         <CenturySection />
-        <FounderSection />
       </main>
       <Partners />
       <Footer />

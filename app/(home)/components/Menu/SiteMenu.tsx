@@ -34,38 +34,39 @@ export default function SiteMenu() {
             </svg>
           </span>
         </div>
-
-        <div className="site-menu-body">
-          <div className="site-menu-image">
-            <div className="site-menu-image-photo" id="siteMenuImage"></div>
-            <div className="site-menu-image-cover"></div>
+        <div>
+          <div className="site-menu-body">
+            <div className="site-menu-image">
+              <div className="site-menu-image-photo" id="siteMenuImage"></div>
+              <div className="site-menu-image-cover"></div>
+            </div>
+            <nav className="site-menu-links">
+              <a href="#story" data-menu-link>
+                THE RESIDENCES
+              </a>
+              <a href="#location" data-menu-link>
+                LOCATION
+              </a>
+              <a href="#slider" data-menu-link>
+                GALLERY
+              </a>
+              <a href="#founder" data-menu-link>
+                FOUNDERS
+              </a>
+              <a href="#contact" data-menu-link>
+                CONTACT
+              </a>
+            </nav>
           </div>
-          <nav className="site-menu-links">
-            <a href="#story" data-menu-link>
-              THE RESIDENCES
-            </a>
-            <a href="#location" data-menu-link>
-              LOCATION
-            </a>
-            <a href="#slider" data-menu-link>
-              GALLERY
-            </a>
-            <a href="#founder" data-menu-link>
-              FOUNDERS
-            </a>
-            <a href="#contact" data-menu-link>
-              CONTACT
-            </a>
-          </nav>
-        </div>
 
-        <div className="site-menu-foot">
-          <div className="foot-left"></div>
-          <div className="foot-right">
-            <a href="tel:+37498333372">+374 (77) 423333</a>
-            <button className="menu-book-btn" onClick={() => setIsModalOpen(true)}>
-              <span>BOOK A CALL</span>
-            </button>
+          <div className="site-menu-foot">
+            <div className="foot-left"></div>
+            <div className="foot-right">
+              <a href="tel:+37498333372">+374 (77) 423333</a>
+              <button className="menu-book-btn" onClick={() => setIsModalOpen(true)}>
+                <span>BOOK A CALL</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

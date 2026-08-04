@@ -96,12 +96,14 @@ export default function CenturySection() {
   return (
     <section ref={sectionRef} className="century-section">
       <div className="century-content">
-        <h1 ref={topTextRef} className="century-text-top scroll-reveal delay-1">
-          TIMELESS
-        </h1>
-        <h2 ref={bottomTextRef} className="century-text-bottom scroll-reveal delay-2">
-          LEGACY
-        </h2>
+        <div className="century-text-line">
+          <h1 ref={topTextRef} className="century-text-left scroll-reveal delay-1">
+            TIMELESS
+          </h1>
+          <h2 ref={bottomTextRef} className="century-text-right scroll-reveal delay-2">
+            LEGACY
+          </h2>
+        </div>
       </div>
       <div className="century-scroll-wrapper">
         <p className="century-founder-text">Est. 2019 by Founder EDUARD GHAZARYAN</p>

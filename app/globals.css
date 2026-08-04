@@ -4088,40 +4088,39 @@ img {
   padding: 0 2rem;
 }
 
-.century-text-top,
-.century-text-bottom {
+.century-text-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.century-text-left,
+.century-text-right {
   font-family: var(--font-serif);
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin: 0;
-}
-
-.century-text-top {
   font-size: 50px;
 }
 
-.century-text-bottom {
-  font-size: 50px;
-  margin-top: 1rem;
-}
-
-.century-text-top.century-exit-left {
+.century-text-left.century-exit-left {
   animation: exitToLeft 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
   transition: none !important;
 }
 
-.century-text-bottom.century-exit-right {
+.century-text-right.century-exit-right {
   animation: exitToRight 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
   transition: none !important;
 }
 
-.century-text-top.century-enter-from-left {
+.century-text-left.century-enter-from-left {
   animation: enterFromLeft 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
   transition: none !important;
 }
 
-.century-text-bottom.century-enter-from-right {
+.century-text-right.century-enter-from-right {
   animation: enterFromRight 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
   transition: none !important;
 }
@@ -4215,9 +4214,13 @@ img {
 }
 
 @media (max-width: 1024px) {
-  .century-text-top,
-  .century-text-bottom {
+  .century-text-left,
+  .century-text-right {
     font-size: 40px;
+  }
+
+  .century-text-line {
+    gap: 1em;
   }
 }
 
@@ -4226,13 +4229,13 @@ img {
     padding: 0 1.5rem;
   }
 
-  .century-text-top,
-  .century-text-bottom {
+  .century-text-left,
+  .century-text-right {
     font-size: 32px;
   }
 
-  .century-text-bottom {
-    margin-top: 0.75rem;
+  .century-text-line {
+    gap: 1em;
   }
 
   .century-scroll-wrapper {
@@ -4245,14 +4248,14 @@ img {
     padding: 0 1rem;
   }
 
-  .century-text-top,
-  .century-text-bottom {
+  .century-text-left,
+  .century-text-right {
     font-size: 24px;
     letter-spacing: 0.03em;
   }
 
-  .century-text-bottom {
-    margin-top: 0.5rem;
+  .century-text-line {
+    gap: 1em;
   }
 
   .century-scroll-wrapper {

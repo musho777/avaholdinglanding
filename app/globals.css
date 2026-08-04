@@ -4336,14 +4336,10 @@ img {
   opacity: 0.8;
 }
 
-.founder-text-bio {
-}
-
 .founder-text-paragraph {
   font-family: var(--font-sans);
   font-size: 1rem;
-  line-height: 1.8;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 1rem 0;
   opacity: 0.9;
 }
 

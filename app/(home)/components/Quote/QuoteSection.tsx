@@ -231,7 +231,7 @@ export default function QuoteSection() {
             <p
               className="quote-caption scroll-reveal delay-1"
               id="quoteCaptionTwo"
-              style={{ margin: "0" }}
+              style={{ marginTop: "5px" }}
             >
               At the same time, in a world advancing at high speed, we believe it is vital not to
               lose sight of what matters most: people, safety, and the feeling of home. That's why

@@ -6,7 +6,7 @@ import {
   Hero,
   Header,
   SiteMenu,
-  FounderSection,
+  CenturySection,
   QuoteSection,
   YerevanLocation,
   Slider,
@@ -64,7 +64,7 @@ export default function Home() {
         <QuoteSection />
         <YerevanLocation />
         <Slider />
-        <FounderSection />
+        <CenturySection />
       </main>
       <Partners />
       <Footer />

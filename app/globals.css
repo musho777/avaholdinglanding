@@ -4253,7 +4253,9 @@ img {
   justify-content: center;
   opacity: 0;
   transform: scale(0.8);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition:
+    opacity 1s ease-out,
+    transform 1s ease-out;
 }
 
 .time-svg-container.scroll-revealed {
@@ -4268,7 +4270,8 @@ img {
 }
 
 @keyframes rotate-pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg) scale(1);
   }
   50% {
@@ -4334,7 +4337,6 @@ img {
 }
 
 .founder-text-bio {
-  text-align: left;
 }
 
 .founder-text-paragraph {

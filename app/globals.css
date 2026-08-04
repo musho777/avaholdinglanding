@@ -567,7 +567,6 @@ body {
   inset: 0;
   z-index: 300;
   background: var(--taupe);
-  justify-content: space-between;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -588,7 +587,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 3rem;
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -667,8 +665,9 @@ body {
 .site-menu-body {
   display: flex;
   align-items: flex-end;
-  gap: 3vw;
+  gap: 4vw;
   min-height: 0;
+  margin-top: auto;
 }
 .site-menu-image {
   position: relative;
@@ -676,7 +675,6 @@ body {
   height: 70vh;
   flex-shrink: 0;
   overflow: hidden;
-  max-width: 350px;
 }
 .site-menu-image-photo {
   position: absolute;
@@ -703,7 +701,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   gap: 0.75rem;
-  margin-bottom: -8px;
+  margin-bottom: -7px;
 }
 .site-menu-links a {
   font-family: var(--font-sans);
@@ -768,7 +766,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 10px;
+  margin-top: 20px;
   padding-top: 1.5rem;
   font-size: 0.72rem;
   text-transform: uppercase;
@@ -1193,7 +1191,7 @@ section.panel {
   position: relative;
   padding: 8rem 0;
   overflow: hidden;
-  background: #cec4b6;
+  background: #c8c2b6;
   max-width: 100vw;
   box-sizing: border-box;
   z-index: 10;
@@ -1668,6 +1666,7 @@ section.panel {
 .arrow-btn {
   width: 46px;
   height: 46px;
+  padding-bottom: 4px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: rgba(0, 0, 0, 0.2);
@@ -1676,6 +1675,8 @@ section.panel {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.1rem;
+  font-family: var(--font-sans);
   transition: background 0.25s ease;
 }
 .arrow-btn:hover {
@@ -1699,6 +1700,7 @@ section.panel {
   .arrow-btn {
     width: 42px;
     height: 42px;
+    font-size: 1rem;
   }
 
   .slider-top {
@@ -3402,6 +3404,7 @@ img {
   .arrow-btn {
     width: 38px;
     height: 38px;
+    font-size: 0.95rem;
   }
 
   .slider-peek {
@@ -3752,6 +3755,7 @@ img {
   .arrow-btn {
     width: 34px;
     height: 34px;
+    font-size: 0.85rem;
     border-width: 1px;
   }
 
@@ -3825,6 +3829,7 @@ img {
   .arrow-btn {
     width: 32px;
     height: 32px;
+    font-size: 0.8rem;
   }
 
   .slider-peek {
@@ -4021,11 +4026,6 @@ img {
 }
 
 /* ---------- CENTURY SECTION ---------- */
-.century-section-container {
-  position: relative;
-  height: 250vh; /* Extended height for smoother scroll transitions */
-}
-
 .century-section {
   position: relative;
   width: 100%;
@@ -4034,17 +4034,10 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url("/assets/3.png");
+  background-image: url("/assets/bently.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--taupe);
-  transition: background-image 1s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.century-section.century-sticky {
-  position: sticky;
-  top: 0;
 }
 
 .century-section::before {
@@ -4058,15 +4051,21 @@ img {
   z-index: 1;
 }
 
-.century-overlay {
+.century-section::after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: var(--taupe);
+  opacity: 0;
   z-index: 1;
-  pointer-events: none;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.century-section.century-scrolled::after {
+  opacity: 1;
 }
 
 .century-content {
@@ -4076,53 +4075,6 @@ img {
   color: var(--off-white);
   width: 100%;
   padding: 0 2rem;
-}
-
-.century-text-group {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  padding: 0 2rem;
-}
-
-.century-label {
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
-  color: #fff;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin: 0 0 2.5rem 0;
-  font-weight: 400;
-}
-
-.century-founder-group {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 2rem;
-}
-
-.century-founder-group::-webkit-scrollbar {
-  width: 6px;
-}
-
-.century-founder-group::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.century-founder-group::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 3px;
-}
-
-.century-founder-group::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
 }
 
 .century-text-top,
@@ -4143,81 +4095,24 @@ img {
   margin-top: 1rem;
 }
 
-.century-founder-layout {
-  display: flex;
-  gap: 3rem;
-  max-width: 1920px;
-  margin: 0 auto;
-  align-items: stretch;
+.century-text-top.century-exit-left {
+  animation: exitToLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: none !important;
 }
 
-.century-founder-icon {
-  flex: 0 0 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.century-text-bottom.century-exit-right {
+  animation: exitToRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: none !important;
 }
 
-.century-founder-icon-circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  overflow: hidden;
+.century-text-top.century-enter-from-left {
+  animation: enterFromLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: none !important;
 }
 
-.century-founder-icon-circle svg {
-  width: 100%;
-  height: 100%;
-}
-
-.century-founder-content {
-  flex: 1;
-  text-align: left;
-}
-
-.century-founder-name {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--gold-dim);
-  margin: 0 0 1rem 0;
-}
-
-.century-founder-role {
-  font-family: var(--font-sans);
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
-  color: var(--gold);
-  font-weight: 400;
-  margin: 0 0 2rem 0;
-  letter-spacing: 0.01em;
-}
-
-.century-founder-bio {
-  margin-top: 2rem;
-}
-
-.century-founder-paragraph {
-  font-family: var(--font-sans);
-  font-size: clamp(0.95rem, 1vw, 1.05rem);
-  line-height: 1.8;
-  color: var(--stone);
-  margin-bottom: 0.5rem;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-}
-
-.century-founder-paragraph:last-child {
-  margin-bottom: 0;
-}
-
-.century-text-exit-left {
-  animation: exitToLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.century-text-exit-right {
-  animation: exitToRight 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+.century-text-bottom.century-enter-from-right {
+  animation: enterFromRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  transition: none !important;
 }
 
 @keyframes exitToLeft {
@@ -4242,6 +4137,41 @@ img {
   }
 }
 
+@keyframes enterFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes enterFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(150%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.century-scroll-indicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  animation: centuryScrollBounce 3s ease-in-out infinite;
+}
+
+.century-scroll-indicator svg {
+  display: block;
+}
+
 @keyframes centuryScrollBounce {
   0% {
     opacity: 1;
@@ -4262,15 +4192,6 @@ img {
   .century-text-bottom {
     font-size: 40px;
   }
-
-  .century-founder-layout {
-    gap: 3rem;
-  }
-
-  .century-founder-icon-circle {
-    width: 180px;
-    height: 180px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -4287,33 +4208,8 @@ img {
     margin-top: 0.75rem;
   }
 
-  .century-label {
-    font-size: 0.85rem;
-    margin-bottom: 2rem;
-  }
-
-  .century-founder-group {
-    padding: 1.5rem;
-  }
-
-  .century-founder-layout {
-    flex-direction: column;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  .century-founder-icon {
-    flex: 1;
-    order: -1;
-  }
-
-  .century-founder-icon-circle {
-    width: 160px;
-    height: 160px;
-  }
-
-  .century-founder-content {
-    flex: 1;
+  .century-scroll-indicator {
+    bottom: 2rem;
   }
 }
 
@@ -4332,22 +4228,7 @@ img {
     margin-top: 0.5rem;
   }
 
-  .century-label {
-    font-size: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .century-founder-group {
-    padding: 1rem;
-    max-height: 85vh;
-  }
-
-  .century-founder-layout {
-    gap: 1.5rem;
-  }
-
-  .century-founder-icon-circle {
-    width: 150px;
-    height: 150px;
+  .century-scroll-indicator {
+    bottom: 1.5rem;
   }
 }

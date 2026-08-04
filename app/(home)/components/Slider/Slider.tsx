@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import VectorSvg from "@/app/components/VectorSvg";
 
 const images = [
   "/assets/AVA1.jpg",
@@ -180,10 +181,10 @@ export default function Slider() {
         </div>
         <div className="slider-arrows">
           <button className="arrow-btn" onClick={scrollPrev} aria-label="Previous slide">
-            &#8592;
+            <VectorSvg direction="left" />
           </button>
           <button className="arrow-btn" onClick={scrollNext} aria-label="Next slide">
-            &#8594;
+            <VectorSvg direction="right" />
           </button>
         </div>
       </div>

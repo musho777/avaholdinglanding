@@ -49,7 +49,7 @@ export default function WhatsAppButton() {
   const handleClick = () => {
     // Replace with your actual WhatsApp number
     const phoneNumber = "37477423333"; // Format: country code + number (no + or spaces)
-    const message = encodeURIComponent("Hello! I'm interested in Horizonte.");
+    const message = encodeURIComponent("Hello! I'm interested in AVA Residence.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 

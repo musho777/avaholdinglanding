@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function QuoteSection() {
   useEffect(() => {
-    let DURATION = 72;
+    let DURATION = 71;
     const BAR_COUNT = 90;
 
     const quoteText = document.getElementById("quoteText");

@@ -174,7 +174,6 @@ export default function QuoteSection() {
       playBtnText!.textContent = isPlaying ? "Pause" : "Play";
     });
 
-    // Handle audio ended event
     audioElement.addEventListener("ended", function () {
       stop();
     });
@@ -217,7 +216,11 @@ export default function QuoteSection() {
               AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE,
               MEANINGFUL, AND FORWARD-LOOKING FUTURE.
             </p>
-            <p className="quote-caption scroll-reveal delay-1" id="quoteCaption" style={{ marginBottom: '0' }}>
+            <p
+              className="quote-caption scroll-reveal delay-1"
+              id="quoteCaption"
+              style={{ marginBottom: "0" }}
+            >
               Founded in 2006, AVA Holding is one of Armenia's most promising real estate
               development and construction companies. Its core focus is the creation of
               multifunctional residential buildings that meet the evolving needs of modern life.
@@ -225,13 +228,17 @@ export default function QuoteSection() {
               among the world's leading innovators. Achieving that visibility would firmly place our
               country on the global stage.
             </p>
-            <p className="quote-caption scroll-reveal delay-1" id="quoteCaptionTwo" style={{ margin: '0' }}>
-              At the same time, in a world advancing at high speed, we
-              believe it is vital not to lose sight of what matters most: people, safety, and the
-              feeling of home. That's why AVA Holding aims to build more than just modern buildings
-              — it creates spaces where people feel warmth, comfort, and belonging. Each project
-              blends forward-thinking architecture with everyday practicality, driven by a deep
-              respect for both place and person, chasing the main manifesto — LIVING PERFECTED.
+            <p
+              className="quote-caption scroll-reveal delay-1"
+              id="quoteCaptionTwo"
+              style={{ margin: "0" }}
+            >
+              At the same time, in a world advancing at high speed, we believe it is vital not to
+              lose sight of what matters most: people, safety, and the feeling of home. That's why
+              AVA Holding aims to build more than just modern buildings — it creates spaces where
+              people feel warmth, comfort, and belonging. Each project blends forward-thinking
+              architecture with everyday practicality, driven by a deep respect for both place and
+              person, chasing the main manifesto — LIVING PERFECTED.
             </p>
           </div>
 

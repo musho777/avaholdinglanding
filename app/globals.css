@@ -4098,11 +4098,10 @@ img {
 .century-text-left,
 .century-text-right {
   font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
   margin: 0;
   font-size: 50px;
+  font-weight: normal;
 }
 
 .century-text-left.century-exit-left {
@@ -4351,8 +4350,7 @@ img {
 .founder-text-name {
   font-family: var(--font-serif);
   font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-weight: normal;
   margin: 0 0 1rem 0;
   text-transform: uppercase;
 }

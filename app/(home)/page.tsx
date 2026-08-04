@@ -38,12 +38,10 @@ export default function Home() {
       history.scrollRestoration = 'manual';
     }
 
-    // Force scroll to top on mobile devices to prevent scroll restoration issues
-    if (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) {
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }
+    // Force scroll to top on all devices to prevent scroll restoration issues
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, []);
   usePreloaderInit();
   useSmoothScrollInit();

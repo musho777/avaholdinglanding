@@ -279,14 +279,12 @@ body {
 }
 
 /* Desktop-only padding adjustments for hero text */
-@media (min-width: 821px) {
+@media (min-width: 1240px) {
   .hero-text-top {
-    /* padding-left: clamp(40px, 20vw, 290px); */
-    padding-left: clamp(46px, 27vw, 312px);
+    padding-left: clamp(46px, 27vw, 306px);
   }
 
   .hero-text-bottom {
-    /* padding-right: clamp(30px, 20vw, 290px); */
     padding-right: clamp(30px, 410vw, 345px);
   }
 }

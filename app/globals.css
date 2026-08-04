@@ -278,6 +278,17 @@ body {
   }
 }
 
+/* Desktop-only padding adjustments for hero text */
+@media (min-width: 821px) {
+  .hero-text-top {
+    padding-left: clamp(40px, 20vw, 290px);
+  }
+
+  .hero-text-bottom {
+    padding-right: clamp(30px, 20vw, 290px);
+  }
+}
+
 .hero-caption {
   position: absolute;
   bottom: 3.5rem;
@@ -4246,8 +4257,6 @@ img {
 }
 
 .time-svg-container {
-  width: 400px;
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;

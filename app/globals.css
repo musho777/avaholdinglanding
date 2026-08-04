@@ -4096,22 +4096,22 @@ img {
 }
 
 .century-text-top.century-exit-left {
-  animation: exitToLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  animation: exitToLeft 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
   transition: none !important;
 }
 
 .century-text-bottom.century-exit-right {
-  animation: exitToRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  animation: exitToRight 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
   transition: none !important;
 }
 
 .century-text-top.century-enter-from-left {
-  animation: enterFromLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  animation: enterFromLeft 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
   transition: none !important;
 }
 
 .century-text-bottom.century-enter-from-right {
-  animation: enterFromRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+  animation: enterFromRight 2s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
   transition: none !important;
 }
 

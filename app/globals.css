@@ -4196,6 +4196,7 @@ img {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin: 0;
+  text-align: center;
 }
 
 @keyframes centuryScrollBounce {

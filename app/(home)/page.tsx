@@ -7,6 +7,8 @@ import {
   Header,
   SiteMenu,
   CenturySection,
+  TimeSvgSection,
+  FounderTextSection,
   QuoteSection,
   YerevanLocation,
   Slider,
@@ -65,6 +67,8 @@ export default function Home() {
         <YerevanLocation />
         <Slider />
         <CenturySection />
+        <TimeSvgSection />
+        <FounderTextSection />
       </main>
       <Partners />
       <Footer />

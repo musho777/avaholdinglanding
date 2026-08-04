@@ -4034,7 +4034,7 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url("/assets/bently.jpg");
+  background-image: url("/assets/3.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -4230,5 +4230,160 @@ img {
 
   .century-scroll-indicator {
     bottom: 1.5rem;
+  }
+}
+
+/* ---------- TIME SVG SECTION ---------- */
+.time-svg-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--taupe);
+  padding: 4rem 2rem;
+  margin-top: 4rem;
+}
+
+.time-svg-container {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.time-svg-container.scroll-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.time-svg-container svg {
+  width: 100%;
+  height: 100%;
+  animation: rotate-pulse 4s ease-in-out infinite;
+}
+
+@keyframes rotate-pulse {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(3deg) scale(1.03);
+  }
+}
+
+@media (max-width: 768px) {
+  .time-svg-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .time-svg-container {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-svg-section {
+    padding: 2rem 1rem;
+  }
+
+  .time-svg-container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* ---------- FOUNDER TEXT SECTION ---------- */
+.founder-text-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--taupe);
+  padding: 4rem 2rem;
+}
+
+.founder-text-content {
+  max-width: 800px;
+  text-align: center;
+  color: var(--off-white);
+}
+
+.founder-text-name {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.founder-text-role {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 3rem 0;
+  opacity: 0.8;
+}
+
+.founder-text-bio {
+  text-align: left;
+}
+
+.founder-text-paragraph {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 0 0 1.5rem 0;
+  opacity: 0.9;
+}
+
+.founder-text-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .founder-text-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .founder-text-name {
+    font-size: 2rem;
+  }
+
+  .founder-text-role {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .founder-text-paragraph {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .founder-text-section {
+    padding: 2rem 1rem;
+  }
+
+  .founder-text-name {
+    font-size: 1.5rem;
+  }
+
+  .founder-text-role {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .founder-text-paragraph {
+    font-size: 0.9rem;
+    line-height: 1.7;
   }
 }

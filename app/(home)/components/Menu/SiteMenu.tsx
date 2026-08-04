@@ -34,7 +34,7 @@ export default function SiteMenu() {
             </svg>
           </span>
         </div>
-        <div>
+        <div className="site-menu-content">
           <div className="site-menu-body">
             <div className="site-menu-image">
               <div className="site-menu-image-photo" id="siteMenuImage"></div>
@@ -51,14 +51,13 @@ export default function SiteMenu() {
                 GALLERY
               </a>
               <a href="#founder" data-menu-link>
-                FOUNDERS
+                FOUNDER
               </a>
               <a href="#contact" data-menu-link>
                 CONTACT
               </a>
             </nav>
           </div>
-
           <div className="site-menu-foot">
             <div className="foot-left"></div>
             <div className="foot-right">

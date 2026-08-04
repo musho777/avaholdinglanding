@@ -588,6 +588,12 @@ body {
   flex-direction: column;
   padding: 2.5rem 3rem 3rem;
 }
+.site-menu-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
 .site-menu.open {
   opacity: 1;
   visibility: visible;
@@ -685,6 +691,7 @@ body {
   width: 24vw;
   height: 70vh;
   flex-shrink: 0;
+  max-width: 350px;
   overflow: hidden;
 }
 .site-menu-image-photo {
@@ -777,7 +784,6 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-top: 20px;
   padding-top: 1.5rem;
   font-size: 0.72rem;
   text-transform: uppercase;

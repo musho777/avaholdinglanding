@@ -4274,6 +4274,7 @@ img {
   background-color: var(--taupe);
   padding: 4rem 2rem;
   margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .time-svg-container {
@@ -4336,12 +4337,13 @@ img {
 .founder-text-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--taupe);
   padding: 4rem 2rem;
+  padding-top: 0;
 }
 
 .founder-text-content {

@@ -7,89 +7,93 @@ export default function CenturySection() {
   const topTextRef = useRef<HTMLHeadingElement>(null);
   const bottomTextRef = useRef<HTMLHeadingElement>(null);
   const [hasExited, setHasExited] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // When section is leaving viewport (scrolling down past it)
-          if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-            setHasExited(true);
-            if (sectionRef.current) {
-              sectionRef.current.classList.add("century-scrolled");
-            }
-            if (topTextRef.current) {
-              topTextRef.current.classList.remove(
-                "scroll-reveal",
-                "scroll-revealed",
-                "delay-1",
-                "century-enter-from-left"
-              );
-              topTextRef.current.classList.add("century-exit-left");
-            }
-            if (bottomTextRef.current) {
-              bottomTextRef.current.classList.remove(
-                "scroll-reveal",
-                "scroll-revealed",
-                "delay-2",
-                "century-enter-from-right"
-              );
-              bottomTextRef.current.classList.add("century-exit-right");
-            }
-          } else if (entry.isIntersecting) {
-            // When section is in view
-            if (sectionRef.current) {
-              sectionRef.current.classList.remove("century-scrolled");
-            }
-            if (hasExited) {
-              // Coming back from below - slide from left/right to center
-              if (topTextRef.current) {
-                topTextRef.current.classList.remove(
-                  "century-exit-left",
-                  "scroll-reveal",
-                  "delay-1"
-                );
-                topTextRef.current.classList.add("century-enter-from-left");
-              }
-              if (bottomTextRef.current) {
-                bottomTextRef.current.classList.remove(
-                  "century-exit-right",
-                  "scroll-reveal",
-                  "delay-2"
-                );
-                bottomTextRef.current.classList.add("century-enter-from-right");
-              }
-            } else {
-              // First time viewing - normal scroll reveal
-              if (topTextRef.current) {
-                topTextRef.current.classList.remove("century-exit-left", "century-enter-from-left");
-                topTextRef.current.classList.add("scroll-reveal", "delay-1");
-              }
-              if (bottomTextRef.current) {
-                bottomTextRef.current.classList.remove(
-                  "century-exit-right",
-                  "century-enter-from-right"
-                );
-                bottomTextRef.current.classList.add("scroll-reveal", "delay-2");
-              }
-            }
-          }
-        });
-      },
-      {
-        threshold: [0.9, 1],
-        rootMargin: "-5px 0px 0px 0px",
-      }
-    );
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY.current;
+      lastScrollY.current = currentScrollY;
+
+      // Calculate visibility percentage
+      const sectionTop = rect.top;
+      const sectionBottom = rect.bottom;
+      const visibleHeight = Math.min(sectionBottom, windowHeight) - Math.max(sectionTop, 0);
+      const sectionHeight = rect.height;
+      const visibilityRatio = Math.max(0, visibleHeight / sectionHeight);
+
+      // Section has scrolled past (exit condition) - trigger when less than 95% visible (5% has left) and scrolling down
+      if (visibilityRatio < 0.95 && scrollingDown && sectionTop < 0) {
+        setHasExited(true);
+        sectionRef.current?.classList.add("century-scrolled");
+
+        if (topTextRef.current) {
+          topTextRef.current.classList.remove(
+            "scroll-reveal",
+            "scroll-revealed",
+            "delay-1",
+            "century-enter-from-left"
+          );
+          topTextRef.current.classList.add("century-exit-left");
+        }
+        if (bottomTextRef.current) {
+          bottomTextRef.current.classList.remove(
+            "scroll-reveal",
+            "scroll-revealed",
+            "delay-2",
+            "century-enter-from-right"
+          );
+          bottomTextRef.current.classList.add("century-exit-right");
+        }
+      }
+      // Section is entering view - trigger at 10% visibility
+      else if (visibilityRatio > 0.1) {
+        sectionRef.current?.classList.remove("century-scrolled");
+
+        if (hasExited && !scrollingDown) {
+          // Coming back from below - slide from left/right to center
+          if (topTextRef.current) {
+            topTextRef.current.classList.remove(
+              "century-exit-left",
+              "scroll-reveal",
+              "delay-1"
+            );
+            topTextRef.current.classList.add("century-enter-from-left");
+          }
+          if (bottomTextRef.current) {
+            bottomTextRef.current.classList.remove(
+              "century-exit-right",
+              "scroll-reveal",
+              "delay-2"
+            );
+            bottomTextRef.current.classList.add("century-enter-from-right");
+          }
+        } else if (!hasExited) {
+          // First time viewing - normal scroll reveal
+          if (topTextRef.current) {
+            topTextRef.current.classList.remove("century-exit-left", "century-enter-from-left");
+            topTextRef.current.classList.add("scroll-reveal", "delay-1");
+          }
+          if (bottomTextRef.current) {
+            bottomTextRef.current.classList.remove(
+              "century-exit-right",
+              "century-enter-from-right"
+            );
+            bottomTextRef.current.classList.add("scroll-reveal", "delay-2");
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Initial check
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [hasExited]);
 

@@ -4310,7 +4310,7 @@ img {
 
 @media (max-width: 768px) {
   .time-svg-section {
-    padding: 3rem 1.5rem;
+    padding: 8rem 1.5rem;
   }
 
   .time-svg-container {
@@ -4322,6 +4322,8 @@ img {
 @media (max-width: 480px) {
   .time-svg-section {
     padding: 2rem 1rem;
+    padding-top: 0;
+    min-height: 50vh;
   }
 
   .time-svg-container {

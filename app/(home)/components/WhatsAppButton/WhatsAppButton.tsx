@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 export default function WhatsAppButton() {
   const [isHidden, setIsHidden] = useState(false);
-  const [inFounder, setInFounder] = useState(false);
+  const [inSpecialSection, setInSpecialSection] = useState(false);
 
   useEffect(() => {
     const footer = document.querySelector(".site-footer");
-    const founderSection = document.querySelector("#founder");
+    const centurySection = document.querySelector(".century-section");
 
     const footerObserver = new IntersectionObserver(
       (entries) => {
@@ -21,28 +21,34 @@ export default function WhatsAppButton() {
       }
     );
 
-    const founderObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setInFounder(entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0.5,
+    const handleScroll = () => {
+      if (!centurySection) return;
+
+      const centuryRect = centurySection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // If CenturySection is above viewport (we've scrolled past it) or in viewport
+      if (centuryRect.top < viewportHeight) {
+        setInSpecialSection(true);
+      } else {
+        // CenturySection is below viewport (we haven't reached it yet)
+        setInSpecialSection(false);
       }
-    );
+    };
+
+    // Initial check
+    handleScroll();
+
+    // Listen to scroll events
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     if (footer) {
       footerObserver.observe(footer);
     }
 
-    if (founderSection) {
-      founderObserver.observe(founderSection);
-    }
-
     return () => {
       footerObserver.disconnect();
-      founderObserver.disconnect();
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -56,7 +62,7 @@ export default function WhatsAppButton() {
   return (
     <div className={`whatsapp-button-wrapper ${isHidden ? "hidden" : ""}`}>
       <button
-        className={`whatsapp-button ${inFounder ? "in-founder" : ""}`}
+        className={`whatsapp-button ${inSpecialSection ? "in-founder" : ""}`}
         onClick={handleClick}
         aria-label="Contact us on WhatsApp"
         type="button"

@@ -2,7 +2,7 @@
 
 export default function FounderTextSection() {
   return (
-    <section className="founder-text-section">
+    <section className="founder-text-section" id="founder">
       <div className="founder-text-content scroll-reveal">
         <h2 className="founder-text-name">EDUARD GHAZARYAN</h2>
         <p className="founder-text-role">

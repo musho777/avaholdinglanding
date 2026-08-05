@@ -4401,6 +4401,8 @@ img {
 @media (max-width: 480px) {
   .founder-text-section {
     padding: 2rem 1rem;
+    padding-top: 0;
+    padding-bottom: 3rem;
   }
 
   .founder-text-name {

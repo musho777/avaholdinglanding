@@ -176,7 +176,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
               <Input
                 type="tel"
-                placeholder="+1 (555) 000-000"
+                placeholder="+374 (93) 000-000"
                 value={formData.phone}
                 onChange={handleChange("phone")}
                 error={errors.phone}

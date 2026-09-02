@@ -30,7 +30,7 @@ export default function SiteMenu() {
             </div>
             <nav className="site-menu-links">
               <a href="#story" data-menu-link>
-                THE RESIDENCES
+                PROJECTS
               </a>
               <a href="#location" data-menu-link>
                 LOCATION
@@ -50,7 +50,10 @@ export default function SiteMenu() {
             <div className="foot-left"></div>
             <div className="foot-right">
               <a href="tel:+37498333372">+374 (77) 423333</a>
-              <button className="menu-book-btn" onClick={() => setIsModalOpen(true)}>
+              <button
+                className="menu-book-btn"
+                onClick={() => setIsModalOpen(true)}
+              >
                 <span>BOOK A CALL</span>
               </button>
             </div>
@@ -58,7 +61,10 @@ export default function SiteMenu() {
         </div>
       </div>
 
-      <BookCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <BookCallModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 }

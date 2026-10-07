@@ -469,7 +469,7 @@ body {
 .header-nav a {
   color: #ffffff;
   text-decoration: none;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
   position: relative;
@@ -540,10 +540,10 @@ body {
   border: none;
   cursor: pointer;
   color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
   padding: 0;
   transition: color 0.25s ease;
 }
@@ -2055,7 +2055,7 @@ section.panel {
   gap: 2rem;
 }
 .footer-contact .eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   color: rgba(243, 237, 224, 0.55);
   margin-top: 0.6rem;
@@ -2169,7 +2169,7 @@ section.panel {
 .footer-location {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 400;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: var(--stone);
   margin-bottom: 1.1rem;
 }
@@ -2201,6 +2201,7 @@ section.panel {
   border: 1px solid var(--stone);
   padding: 0.75rem 1.4rem;
   border-radius: 6px;
+  font-size: 0.9rem;
   color: var(--taupe);
   font-size: 0.7rem;
   font-weight: 500;

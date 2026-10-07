@@ -167,39 +167,33 @@ export default function YerevanLocation() {
             </button>
           </div>
 
-          {/* Single Floating Location Card - appears on hover */}
-          {hoveredLocation && (
-            <div className="location-card-popup">
-              {(() => {
-                const location = locations.find((loc) => loc.id === hoveredLocation);
-                if (!location) return null;
-                return (
-                  <div className="floating-location-card">
-                    {/* Card Image - background */}
-                    <div className="card-image-wrapper">
-                      <div
-                        className="card-image"
-                        style={{ backgroundImage: `url(${location.image})` }}
-                      ></div>
-                      {/* Dark gradient overlay */}
-                      <div className="card-gradient-overlay"></div>
-                    </div>
-
-                    {/* Card Content - Bottom positioned */}
-                    <div className="card-content">
-                      <div className="card-text-wrapper">
-                        <h3 className="card-location-name">{location.name.toUpperCase()}</h3>
-                      </div>
-                      <div className="card-time-wrapper">
-                        <p className="card-address">{location.address}</p>
-                        <span className="card-drive-time">{location.driveTime}</span>
-                      </div>
-                    </div>
+          {/* Location Cards Row - Always visible */}
+          <div className="location-cards-row">
+            {locations.map((location) => (
+              <div
+                key={location.id}
+                className={`location-card ${hoveredLocation === location.id ? "active" : ""}`}
+                onMouseEnter={() => setHoveredLocation(location.id)}
+                onMouseLeave={() => setHoveredLocation(null)}
+                onClick={() => openGoogleMaps(location.address)}
+              >
+                <div className="card-image-wrapper">
+                  <div
+                    className="card-image"
+                    style={{ backgroundImage: `url(${location.image})` }}
+                  ></div>
+                  <div className="card-gradient-overlay"></div>
+                </div>
+                <div className="card-content">
+                  <h3 className="card-location-name">{location.name.toUpperCase()}</h3>
+                  <div className="card-time-wrapper">
+                    <p className="card-address">{location.address}</p>
+                    <span className="card-drive-time">{location.driveTime}</span>
                   </div>
-                );
-              })()}
-            </div>
-          )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

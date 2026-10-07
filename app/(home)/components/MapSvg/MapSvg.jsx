@@ -6,6 +6,7 @@ function MapSvg(props) {
       id="Layer_2"
       data-name="Layer 2"
       viewBox="0 0 2606.65 1542.45"
+      preserveAspectRatio="xMidYMid slice"
       {...props}
     >
       <defs>

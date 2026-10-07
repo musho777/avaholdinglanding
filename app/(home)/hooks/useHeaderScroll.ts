@@ -26,11 +26,12 @@ function updateScroll() {
   let newHasBackground = scrollState.hasBackground;
 
   // Hide header/logo when scrolling down, show when scrolling up
-  if (currentScrollY > lastScrollY && currentScrollY > 100) {
-    newIsHidden = true;
-  } else if (currentScrollY < lastScrollY) {
-    newIsHidden = false;
-  }
+  // Commented out to keep header always visible
+  // if (currentScrollY > lastScrollY && currentScrollY > 100) {
+  //   newIsHidden = true;
+  // } else if (currentScrollY < lastScrollY) {
+  //   newIsHidden = false;
+  // }
 
   // Add background after hero section
   if (currentScrollY > heroHeight - 100) {

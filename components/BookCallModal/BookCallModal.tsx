@@ -12,14 +12,18 @@ export interface BookCallModalProps {
 }
 
 interface FormData {
-  fullName: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
   phone: string;
   email: string;
   agreeToEmails: boolean;
 }
 
 interface FormErrors {
-  fullName?: string;
+  firstName?: string;
+  lastName?: string;
+  middleName?: string;
   phone?: string;
   email?: string;
   agreeToEmails?: string;
@@ -27,7 +31,9 @@ interface FormErrors {
 
 export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
   const [formData, setFormData] = useState<FormData>({
-    fullName: "",
+    firstName: "",
+    lastName: "",
+    middleName: "",
     phone: "",
     email: "",
     agreeToEmails: false,
@@ -40,11 +46,23 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    // Full Name validation
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = "Full name is required";
-    } else if (formData.fullName.trim().length < 2) {
-      newErrors.fullName = "Full name must be at least 2 characters";
+    // First Name validation
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
+    } else if (formData.firstName.trim().length < 2) {
+      newErrors.firstName = "First name must be at least 2 characters";
+    }
+
+    // Last Name validation
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+    } else if (formData.lastName.trim().length < 2) {
+      newErrors.lastName = "Last name must be at least 2 characters";
+    }
+
+    // Middle Name validation (optional)
+    if (formData.middleName.trim() && formData.middleName.trim().length < 2) {
+      newErrors.middleName = "Middle name must be at least 2 characters";
     }
 
     // Phone validation
@@ -54,10 +72,8 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
       newErrors.phone = "Please enter a valid phone number";
     }
 
-    // Email validation
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    // Email validation (optional)
+    if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
 
@@ -96,7 +112,14 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
       // Reset form after success
       setTimeout(() => {
-        setFormData({ fullName: "", phone: "", email: "", agreeToEmails: false });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          middleName: "",
+          phone: "",
+          email: "",
+          agreeToEmails: false,
+        });
         setIsSuccess(false);
         onClose();
       }, 2000);
@@ -118,7 +141,14 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
   const handleClose = () => {
     if (!isSubmitting) {
-      setFormData({ fullName: "", phone: "", email: "", agreeToEmails: false });
+      setFormData({
+        firstName: "",
+        lastName: "",
+        middleName: "",
+        phone: "",
+        email: "",
+        agreeToEmails: false,
+      });
       setErrors({});
       setIsSuccess(false);
       onClose();
@@ -164,13 +194,36 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
             <div className={styles.formGrid}>
               <Input
                 type="text"
-                placeholder="Full Name"
-                value={formData.fullName}
-                onChange={handleChange("fullName")}
-                error={errors.fullName}
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={handleChange("firstName")}
+                error={errors.firstName}
                 fullWidth
                 required
-                autoComplete="name"
+                autoComplete="given-name"
+                disabled={isSubmitting}
+              />
+
+              <Input
+                type="text"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={handleChange("lastName")}
+                error={errors.lastName}
+                fullWidth
+                required
+                autoComplete="family-name"
+                disabled={isSubmitting}
+              />
+
+              <Input
+                type="text"
+                placeholder="Middle Name"
+                value={formData.middleName}
+                onChange={handleChange("middleName")}
+                error={errors.middleName}
+                fullWidth
+                autoComplete="additional-name"
                 disabled={isSubmitting}
               />
 
@@ -193,7 +246,6 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
                 onChange={handleChange("email")}
                 error={errors.email}
                 fullWidth
-                required
                 autoComplete="email"
                 disabled={isSubmitting}
               />

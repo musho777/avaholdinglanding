@@ -10,12 +10,15 @@ export async function POST(request: NextRequest) {
   const GOOGLE_SHEET_ID = "1EwTIPu0jChIQj1fMY8dpAgSaUp-b7TcfWTCOWMuzXCQ";
   try {
     const body = await request.json();
-    const { fullName, phone, email, agreeToEmails } = body;
+    const { firstName, lastName, middleName, phone, email, agreeToEmails } = body;
 
     // Validate required fields
-    if (!fullName || !phone || !email) {
-      return NextResponse.json({ error: "All fields are required" }, { status: 400 });
+    if (!firstName || !lastName || !phone) {
+      return NextResponse.json({ error: "First name, last name, and phone are required" }, { status: 400 });
     }
+
+    // Combine name fields
+    const fullName = [firstName, middleName, lastName].filter(Boolean).join(" ");
 
     // Get credentials from environment variables
     const credentials = {

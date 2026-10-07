@@ -12,7 +12,7 @@ import {
   QuoteSection,
   YerevanLocation,
   Slider,
-  Partners,
+  // Partners,
   Footer,
   WhatsAppButton,
 } from "./components";
@@ -68,7 +68,7 @@ export default function Home() {
         <TimeSvgSection />
         <FounderTextSection />
       </main>
-      <Partners />
+      {/* <Partners /> */}
       <Footer />
     </>
   );

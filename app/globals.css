@@ -2113,11 +2113,39 @@ section.panel {
 .footer-mark {
   display: flex;
   justify-content: center;
-  padding: 5rem 0;
+  padding: 5rem 0 2rem 0;
 }
 .footer-mark svg {
   width: 180px;
   height: auto;
+}
+
+.footer-cta {
+  display: flex;
+  justify-content: center;
+  padding: 0 0 3rem 0;
+}
+
+.footer-journey-btn {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  color: var(--stone);
+  border: 2px solid var(--stone);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+}
+
+.footer-journey-btn:hover {
+  background: var(--stone);
+  color: var(--taupe);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(243, 237, 224, 0.2);
 }
 
 .footer-mid {
@@ -4054,7 +4082,7 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url("/assets/3.png");
+  background-image: url("/assets/3.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

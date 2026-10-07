@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import LogoSvg from "@/public/assets/Logo";
+import { BookCallModal } from "@/components/BookCallModal";
 
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const openGoogleMaps = () => {
     const address = "Derenik Demirchyan 2-4, Yerevan, Armenia";
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
@@ -27,6 +31,12 @@ export default function Footer() {
 
         <div className="footer-mark">
           <LogoSvg aria-label="AVA" />
+        </div>
+
+        <div className="footer-cta">
+          <button className="footer-journey-btn" onClick={() => setIsModalOpen(true)}>
+            START YOUR JOURNEY
+          </button>
         </div>
 
         <div className="footer-mid">
@@ -58,6 +68,22 @@ export default function Footer() {
                     <circle cx="17.2" cy="6.8" r="1" />
                   </svg>
                 </button>
+                <button
+                  className="social-btn"
+                  aria-label="LinkedIn"
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/company/avaholdingco/",
+                      "_blank"
+                    )
+                  }
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
+                    <rect x="3.5" y="3.5" width="17" height="17" rx="2" />
+                    <path d="M8 11v5M8 8v.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                    <path d="M12 16v-3.5a2.5 2.5 0 0 1 5 0V16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
@@ -70,6 +96,8 @@ export default function Footer() {
           </div>
         </div>
       </footer>
+
+      <BookCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

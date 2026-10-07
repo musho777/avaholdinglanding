@@ -10,7 +10,7 @@ let scrollState = {
 
 const listeners = new Set<(state: typeof scrollState) => void>();
 let scrollListenerActive = false;
-let __lastScrollY = 0;
+let _lastScrollY = 0;
 let ticking = false;
 
 function notifyListeners() {

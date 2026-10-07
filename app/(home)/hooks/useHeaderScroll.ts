@@ -26,11 +26,6 @@ function updateScroll() {
 
   // Hide header/logo when scrolling down, show when scrolling up
   // Commented out to keep header always visible
-  // if (currentScrollY > _lastScrollY && currentScrollY > 100) {
-  //   newIsHidden = true;
-  // } else if (currentScrollY < _lastScrollY) {
-  //   newIsHidden = false;
-  // }
 
   // Add background after hero section
   if (currentScrollY > heroHeight - 100) {
@@ -57,7 +52,6 @@ function handleScroll() {
 
 function initScrollListener() {
   if (!scrollListenerActive) {
-    _lastScrollY = window.scrollY;
     window.addEventListener("scroll", handleScroll, { passive: true });
     scrollListenerActive = true;
   }

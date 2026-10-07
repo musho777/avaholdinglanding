@@ -10,7 +10,7 @@ let scrollState = {
 
 const listeners = new Set<(state: typeof scrollState) => void>();
 let scrollListenerActive = false;
-let lastScrollY = 0;
+let __lastScrollY = 0;
 let ticking = false;
 
 function notifyListeners() {
@@ -22,14 +22,14 @@ function updateScroll() {
   const heroSection = document.querySelector(".hero-wrapper");
   const heroHeight = heroSection?.clientHeight || 0;
 
-  let newIsHidden = scrollState.isHidden;
+  const newIsHidden = scrollState.isHidden;
   let newHasBackground = scrollState.hasBackground;
 
   // Hide header/logo when scrolling down, show when scrolling up
   // Commented out to keep header always visible
-  // if (currentScrollY > lastScrollY && currentScrollY > 100) {
+  // if (currentScrollY > _lastScrollY && currentScrollY > 100) {
   //   newIsHidden = true;
-  // } else if (currentScrollY < lastScrollY) {
+  // } else if (currentScrollY < _lastScrollY) {
   //   newIsHidden = false;
   // }
 
@@ -46,7 +46,7 @@ function updateScroll() {
     notifyListeners();
   }
 
-  lastScrollY = currentScrollY;
+  _lastScrollY = currentScrollY;
   ticking = false;
 }
 
@@ -59,7 +59,7 @@ function handleScroll() {
 
 function initScrollListener() {
   if (!scrollListenerActive) {
-    lastScrollY = window.scrollY;
+    _lastScrollY = window.scrollY;
     window.addEventListener("scroll", handleScroll, { passive: true });
     scrollListenerActive = true;
   }

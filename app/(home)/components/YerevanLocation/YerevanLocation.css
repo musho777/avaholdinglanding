@@ -715,40 +715,7 @@
   }
 
   .location-cards-row {
-    position: fixed;
-    right: auto;
-    left: 50%;
-    top: auto;
-    bottom: 1rem;
-    transform: translateX(-50%);
-    flex-direction: row;
-    gap: 0.5rem;
-    width: auto;
-    max-width: calc(100vw - 2rem);
-    overflow-x: auto;
-  }
-
-  .location-card {
-    width: 180px;
-    height: 120px;
-    flex: none;
-    border-radius: 10px;
-  }
-
-  .card-image {
-    border-radius: 10px;
-  }
-
-  .card-gradient-overlay {
-    border-radius: 10px;
-  }
-
-  .card-location-name {
-    font-size: 0.65rem;
-  }
-
-  .card-address {
-    font-size: 0.5rem;
+    display: none;
   }
 
   .card-drive-time {

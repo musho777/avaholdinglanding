@@ -32,23 +32,6 @@ function MapSvg(props) {
       </defs>
       <g clipPath="url(#clippath)" id="City">
         <path fill="#cec4b6" d="M0 0H2606.65V1542.45H0z" />
-        <text
-          transform="translate(2150.369 68.146)"
-          fill="#69635b"
-          fontFamily="Helvetica-Regular,Helvetica"
-          fontSize="25px"
-        >
-          <tspan letterSpacing=".07em">
-            <tspan x={0} y={0}>
-              {"DERENIK DEMIRCHYAN 2-4"}
-            </tspan>
-          </tspan>
-          <tspan letterSpacing=".07em">
-            <tspan x={92.27} y={28.73}>
-              {"YEREVAN, ARMENIA"}
-            </tspan>
-          </tspan>
-        </text>
         <g className="cls-6">
           <path className="cls-3" d="M1372.04 717.95v-.07c-.15-.02-.18 0 0 .07z" />
           <path

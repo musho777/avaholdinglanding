@@ -212,6 +212,9 @@ export default function QuoteSection() {
       <div className="quote-container container-padding">
         <div className="quote-content">
           <div className="quote-text-wrapper">
+            <p className="quote-subtitle scroll-reveal" style={{ marginBottom: "20px", fontStyle: "italic" }}>
+              AVA Residences interiors by Elie Saab Maison
+            </p>
             <p className="quote-fill scroll-reveal" id="quoteText">
               AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE,
               MEANINGFUL, AND FORWARD-LOOKING FUTURE.

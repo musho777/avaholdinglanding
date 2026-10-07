@@ -17,7 +17,7 @@ export default function StaticHeader() {
           </Link>
 
           <div className="nav-right">
-            <a href="tel:+37477423333">+374 (77) 423333</a>
+            <a href="tel:+37498333372">+374 (98) 333372</a>
             <button className="book-btn" onClick={() => setIsModalOpen(true)}>
               <span>BOOK A CALL</span>
             </button>

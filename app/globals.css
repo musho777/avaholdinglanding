@@ -4376,15 +4376,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--taupe);
+  background-color: var(--stone);
   padding: 4rem 2rem;
-  padding-top: 0;
 }
 
 .founder-text-content {
   max-width: 800px;
   text-align: center;
-  color: var(--stone);
+  color: var(--taupe);
 }
 
 .founder-text-name {

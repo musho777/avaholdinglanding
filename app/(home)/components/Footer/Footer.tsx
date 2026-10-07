@@ -9,7 +9,7 @@ export default function Footer() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openGoogleMaps = () => {
-    const address = "Derenik Demirchyan 2-4, Yerevan, Armenia";
+    const address = "Dzorap 70/3, Yerevan, Armenia";
     const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
     window.open(googleMapsUrl, "_blank");
   };
@@ -23,9 +23,11 @@ export default function Footer() {
           </div>
           <div className="footer-reach">
             <a href="tel:+37498333372" className="footer-phone">
-              +374 (77) 423333
+              +374 (98) 333372
             </a>
-            <a href="mailto:info@avaholding.com" className="footer-email">info@avaholding.com</a>
+            <a href="mailto:info@avaholding.com" className="footer-email">
+              info@avaholding.com
+            </a>
           </div>
         </div>
 
@@ -42,7 +44,7 @@ export default function Footer() {
         <div className="footer-mid">
           <div className="footer-locations">
             <div className="footer-location-item">
-              <p className="footer-location">YEREVAN, ARMENIA</p>
+              <p className="footer-location">YEREVAN, ARMENIA Dzorap 70/3</p>
               <div className="footer-location-row">
                 <button className="map-btn" onClick={openGoogleMaps}>
                   <span>See on map</span>
@@ -72,16 +74,26 @@ export default function Footer() {
                   className="social-btn"
                   aria-label="LinkedIn"
                   onClick={() =>
-                    window.open(
-                      "https://www.linkedin.com/company/avaholdingco/",
-                      "_blank"
-                    )
+                    window.open("https://www.linkedin.com/company/avaholdingco/", "_blank")
                   }
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                     <rect x="3.5" y="3.5" width="17" height="17" rx="2" />
-                    <path d="M8 11v5M8 8v.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                    <path d="M12 16v-3.5a2.5 2.5 0 0 1 5 0V16" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M8 11v5M8 8v.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M12 16v-3.5a2.5 2.5 0 0 1 5 0V16"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </button>
               </div>

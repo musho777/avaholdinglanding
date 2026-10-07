@@ -141,7 +141,7 @@ export default function PrivacyPolicy() {
           <p className="contact-info">
             Email: <a href="mailto:info@avaholding.com">info@avaholding.com</a>
             <br />
-            Phone: <a href="tel:+37477423333">+374 (77) 423333</a>
+            Phone: <a href="tel:+37498333372">+374 (98) 333372</a>
           </p>
         </section>
       </div>

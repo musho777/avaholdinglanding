@@ -28,35 +28,27 @@
 .location-cards-row {
   position: absolute;
   right: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 20px;
+  bottom: 20px;
   z-index: 100;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  max-height: calc(100% - 4rem);
-  overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.location-cards-row::-webkit-scrollbar {
-  display: none;
+  gap: 10px;
 }
 
 /* Individual Location Card */
 .location-card {
   position: relative;
   border: 2px solid transparent;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 0;
   cursor: pointer;
   transition: border-color 0.3s ease, opacity 0.3s ease;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   width: 280px;
-  height: 100px;
-  flex-shrink: 0;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -84,7 +76,7 @@
   height: 100%;
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 /* Dark gradient overlay at the bottom */
@@ -110,14 +102,14 @@
   z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.2rem;
   padding: 0.75rem 1rem;
 }
 
 /* Location Name */
 .card-location-name {
   font-family: var(--font-serif, "Constantia", Georgia, serif);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: white;
   margin: 0;
@@ -584,12 +576,11 @@
 @media (min-width: 1440px) {
   .location-cards-row {
     right: 3rem;
-    gap: 1rem;
+    gap: 12px;
   }
 
   .location-card {
     width: 320px;
-    height: 120px;
   }
 
   .card-location-name {
@@ -597,16 +588,16 @@
   }
 
   .card-address {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
 
   .card-drive-time {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .card-content {
-    padding: 1rem 1.2rem;
-    gap: 0.35rem;
+    padding: 0.9rem 1.1rem;
+    gap: 0.25rem;
   }
 }
 

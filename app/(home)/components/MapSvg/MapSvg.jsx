@@ -29819,7 +29819,7 @@ function MapSvg(props) {
             <circle className="route-rect" cx="880.72" cy="464.69" r="3" />
             <circle className="route-rect" cx="870.37" cy="477.16" r="3" />
             <circle className="route-rect" cx="861.58" cy="490.92" r="3" />
-            </g>
+          </g>
         </g>
         <g id="address4-wrapper">
           <g id="address4">
@@ -29891,7 +29891,7 @@ function MapSvg(props) {
             <circle className="route-rect" cx="888.74" cy="460.01" r="3" />
             <circle className="route-rect" cx="876.46" cy="468.73" r="3" />
             <circle className="route-rect" cx="867.04" cy="480.72" r="3" />
-            </g>
+          </g>
         </g>
         <g id="address1-wrapper">
           <g id="address1">
@@ -29914,7 +29914,7 @@ function MapSvg(props) {
             <circle className="route-rect" cx="863.56" cy="451.70" r="3" />
             <circle className="route-rect" cx="857.60" cy="466.33" r="3" />
             <circle className="route-rect" cx="852.47" cy="481.26" r="3" />
-            </g>
+          </g>
         </g>
         <g id="address3-wrapper">
           <g id="address3">
@@ -29944,7 +29944,7 @@ function MapSvg(props) {
             <circle className="route-rect" cx="829.83" cy="444.71" r="3" />
             <circle className="route-rect" cx="839.20" cy="456.56" r="3" />
             <circle className="route-rect" cx="843.32" cy="471.40" r="3" />
-            </g>
+          </g>
         </g>
         <g id="address2-wrapper">
           <g id="address2">
@@ -29962,7 +29962,7 @@ function MapSvg(props) {
             <circle className="route-rect" cx="832.03" cy="477.81" r="3" />
             <circle className="route-rect" cx="846.80" cy="483.88" r="3" />
             <circle className="route-rect" cx="860.00" cy="493.00" r="3" />
-            </g>
+          </g>
         </g>
 
         <path
@@ -30009,6 +30009,19 @@ function MapSvg(props) {
           className="cls-1"
           d="M843.86 477.76L843.83 477.27 846.83 477.11 846.85 477.62 843.86 477.76z"
         />
+
+        {/* Street Name Text */}
+        <text
+          fill="#6a635b"
+          fontFamily="Helvetica, sans-serif"
+          fontSize="15"
+          letterSpacing="0.1em"
+          transform="translate(855 955) rotate(-90)"
+        >
+          <tspan x="0" y="0">
+            DERENIK DEMIRCHYAN Str.
+          </tspan>
+        </text>
       </g>
     </svg>
   );

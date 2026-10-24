@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 import LogoSvg from "@/public/assets/Logo";
 import { BookCallModal } from "@/components/BookCallModal";
 
 export default function Footer() {
+  const t = useTranslations("footer");
+  const locale = useLocale();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openGoogleMaps = () => {
@@ -19,14 +22,14 @@ export default function Footer() {
       <footer className="site-footer" role="contentinfo" id="contact">
         <div className="footer-top">
           <div className="footer-contact">
-            <p className="eyebrow">Contact</p>
+            <p className="eyebrow">{t("contact")}</p>
           </div>
           <div className="footer-reach">
             <a href="tel:+37498333372" className="footer-phone">
-              +374 (98) 333372
+              {t("phone")}
             </a>
             <a href="mailto:info@avaholding.com" className="footer-email">
-              info@avaholding.com
+              {t("email")}
             </a>
           </div>
         </div>
@@ -37,26 +40,26 @@ export default function Footer() {
 
         <div className="footer-cta">
           <button className="footer-journey-btn" onClick={() => setIsModalOpen(true)}>
-            START YOUR JOURNEY
+            {t("startJourney")}
           </button>
         </div>
 
         <div className="footer-mid">
           <div className="footer-locations">
             <div className="footer-location-item">
-              <p className="footer-location">YEREVAN, ARMENIA Dzorap 70/3</p>
+              <p className="footer-location">{t("location")}</p>
               <div className="footer-location-row">
                 <button className="map-btn" onClick={openGoogleMaps}>
-                  <span>See on map</span>
+                  <span>{t("seeOnMap")}</span>
                 </button>
-                <button className="social-btn" aria-label="Facebook">
+                <button className="social-btn" aria-label={t("facebook")}>
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M13.5 21v-7.6h2.55l.38-2.96h-2.93v-1.9c0-.86.24-1.44 1.47-1.44h1.57V4.42c-.27-.04-1.2-.12-2.28-.12-2.26 0-3.8 1.38-3.8 3.9v2.18H8v2.96h2.46V21h3.04z" />
                   </svg>
                 </button>
                 <button
                   className="social-btn"
-                  aria-label="Instagram"
+                  aria-label={t("instagram")}
                   onClick={() =>
                     window.open(
                       "https://www.instagram.com/avaholding.armenia?igsh=MTU1cHYxdWJ3ZGNmbg==",
@@ -72,7 +75,7 @@ export default function Footer() {
                 </button>
                 <button
                   className="social-btn"
-                  aria-label="LinkedIn"
+                  aria-label={t("linkedin")}
                   onClick={() =>
                     window.open("https://www.linkedin.com/company/avaholdingco/", "_blank")
                   }
@@ -102,9 +105,9 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy;AVA — 2026 all rights reserved</p>
+          <p>{t("copyright")}</p>
           <div className="footer-legal">
-            <Link href="/privacy">Privacy policy</Link>
+            <Link href={`/${locale}/privacy`}>{t("privacyPolicy")}</Link>
           </div>
         </div>
       </footer>

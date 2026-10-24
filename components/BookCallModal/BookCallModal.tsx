@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import { Modal, ModalBody, ModalFooter } from "@/components/ui/Modal/Modal";
 import { Input } from "@/components/ui/Input/Input";
 import { Button } from "@/components/ui/Button/Button";
@@ -30,6 +31,7 @@ interface FormErrors {
 }
 
 export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
+  const t = useTranslations("bookCallModal");
   const [formData, setFormData] = useState<FormData>({
     firstName: "",
     lastName: "",
@@ -48,38 +50,38 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
     // First Name validation
     if (!formData.firstName.trim()) {
-      newErrors.firstName = "First name is required";
+      newErrors.firstName = t("firstNameRequired");
     } else if (formData.firstName.trim().length < 2) {
-      newErrors.firstName = "First name must be at least 2 characters";
+      newErrors.firstName = t("firstNameMinLength");
     }
 
     // Last Name validation
     if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last name is required";
+      newErrors.lastName = t("lastNameRequired");
     } else if (formData.lastName.trim().length < 2) {
-      newErrors.lastName = "Last name must be at least 2 characters";
+      newErrors.lastName = t("lastNameMinLength");
     }
 
     // Middle Name validation (optional)
     if (formData.middleName.trim() && formData.middleName.trim().length < 2) {
-      newErrors.middleName = "Middle name must be at least 2 characters";
+      newErrors.middleName = t("middleNameMinLength");
     }
 
     // Phone validation
     if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
+      newErrors.phone = t("phoneRequired");
     } else if (!/^[+]?[\d\s()-]{10,}$/.test(formData.phone)) {
-      newErrors.phone = "Please enter a valid phone number";
+      newErrors.phone = t("phoneInvalid");
     }
 
     // Email validation (optional)
     if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = t("emailInvalid");
     }
 
     // Checkbox validation
     if (!formData.agreeToEmails) {
-      newErrors.agreeToEmails = "You must agree to receive emails and promotions";
+      newErrors.agreeToEmails = t("agreeRequired");
     }
 
     setErrors(newErrors);
@@ -159,7 +161,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
     <Modal
       isOpen={isOpen}
       onClose={handleClose}
-      title="Book a Call"
+      title={t("title")}
       size="md"
       closeOnOverlayClick={!isSubmitting}
     >
@@ -184,8 +186,8 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
                 />
               </svg>
             </div>
-            <h3>Thank You!</h3>
-            <p>We&apos;ll get back to you soon.</p>
+            <h3>{t("thankYou")}</h3>
+            <p>{t("getBackSoon")}</p>
           </div>
         </ModalBody>
       ) : (
@@ -194,7 +196,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
             <div className={styles.formGrid}>
               <Input
                 type="text"
-                placeholder="First Name"
+                placeholder={t("firstName")}
                 value={formData.firstName}
                 onChange={handleChange("firstName")}
                 error={errors.firstName}
@@ -206,7 +208,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
               <Input
                 type="text"
-                placeholder="Last Name"
+                placeholder={t("lastName")}
                 value={formData.lastName}
                 onChange={handleChange("lastName")}
                 error={errors.lastName}
@@ -218,7 +220,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
               <Input
                 type="text"
-                placeholder="Middle Name"
+                placeholder={t("middleName")}
                 value={formData.middleName}
                 onChange={handleChange("middleName")}
                 error={errors.middleName}
@@ -229,7 +231,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
               <Input
                 type="tel"
-                placeholder="+374 (98) 333372"
+                placeholder={t("phonePlaceholder")}
                 value={formData.phone}
                 onChange={handleChange("phone")}
                 error={errors.phone}
@@ -241,7 +243,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
 
               <Input
                 type="email"
-                placeholder="your.email@example.com"
+                placeholder={t("emailPlaceholder")}
                 value={formData.email}
                 onChange={handleChange("email")}
                 error={errors.email}
@@ -262,7 +264,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
               isLoading={isSubmitting}
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Submitting..." : "Submit"}
+              {isSubmitting ? t("submitting") : t("submit")}
             </Button>
 
             <div className={styles.checkboxContainer}>
@@ -283,7 +285,7 @@ export const BookCallModal = ({ isOpen, onClose }: BookCallModalProps) => {
                   disabled={isSubmitting}
                   className={styles.checkbox}
                 />
-                <span>Agree to receive emails and promotions</span>
+                <span>{t("agreeToEmails")}</span>
               </label>
               {errors.agreeToEmails && (
                 <p className={styles.checkboxError}>{errors.agreeToEmails}</p>

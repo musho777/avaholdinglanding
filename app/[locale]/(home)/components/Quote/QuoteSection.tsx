@@ -1,8 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function QuoteSection() {
+  const t = useTranslations("quote");
+  const locale = useLocale();
+
+  // Audio file based on locale
+  const audioSrc = locale === "am"
+    ? "/assets/ava-holding-am.mp3"
+    : "/assets/Ava holding creates-2.wav";
+
   useEffect(() => {
     let DURATION = 71;
     const BAR_COUNT = 90;
@@ -32,6 +41,11 @@ export default function QuoteSection() {
       !audioElement
     )
       return;
+
+    // Get translated button texts
+    const playText = playBtnText.getAttribute("data-play") || "Play";
+    const pauseText = playBtnText.getAttribute("data-pause") || "Pause";
+    const replayText = playBtnText.getAttribute("data-replay") || "Replay";
 
     // Update duration once audio metadata is loaded
     audioElement.addEventListener("loadedmetadata", function () {
@@ -132,7 +146,7 @@ export default function QuoteSection() {
     function play() {
       isPlaying = true;
       lastFrame = null;
-      playBtnText!.textContent = "Pause";
+      playBtnText!.textContent = pauseText;
       playWrap!.classList.add("playing");
       audioElement.play().catch((err) => console.error("Audio play failed:", err));
       rafId = requestAnimationFrame(tick);
@@ -140,7 +154,7 @@ export default function QuoteSection() {
 
     function pause() {
       isPlaying = false;
-      playBtnText!.textContent = "Play";
+      playBtnText!.textContent = playText;
       playWrap!.classList.remove("playing");
       audioElement.pause();
       if (rafId) cancelAnimationFrame(rafId);
@@ -150,7 +164,7 @@ export default function QuoteSection() {
       pause();
       audioElement.currentTime = 0;
       elapsed = 0;
-      playBtnText!.textContent = "Replay";
+      playBtnText!.textContent = replayText;
     }
 
     playBtn.addEventListener("click", function () {
@@ -171,7 +185,7 @@ export default function QuoteSection() {
       elapsed = Math.max(0, Math.min(DURATION, pct * DURATION));
       audioElement.currentTime = elapsed;
       render();
-      playBtnText!.textContent = isPlaying ? "Pause" : "Play";
+      playBtnText!.textContent = isPlaying ? pauseText : playText;
     });
 
     audioElement.addEventListener("ended", function () {
@@ -204,8 +218,8 @@ export default function QuoteSection() {
 
   return (
     <section className="quote-section" id="story">
-      <audio id="quoteAudio" preload="auto">
-        <source src="/assets/Ava holding creates-2.wav" type="audio/wav" />
+      <audio id="quoteAudio" preload="auto" key={locale}>
+        <source src={audioSrc} type={locale === "am" ? "audio/mpeg" : "audio/wav"} />
       </audio>
       <div className="quote-bg"></div>
 
@@ -213,35 +227,24 @@ export default function QuoteSection() {
         <div className="quote-content">
           <div className="quote-text-wrapper">
             <h2 className="quote-title scroll-reveal" style={{ marginBottom: "20px" }}>
-              AVA Residences interiors by Elie Saab Maison
+              {t("title")}
             </h2>
             <p className="quote-fill scroll-reveal" id="quoteText">
-              AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE,
-              MEANINGFUL, AND FORWARD-LOOKING FUTURE.
+              {t("mainText")}
             </p>
             <p
               className="quote-caption scroll-reveal delay-1"
               id="quoteCaption"
               style={{ marginBottom: "0" }}
             >
-              Founded in 2006, AVA Holding is one of Armenia's most promising real estate
-              development and construction companies. Its core focus is the creation of
-              multifunctional residential buildings that meet the evolving needs of modern life.
-              Today, one of Armenia's most significant challenges — and opportunities — is to stand
-              among the world's leading innovators. Achieving that visibility would firmly place our
-              country on the global stage.
+              {t("caption1")}
             </p>
             <p
               className="quote-caption scroll-reveal delay-1"
               id="quoteCaptionTwo"
               style={{ marginTop: "5px" }}
             >
-              At the same time, in a world advancing at high speed, we believe it is vital not to
-              lose sight of what matters most: people, safety, and the feeling of home. That's why
-              AVA Holding aims to build more than just modern buildings — it creates spaces where
-              people feel warmth, comfort, and belonging. Each project blends forward-thinking
-              architecture with everyday practicality, driven by a deep respect for both place and
-              person, chasing the main manifesto — LIVING PERFECTED.
+              {t("caption2")}
             </p>
           </div>
 
@@ -256,7 +259,7 @@ export default function QuoteSection() {
               </span>
             </div>
             <div className="play-wrap scroll-reveal delay-2" id="playWrap">
-              <button className="play-btn" id="playBtn" type="button" aria-label="play the audio">
+              <button className="play-btn" id="playBtn" type="button" aria-label={t("playAriaLabel")}>
                 <div className="button-bg"></div>
                 <span className="button-animation">
                   <span className="button-circle"></span>
@@ -264,8 +267,14 @@ export default function QuoteSection() {
                   <span className="button-circle"></span>
                   <span className="button-circle"></span>
                 </span>
-                <span className="button-text" id="playBtnText">
-                  Play
+                <span
+                  className="button-text"
+                  id="playBtnText"
+                  data-play={t("play")}
+                  data-pause={t("pause")}
+                  data-replay={t("replay")}
+                >
+                  {t("play")}
                 </span>
               </button>
             </div>
@@ -273,7 +282,7 @@ export default function QuoteSection() {
         </div>
 
         <div className="photo-wrapper scroll-reveal">
-          <img src="/assets/1.png" alt="AVA Architecture" className="inner-img" />
+          <img src="/assets/1.png" alt={t("imageAlt")} className="inner-img" />
         </div>
       </div>
     </section>

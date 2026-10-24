@@ -1,55 +1,36 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import "./YerevanLocation.css";
 import MapSvg from "../MapSvg/MapSvg";
 
-// Location data matching the map address points
-const locations = [
-  {
-    id: 1,
-    name: "American University of Armenia",
-    driveTime: "5-10min",
-    driveUnit: "Walking",
-    address: "40 Marshal Baghramyan Avenue",
-    image: "/assets/usa.jpg",
-  },
-  {
-    id: 2,
-    name: "Lovers'Park",
-    driveTime: "5 min Walking",
-    address: "21 Marshal Baghramyan Ave",
-    image: "/assets/lovers_park.jpg",
-  },
-  {
-    id: 3,
-    name: "NATIONAL ACADEMY OF SCIENCES OF ARMENIA",
-    driveTime: "12 min Walking",
-    address: "24 Marshal Baghramyan Avenue",
-    image: "/assets/academia.jpg",
-  },
-  {
-    id: 4,
-    name: "Cascade Complex",
-    driveTime: "12 min Walking",
-    address: "10 Tamanyan Street",
-    image: "/assets/location-1.jpg",
-  },
-  {
-    id: 5,
-    name: "Armenian Opera and Ballet Theatre",
-    driveTime: "14 min Walking",
-    address: "54 Tumanyan Street",
-    image: "/assets/opera.jpg",
-  },
+// Location keys for translation lookup
+const locationKeys = ["aua", "loversPark", "academy", "cascade", "opera"] as const;
+const locationImages = [
+  "/assets/usa.jpg",
+  "/assets/lovers_park.jpg",
+  "/assets/academia.jpg",
+  "/assets/location-1.jpg",
+  "/assets/opera.jpg",
 ];
 
 export default function YerevanLocation() {
+  const t = useTranslations("location");
   const mapWrapperRef = useRef<HTMLDivElement>(null);
   const previousHoveredRef = useRef<number | null>(null);
   const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number } | null>(null);
   const [isHoveringMap, setIsHoveringMap] = useState(false);
   const [hoveredLocation, setHoveredLocation] = useState<number | null>(null);
+
+  // Build locations array from translations
+  const locations = locationKeys.map((key, index) => ({
+    id: index + 1,
+    name: t(`locations.${key}.name`),
+    driveTime: t(`locations.${key}.driveTime`),
+    address: t(`locations.${key}.address`),
+    image: locationImages[index],
+  }));
 
   useEffect(() => {
     const centerScroll = () => {
@@ -156,15 +137,15 @@ export default function YerevanLocation() {
 
           <div className="map-text-overlay container-padding">
             <h2 className="map-title">
-              <span className="title-line scroll-reveal">PRIME LOCATION</span>
-              <span className="title-line scroll-reveal delay-1">IN THE HEART OF</span>
-              <span className="title-line scroll-reveal delay-1">YEREVAN</span>
+              <span className="title-line scroll-reveal">{t("titleLine1")}</span>
+              <span className="title-line scroll-reveal delay-1">{t("titleLine2")}</span>
+              <span className="title-line scroll-reveal delay-1">{t("titleLine3")}</span>
             </h2>
             <button
               className="see-map-btn scroll-reveal delay-3"
               onClick={() => openGoogleMaps("Derenik Demirchyan 2-4, Yerevan, Armenia")}
             >
-              <span>SEE ON MAP</span>
+              <span>{t("seeOnMap")}</span>
             </button>
           </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import VectorSvg from "@/app/components/VectorSvg";
@@ -43,6 +44,7 @@ const images = [
 ];
 
 export default function Slider() {
+  const t = useTranslations("slider");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [mounted, setMounted] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
@@ -203,10 +205,10 @@ export default function Slider() {
           <span className="total">/ {pad(images.length)}</span>
         </div>
         <div className="slider-arrows">
-          <button className="arrow-btn" onClick={scrollPrev} aria-label="Previous slide">
+          <button className="arrow-btn" onClick={scrollPrev} aria-label={t("previousSlide")}>
             <VectorSvg direction="left" />
           </button>
-          <button className="arrow-btn" onClick={scrollNext} aria-label="Next slide">
+          <button className="arrow-btn" onClick={scrollNext} aria-label={t("nextSlide")}>
             <VectorSvg direction="right" />
           </button>
         </div>

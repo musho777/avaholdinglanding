@@ -1,0 +1,207 @@
+{
+  "metadata": {
+    "title": "AVA Holding - Real Estate Development Company in Armenia",
+    "description": "AVA Holding - Real Estate Development Company in Armenia",
+    "keywords": "Yerevan, Armenia, quiet luxury, premium real estate",
+    "ogImageAlt": "AVA Holding - Premium Real Estate in Armenia"
+  },
+  "header": {
+    "openMenu": "Open menu",
+    "menu": "Menu",
+    "phone": "+374 (98) 333372",
+    "requestAccess": "Request Access"
+  },
+  "menu": {
+    "close": "Close",
+    "projects": "PROJECTS",
+    "location": "LOCATION",
+    "gallery": "GALLERY",
+    "founder": "FOUNDER",
+    "contact": "CONTACT",
+    "bookACall": "BOOK A CALL"
+  },
+  "hero": {
+    "topText": "For those",
+    "mainText": "WHO CHOOSE",
+    "bottomText": "the right moment.",
+    "scroll": "Scroll"
+  },
+  "quote": {
+    "title": "AVA Residences interiors by Elie Saab Maison",
+    "mainText": "AVA HOLDING CREATES MORE THAN BUILDINGS — IT CREATES THE FOUNDATION FOR A COMFORTABLE, MEANINGFUL, AND FORWARD-LOOKING FUTURE.",
+    "caption1": "Founded in 2006, AVA Holding is one of Armenia's most promising real estate development and construction companies. Its core focus is the creation of multifunctional residential buildings that meet the evolving needs of modern life. Today, one of Armenia's most significant challenges — and opportunities — is to stand among the world's leading innovators. Achieving that visibility would firmly place our country on the global stage.",
+    "caption2": "At the same time, in a world advancing at high speed, we believe it is vital not to lose sight of what matters most: people, safety, and the feeling of home. That's why AVA Holding aims to build more than just modern buildings — it creates spaces where people feel warmth, comfort, and belonging. Each project blends forward-thinking architecture with everyday practicality, driven by a deep respect for both place and person, chasing the main manifesto — LIVING PERFECTED.",
+    "play": "Play",
+    "pause": "Pause",
+    "replay": "Replay",
+    "playAriaLabel": "play the audio",
+    "imageAlt": "AVA Architecture"
+  },
+  "location": {
+    "titleLine1": "PRIME LOCATION",
+    "titleLine2": "IN THE HEART OF",
+    "titleLine3": "YEREVAN",
+    "seeOnMap": "SEE ON MAP",
+    "walking": "Walking",
+    "locations": {
+      "aua": {
+        "name": "American University of Armenia",
+        "driveTime": "5-10min",
+        "driveUnit": "Walking",
+        "address": "40 Marshal Baghramyan Avenue"
+      },
+      "loversPark": {
+        "name": "Lovers' Park",
+        "driveTime": "5 min Walking",
+        "address": "21 Marshal Baghramyan Ave"
+      },
+      "academy": {
+        "name": "NATIONAL ACADEMY OF SCIENCES OF ARMENIA",
+        "driveTime": "12 min Walking",
+        "address": "24 Marshal Baghramyan Avenue"
+      },
+      "cascade": {
+        "name": "Cascade Complex",
+        "driveTime": "12 min Walking",
+        "address": "10 Tamanyan Street"
+      },
+      "opera": {
+        "name": "Armenian Opera and Ballet Theatre",
+        "driveTime": "14 min Walking",
+        "address": "54 Tumanyan Street"
+      }
+    }
+  },
+  "slider": {
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide"
+  },
+  "century": {
+    "timeless": "TIMELESS",
+    "legacy": "LEGACY",
+    "founderText": "Est. 2017 by Founder EDUARD GHAZARYAN"
+  },
+  "founder": {
+    "name": "EDUARD GHAZARYAN",
+    "role": "Founder of AVA Holding and Developer of AVA Residences",
+    "bio1": "Eduard Ghazaryan graduated from the Faculty of Economics before embarking on an entrepreneurial career spanning a diverse range of industries, including the restaurant and hospitality sectors, wheat importation, and flour milling. The extensive business experience he gained through establishing, managing and growing successful enterprises laid the foundation for his subsequent career in property development and investment projects.",
+    "bio2": "Over the years, Eduard has successfully delivered a number of residential and commercial developments, acquiring comprehensive expertise across every stage of the development process—from concept and design through to construction and project completion.",
+    "bio3": "Today, Eduard leads AVA Holding, a diversified property development company whose portfolio includes residential communities, commercial real estate, a business centre and logistics warehouse facilities. The company's flagship development, \"AVA Residences\", is a premium residential complex in Yerevan featuring interiors by \"Elie Saab Maison\".",
+    "bio4": "Eduard's vision is to create developments that combine contemporary architecture, exceptional construction quality and international standards, with meticulous attention to aesthetics, craftsmanship and timeless elegance. His ambition is to introduce a new standard of residential living to Armenia by creating spaces that reflect the very best of contemporary international design and quality, enabling people to experience homes that meet the highest global standards."
+  },
+  "founderText": {
+    "name": "EDUARD GHAZARYAN",
+    "role": "Founder of AVA Holding and Developer of AVA Residences",
+    "paragraph1": "At AVA Holding, our vision is built on a commitment to shaping exceptional living spaces and introducing a new standard of residential living to Armenia. Grounded in years of diverse entrepreneurial experience across multiple industries, the holding was established to bring world-class property development and strategic investment projects to life.",
+    "paragraph2": "Today, AVA Holding manages a dynamic portfolio spanning premium residential communities, commercial real estate, modern business centers, and logistics facilities. Our cornerstone development, AVA Residences, exemplifies this mission — a luxury residential complex in Yerevan designed in collaboration with Elie Saab Maison to set a new standard of living through uncompromising elegance, contemporary architecture, and refined interiors.",
+    "paragraph3": "Our purpose goes beyond building structures. We aim to elevate urban development by combining international standards of craftsmanship and design with meticulous attention to detail. Every project undertaken by AVA Holding reflects a dedication to creating spaces that empower people to experience a higher, international standard of living — combining quality, aesthetic value, and enduring prestige in Armenia."
+  },
+  "footer": {
+    "contact": "Contact",
+    "phone": "+374 (98) 333372",
+    "email": "info@avaholding.com",
+    "startJourney": "START YOUR JOURNEY",
+    "location": "YEREVAN, ARMENIA Dzorap 70/3",
+    "seeOnMap": "See on map",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn",
+    "copyright": "©AVA — 2026 all rights reserved",
+    "privacyPolicy": "Privacy policy"
+  },
+  "bookCallModal": {
+    "title": "Book a Call",
+    "firstName": "First Name",
+    "firstNameRequired": "First name is required",
+    "firstNameMinLength": "First name must be at least 2 characters",
+    "lastName": "Last Name",
+    "lastNameRequired": "Last name is required",
+    "lastNameMinLength": "Last name must be at least 2 characters",
+    "middleName": "Middle Name",
+    "middleNameMinLength": "Middle name must be at least 2 characters",
+    "phonePlaceholder": "+374 (98) 333372",
+    "phoneRequired": "Phone number is required",
+    "phoneInvalid": "Please enter a valid phone number",
+    "emailPlaceholder": "your.email@example.com",
+    "emailInvalid": "Please enter a valid email address",
+    "submitting": "Submitting...",
+    "submit": "Submit",
+    "agreeToEmails": "Agree to receive emails and promotions",
+    "agreeRequired": "You must agree to receive emails and promotions",
+    "thankYou": "Thank You!",
+    "getBackSoon": "We'll get back to you soon."
+  },
+  "staticHeader": {
+    "bookACall": "BOOK A CALL",
+    "phone": "+374 (98) 333372"
+  },
+  "whatsApp": {
+    "ariaLabel": "Contact us on WhatsApp",
+    "message": "Hello! I'm interested in AVA Residence."
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: January 2026",
+    "section1": {
+      "title": "1. Introduction",
+      "content": "Welcome to AVA. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights."
+    },
+    "section2": {
+      "title": "2. Information We Collect",
+      "intro": "We may collect, use, store and transfer different kinds of personal data about you:",
+      "identityData": "Identity Data:",
+      "identityDataDesc": "includes first name, last name, username or similar identifier.",
+      "contactData": "Contact Data:",
+      "contactDataDesc": "includes email address and telephone numbers.",
+      "technicalData": "Technical Data:",
+      "technicalDataDesc": "includes internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform.",
+      "usageData": "Usage Data:",
+      "usageDataDesc": "includes information about how you use our website and services."
+    },
+    "section3": {
+      "title": "3. How We Use Your Information",
+      "intro": "We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:",
+      "item1": "To provide and maintain our services",
+      "item2": "To notify you about changes to our services",
+      "item3": "To provide customer support",
+      "item4": "To gather analysis or valuable information to improve our services",
+      "item5": "To monitor the usage of our services",
+      "item6": "To detect, prevent and address technical issues"
+    },
+    "section4": {
+      "title": "4. Data Security",
+      "content": "We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. We limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know."
+    },
+    "section5": {
+      "title": "5. Data Retention",
+      "content": "We will only retain your personal data for as long as necessary to fulfill the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements."
+    },
+    "section6": {
+      "title": "6. Your Legal Rights",
+      "intro": "Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to:",
+      "item1": "Request access to your personal data",
+      "item2": "Request correction of your personal data",
+      "item3": "Request erasure of your personal data",
+      "item4": "Object to processing of your personal data",
+      "item5": "Request restriction of processing your personal data",
+      "item6": "Request transfer of your personal data",
+      "item7": "Right to withdraw consent"
+    },
+    "section7": {
+      "title": "7. Cookies",
+      "content": "Our website uses cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site."
+    },
+    "section8": {
+      "title": "8. Third-Party Links",
+      "content": "This website may include links to third-party websites, plug-ins and applications. Clicking on those links or enabling those connections may allow third parties to collect or share data about you. We do not control these third-party websites and are not responsible for their privacy statements."
+    },
+    "section9": {
+      "title": "9. Contact Us",
+      "content": "If you have any questions about this privacy policy or our privacy practices, please contact us:"
+    }
+  },
+  "privacyMetadata": {
+    "title": "Privacy Policy | AVA",
+    "description": "Privacy policy for AVA. Learn how we collect, use, and protect your personal data."
+  }
+}

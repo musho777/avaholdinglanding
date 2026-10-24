@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function CenturySection() {
+  const t = useTranslations("century");
   const sectionRef = useRef<HTMLElement>(null);
   const topTextRef = useRef<HTMLHeadingElement>(null);
   const bottomTextRef = useRef<HTMLHeadingElement>(null);
@@ -109,19 +111,19 @@ export default function CenturySection() {
             ref={topTextRef}
             className="century-text-left scroll-reveal delay-1"
           >
-            TIMELESS
+            {t("timeless")}
           </h1>
           <h2
             ref={bottomTextRef}
             className="century-text-right scroll-reveal delay-2"
           >
-            LEGACY
+            {t("legacy")}
           </h2>
         </div>
       </div>
       <div className="century-scroll-wrapper">
         <p className="century-founder-text">
-          Est. 2017 by Founder EDUARD GHAZARYAN
+          {t("founderText")}
         </p>
         <div className="century-scroll-indicator">
           <svg

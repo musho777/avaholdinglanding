@@ -1,11 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { BookCallModal } from "@/components/BookCallModal";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LogoSvg from "@/public/assets/Logo";
 import { useHeaderScroll } from "../../hooks/useHeaderScroll";
 
 export default function Header() {
+  const t = useTranslations("header");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { isHidden, hasBackground } = useHeaderScroll();
 
@@ -24,18 +27,19 @@ export default function Header() {
 
         <nav className="header-nav">
           <div className="nav-left">
-            <button className="menu-btn" id="menuBtn" aria-label="Open menu">
+            <button className="menu-btn" id="menuBtn" aria-label={t("openMenu")}>
               <span className="menu-icon">
                 <span></span>
                 <span></span>
               </span>
-              <span id="menuBtnLabel">Menu</span>
+              <span id="menuBtnLabel">{t("menu")}</span>
             </button>
           </div>
           <div className="nav-right">
-            <a href="tel:+37498333372">+374 (98) 333372</a>
+            <LanguageSwitcher />
+            <a href="tel:+37498333372">{t("phone")}</a>
             <button className="book-btn" onClick={() => setIsModalOpen(true)}>
-              <span>Request Access</span>
+              <span>{t("requestAccess")}</span>
             </button>
           </div>
         </nav>

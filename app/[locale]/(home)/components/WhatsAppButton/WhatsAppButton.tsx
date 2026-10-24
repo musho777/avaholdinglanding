@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function WhatsAppButton() {
+  const t = useTranslations("whatsApp");
   const [isHidden, setIsHidden] = useState(false);
   const [inSpecialSection, setInSpecialSection] = useState(false);
 
@@ -55,7 +57,7 @@ export default function WhatsAppButton() {
   const handleClick = () => {
     // Replace with your actual WhatsApp number
     const phoneNumber = "37477423333"; // Format: country code + number (no + or spaces)
-    const message = encodeURIComponent("Hello! I'm interested in AVA Residence.");
+    const message = encodeURIComponent(t("message"));
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
@@ -64,7 +66,7 @@ export default function WhatsAppButton() {
       <button
         className={`whatsapp-button ${inSpecialSection ? "in-founder" : ""}`}
         onClick={handleClick}
-        aria-label="Contact us on WhatsApp"
+        aria-label={t("ariaLabel")}
         type="button"
       >
         <span className="whatsapp-wave whatsapp-wave-1"></span>

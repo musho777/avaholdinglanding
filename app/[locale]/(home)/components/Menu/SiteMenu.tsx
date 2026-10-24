@@ -1,10 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { BookCallModal } from "@/components/BookCallModal";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LogoSvg from "@/public/assets/Logo";
 
 export default function SiteMenu() {
+  const t = useTranslations("menu");
+  const tHeader = useTranslations("header");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -16,7 +20,7 @@ export default function SiteMenu() {
               <span></span>
               <span></span>
             </span>
-            Close
+            {t("close")}
           </button>
           <span className="site-menu-wordmark">
             <LogoSvg />
@@ -30,31 +34,33 @@ export default function SiteMenu() {
             </div>
             <nav className="site-menu-links">
               <a href="#story" data-menu-link>
-                PROJECTS
+                {t("projects")}
               </a>
               <a href="#location" data-menu-link>
-                LOCATION
+                {t("location")}
               </a>
               <a href="#slider" data-menu-link>
-                GALLERY
+                {t("gallery")}
               </a>
               <a href="#founder" data-menu-link>
-                FOUNDER
+                {t("founder")}
               </a>
               <a href="#contact" data-menu-link>
-                CONTACT
+                {t("contact")}
               </a>
             </nav>
           </div>
           <div className="site-menu-foot">
-            <div className="foot-left"></div>
+            <div className="foot-left">
+              <LanguageSwitcher />
+            </div>
             <div className="foot-right">
-              <a href="tel:+37498333372">+374 (98) 333372</a>
+              <a href="tel:+37498333372">{tHeader("phone")}</a>
               <button
                 className="menu-book-btn"
                 onClick={() => setIsModalOpen(true)}
               >
-                <span>BOOK A CALL</span>
+                <span>{t("bookACall")}</span>
               </button>
             </div>
           </div>

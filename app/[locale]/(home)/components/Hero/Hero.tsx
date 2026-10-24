@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
+  const t = useTranslations("hero");
   const [scrollIconHidden, setScrollIconHidden] = useState(false);
 
   useEffect(() => {
@@ -79,9 +81,9 @@ export default function Hero() {
           </video>
         </div>
         <div className="hero-text-overlay">
-          <p className="hero-text-top">For those</p>
-          <h1 className="hero-text-main">WHO CHOOSE</h1>
-          <p className="hero-text-bottom">the right moment.</p>
+          <p className="hero-text-top">{t("topText")}</p>
+          <h1 className="hero-text-main">{t("mainText")}</h1>
+          <p className="hero-text-bottom">{t("bottomText")}</p>
         </div>
         <p
           className="hero-caption"
@@ -92,7 +94,7 @@ export default function Hero() {
           }}
         >
           <span className="scroll-cue">
-            <span className="line"></span>Scroll
+            <span className="line"></span>{t("scroll")}
           </span>
         </p>
       </section>

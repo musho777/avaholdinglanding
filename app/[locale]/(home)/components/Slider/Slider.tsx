@@ -39,7 +39,6 @@ const images = [
   "/assets/AVA30.jpg",
   "/assets/AVA31.jpg",
   "/assets/AVA32.jpg",
-  "/assets/AVA33.jpg",
   "/assets/AVA34.jpg",
 ];
 
@@ -51,9 +50,7 @@ export default function Slider() {
   const sliderThumbRef = useRef<HTMLDivElement>(null);
   const dragStartY = useRef(0);
 
-  const autoplayPlugin = useRef(
-    Autoplay({ delay: 4500, stopOnInteraction: false })
-  );
+  const autoplayPlugin = useRef(Autoplay({ delay: 4500, stopOnInteraction: false }));
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {

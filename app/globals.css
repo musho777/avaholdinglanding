@@ -4140,22 +4140,26 @@ img {
 }
 
 .century-content {
-  position: relative;
+  position: absolute;
+  bottom: 8rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
   text-align: center;
   color: var(--off-white);
   width: 100%;
   padding: 0 2rem;
   display: flex;
-  justify-content: flex-end;
-  padding-right: 10%;
+  justify-content: center;
 }
 
 .century-text-line {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin-bottom: 3rem;
 }
 
 .century-text-left,
@@ -4290,6 +4294,7 @@ img {
 @media (max-width: 768px) {
   .century-content {
     padding: 0 1.5rem;
+    bottom: 7rem;
   }
 
   .century-text-left,
@@ -4309,6 +4314,7 @@ img {
 @media (max-width: 480px) {
   .century-content {
     padding: 0 1rem;
+    bottom: 6rem;
   }
 
   .century-text-left,

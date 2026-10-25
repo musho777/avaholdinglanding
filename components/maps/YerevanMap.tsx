@@ -11,7 +11,7 @@ export interface YerevanMapProps {
 export const YerevanMap: React.FC<YerevanMapProps> = ({
   className = "",
   hoveredLocation = null,
-  onLocationHover
+  onLocationHover,
 }) => {
   return (
     <svg
@@ -28,7 +28,7 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({
           .map-river { stroke: #8b9daa; stroke-width: 3; fill: none; opacity: 0.6; }
           .map-landmark { fill: #c9a267; stroke: #5f5346; stroke-width: 1.5; transition: all 0.3s ease; cursor: pointer; }
           .map-landmark:hover { fill: #b8926b; stroke: #3a322b; stroke-width: 2; filter: drop-shadow(0 0 8px rgba(201, 162, 103, 0.6)); }
-          .map-landmark.highlighted { fill: #b8926b; stroke: #3a322b; stroke-width: 2.5; filter: drop-shadow(0 0 12px rgba(201, 162, 103, 0.8)); animation: pulse 1.5s ease-in-out infinite; }
+          .map-landmark.highlighted { fill: #b8926b; stroke: #3a322b; stroke-width: 2.5; filter: drop-shadow(0 0 12px rgba(201, 162, 103, 0.8)); animation: pulse 0.5s ease-in-out infinite; }
           .map-text { font-family: var(--font-sans, sans-serif); fill: #3a322b; font-size: 12px; }
           .map-text-large { font-size: 18px; font-weight: 600; }
           .map-text-small { font-size: 10px; opacity: 0.8; }
@@ -90,7 +90,7 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({
       <g id="landmarks">
         {/* Republic Square */}
         <circle
-          className={`map-landmark ${hoveredLocation === 1 ? 'highlighted' : ''}`}
+          className={`map-landmark ${hoveredLocation === 1 ? "highlighted" : ""}`}
           cx="400"
           cy="300"
           r="8"
@@ -100,7 +100,7 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({
 
         {/* Cascade */}
         <rect
-          className={`map-landmark ${hoveredLocation === 2 ? 'highlighted' : ''}`}
+          className={`map-landmark ${hoveredLocation === 2 ? "highlighted" : ""}`}
           x="360"
           y="260"
           width="12"
@@ -112,7 +112,7 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({
 
         {/* Opera House */}
         <circle
-          className={`map-landmark ${hoveredLocation === 3 ? 'highlighted' : ''}`}
+          className={`map-landmark ${hoveredLocation === 3 ? "highlighted" : ""}`}
           cx="380"
           cy="310"
           r="6"
@@ -122,7 +122,7 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({
 
         {/* Mother Armenia */}
         <polygon
-          className={`map-landmark ${hoveredLocation === 4 ? 'highlighted' : ''}`}
+          className={`map-landmark ${hoveredLocation === 4 ? "highlighted" : ""}`}
           points="280,270 290,280 270,280"
           onMouseEnter={() => onLocationHover?.(4)}
           onMouseLeave={() => onLocationHover?.(null)}
@@ -130,7 +130,7 @@ export const YerevanMap: React.FC<YerevanMapProps> = ({
 
         {/* Tsitsernakaberd Memorial */}
         <path
-          className={`map-landmark ${hoveredLocation === 5 ? 'highlighted' : ''}`}
+          className={`map-landmark ${hoveredLocation === 5 ? "highlighted" : ""}`}
           d="M 250 360 L 260 355 L 260 365 Z"
           onMouseEnter={() => onLocationHover?.(5)}
           onMouseLeave={() => onLocationHover?.(null)}

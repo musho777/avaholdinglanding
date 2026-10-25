@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { BookCallModal } from "@/components/BookCallModal";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LogoSvg from "@/public/assets/Logo";
 import { useHeaderScroll } from "../../hooks/useHeaderScroll";
 
@@ -36,7 +35,6 @@ export default function Header() {
             </button>
           </div>
           <div className="nav-right">
-            <LanguageSwitcher />
             <a href="tel:+37498333372">{t("phone")}</a>
             <button className="book-btn" onClick={() => setIsModalOpen(true)}>
               <span>{t("requestAccess")}</span>

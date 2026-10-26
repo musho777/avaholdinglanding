@@ -21,6 +21,9 @@ export default function FounderTextSection() {
           <p className="founder-text-paragraph">
             {t("paragraph3")}
           </p>
+           <p className="founder-text-paragraph">
+            {t("paragraph4")}
+          </p>
         </div>
       </div>
     </section>

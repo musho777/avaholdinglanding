@@ -289,6 +289,30 @@ body {
   }
 }
 
+/* Armenian locale hero text - match English positioning */
+html[lang="am"] .hero-text-top,
+html[lang="am"] .hero-text-main,
+html[lang="am"] .hero-text-bottom {
+  font-family: "Noto Sans Armenian", sans-serif;
+  font-style: normal;
+}
+
+html[lang="am"] .hero-text-main {
+  font-size: clamp(1.4rem, 4.25vw, 3.1875rem); /* 51px max for big screens */
+}
+
+@media (max-width: 768px) {
+  html[lang="am"] .hero-text-main {
+    font-size: clamp(1.2rem, 5.5vw, 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  html[lang="am"] .hero-text-main {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+}
+
 .hero-caption {
   position: absolute;
   bottom: 3.5rem;

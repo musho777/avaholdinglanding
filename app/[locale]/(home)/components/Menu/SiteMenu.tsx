@@ -28,10 +28,6 @@ export default function SiteMenu() {
         </div>
         <div className="site-menu-content">
           <div className="site-menu-body">
-            <div className="site-menu-image">
-              <div className="site-menu-image-photo" id="siteMenuImage"></div>
-              <div className="site-menu-image-cover"></div>
-            </div>
             <nav className="site-menu-links">
               <a href="#story" data-menu-link>
                 {t("projects")}
@@ -56,10 +52,7 @@ export default function SiteMenu() {
             </div>
             <div className="foot-right">
               <a href="tel:+37498333372">{tHeader("phone")}</a>
-              <button
-                className="menu-book-btn"
-                onClick={() => setIsModalOpen(true)}
-              >
+              <button className="menu-book-btn" onClick={() => setIsModalOpen(true)}>
                 <span>{t("bookACall")}</span>
               </button>
             </div>
@@ -67,10 +60,7 @@ export default function SiteMenu() {
         </div>
       </div>
 
-      <BookCallModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <BookCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

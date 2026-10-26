@@ -81,14 +81,6 @@
     "legacy": "LEGACY",
     "founderText": "Հիմնադրվել է 2017 թվականին Էդուարդ Ղազարյանի կողմից"
   },
-  "founder": {
-    "name": "Էդուարդ Ղազարյան",
-    "role": "",
-    "bio1": "",
-    "bio2": "",
-    "bio3": "",
-    "bio4": ""
-  },
   "founderText": {
     "name": "Էդուարդ Ղազարյան",
     "role": "AVA Holding-ի հիմնադիր և AVA Residences նախագծի կառուցապատող",
@@ -119,7 +111,7 @@
     "lastNameMinLength": "Ազգանունը պետք է լինի առավելագույն 3 նիշ",
     "middleName": "Հայրանուն",
     "middleNameMinLength": "Հայրանունը պետք է լինի առավելագույն 3 նիշ",
-    "phonePlaceholder": "+374 (98) 333372",
+    "phonePlaceholder": "+374 (00) 000000",
     "phoneRequired": "Հեռախոսը պարտադիր է",
     "phoneInvalid": "Սխալ հեռախոսի համար",
     "emailPlaceholder": "your.email@example.com",

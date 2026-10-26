@@ -8,9 +8,8 @@ export default function QuoteSection() {
   const locale = useLocale();
 
   // Audio file based on locale
-  const audioSrc = locale === "am"
-    ? "/assets/ava-holding-am.mp3"
-    : "/assets/Ava holding creates-2.wav";
+  const audioSrc =
+    locale === "am" ? "/assets/ava-holding-am.mp3" : "/assets/Ava holding creates-2.mp3";
 
   useEffect(() => {
     let DURATION = 71;
@@ -259,7 +258,12 @@ export default function QuoteSection() {
               </span>
             </div>
             <div className="play-wrap scroll-reveal delay-2" id="playWrap">
-              <button className="play-btn" id="playBtn" type="button" aria-label={t("playAriaLabel")}>
+              <button
+                className="play-btn"
+                id="playBtn"
+                type="button"
+                aria-label={t("playAriaLabel")}
+              >
                 <div className="button-bg"></div>
                 <span className="button-animation">
                   <span className="button-circle"></span>

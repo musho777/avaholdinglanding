@@ -5,7 +5,6 @@ export { default as SiteMenu } from "./Menu";
 export { default as CenturySection } from "./CenturySection";
 export { default as TimeSvgSection } from "./TimeSvgSection";
 export { default as FounderTextSection } from "./FounderTextSection";
-export { default as FounderSection } from "./FounderSection";
 export { default as QuoteSection } from "./Quote";
 export { default as YerevanLocation } from "./YerevanLocation";
 export { default as Slider } from "./Slider";

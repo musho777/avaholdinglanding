@@ -81,17 +81,9 @@
     "legacy": "LEGACY",
     "founderText": "Est. 2017 by Founder EDUARD GHAZARYAN"
   },
-  "founder": {
-    "name": "EDUARD GHAZARYAN",
-    "role": "Founder of AVA Holding and Developer of AVA Residences",
-    "bio1": "Eduard Ghazaryan graduated from the Faculty of Economics before embarking on an entrepreneurial career spanning a diverse range of industries, including the restaurant and hospitality sectors, wheat importation, and flour milling. The extensive business experience he gained through establishing, managing and growing successful enterprises laid the foundation for his subsequent career in property development and investment projects.",
-    "bio2": "Over the years, Eduard has successfully delivered a number of residential and commercial developments, acquiring comprehensive expertise across every stage of the development process—from concept and design through to construction and project completion.",
-    "bio3": "Today, Eduard leads AVA Holding, a diversified property development company whose portfolio includes residential communities, commercial real estate, a business centre and logistics warehouse facilities. The company's flagship development, \"AVA Residences\", is a premium residential complex in Yerevan featuring interiors by \"Elie Saab Maison\".",
-    "bio4": "Eduard's vision is to create developments that combine contemporary architecture, exceptional construction quality and international standards, with meticulous attention to aesthetics, craftsmanship and timeless elegance. His ambition is to introduce a new standard of residential living to Armenia by creating spaces that reflect the very best of contemporary international design and quality, enabling people to experience homes that meet the highest global standards."
-  },
   "founderText": {
     "name": "EDUARD GHAZARYAN",
-    "role": "Founder of AVA Holding and Developer of AVA Residences",
+    "role": "FOUNDER OF AVA HOLDING AND DEVELOPER OF AVA RESIDENCES INTERIORS BY ELIE SAAB",
     "paragraph1": "At AVA Holding, our vision is built on a commitment to shaping exceptional living spaces and introducing a new standard of residential living to Armenia. Grounded in years of diverse entrepreneurial experience across multiple industries, the holding was established to bring world-class property development and strategic investment projects to life.",
     "paragraph3": "Today, AVA Holding manages a dynamic portfolio spanning premium residential communities, commercial real estate, modern business centers, and logistics facilities. Our cornerstone development, AVA Residences, exemplifies this mission — a luxury residential complex in Yerevan designed in collaboration",
     "paragraph2": "with Elie Saab Maison to set a new standard of living through uncompromising elegance, contemporary architecture, and refined interiors.",
@@ -120,14 +112,14 @@
     "lastNameMinLength": "Last name must be at least 2 characters",
     "middleName": "Middle Name",
     "middleNameMinLength": "Middle name must be at least 2 characters",
-    "phonePlaceholder": "+374 (98) 333372",
+    "phonePlaceholder": "+374 (00) 000000",
     "phoneRequired": "Phone number is required",
     "phoneInvalid": "Please enter a valid phone number",
     "emailPlaceholder": "your.email@example.com",
     "emailInvalid": "Please enter a valid email address",
     "submitting": "Submitting...",
     "submit": "Submit",
-    "agreeToEmails": "Agree to receive emails and promotions",
+    "agreeToEmails": "Agree to receive emails and newsletters",
     "agreeRequired": "You must agree to receive emails and promotions",
     "thankYou": "Thank You!",
     "getBackSoon": "We'll get back to you soon."

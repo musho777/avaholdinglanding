@@ -14,13 +14,13 @@ export default function FounderTextSection() {
         <div className="founder-text-bio">
           <p className="founder-text-paragraph">
             {t("paragraph1")}
-              <span style={{ display: "block", marginTop: "3px" }}>
+              <span style={{ display: "block", marginTop: "13px" }}>
     {t("paragraph3")}
   </span>
           </p>
           <p className="founder-text-paragraph">
             {t("paragraph2")}
-             <span style={{ display: "block", marginTop: "3px" }}>
+             <span style={{ display: "block", marginTop: "13px" }}>
     {t("paragraph4")}
   </span>
           </p>

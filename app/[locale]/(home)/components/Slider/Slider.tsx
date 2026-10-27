@@ -8,10 +8,7 @@ import VectorSvg from "@/app/components/VectorSvg";
 
 const images = [
   "/assets/AVA1.jpg",
-  "/assets/AVA2.jpg",
-  "/assets/AVA3.jpg",
   "/assets/AVA4.jpg",
-  "/assets/AVA5.jpg",
   "/assets/AVA6.jpg",
   "/assets/AVA7.jpg",
   "/assets/AVA8.jpg",
@@ -30,14 +27,11 @@ const images = [
   "/assets/AVA21.jpg",
   "/assets/AVA22.jpg",
   "/assets/AVA23.jpg",
-  "/assets/AVA24.jpg",
   "/assets/AVA25.jpg",
-  "/assets/AVA26.jpg",
   "/assets/AVA27.jpg",
   "/assets/AVA28.jpg",
   "/assets/AVA29.jpg",
   "/assets/AVA30.jpg",
-  "/assets/AVA31.jpg",
   "/assets/AVA32.jpg",
   "/assets/AVA34.jpg",
 ];

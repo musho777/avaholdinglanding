@@ -1986,6 +1986,7 @@ section.panel {
   background: var(--taupe);
   padding: 1rem 3rem 0;
   color: var(--stone);
+  border-top: 2px solid #cec4b6;
 }
 .footer-top {
   display: flex;

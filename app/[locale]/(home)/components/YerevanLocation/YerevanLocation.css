@@ -433,7 +433,11 @@
   background-repeat: no-repeat;
   background-position: center;
   z-index: 2;
-  /* display: none; */
+}
+
+/* Loading placeholder while MapSvg lazy loads */
+.map-placeholder {
+  background: #cec4b6;
 }
 
 .map-image svg {

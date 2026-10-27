@@ -2,8 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import dynamic from "next/dynamic";
 import "./YerevanLocation.css";
-import MapSvg from "../MapSvg/MapSvg";
+
+// Lazy load the heavy 1.8MB MapSvg component for better scroll performance
+const MapSvg = dynamic(() => import("../MapSvg/MapSvg"), {
+  ssr: false,
+  loading: () => <div className="map-image map-placeholder" />,
+});
 
 // Location keys for translation lookup
 const locationKeys = ["aua", "loversPark", "academy", "cascade", "opera"] as const;

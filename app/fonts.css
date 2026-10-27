@@ -290,3 +290,69 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* Armenian Holding Font (FreeSans) */
+@font-face {
+  font-family: 'ARM Holding';
+  src: url('/fonts/ARM_Holding/FreeSans.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ARM Holding';
+  src: url('/fonts/ARM_Holding/FreeSansBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ARM Holding';
+  src: url('/fonts/ARM_Holding/FreeSansOblique.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ARM Holding';
+  src: url('/fonts/ARM_Holding/FreeSansBoldOblique.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Armenian Residences Font (FreeSerif) */
+@font-face {
+  font-family: 'ARM Residences';
+  src: url('/fonts/ARM_Residences/FreeSerif.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ARM Residences';
+  src: url('/fonts/ARM_Residences/FreeSerifBold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ARM Residences';
+  src: url('/fonts/ARM_Residences/FreeSerifItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ARM Residences';
+  src: url('/fonts/ARM_Residences/FreeSerifBoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

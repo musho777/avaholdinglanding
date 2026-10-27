@@ -4305,11 +4305,11 @@ img {
   align-items: center;
   justify-content: center;
   background-color: var(--taupe);
-  padding: 6rem 2rem;
+  padding: 6rem 3rem;
 }
 
 .founder-text-content {
-  max-width: 1100px;
+  max-width: 835px;
   width: 100%;
   color: var(--stone);
 }
@@ -4325,7 +4325,6 @@ img {
   font-weight: 300;
   margin: 0 0 0.3rem 0;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
   text-align: center;
 }
 
@@ -4335,8 +4334,6 @@ img {
   font-weight: 400;
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  opacity: 0.85;
   text-align: center;
 }
 
@@ -4356,9 +4353,7 @@ img {
 .founder-text-paragraph {
   font-family: var(--font-sans);
   font-size: clamp(0.9rem, 1.1vw, 1rem);
-  line-height: 1.8;
   margin: 0;
-  opacity: 0.9;
   text-align: justify;
 }
 

@@ -1,27 +1,49 @@
 .switcher {
   display: flex;
-  gap: 4px;
+  gap: 0.5rem;
   align-items: center;
 }
 
 .langBtn {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: inherit;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
+  border: none;
+  color: rgba(250, 247, 242, 0.7);
+  padding: 0;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   text-transform: uppercase;
+  font-family: var(--font-sans);
+  position: relative;
+}
+
+.langBtn::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: rgba(250, 247, 242, 0.7);
+  transition: width 0.3s ease;
 }
 
 .langBtn:hover {
-  border-color: rgba(255, 255, 255, 0.6);
+  color: rgba(250, 247, 242, 0.9);
 }
 
 .langBtn.active {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.5);
+  color: rgba(250, 247, 242, 0.9);
+}
+
+.langBtn.active::after {
+  width: 100%;
+}
+
+.separator {
+  color: rgba(250, 247, 242, 0.5);
+  font-size: 0.95rem;
+  font-weight: 300;
 }

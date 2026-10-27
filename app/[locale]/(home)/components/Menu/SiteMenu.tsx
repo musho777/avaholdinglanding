@@ -26,36 +26,31 @@ export default function SiteMenu() {
             <LogoSvg />
           </span>
         </div>
-        <div className="site-menu-content">
-          <div className="site-menu-body">
-            <nav className="site-menu-links">
-              <a href="#story" data-menu-link>
-                {t("projects")}
-              </a>
-              <a href="#location" data-menu-link>
-                {t("location")}
-              </a>
-              <a href="#slider" data-menu-link>
-                {t("gallery")}
-              </a>
-              <a href="#founder" data-menu-link>
-                {t("founder")}
-              </a>
-              <a href="#contact" data-menu-link>
-                {t("contact")}
-              </a>
-            </nav>
-          </div>
-          <div className="site-menu-foot">
-            <div className="foot-left">
-              <LanguageSwitcher />
-            </div>
-            <div className="foot-right">
-              <a href="tel:+37498333372">{tHeader("phone")}</a>
-              <button className="menu-book-btn" onClick={() => setIsModalOpen(true)}>
-                <span>{t("bookACall")}</span>
-              </button>
-            </div>
+
+        <div className="site-menu-lang">
+          <LanguageSwitcher />
+        </div>
+
+        <div className="site-menu-bottom">
+          <nav className="site-menu-links">
+            <a href="#story" data-menu-link>
+              {t("projects")}
+            </a>
+            <a href="#location" data-menu-link>
+              {t("location")}
+            </a>
+            <a href="#slider" data-menu-link>
+              {t("gallery")}
+            </a>
+            <a href="#founder" data-menu-link>
+              {t("founder")}
+            </a>
+            <a href="#contact" data-menu-link>
+              {t("contact")}
+            </a>
+          </nav>
+          <div className="site-menu-phone">
+            <a href="tel:+37498333372">{tHeader("phone")}</a>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
   position: relative;
   z-index: 10;
   background: var(--stone);
-  color: var(--charcoal);
+  color: var(--taupe);
   padding-bottom: 7rem;
 }
 
@@ -35,7 +35,7 @@
   font-size: clamp(1.7rem, 3vw, 2.2rem);
   line-height: 1;
   letter-spacing: 0.06em;
-  color: var(--charcoal);
+  color: var(--taupe);
   margin: 0;
 }
 
@@ -95,7 +95,7 @@
   font-family: var(--font-serif);
   font-size: clamp(1rem, 1.4vw, 1.25rem);
   line-height: 1.2;
-  color: var(--charcoal);
+  color: var(--taupe);
   position: relative;
   transition: transform 0.4s ease;
 }

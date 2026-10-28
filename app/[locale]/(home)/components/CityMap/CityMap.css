@@ -140,8 +140,16 @@
   font-size: clamp(0.95rem, 1.5vw, 1.3rem);
 }
 
+/* Button in the palette so it sits on the olive header: dark brown,
+   with the terracotta sliding in on hover */
 .city-map .see-map-btn {
   flex-shrink: 0;
+  background: var(--map-brown);
+  color: var(--map-cream);
+}
+
+.city-map .see-map-btn::before {
+  background-color: var(--map-terracotta);
 }
 
 @media (max-width: 768px) {

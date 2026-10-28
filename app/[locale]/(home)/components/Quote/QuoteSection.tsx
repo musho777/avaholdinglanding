@@ -225,9 +225,6 @@ export default function QuoteSection() {
       <div className="quote-container container-padding">
         <div className="quote-content">
           <div className="quote-text-wrapper">
-            <h2 className="quote-title scroll-reveal" style={{ marginBottom: "20px" }}>
-              {t("title")}
-            </h2>
             <p className="quote-fill scroll-reveal" id="quoteText">
               {t("mainText")}
             </p>

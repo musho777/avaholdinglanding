@@ -28,7 +28,7 @@ export default function ResidencesIntro() {
     <section className="residences-intro" id="residences">
       <div className="residences-intro-media">
         <Image
-          src="/assets/ava-residences.webp"
+          src="/assets/AVA2.webp"
           alt={t("imageAlt")}
           fill
           sizes="(max-width: 900px) 100vw, 58vw"

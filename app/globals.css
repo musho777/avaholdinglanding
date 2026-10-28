@@ -4359,6 +4359,7 @@ img {
   font-size: clamp(0.9rem, 1.1vw, 1rem);
   margin: 0;
   text-align: justify;
+  word-spacing: -0.05em;
 }
 
 @media (max-width: 900px) {

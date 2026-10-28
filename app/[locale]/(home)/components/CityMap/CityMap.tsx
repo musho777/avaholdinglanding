@@ -37,6 +37,7 @@ type Location = {
 // Phones: the map scrolls sideways and the card column is hidden, so the active
 // card is shown on its own in the top-right corner instead
 const MOBILE_QUERY = "(max-width: 768px)";
+const ACTIVE_DURATION = 2000;
 
 // Dots appear one by one, quickly: 0.02s apart, and even the longest route
 // finishes drawing within 0.6s
@@ -60,6 +61,14 @@ export default function CityMap() {
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
   }, []);
+
+  // The hover effect (active card, pin and route, or the phone card) switches
+  // off by itself after 2s; hovering or tapping another place restarts it
+  useEffect(() => {
+    if (hoveredLocation === null) return;
+    const timer = setTimeout(() => setHoveredLocation(null), ACTIVE_DURATION);
+    return () => clearTimeout(timer);
+  }, [hoveredLocation]);
 
   // Hovering a pin brings its card to the middle of the card column
   // (vertical column on desktop, horizontal strip on tablets)

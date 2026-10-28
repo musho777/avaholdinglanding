@@ -86,6 +86,67 @@
       }
     }
   },
+  "cityMap": {
+    "titleLine1": "AVA RESIDENCES INTERIORS BY ELIE SAAB MAISON",
+    "titleLine2": "Prime location in the heart of the Yerevan",
+    "locations": {
+      "l1": {
+        "name": "Lovers' Park",
+        "driveTime": "26 min Walking",
+        "address": "21 Marshal Baghramyan Ave, Yerevan"
+      },
+      "l2": {
+        "name": "National Academy of Sciences of Armenia",
+        "driveTime": "28 min Walking",
+        "address": "24 Marshal Baghramyan Ave, Yerevan"
+      },
+      "l3": {
+        "name": "Metro",
+        "driveTime": "25 min Walking",
+        "address": "Marshal Baghramyan Metro Station, Yerevan"
+      },
+      "l4": {
+        "name": "Cascade",
+        "driveTime": "12 min Drive",
+        "address": "10 Tamanyan St, Yerevan"
+      },
+      "l5": {
+        "name": "Opera",
+        "driveTime": "11 min Drive",
+        "address": "54 Tumanyan St, Yerevan"
+      },
+      "l6": {
+        "name": "Parliament Park",
+        "driveTime": "6 min Drive",
+        "address": "19 Marshal Baghramyan Ave, Yerevan"
+      },
+      "l7": {
+        "name": "British School",
+        "driveTime": "8 min Drive",
+        "address": "1/67 Marshal Baghramyan Ave, Yerevan"
+      },
+      "l8": {
+        "name": "American University",
+        "driveTime": "6 min Drive",
+        "address": "40 Marshal Baghramyan Ave, Yerevan"
+      },
+      "l9": {
+        "name": "St. Hovhannes Church",
+        "driveTime": "3 min Drive",
+        "address": "St. Hovhannes Church, Kond, Yerevan"
+      },
+      "l10": {
+        "name": "Republic Square",
+        "driveTime": "7 min Drive",
+        "address": "Republic Square, Yerevan"
+      },
+      "l11": {
+        "name": "Saryan Street",
+        "driveTime": "14 min Walking",
+        "address": "Martiros Saryan St, Yerevan"
+      }
+    }
+  },
   "slider": {
     "previousSlide": "Previous slide",
     "nextSlide": "Next slide"

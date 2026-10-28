@@ -9,6 +9,7 @@ export { default as QuoteSection } from "./Quote";
 export { default as ExploreSection } from "./Explore";
 export { default as ResidencesIntro } from "./ResidencesIntro";
 export { default as YerevanLocation } from "./YerevanLocation";
+export { default as CityMap } from "./CityMap";
 export { default as Slider } from "./Slider";
 export { default as Partners } from "./Partners";
 export { default as Footer } from "./Footer";

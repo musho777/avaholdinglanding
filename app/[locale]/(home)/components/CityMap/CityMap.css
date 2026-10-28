@@ -1,0 +1,251 @@
+.city-map {
+  /* Brand palette */
+  --map-cream: #ece9df; /* also the map-2-base.svg background */
+  --map-olive: #796d5b; /* also the streets in map-2-base.svg */
+  --map-brown: #695048;
+  --map-terracotta: #936855;
+  --map-pin: #796d5b; /* location pins */
+
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--map-cream);
+  display: flex;
+  flex-direction: column;
+}
+
+/* The map fills whatever height the header leaves */
+.city-map-viewport {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.city-map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.city-map-base,
+.city-map-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Same centered "slice" crop as the overlay's preserveAspectRatio */
+.city-map-base {
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Pins */
+.city-map-point {
+  cursor: pointer;
+}
+
+.city-map-pin {
+  fill: var(--map-pin);
+  transition: fill 0.3s ease;
+}
+
+.city-map-point.active .city-map-pin {
+  fill: var(--map-terracotta);
+}
+
+.city-map-hit {
+  fill: transparent;
+}
+
+.city-map-pulse {
+  fill: none;
+  stroke: var(--map-terracotta);
+  stroke-width: 2px;
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+  pointer-events: none;
+}
+
+.city-map-point.active .city-map-pulse {
+  animation: cityMapPulse 1.5s ease-out infinite;
+}
+
+@keyframes cityMapPulse {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+/* Route dots, styled like the location map's: hidden until their pin is active,
+   then popping in one by one from the residence */
+.city-map-route circle {
+  fill: var(--map-terracotta);
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.city-map-point.active .city-map-route circle {
+  animation: cityMapRoute 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes cityMapRoute {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Header above the map: title on the left, button on the right */
+.city-map-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  background-color: var(--map-olive);
+}
+
+.city-map .map-title {
+  margin: 0;
+}
+
+.city-map .map-title .title-line {
+  font-size: clamp(0.95rem, 1.5vw, 1.3rem);
+}
+
+/* Button in the palette so it sits on the olive header: dark brown,
+   with the terracotta sliding in on hover */
+.city-map .see-map-btn {
+  flex-shrink: 0;
+  background: var(--map-brown);
+  color: var(--map-cream);
+}
+
+.city-map .see-map-btn::before {
+  background-color: var(--map-terracotta);
+}
+
+@media (max-width: 768px) {
+  .city-map-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .city-map .map-title .title-line {
+    font-size: 0.95rem;
+  }
+}
+
+/* Cards from YerevanLocation.css, in the brand palette */
+.city-map .map-title {
+  color: var(--map-cream);
+}
+
+.city-map .location-card:hover,
+.city-map .location-card.active {
+  border-color: var(--map-terracotta);
+  box-shadow: 0 8px 24px rgba(147, 104, 85, 0.4);
+}
+
+.city-map .card-drive-time {
+  color: var(--map-cream);
+}
+
+/* Cards column: reuses .location-card from YerevanLocation.css, but 11 cards
+   don't fit the viewport, so they keep a fixed height and the column scrolls */
+.city-map .city-map-cards {
+  top: 20px;
+  bottom: 20px;
+  transform: none;
+  overflow-y: auto;
+  /* scrolling stops at the ends of the column instead of moving on to the page */
+  overscroll-behavior: contain;
+  /* room for the 1.05 hover scale, which overflow would otherwise clip */
+  padding: 8px 10px;
+  margin-right: -10px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--map-olive) transparent;
+}
+
+.city-map .city-map-cards::-webkit-scrollbar {
+  width: 4px;
+}
+
+.city-map .city-map-cards::-webkit-scrollbar-thumb {
+  background: var(--map-olive);
+  border-radius: 2px;
+}
+
+.city-map .city-map-cards .location-card {
+  flex: 0 0 auto;
+  height: 120px;
+}
+
+@media (min-width: 1440px) {
+  .city-map .city-map-cards .location-card {
+    height: 140px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .city-map .city-map-cards .location-card {
+    height: 75px;
+  }
+}
+
+/* Tablet portrait: horizontal strip along the bottom, like the map above */
+@media (max-width: 900px) {
+  .city-map .city-map-cards {
+    top: auto;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-right: 0;
+  }
+
+  .city-map .city-map-cards .location-card {
+    height: 95px;
+  }
+}
+
+/* Mobile: wider map that scrolls sideways (header stays put), like the location map */
+@media (max-width: 768px) {
+  .city-map-viewport {
+    overflow-x: auto;
+  }
+
+  .city-map-wrapper {
+    min-width: 150%;
+  }
+}

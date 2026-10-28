@@ -12,7 +12,8 @@ import {
   QuoteSection,
   ExploreSection,
   ResidencesIntro,
-  YerevanLocation,
+  // YerevanLocation,
+  CityMap,
   Slider,
   // Partners,
   Footer,
@@ -66,7 +67,8 @@ export default function Home() {
         <QuoteSection />
         <ExploreSection />
         <ResidencesIntro />
-        <YerevanLocation />
+        {/* <YerevanLocation /> */}
+        <CityMap />
         <Slider />
         <CenturySection />
         <TimeSvgSection />

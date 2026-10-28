@@ -17,6 +17,10 @@ export default function ExploreSection() {
   return (
     <section className="explore-section container-padding" id="explore">
       <div className="explore-header scroll-reveal">
+        <p className="explore-eyebrow">
+          <span className="explore-eyebrow-line" aria-hidden="true" />
+          {t("eyebrow")}
+        </p>
         <h2 className="explore-title">{t("title")}</h2>
       </div>
 
@@ -34,8 +38,13 @@ export default function ExploreSection() {
                 sizes="(max-width: 600px) 100vw, 33vw"
                 className="explore-card-img"
               />
+              <div className="explore-card-overlay">
+                <span className="explore-card-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <p className="explore-card-label">{t(card.key)}</p>
+              </div>
             </div>
-            <p className="explore-card-label">{t(card.key)}</p>
           </div>
         ))}
       </div>

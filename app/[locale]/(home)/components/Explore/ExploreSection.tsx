@@ -4,11 +4,10 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import "./ExploreSection.css";
 
-// Card keys for translation lookup
 const cards = [
-  { key: "archedBuilding", image: "/assets/davit-anhakht-17.webp" },
   { key: "derenikDemirchyan", image: "/assets/derenik-demirchyan.jpeg" },
   { key: "karapetUlnetsi", image: "/assets/karapet-ulnetsi.jpg" },
+  { key: "archedBuilding", image: "/assets/davit-anhakht-17.webp" },
 ] as const;
 
 export default function ExploreSection() {
@@ -26,10 +25,7 @@ export default function ExploreSection() {
 
       <div className="explore-grid">
         {cards.map((card, index) => (
-          <div
-            key={card.key}
-            className={`explore-card scroll-reveal delay-${index + 1}`}
-          >
+          <div key={card.key} className={`explore-card scroll-reveal delay-${index + 1}`}>
             <div className="explore-card-media">
               <Image
                 src={card.image}
@@ -40,9 +36,7 @@ export default function ExploreSection() {
               />
             </div>
             <div className="explore-card-caption">
-              <span className="explore-card-number">
-                {String(index + 1).padStart(2, "0")}
-              </span>
+              <span className="explore-card-number">{String(index + 1).padStart(2, "0")}</span>
               <p className="explore-card-label">{t(card.key)}</p>
             </div>
           </div>

@@ -9,25 +9,22 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  height: 100vh;
   overflow: hidden;
   background-color: var(--map-cream);
   display: flex;
   flex-direction: column;
 }
 
-/* The map fills whatever height the header leaves */
+/* The map keeps its own proportions (the SVG's viewBox), so it is never cropped */
 .city-map-viewport {
   position: relative;
-  flex: 1;
-  min-height: 0;
   overflow: hidden;
 }
 
 .city-map-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 2606.6 / 1542.4;
 }
 
 .city-map-base,
@@ -121,15 +118,15 @@
   }
 }
 
-/* Header above the map: title on the left, button on the right */
+/* Header above the map: title on the left, button on the right, centred vertically */
 .city-map-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  background-color: var(--map-olive);
+  background-color: var(--map-cream);
 }
 
 .city-map .map-title {
@@ -140,7 +137,7 @@
   font-size: clamp(0.95rem, 1.5vw, 1.3rem);
 }
 
-/* Button in the palette so it sits on the olive header: dark brown,
+/* Button in the palette so it sits on the cream header: dark brown,
    with the terracotta sliding in on hover */
 .city-map .see-map-btn {
   flex-shrink: 0;
@@ -168,7 +165,7 @@
 
 /* Cards from YerevanLocation.css, in the brand palette */
 .city-map .map-title {
-  color: var(--map-cream);
+  color: var(--map-olive);
 }
 
 .city-map .location-card:hover,

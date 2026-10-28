@@ -21,8 +21,8 @@
 
 .residences-intro-panel {
   --font-residences: "Cosmetic", var(--font-serif);
-  background: #796d5b;
-  color: #e9e5db;
+  background: #ece9df; /* same cream as the map header */
+  color: #796d5b;
   display: flex;
   flex-direction: column;
   align-items: center;

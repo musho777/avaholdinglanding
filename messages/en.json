@@ -40,9 +40,16 @@
   "explore": {
     "eyebrow": "AVA Holding",
     "title": "PROJECTS",
-    "archedBuilding": "AVA Residences",
+    "archedBuilding": "17 Davit Anhakht Street, Yerevan",
     "derenikDemirchyan": "Derenik Demirchyan 2-4",
     "karapetUlnetsi": "45/1 Karapet Ulnetsi Street"
+  },
+  "residencesIntro": {
+    "imageAlt": "AVA Residences on Derenik Demirchyan Street",
+    "residences": "RESIDENCES",
+    "interiorsBy": "Interiors by",
+    "title": "A New Era of Living",
+    "address": "Derenik Demirchyan 2-4, Yerevan"
   },
   "location": {
     "titleLine1": "PRIME LOCATION",

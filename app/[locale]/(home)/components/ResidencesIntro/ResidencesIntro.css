@@ -1,0 +1,106 @@
+.residences-intro {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 58fr 42fr;
+  height: clamp(480px, 72vh, 680px);
+  background: #e9e5db;
+  color: #7b6d5c;
+}
+
+.residences-intro-media {
+  position: relative;
+  overflow: hidden;
+  background: var(--taupe);
+}
+
+.residences-intro-img {
+  object-fit: cover;
+  object-position: 55% center;
+}
+
+.residences-intro-panel {
+  --font-residences: "Cosmetic", var(--font-serif);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(2.5rem, 7vh, 4rem) 2rem 1.75rem;
+  text-align: center;
+}
+
+.residences-intro-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.residences-intro-mark {
+  width: clamp(6.5rem, 10vw, 8.5rem);
+  height: auto;
+}
+
+.residences-intro-residences {
+  margin-top: 1rem;
+  font-family: var(--font-residences);
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  letter-spacing: 0.32em;
+  padding-left: 0.32em;
+}
+
+.residences-intro-by {
+  margin-top: 2rem;
+  font-family: var(--font-residences);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.residences-intro-saab {
+  margin-top: 0.7rem;
+  font-family: var(--font-residences);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+.residences-intro-maison {
+  margin-top: 0.3rem;
+  font-family: var(--font-residences);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+}
+
+.residences-intro-title {
+  margin: 2rem 0;
+  font-family: var(--font-residences);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  line-height: 1.1;
+  color: inherit;
+}
+
+.residences-intro-address {
+  margin: 0;
+  font-family: var(--font-residences);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .residences-intro {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .residences-intro-media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .residences-intro-panel {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .residences-intro-title {
+    margin: 1.75rem 0;
+  }
+}

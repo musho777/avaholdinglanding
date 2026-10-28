@@ -11,6 +11,7 @@ import {
   FounderTextSection,
   QuoteSection,
   ExploreSection,
+  ResidencesIntro,
   // YerevanLocation,
   CityMap,
   Slider,
@@ -65,6 +66,7 @@ export default function Home() {
       <main id="main-content">
         <QuoteSection />
         <ExploreSection />
+        <ResidencesIntro />
         {/* <YerevanLocation /> */}
         <CityMap />
         <Slider />

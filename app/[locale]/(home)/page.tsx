@@ -11,7 +11,8 @@ import {
   FounderTextSection,
   QuoteSection,
   ExploreSection,
-  YerevanLocation,
+  // YerevanLocation,
+  CityMap,
   Slider,
   // Partners,
   Footer,
@@ -64,7 +65,8 @@ export default function Home() {
       <main id="main-content">
         <QuoteSection />
         <ExploreSection />
-        <YerevanLocation />
+        {/* <YerevanLocation /> */}
+        <CityMap />
         <Slider />
         <CenturySection />
         <TimeSvgSection />

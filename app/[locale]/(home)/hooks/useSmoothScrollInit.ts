@@ -43,6 +43,9 @@ export function useSmoothScrollInit() {
     };
 
     const onWheel = (e: WheelEvent) => {
+      // Inner scroll areas marked with data-native-scroll scroll themselves, not the page
+      if (e.target instanceof Element && e.target.closest("[data-native-scroll]")) return;
+
       e.preventDefault();
       target += e.deltaY;
       target = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));

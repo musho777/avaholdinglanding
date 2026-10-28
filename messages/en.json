@@ -79,6 +79,67 @@
       }
     }
   },
+  "cityMap": {
+    "titleLine1": "AVA RESIDENCES INTERIORS BY ELIE SAAB MAISON",
+    "titleLine2": "Prime location in the heart of the Yerevan",
+    "locations": {
+      "l1": {
+        "name": "Republic Square",
+        "driveTime": "15 min Walking",
+        "address": "Republic Square, Yerevan"
+      },
+      "l2": {
+        "name": "Vernissage Market",
+        "driveTime": "18 min Walking",
+        "address": "Aram Street, Yerevan"
+      },
+      "l3": {
+        "name": "Hrazdan Stadium",
+        "driveTime": "25 min Drive",
+        "address": "Hrazdan Gorge, Yerevan"
+      },
+      "l4": {
+        "name": "Matenadaran",
+        "driveTime": "8 min Walking",
+        "address": "53 Mashtots Avenue, Yerevan"
+      },
+      "l5": {
+        "name": "Blue Mosque",
+        "driveTime": "10 min Walking",
+        "address": "12 Mashtots Avenue, Yerevan"
+      },
+      "l6": {
+        "name": "Northern Avenue",
+        "driveTime": "6 min Walking",
+        "address": "Northern Avenue, Yerevan"
+      },
+      "l7": {
+        "name": "Mother Armenia",
+        "driveTime": "20 min Walking",
+        "address": "Victory Park, Yerevan"
+      },
+      "l8": {
+        "name": "Erebuni Fortress",
+        "driveTime": "22 min Drive",
+        "address": "38 Erebuni Street, Yerevan"
+      },
+      "l9": {
+        "name": "Saryan Street",
+        "driveTime": "5 min Walking",
+        "address": "Saryan Street, Yerevan"
+      },
+      "l10": {
+        "name": "Yerevan Mall",
+        "driveTime": "15 min Drive",
+        "address": "34/3 Arshakunyats Avenue, Yerevan"
+      },
+      "l11": {
+        "name": "Komitas Pantheon",
+        "driveTime": "12 min Walking",
+        "address": "Arshakunyats Avenue, Yerevan"
+      }
+    }
+  },
   "slider": {
     "previousSlide": "Previous slide",
     "nextSlide": "Next slide"

@@ -121,13 +121,13 @@
   }
 }
 
-/* Header above the map: title on the left, button on the right */
+/* Header above the map: title on the left, button on the right, centred vertically */
 .city-map-header {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   background-color: var(--map-cream);
 }

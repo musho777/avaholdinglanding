@@ -4320,13 +4320,30 @@ img {
   margin-bottom: 4rem;
 }
 
+/* Name and role share one width: the block is as wide as the longer line
+   and the name is justified to fill it, so both start and end together */
+.founder-text-heading {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .founder-text-name {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 300;
   margin: 0 0 0.3rem 0;
   text-transform: uppercase;
-  text-align: center;
+  text-align: justify;
+  text-align-last: justify;
+}
+
+/* Phones: the name wraps onto two lines, so centre it instead of justifying */
+@media (max-width: 600px) {
+  .founder-text-name {
+    text-align: center;
+    text-align-last: center;
+  }
 }
 
 .founder-text-role {

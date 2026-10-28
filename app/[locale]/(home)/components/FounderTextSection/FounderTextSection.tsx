@@ -8,8 +8,10 @@ export default function FounderTextSection() {
   return (
     <section className="founder-text-section" id="founder">
       <div className="founder-text-content scroll-reveal">
-        <h2 className="founder-text-name">{t("name")}</h2>
-        <p className="founder-text-role">{t("role")}</p>
+        <div className="founder-text-heading">
+          <h2 className="founder-text-name">{t("name")}</h2>
+          <p className="founder-text-role">{t("role")}</p>
+        </div>
 
         <div className="founder-text-bio">
           <p className="founder-text-paragraph">

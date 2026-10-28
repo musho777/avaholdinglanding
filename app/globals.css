@@ -1255,7 +1255,6 @@ section.panel {
   font-weight: 400;
   text-transform: uppercase;
   font-size: clamp(1.7rem, 3vw, 2.2rem);
-  line-height: 1.28;
   margin: 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
@@ -3279,7 +3278,6 @@ img {
 
   .quote-fill {
     font-size: clamp(1.2rem, 5vw, 1.6rem);
-    line-height: 1.35;
   }
 
   .quote-caption,
@@ -3656,7 +3654,6 @@ img {
 
   .quote-fill {
     font-size: clamp(1.1rem, 6vw, 1.4rem);
-    line-height: 1.4;
   }
 
   .quote-caption,

@@ -4310,7 +4310,7 @@ img {
 }
 
 .founder-text-content {
-  max-width: 835px;
+  max-width: 875px;
   width: 100%;
   color: var(--stone);
 }
@@ -4320,29 +4320,51 @@ img {
   margin-bottom: 4rem;
 }
 
+/* Name and role share one width: the block is as wide as the name, and the
+   role (which adds no width of its own) is justified to fill it */
+.founder-text-heading {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .founder-text-name {
   font-family: var(--font-serif);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 300;
-  margin: 0 0 0.3rem 0;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.founder-text-role {
-  font-family: var(--font-sans);
-  font-size: clamp(0.7rem, 1.2vw, 0.85rem);
-  font-weight: 400;
   margin: 0;
   text-transform: uppercase;
   text-align: center;
 }
 
+.founder-text-role {
+  width: 0;
+  min-width: 100%;
+  font-family: var(--font-serif);
+  /* ~0.315 x the name's size, so its natural width sits just inside the name's */
+  font-size: clamp(0.63rem, 1.575vw, 1.1rem);
+  font-weight: 400;
+  margin: 0.5rem 0 0;
+  text-transform: uppercase;
+  text-align: justify;
+  text-align-last: justify;
+}
+
+/* Phones: the role wraps, so centre it instead of stretching each line */
+@media (max-width: 600px) {
+  .founder-text-role {
+    width: auto;
+    font-size: 0.75rem;
+    text-align: center;
+    text-align-last: center;
+  }
+}
+
 .founder-text-bio {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  padding-top: 3rem;
+  gap: 3.5rem;
+  padding-top: 4.5rem;
 }
 
 .founder-text-column {
@@ -4353,10 +4375,10 @@ img {
 
 .founder-text-paragraph {
   font-family: var(--font-sans);
-  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  line-height: 1.5;
   margin: 0;
   text-align: justify;
-  word-spacing: -0.05em;
 }
 
 @media (max-width: 900px) {

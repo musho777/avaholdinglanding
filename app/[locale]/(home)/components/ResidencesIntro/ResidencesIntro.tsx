@@ -28,11 +28,12 @@ export default function ResidencesIntro() {
     <section className="residences-intro" id="residences">
       <div className="residences-intro-media">
         <Image
-          src="/assets/derenik-demirchyan.jpeg"
+          src="/assets/ava-residences.webp"
           alt={t("imageAlt")}
           fill
           sizes="(max-width: 900px) 100vw, 58vw"
           className="residences-intro-img"
+          loading="eager"
         />
       </div>
 

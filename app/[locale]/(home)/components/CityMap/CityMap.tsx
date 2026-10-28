@@ -37,6 +37,9 @@ type Location = {
 // Phones: the map scrolls sideways and the card column is hidden, so the active
 // card is shown on its own in the top-right corner instead
 const MOBILE_QUERY = "(max-width: 768px)";
+// Touch screens of any width (phones held sideways, tablets): a tap on a pin
+// selects it instead of opening Google Maps
+const TOUCH_QUERY = "(hover: none), (pointer: coarse)";
 const ACTIVE_DURATION = 2000;
 
 // Dots appear one by one, quickly: 0.02s apart, and even the longest route
@@ -51,16 +54,28 @@ export default function CityMap() {
   const [hoveredLocation, setHoveredLocation] = useState<number | null>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
   // Portal target for the phone card: sits above the sideways-scrolling map
   const [mobileCardSlot, setMobileCardSlot] = useState<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const query = window.matchMedia(MOBILE_QUERY);
-    const update = () => setIsMobile(query.matches);
+    const mobileQuery = window.matchMedia(MOBILE_QUERY);
+    const touchQuery = window.matchMedia(TOUCH_QUERY);
+    const update = () => {
+      setIsMobile(mobileQuery.matches);
+      setIsTouch(touchQuery.matches);
+    };
     update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
+    mobileQuery.addEventListener("change", update);
+    touchQuery.addEventListener("change", update);
+    return () => {
+      mobileQuery.removeEventListener("change", update);
+      touchQuery.removeEventListener("change", update);
+    };
   }, []);
+
+  // Phones get the corner card; touch screens use taps instead of hover
+  const tapToSelect = isMobile || isTouch;
 
   // The hover effect (active card, pin and route, or the phone card) switches
   // off by itself after 2s; hovering or tapping another place restarts it
@@ -160,7 +175,7 @@ export default function CityMap() {
             preserveAspectRatio="xMidYMid slice"
             aria-hidden="true"
             // Phones: tapping the map outside a pin closes the card
-            onClick={() => isMobile && setHoveredLocation(null)}
+            onClick={() => tapToSelect && setHoveredLocation(null)}
           >
             {cityMapPoints.map((point, index) => {
               const id = index + 1;
@@ -171,16 +186,17 @@ export default function CityMap() {
                   key={id}
                   className={`city-map-point ${hoveredLocation === id ? "active" : ""}`}
                   onMouseEnter={() => {
-                    if (isMobile) return;
+                    if (tapToSelect) return;
                     setHoveredLocation(id);
                     scrollCardIntoCenter(id);
                   }}
-                  onMouseLeave={() => !isMobile && setHoveredLocation(null)}
+                  onMouseLeave={() => !tapToSelect && setHoveredLocation(null)}
                   onClick={(e) => {
-                    // Phones: a tap selects the pin and shows its card; the card opens Maps
-                    if (isMobile) {
+                    // Touch screens: a tap selects the pin (phones show its card); the card opens Maps
+                    if (tapToSelect) {
                       e.stopPropagation();
                       setHoveredLocation(id);
+                      if (!isMobile) scrollCardIntoCenter(id);
                     } else {
                       openGoogleMaps(locations[index].address);
                     }

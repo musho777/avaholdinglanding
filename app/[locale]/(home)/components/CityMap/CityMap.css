@@ -249,3 +249,40 @@
     min-width: 150%;
   }
 }
+
+/* Phones: the active card alone, in the top-right corner of the map. Rendered
+   through a portal into this zero-height slot between the header and the
+   sideways-scrolling map, so it stays put while the map scrolls */
+.city-map-mobile-slot {
+  position: relative;
+  z-index: 20;
+  height: 0;
+}
+
+.city-map-mobile-card {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 210px;
+  height: 120px;
+  display: flex;
+  animation: cityMapCardIn 0.25s ease-out;
+}
+
+.city-map .city-map-mobile-card .location-card {
+  width: 100%;
+  height: 100%;
+  transform: none;
+  border-color: var(--map-terracotta);
+}
+
+@keyframes cityMapCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

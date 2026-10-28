@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 import { cityMapPoints } from "./cityMapData";
 // Card and cursor styles are shared with the location map
@@ -25,6 +26,18 @@ const locationImages = [
   "/assets/saryan-street.webp",
 ];
 
+type Location = {
+  id: number;
+  name: string;
+  driveTime: string;
+  address: string;
+  image: string;
+};
+
+// Phones: the map scrolls sideways and the card column is hidden, so the active
+// card is shown on its own in the top-right corner instead
+const MOBILE_QUERY = "(max-width: 768px)";
+
 // Dots appear one by one, quickly: 0.02s apart, and even the longest route
 // finishes drawing within 0.6s
 const DOT_DELAY = 0.02;
@@ -36,6 +49,17 @@ export default function CityMap() {
   const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number } | null>(null);
   const [hoveredLocation, setHoveredLocation] = useState<number | null>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  // Portal target for the phone card: sits above the sideways-scrolling map
+  const [mobileCardSlot, setMobileCardSlot] = useState<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const query = window.matchMedia(MOBILE_QUERY);
+    const update = () => setIsMobile(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
 
   // Hovering a pin brings its card to the middle of the card column
   // (vertical column on desktop, horizontal strip on tablets)
@@ -66,6 +90,33 @@ export default function CityMap() {
     window.open(googleMapsUrl, "_blank");
   };
 
+  const renderCard = (location: Location, active: boolean, hoverable: boolean) => (
+    <div
+      key={location.id}
+      className={`location-card ${active ? "active" : ""}`}
+      onMouseEnter={hoverable ? () => setHoveredLocation(location.id) : undefined}
+      onMouseLeave={hoverable ? () => setHoveredLocation(null) : undefined}
+      onClick={() => openGoogleMaps(location.address)}
+    >
+      <div className="card-image-wrapper">
+        <div
+          className="card-image"
+          style={{ backgroundImage: `url(${location.image})` }}
+        ></div>
+        <div className="card-gradient-overlay"></div>
+      </div>
+      <div className="card-content">
+        <h3 className="card-location-name">{location.name.toUpperCase()}</h3>
+        <div className="card-time-wrapper">
+          <p className="card-address">{location.address}</p>
+          <span className="card-drive-time">{location.driveTime}</span>
+        </div>
+      </div>
+    </div>
+  );
+
+  const activeLocation = locations.find((location) => location.id === hoveredLocation);
+
   return (
     <section className="city-map" id="city-map">
       {/* Header above the map, with the location map's title styles and button */}
@@ -82,6 +133,8 @@ export default function CityMap() {
         </button>
       </header>
 
+      <div className="city-map-mobile-slot" ref={setMobileCardSlot} />
+
       <div className="city-map-viewport">
         <div
           className="city-map-wrapper"
@@ -97,6 +150,8 @@ export default function CityMap() {
             viewBox="0 0 2606.6 1542.4"
             preserveAspectRatio="xMidYMid slice"
             aria-hidden="true"
+            // Phones: tapping the map outside a pin closes the card
+            onClick={() => isMobile && setHoveredLocation(null)}
           >
             {cityMapPoints.map((point, index) => {
               const id = index + 1;
@@ -107,11 +162,20 @@ export default function CityMap() {
                   key={id}
                   className={`city-map-point ${hoveredLocation === id ? "active" : ""}`}
                   onMouseEnter={() => {
+                    if (isMobile) return;
                     setHoveredLocation(id);
                     scrollCardIntoCenter(id);
                   }}
-                  onMouseLeave={() => setHoveredLocation(null)}
-                  onClick={() => openGoogleMaps(locations[index].address)}
+                  onMouseLeave={() => !isMobile && setHoveredLocation(null)}
+                  onClick={(e) => {
+                    // Phones: a tap selects the pin and shows its card; the card opens Maps
+                    if (isMobile) {
+                      e.stopPropagation();
+                      setHoveredLocation(id);
+                    } else {
+                      openGoogleMaps(locations[index].address);
+                    }
+                  }}
                 >
                   <g className="city-map-route">
                     {point.route.map(([x, y], i) => (
@@ -135,33 +199,22 @@ export default function CityMap() {
 
           {/* Same cards as the location map (styles from YerevanLocation.css), scrolling vertically */}
           <div className="location-cards-row city-map-cards" data-native-scroll ref={cardsRef}>
-            {locations.map((location) => (
-              <div
-                key={location.id}
-                className={`location-card ${hoveredLocation === location.id ? "active" : ""}`}
-                onMouseEnter={() => setHoveredLocation(location.id)}
-                onMouseLeave={() => setHoveredLocation(null)}
-                onClick={() => openGoogleMaps(location.address)}
-              >
-                <div className="card-image-wrapper">
-                  <div
-                    className="card-image"
-                    style={{ backgroundImage: `url(${location.image})` }}
-                  ></div>
-                  <div className="card-gradient-overlay"></div>
-                </div>
-                <div className="card-content">
-                  <h3 className="card-location-name">{location.name.toUpperCase()}</h3>
-                  <div className="card-time-wrapper">
-                    <p className="card-address">{location.address}</p>
-                    <span className="card-drive-time">{location.driveTime}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {locations.map((location) =>
+              renderCard(location, hoveredLocation === location.id, true)
+            )}
           </div>
         </div>
       </div>
+
+      {isMobile &&
+        activeLocation &&
+        mobileCardSlot &&
+        createPortal(
+          <div className="city-map-mobile-card" key={activeLocation.id}>
+            {renderCard(activeLocation, true, false)}
+          </div>,
+          mobileCardSlot
+        )}
 
       {/* Same WhatsApp-style cursor as the location map above */}
       {cursorPosition && (

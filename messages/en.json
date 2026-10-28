@@ -84,59 +84,59 @@
     "titleLine2": "Prime location in the heart of the Yerevan",
     "locations": {
       "l1": {
-        "name": "Republic Square",
-        "driveTime": "15 min Walking",
-        "address": "Republic Square, Yerevan"
+        "name": "Lovers' Park",
+        "driveTime": "26 min Walking",
+        "address": "21 Marshal Baghramyan Ave, Yerevan"
       },
       "l2": {
-        "name": "Vernissage Market",
-        "driveTime": "18 min Walking",
-        "address": "Aram Street, Yerevan"
+        "name": "National Academy of Sciences of Armenia",
+        "driveTime": "28 min Walking",
+        "address": "24 Marshal Baghramyan Ave, Yerevan"
       },
       "l3": {
-        "name": "Hrazdan Stadium",
-        "driveTime": "25 min Drive",
-        "address": "Hrazdan Gorge, Yerevan"
+        "name": "Metro",
+        "driveTime": "25 min Walking",
+        "address": "Marshal Baghramyan Metro Station, Yerevan"
       },
       "l4": {
-        "name": "Matenadaran",
-        "driveTime": "8 min Walking",
-        "address": "53 Mashtots Avenue, Yerevan"
+        "name": "Cascade",
+        "driveTime": "12 min Drive",
+        "address": "10 Tamanyan St, Yerevan"
       },
       "l5": {
-        "name": "Blue Mosque",
-        "driveTime": "10 min Walking",
-        "address": "12 Mashtots Avenue, Yerevan"
+        "name": "Opera",
+        "driveTime": "11 min Drive",
+        "address": "54 Tumanyan St, Yerevan"
       },
       "l6": {
-        "name": "Northern Avenue",
-        "driveTime": "6 min Walking",
-        "address": "Northern Avenue, Yerevan"
+        "name": "Parliament Park",
+        "driveTime": "6 min Drive",
+        "address": "19 Marshal Baghramyan Ave, Yerevan"
       },
       "l7": {
-        "name": "Mother Armenia",
-        "driveTime": "20 min Walking",
-        "address": "Victory Park, Yerevan"
+        "name": "British School",
+        "driveTime": "8 min Drive",
+        "address": "1/67 Marshal Baghramyan Ave, Yerevan"
       },
       "l8": {
-        "name": "Erebuni Fortress",
-        "driveTime": "22 min Drive",
-        "address": "38 Erebuni Street, Yerevan"
+        "name": "American University",
+        "driveTime": "6 min Drive",
+        "address": "40 Marshal Baghramyan Ave, Yerevan"
       },
       "l9": {
-        "name": "Saryan Street",
-        "driveTime": "5 min Walking",
-        "address": "Saryan Street, Yerevan"
+        "name": "St. Hovhannes Church",
+        "driveTime": "3 min Drive",
+        "address": "St. Hovhannes Church, Kond, Yerevan"
       },
       "l10": {
-        "name": "Yerevan Mall",
-        "driveTime": "15 min Drive",
-        "address": "34/3 Arshakunyats Avenue, Yerevan"
+        "name": "Republic Square",
+        "driveTime": "7 min Drive",
+        "address": "Republic Square, Yerevan"
       },
       "l11": {
-        "name": "Komitas Pantheon",
-        "driveTime": "12 min Walking",
-        "address": "Arshakunyats Avenue, Yerevan"
+        "name": "Saryan Street",
+        "driveTime": "14 min Walking",
+        "address": "Martiros Saryan St, Yerevan"
       }
     }
   },

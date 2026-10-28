@@ -7,22 +7,22 @@ import { cityMapPoints } from "./cityMapData";
 import "../YerevanLocation/YerevanLocation.css";
 import "./CityMap.css";
 
-// Translation keys, in the same order as the pins in cityMapData
+// Translation keys, in card order; same order as the pins in cityMapData and locationImages
 const locationKeys = [
   "l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9", "l10", "l11",
 ] as const;
 const locationImages = [
-  "/assets/opera.webp",
+  "/assets/lovers-park-card.webp",
+  "/assets/academy-card.webp",
+  "/assets/metro.webp",
   "/assets/location-1.webp",
-  "/assets/academia.webp",
+  "/assets/opera-card.webp",
+  "/assets/parliament-park.webp",
+  "/assets/british-school.webp",
   "/assets/usa.webp",
-  "/assets/lovers_park.webp",
-  "/assets/derenik-demirchyan.jpeg",
-  "/assets/karapet-ulnetsi.jpg",
-  "/assets/davit-anhakht-17.webp",
-  "/assets/AVA1.webp",
-  "/assets/AVA2.webp",
-  "/assets/AVA3.webp",
+  "/assets/st-hovhannes-church.webp",
+  "/assets/republic-square.webp",
+  "/assets/saryan-street.webp",
 ];
 
 // Dots appear one by one, quickly: 0.02s apart, and even the longest route

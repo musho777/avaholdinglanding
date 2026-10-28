@@ -38,12 +38,12 @@ export default function ExploreSection() {
                 sizes="(max-width: 600px) 100vw, 33vw"
                 className="explore-card-img"
               />
-              <div className="explore-card-overlay">
-                <span className="explore-card-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <p className="explore-card-label">{t(card.key)}</p>
-              </div>
+            </div>
+            <div className="explore-card-caption">
+              <span className="explore-card-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <p className="explore-card-label">{t(card.key)}</p>
             </div>
           </div>
         ))}

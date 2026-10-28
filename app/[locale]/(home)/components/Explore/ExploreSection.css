@@ -1,14 +1,13 @@
 .explore-section {
   position: relative;
   z-index: 10;
-  background: var(--pine-deep);
-  color: var(--off-white);
-  padding-top: 8rem;
-  padding-bottom: 10rem;
+  background: var(--stone);
+  color: var(--charcoal);
+  padding-bottom: 7rem;
 }
 
 .explore-header {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .explore-eyebrow {
@@ -20,23 +19,23 @@
   font-size: 0.75rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--taupe);
 }
 
 .explore-eyebrow-line {
   display: block;
   width: 3rem;
   height: 1px;
-  background: var(--gold);
+  background: var(--gold-dim);
 }
 
 .explore-title {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   line-height: 1;
   letter-spacing: 0.06em;
-  color: var(--off-white);
+  color: var(--charcoal);
   margin: 0;
 }
 
@@ -47,14 +46,9 @@
   gap: 2rem;
 }
 
-/* Editorial stagger: middle card sits lower */
-.explore-card:nth-child(2) {
-  margin-top: 4rem;
-}
-
 .explore-card-media {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--pine);
 }
@@ -70,11 +64,8 @@
   transform: scale(1);
 }
 
-.explore-card-overlay {
-  position: absolute;
-  inset: auto 0 0 0;
-  padding: 7rem 1.5rem 1.5rem;
-  background: linear-gradient(to top, rgba(34, 28, 23, 0.92) 20%, transparent);
+.explore-card-caption {
+  padding-top: 1rem;
 }
 
 .explore-card-number {
@@ -83,22 +74,21 @@
   font-family: var(--font-sans);
   font-size: 0.75rem;
   letter-spacing: 0.2em;
-  color: var(--gold);
+  color: var(--gold-dim);
 }
 
 .explore-card-label {
   margin: 0;
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(201, 162, 103, 0.5);
+  border-top: 1px solid rgba(163, 133, 92, 0.5);
   font-family: var(--font-serif);
-  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
   line-height: 1.2;
-  color: var(--off-white);
+  color: var(--charcoal);
 }
 
 @media (max-width: 600px) {
   .explore-section {
-    padding-top: 5rem;
     padding-bottom: 5rem;
   }
 
@@ -109,9 +99,5 @@
   .explore-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
-  }
-
-  .explore-card:nth-child(2) {
-    margin-top: 0;
   }
 }

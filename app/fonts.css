@@ -356,3 +356,36 @@
   font-style: italic;
   font-display: swap;
 }
+
+/* Cosmetic - AVA Residences display font */
+@font-face {
+  font-family: 'Cosmetic';
+  src: url('/fonts/Cosmetic/Cosmetic-Thin.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cosmetic';
+  src: url('/fonts/Cosmetic/Cosmetic-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cosmetic';
+  src: url('/fonts/Cosmetic/Cosmetic-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cosmetic';
+  src: url('/fonts/Cosmetic/Cosmetic-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

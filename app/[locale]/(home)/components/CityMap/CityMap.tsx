@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { cityMapPoints } from "./cityMapData";
 // Card and cursor styles are shared with the location map
@@ -35,6 +35,22 @@ export default function CityMap() {
   const tLocation = useTranslations("location");
   const [cursorPosition, setCursorPosition] = useState<{ x: number; y: number } | null>(null);
   const [hoveredLocation, setHoveredLocation] = useState<number | null>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  // Hovering a pin brings its card to the middle of the card column
+  // (vertical column on desktop, horizontal strip on tablets)
+  const scrollCardIntoCenter = (id: number) => {
+    const container = cardsRef.current;
+    const card = container?.children[id - 1] as HTMLElement | undefined;
+    if (!container || !card) return;
+    const c = container.getBoundingClientRect();
+    const r = card.getBoundingClientRect();
+    container.scrollBy({
+      top: r.top - c.top - (c.height - r.height) / 2,
+      left: r.left - c.left - (c.width - r.width) / 2,
+      behavior: "smooth",
+    });
+  };
 
   const locations = locationKeys.map((key, index) => ({
     id: index + 1,
@@ -90,7 +106,10 @@ export default function CityMap() {
                 <g
                   key={id}
                   className={`city-map-point ${hoveredLocation === id ? "active" : ""}`}
-                  onMouseEnter={() => setHoveredLocation(id)}
+                  onMouseEnter={() => {
+                    setHoveredLocation(id);
+                    scrollCardIntoCenter(id);
+                  }}
                   onMouseLeave={() => setHoveredLocation(null)}
                   onClick={() => openGoogleMaps(locations[index].address)}
                 >
@@ -115,7 +134,7 @@ export default function CityMap() {
           </svg>
 
           {/* Same cards as the location map (styles from YerevanLocation.css), scrolling vertically */}
-          <div className="location-cards-row city-map-cards" data-native-scroll>
+          <div className="location-cards-row city-map-cards" data-native-scroll ref={cardsRef}>
             {locations.map((location) => (
               <div
                 key={location.id}

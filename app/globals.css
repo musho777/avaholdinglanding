@@ -4355,8 +4355,7 @@ img {
   font-family: var(--font-sans);
   font-size: clamp(0.9rem, 1.1vw, 1rem);
   margin: 0;
-  text-align: justify;
-  word-spacing: -0.05em;
+  text-align: left;
 }
 
 @media (max-width: 900px) {

@@ -2,69 +2,102 @@
   position: relative;
   z-index: 10;
   background: var(--stone);
-  padding-top: 6rem;
-  padding-bottom: 6rem;
+  color: var(--charcoal);
+  padding-bottom: 7rem;
 }
 
 .explore-header {
+  margin-bottom: 3rem;
+}
+
+.explore-eyebrow {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 2.5rem;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+
+.explore-eyebrow-line {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background: var(--gold-dim);
 }
 
 .explore-title {
   font-family: var(--font-serif);
   font-weight: 400;
-  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   line-height: 1;
-  color: var(--taupe);
+  letter-spacing: 0.06em;
+  color: var(--charcoal);
   margin: 0;
 }
 
 .explore-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-}
-
-.explore-card {
-  display: block;
-  color: var(--charcoal);
+  align-items: start;
+  gap: 2rem;
 }
 
 .explore-card-media {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: var(--taupe);
+  background: var(--pine);
 }
 
+/* Slow zoom-out once the card scrolls into view */
 .explore-card-img {
   object-fit: cover;
+  transform: scale(1.12);
+  transition: transform 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.explore-card.scroll-revealed .explore-card-img {
+  transform: scale(1);
+}
+
+.explore-card-caption {
+  padding-top: 1rem;
+}
+
+.explore-card-number {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  color: var(--gold-dim);
 }
 
 .explore-card-label {
-  margin: 0.9rem 0 0;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin: 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(163, 133, 92, 0.5);
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  line-height: 1.2;
+  color: var(--charcoal);
 }
 
 @media (max-width: 600px) {
   .explore-section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-bottom: 5rem;
   }
 
   .explore-header {
-    align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .explore-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }

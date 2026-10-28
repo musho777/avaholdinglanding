@@ -14,11 +14,11 @@ const MapSvg = dynamic(() => import("../MapSvg/MapSvg"), {
 // Location keys for translation lookup
 const locationKeys = ["aua", "loversPark", "academy", "cascade", "opera"] as const;
 const locationImages = [
-  "/assets/usa.jpg",
-  "/assets/lovers_park.jpg",
-  "/assets/academia.jpg",
-  "/assets/location-1.jpg",
-  "/assets/opera.jpg",
+  "/assets/usa.webp",
+  "/assets/lovers_park.webp",
+  "/assets/academia.webp",
+  "/assets/location-1.webp",
+  "/assets/opera.webp",
 ];
 
 export default function YerevanLocation() {

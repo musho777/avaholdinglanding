@@ -10,6 +10,7 @@ import {
   TimeSvgSection,
   FounderTextSection,
   QuoteSection,
+  ExploreSection,
   YerevanLocation,
   Slider,
   // Partners,
@@ -62,6 +63,7 @@ export default function Home() {
 
       <main id="main-content">
         <QuoteSection />
+        <ExploreSection />
         <YerevanLocation />
         <Slider />
         <CenturySection />

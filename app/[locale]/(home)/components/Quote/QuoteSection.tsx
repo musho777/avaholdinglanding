@@ -283,7 +283,7 @@ export default function QuoteSection() {
         </div>
 
         <div className="photo-wrapper scroll-reveal">
-          <img src="/assets/1.png" alt={t("imageAlt")} className="inner-img" />
+          <img src="/assets/1.webp" alt={t("imageAlt")} className="inner-img" />
         </div>
       </div>
     </section>

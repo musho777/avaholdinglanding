@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVA Buildings</title>
+  <style>
+    :root {
+      --pine: #5f5346;
+      --pine-deep: #221c17;
+      --stone: #cec4b6;
+      --gold: #c9a267;
+      --gold-dim: #a3855c;
+      --charcoal: #3a322b;
+      --taupe: #6c635a;
+      --off-white: #faf7f2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--pine-deep);
+      color: var(--off-white);
+      font-family: "Constantia", Georgia, serif;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--charcoal) 0%, var(--pine-deep) 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    h1 {
+      color: var(--gold);
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      color: var(--stone);
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .color-bar {
+      display: flex;
+      height: 4px;
+      margin: 2rem auto;
+      max-width: 400px;
+    }
+
+    .color-bar span {
+      flex: 1;
+    }
+
+    main {
+      padding: 3rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .building-card {
+      background: linear-gradient(145deg, var(--charcoal) 0%, var(--pine) 100%);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--taupe);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .building-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .building-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .building-info {
+      padding: 2rem;
+      background: var(--pine-deep);
+      border-top: 1px solid var(--gold-dim);
+    }
+
+    .building-name {
+      color: var(--gold);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+    }
+
+    .building-location {
+      color: var(--stone);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .building-location::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    footer {
+      background: var(--charcoal);
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--taupe);
+    }
+
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .swatch-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .swatch {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--off-white);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .swatch-label {
+      font-size: 0.7rem;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .copyright {
+      color: var(--taupe);
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+        letter-spacing: 0.15em;
+      }
+
+      .building-info {
+        padding: 1.5rem;
+      }
+
+      .building-name {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AVA</h1>
+    <p class="subtitle">Premium Residences</p>
+    <div class="color-bar">
+      <span style="background: var(--pine);"></span>
+      <span style="background: var(--stone);"></span>
+      <span style="background: var(--gold);"></span>
+      <span style="background: var(--charcoal);"></span>
+      <span style="background: var(--taupe);"></span>
+    </div>
+  </header>
+
+  <main>
+    <div class="gallery">
+      <article class="building-card">
+        <img src="/assets/derenik-demirchyan.jpeg" alt="Derenik Demirchyan Building">
+        <div class="building-info">
+          <h2 class="building-name">Derenik Demirchyan 2-4</h2>
+          <p class="building-location">Yerevan, Armenia</p>
+        </div>
+      </article>
+
+      <article class="building-card">
+        <img src="/assets/karapet-ulnetsi.jpg" alt="Karapet Ulnetsi Building">
+        <div class="building-info">
+          <h2 class="building-name">45/1 Karapet Ulnetsi Street</h2>
+          <p class="building-location">Yerevan, Armenia</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="color-palette">
+      <div class="swatch-item">
+        <div class="swatch" style="background: var(--pine);"></div>
+        <span class="swatch-label">Pine</span>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background: var(--pine-deep);"></div>
+        <span class="swatch-label">Pine Deep</span>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background: var(--stone);"></div>
+        <span class="swatch-label">Stone</span>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background: var(--gold);"></div>
+        <span class="swatch-label">Gold</span>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background: var(--charcoal);"></div>
+        <span class="swatch-label">Charcoal</span>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background: var(--taupe);"></div>
+        <span class="swatch-label">Taupe</span>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch" style="background: var(--off-white);"></div>
+        <span class="swatch-label">Off White</span>
+      </div>
+    </div>
+    <p class="copyright">AVA Premium Residences</p>
+  </footer>
+</body>
+</html>

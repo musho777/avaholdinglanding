@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AVA Photo Gallery</title>
+  <style>
+    :root {
+      --pine: #5f5346;
+      --pine-deep: #221c17;
+      --stone: #cec4b6;
+      --gold: #c9a267;
+      --gold-dim: #a3855c;
+      --charcoal: #3a322b;
+      --taupe: #6c635a;
+      --off-white: #faf7f2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--pine-deep);
+      color: var(--off-white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .color-swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      border: 2px solid var(--stone);
+    }
+
+    .color-name {
+      font-size: 0.75rem;
+      color: var(--stone);
+    }
+
+    .color-hex {
+      font-size: 0.65rem;
+      color: var(--taupe);
+    }
+
+    h2 {
+      color: var(--stone);
+      margin: 2rem 0 1rem;
+      border-bottom: 1px solid var(--charcoal);
+      padding-bottom: 0.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .photo-card {
+      background-color: var(--charcoal);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--taupe);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      border-color: var(--gold);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-name {
+      padding: 1rem;
+      color: var(--stone);
+      font-size: 0.9rem;
+      background: var(--pine-deep);
+    }
+  </style>
+</head>
+<body>
+  <h1>AVA Photo Gallery</h1>
+
+  <h2>App Colors</h2>
+  <div class="color-palette">
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: var(--pine);"></div>
+      <span class="color-name">Pine</span>
+      <span class="color-hex">#5f5346</span>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: var(--pine-deep);"></div>
+      <span class="color-name">Pine Deep</span>
+      <span class="color-hex">#221c17</span>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: var(--stone);"></div>
+      <span class="color-name">Stone</span>
+      <span class="color-hex">#cec4b6</span>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: var(--gold);"></div>
+      <span class="color-name">Gold</span>
+      <span class="color-hex">#c9a267</span>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: var(--gold-dim);"></div>
+      <span class="color-name">Gold Dim</span>
+      <span class="color-hex">#a3855c</span>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: var(--charcoal);"></div>
+      <span class="color-name">Charcoal</span>
+      <span class="color-hex">#3a322b</span>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: var(--taupe);"></div>
+      <span class="color-name">Taupe</span>
+      <span class="color-hex">#6c635a</span>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch" style="background-color: var(--off-white);"></div>
+      <span class="color-name">Off White</span>
+      <span class="color-hex">#faf7f2</span>
+    </div>
+  </div>
+
+  <h2>AVA Photos</h2>
+  <div class="gallery">
+    <div class="photo-card">
+      <img src="/assets/AVA1.webp" alt="AVA1">
+      <div class="photo-name">AVA1.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA2.webp" alt="AVA2">
+      <div class="photo-name">AVA2.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA3.webp" alt="AVA3">
+      <div class="photo-name">AVA3.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA4.webp" alt="AVA4">
+      <div class="photo-name">AVA4.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA5.webp" alt="AVA5">
+      <div class="photo-name">AVA5.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA6.webp" alt="AVA6">
+      <div class="photo-name">AVA6.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA7.webp" alt="AVA7">
+      <div class="photo-name">AVA7.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA8.webp" alt="AVA8">
+      <div class="photo-name">AVA8.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA9.webp" alt="AVA9">
+      <div class="photo-name">AVA9.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA10.webp" alt="AVA10">
+      <div class="photo-name">AVA10.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/AVA11.webp" alt="AVA11">
+      <div class="photo-name">AVA11.webp</div>
+    </div>
+  </div>
+
+  <h2>Location Photos</h2>
+  <div class="gallery">
+    <div class="photo-card">
+      <img src="/assets/location-1.webp" alt="Location">
+      <div class="photo-name">location-1.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/lovers_park.webp" alt="Lovers Park">
+      <div class="photo-name">lovers_park.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/opera.webp" alt="Opera">
+      <div class="photo-name">opera.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/academia.webp" alt="Academia">
+      <div class="photo-name">academia.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/davit-anhakht-17.webp" alt="Davit Anhakht">
+      <div class="photo-name">davit-anhakht-17.webp</div>
+    </div>
+  </div>
+
+  <h2>Other Assets</h2>
+  <div class="gallery">
+    <div class="photo-card">
+      <img src="/assets/1.webp" alt="Image 1">
+      <div class="photo-name">1.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/3.webp" alt="Image 3">
+      <div class="photo-name">3.webp</div>
+    </div>
+    <div class="photo-card">
+      <img src="/assets/usa.webp" alt="USA">
+      <div class="photo-name">usa.webp</div>
+    </div>
+  </div>
+</body>
+</html>

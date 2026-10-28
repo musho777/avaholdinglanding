@@ -6,6 +6,7 @@ export { default as CenturySection } from "./CenturySection";
 export { default as TimeSvgSection } from "./TimeSvgSection";
 export { default as FounderTextSection } from "./FounderTextSection";
 export { default as QuoteSection } from "./Quote";
+export { default as ExploreSection } from "./Explore";
 export { default as YerevanLocation } from "./YerevanLocation";
 export { default as Slider } from "./Slider";
 export { default as Partners } from "./Partners";

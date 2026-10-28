@@ -7,17 +7,17 @@ import Autoplay from "embla-carousel-autoplay";
 import VectorSvg from "@/app/components/VectorSvg";
 
 const images = [
-  "/assets/AVA1.jpg",
-  "/assets/AVA2.jpg",
-  "/assets/AVA3.jpg",
-  "/assets/AVA4.jpg",
-  "/assets/AVA5.jpg",
-  "/assets/AVA6.jpg",
-  "/assets/AVA7.jpg",
-  "/assets/AVA8.jpg",
-  "/assets/AVA9.jpg",
-  "/assets/AVA10.jpg",
-  "/assets/AVA11.jpg",
+  "/assets/AVA1.webp",
+  "/assets/AVA2.webp",
+  "/assets/AVA3.webp",
+  "/assets/AVA4.webp",
+  "/assets/AVA5.webp",
+  "/assets/AVA6.webp",
+  "/assets/AVA7.webp",
+  "/assets/AVA8.webp",
+  "/assets/AVA9.webp",
+  "/assets/AVA10.webp",
+  "/assets/AVA11.webp",
 ];
 
 export default function Slider() {

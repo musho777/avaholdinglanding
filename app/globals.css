@@ -4352,7 +4352,6 @@ img {
   margin: 0.5rem 0 0;
   text-transform: uppercase;
   text-align: left;
-  text-align-last: justify;
 }
 
 /* Armenian: the role text is longer, so it is set a little smaller

@@ -163,7 +163,7 @@ html[lang="am"] .city-map .map-title {
   font-size: clamp(0.95rem, 1.5vw, 1.3rem);
 }
 
-/* Button in the palette: olive (#796d5b), with the terracotta sliding in on hover */
+/* Button in the palette: olive (#796d5b), with the dark brown sliding in on hover */
 .city-map .see-map-btn {
   flex-shrink: 0;
   background: var(--map-olive);
@@ -171,7 +171,7 @@ html[lang="am"] .city-map .map-title {
 }
 
 .city-map .see-map-btn::before {
-  background-color: var(--map-terracotta);
+  background-color: var(--map-brown);
 }
 
 @media (max-width: 768px) {

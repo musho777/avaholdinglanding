@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import "./ResidencesIntro.css";
@@ -23,9 +24,45 @@ function AvaMark({ className }: { className?: string }) {
 
 export default function ResidencesIntro() {
   const t = useTranslations("residencesIntro");
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Exit drift: once the section's bottom reaches the bottom of the screen, it eases
+  // down by up to half the screen as it leaves, so the map catches up and covers it
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let rafId: number | null = null;
+    let drift = 0;
+
+    const update = () => {
+      rafId = null;
+      const vh = window.innerHeight;
+      // Measure where the section would be without its own drift
+      const bottom = section.getBoundingClientRect().bottom - drift;
+      const progress = Math.min(Math.max((vh - bottom) / vh, 0), 1);
+      drift = progress * progress * vh * 0.5;
+      section.style.setProperty("--exit-y", `${drift.toFixed(1)}px`);
+    };
+
+    const onScroll = () => {
+      if (rafId === null) rafId = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   return (
-    <section className="residences-intro" id="residences">
+    <section className="residences-intro" id="residences" ref={sectionRef}>
       <div className="residences-intro-media">
         <Image
           src="/assets/AVA2.webp"

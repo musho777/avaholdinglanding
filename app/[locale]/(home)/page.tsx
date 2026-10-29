@@ -66,7 +66,7 @@ export default function Home() {
       <main id="main-content">
         <QuoteSection />
         <ExploreSection />
-        {/* The intro pins while the map slides up over it; it lets go once the map has passed */}
+        {/* The intro eases out (exit drift) as the map comes up after a short cream gap */}
         <div className="residences-stack">
           <ResidencesIntro />
           {/* <YerevanLocation /> */}

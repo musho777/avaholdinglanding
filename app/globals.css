@@ -4226,14 +4226,15 @@ html[lang="am"] .century-founder-text {
 }
 
 @media (max-width: 480px) {
+  /* Leaves ~10px between the title and the founded-by line under it */
   .century-content {
     padding: 0 1rem;
-    bottom: 6rem;
+    bottom: 5.2rem;
   }
 
   /* The Armenian founded-by line takes two lines on phones; lift the title one line */
   html[lang="am"] .century-content {
-    bottom: 7.5rem;
+    bottom: 6.7rem;
   }
 
   .century-text-left,

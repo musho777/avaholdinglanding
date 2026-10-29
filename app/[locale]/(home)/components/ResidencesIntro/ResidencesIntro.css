@@ -88,15 +88,11 @@
   font-size: 0.95rem;
 }
 
-/* Exit drift (as on 111w57.com): as the intro scrolls out, its photo and panel
-   slide down inside it, so it leaves slower than the page instead of stopping.
-   The section clips them; ResidencesIntro.tsx sets --exit-y on scroll */
+/* Exit drift (as on 111w57.com): as the intro scrolls out it moves down a little,
+   so it leaves slower than the page; the map (z-index 10) closes the cream gap and
+   slides up over it. ResidencesIntro.tsx sets --exit-y on scroll */
 .residences-intro {
-  overflow: hidden;
-}
-
-.residences-intro-media,
-.residences-intro-panel {
+  z-index: 9;
   transform: translate3d(0, var(--exit-y, 0px), 0);
   will-change: transform;
 }

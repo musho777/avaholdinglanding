@@ -26,22 +26,24 @@ export default function ResidencesIntro() {
   const t = useTranslations("residencesIntro");
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Exit drift: once the section's bottom reaches the bottom of the screen, its
-  // content eases down by up to a quarter of the screen as it leaves
+  // Exit drift: once the section's bottom reaches the bottom of the screen, it eases
+  // down by up to half the screen as it leaves, so the map catches up and covers it
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let rafId: number | null = null;
+    let drift = 0;
 
     const update = () => {
       rafId = null;
       const vh = window.innerHeight;
-      const bottom = section.getBoundingClientRect().bottom;
+      // Measure where the section would be without its own drift
+      const bottom = section.getBoundingClientRect().bottom - drift;
       const progress = Math.min(Math.max((vh - bottom) / vh, 0), 1);
-      const eased = progress * progress;
-      section.style.setProperty("--exit-y", `${(eased * vh * 0.25).toFixed(1)}px`);
+      drift = progress * progress * vh * 0.5;
+      section.style.setProperty("--exit-y", `${drift.toFixed(1)}px`);
     };
 
     const onScroll = () => {

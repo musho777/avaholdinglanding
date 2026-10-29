@@ -121,12 +121,11 @@
   }
 
   .residences-intro-panel {
-    /* bottom: the 2rem it had plus the 2.5rem that was a margin */
-    padding: 3rem 1.5rem 4.5rem;
+    padding: 3.75rem 1.5rem 5.25rem;
   }
 
   .residences-intro-title {
-    margin: 1.75rem 0;
+    margin: 2.5rem 0;
   }
 
   /* The brand block (AVA / RESIDENCES / ELIE SAAB) read too small on phones */

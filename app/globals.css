@@ -18,6 +18,11 @@ html[lang="am"] {
     "ARM Holding", "Helvetica", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: "ARM Residences", "Constantia", Georgia, serif;
 }
+
+/* The Armenian serif's letters sit wide apart; pull the quote's letters closer */
+html[lang="am"] .quote-fill {
+  letter-spacing: -0.06em;
+}
 * {
   margin: 0;
   padding: 0;
@@ -4348,6 +4353,13 @@ img {
   text-transform: uppercase;
   text-align: justify;
   text-align-last: justify;
+}
+
+/* Armenian: the role is longer than the name and wraps, so centre its lines
+   (still within the name's width) instead of stretching them */
+html[lang="am"] .founder-text-role {
+  text-align: center;
+  text-align-last: center;
 }
 
 /* Phones: the role wraps, so centre it instead of stretching each line */

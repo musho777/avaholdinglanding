@@ -37,40 +37,10 @@
   align-items: center;
 }
 
-.residences-intro-mark {
-  width: clamp(6.5rem, 10vw, 8.5rem);
+.residences-intro-logo {
+  display: block;
+  width: clamp(8rem, 11vw, 10.5rem);
   height: auto;
-}
-
-.residences-intro-residences {
-  margin-top: 1rem;
-  font-family: var(--font-residences);
-  font-size: clamp(0.75rem, 1vw, 0.9rem);
-  letter-spacing: 0.32em;
-  padding-left: 0.32em;
-}
-
-.residences-intro-by {
-  margin-top: 2rem;
-  font-family: var(--font-residences);
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.residences-intro-saab {
-  margin-top: 0.7rem;
-  font-family: var(--font-residences);
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-  letter-spacing: 0.06em;
-  line-height: 1;
-}
-
-.residences-intro-maison {
-  margin-top: 0.3rem;
-  font-family: var(--font-residences);
-  font-size: 0.6rem;
-  letter-spacing: 0.14em;
 }
 
 .residences-intro-title {
@@ -128,21 +98,7 @@
     margin: 2.5rem 0;
   }
 
-  /* The brand block (AVA / RESIDENCES / ELIE SAAB), a little larger than desktop's minimum */
-  .residences-intro-mark {
+  .residences-intro-logo {
     width: 7.5rem;
-  }
-
-  .residences-intro-residences {
-    font-size: 0.85rem;
-  }
-
-  .residences-intro-by,
-  .residences-intro-maison {
-    font-size: 0.68rem;
-  }
-
-  .residences-intro-saab {
-    font-size: 1.2rem;
   }
 }

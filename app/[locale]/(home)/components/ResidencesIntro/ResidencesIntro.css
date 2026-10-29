@@ -92,14 +92,15 @@
   }
 
   .residences-intro-panel {
-    padding: 4.5rem 1.5rem;
+    padding: 0 1.5rem 4.5rem;
   }
 
   .residences-intro-title {
     margin: 2.5rem 0;
   }
 
-  /* Clear space below the logo equal to its own height (846/800 of its width) */
+  /* Clear space above and below the logo equal to its own height (846/800 of its
+     width); the panel has no top padding, so the space above is exactly that */
   .residences-intro-brand {
     padding: 0;
   }
@@ -107,6 +108,6 @@
   .residences-intro-logo {
     --logo-w: 7.5rem;
     width: var(--logo-w);
-    margin-bottom: calc(var(--logo-w) * 846 / 800);
+    margin-block: calc(var(--logo-w) * 846 / 800);
   }
 }

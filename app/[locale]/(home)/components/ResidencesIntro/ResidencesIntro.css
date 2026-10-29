@@ -99,7 +99,7 @@
     margin: 2.5rem 0;
   }
 
-  /* Clear space above and below the logo equal to its own height (846/800 of its width) */
+  /* Clear space below the logo equal to its own height (846/800 of its width) */
   .residences-intro-brand {
     padding: 0;
   }
@@ -107,6 +107,6 @@
   .residences-intro-logo {
     --logo-w: 7.5rem;
     width: var(--logo-w);
-    margin-block: calc(var(--logo-w) * 846 / 800);
+    margin-bottom: calc(var(--logo-w) * 846 / 800);
   }
 }

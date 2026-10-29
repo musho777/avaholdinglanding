@@ -66,9 +66,12 @@ export default function Home() {
       <main id="main-content">
         <QuoteSection />
         <ExploreSection />
-        <ResidencesIntro />
-        {/* <YerevanLocation /> */}
-        <CityMap />
+        {/* The intro pins while the map slides up over it; it lets go once the map has passed */}
+        <div className="residences-stack">
+          <ResidencesIntro />
+          {/* <YerevanLocation /> */}
+          <CityMap />
+        </div>
         <Slider />
         <CenturySection />
         <TimeSvgSection />

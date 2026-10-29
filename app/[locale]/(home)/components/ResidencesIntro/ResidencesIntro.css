@@ -128,21 +128,21 @@
     margin: 2.5rem 0;
   }
 
-  /* The brand block (AVA / RESIDENCES / ELIE SAAB) read too small on phones */
+  /* The brand block (AVA / RESIDENCES / ELIE SAAB), a little larger than desktop's minimum */
   .residences-intro-mark {
-    width: 8.5rem;
+    width: 7.5rem;
   }
 
   .residences-intro-residences {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
   }
 
   .residences-intro-by,
   .residences-intro-maison {
-    font-size: 0.75rem;
+    font-size: 0.68rem;
   }
 
   .residences-intro-saab {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
   }
 }

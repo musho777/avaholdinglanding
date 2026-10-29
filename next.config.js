@@ -21,9 +21,29 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
-  // Security headers
+  // Caching and security headers
   async headers() {
     return [
+      // Browser caching for files in public/. Kept to days, not a year, because these
+      // files keep their names when replaced; stale-while-revalidate refreshes quietly
+      {
+        source: '/assets/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=604800, stale-while-revalidate=86400'
+          }
+        ],
+      },
+      {
+        source: '/fonts/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=2592000, stale-while-revalidate=86400'
+          }
+        ],
+      },
       {
         source: '/:path*',
         headers: [

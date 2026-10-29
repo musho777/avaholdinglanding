@@ -135,6 +135,12 @@
   text-transform: uppercase;
 }
 
+/* Armenian: the site's Armenian serif ("ARM Residences", "Constantia", Georgia, serif)
+   instead of the generic serif .map-title gets from YerevanLocation.css */
+html[lang="am"] .city-map .map-title {
+  font-family: var(--font-serif);
+}
+
 /* Tablet and up: the header sits on the map, in its pin-free left band
    (no pins between ~25% and 70% of the height, left of ~30% of the width).
    The section is just the map once the header leaves the flow, so these

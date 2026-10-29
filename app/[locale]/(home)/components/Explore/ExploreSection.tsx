@@ -22,7 +22,7 @@ export default function ExploreSection() {
       <div className="explore-grid">
         {cards.map((card, index) => (
           <div key={card.key} className={`explore-card scroll-reveal delay-${index + 1}`}>
-            <div className="explore-card-media">
+            <div className={`explore-card-media reveal-mask delay-${index + 1}`}>
               <Image
                 src={card.image}
                 alt={t(card.key)}

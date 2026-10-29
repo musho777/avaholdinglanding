@@ -4169,6 +4169,11 @@ img {
   text-align: center;
 }
 
+/* Uppercase Armenian at the default line height runs its lines together */
+html[lang="am"] .century-founder-text {
+  line-height: 1.6;
+}
+
 @keyframes centuryScrollBounce {
   0% {
     opacity: 1;

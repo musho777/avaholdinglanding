@@ -135,6 +135,12 @@
   text-transform: uppercase;
 }
 
+/* Armenian: the site's Armenian serif ("ARM Residences", "Constantia", Georgia, serif)
+   instead of the generic serif .map-title gets from YerevanLocation.css */
+html[lang="am"] .city-map .map-title {
+  font-family: var(--font-serif);
+}
+
 /* Tablet and up: the header sits on the map, in its pin-free left band
    (no pins between ~25% and 70% of the height, left of ~30% of the width).
    The section is just the map once the header leaves the flow, so these
@@ -157,7 +163,7 @@
   font-size: clamp(0.95rem, 1.5vw, 1.3rem);
 }
 
-/* Button in the palette: olive (#796d5b), with the terracotta sliding in on hover */
+/* Button in the palette: olive (#796d5b), with the dark brown sliding in on hover */
 .city-map .see-map-btn {
   flex-shrink: 0;
   background: var(--map-olive);
@@ -165,7 +171,7 @@
 }
 
 .city-map .see-map-btn::before {
-  background-color: var(--map-terracotta);
+  background-color: var(--map-brown);
 }
 
 @media (max-width: 768px) {

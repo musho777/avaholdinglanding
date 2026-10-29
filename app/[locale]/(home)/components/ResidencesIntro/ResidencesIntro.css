@@ -121,8 +121,8 @@
   }
 
   .residences-intro-panel {
-    padding: 3rem 1.5rem 2rem;
-    margin-bottom: 2.5rem;
+    /* bottom: the 2rem it had plus the 2.5rem that was a margin */
+    padding: 3rem 1.5rem 4.5rem;
   }
 
   .residences-intro-title {

@@ -309,6 +309,7 @@ html[lang="am"] .hero-text-bottom {
 }
 
 html[lang="am"] .hero-text-main {
+  font-family: "ARM Residences", serif; /* the Armenian serif used across the site */
   font-size: clamp(1.4rem, 4.25vw, 3.1875rem); /* 51px max for big screens */
 }
 

@@ -88,14 +88,22 @@
   font-size: 0.95rem;
 }
 
-/* Desktop: stays put while the map (z-index 10) slides up over it. Phones skip
-   this, since the stacked intro is taller than the screen */
+/* Exit drift (as on 111w57.com): as the intro scrolls out, its photo and panel
+   slide down inside it, so it leaves slower than the page instead of stopping.
+   The section clips them; ResidencesIntro.tsx sets --exit-y on scroll */
+.residences-intro {
+  overflow: hidden;
+}
+
+.residences-intro-media,
+.residences-intro-panel {
+  transform: translate3d(0, var(--exit-y, 0px), 0);
+  will-change: transform;
+}
+
 @media (min-width: 901px) {
   .residences-intro {
-    position: sticky;
-    top: 0;
-    z-index: 9;
-    /* A pause: the intro stays alone on screen this long before the map arrives */
+    /* A short pause before the map arrives */
     margin-bottom: 50px;
   }
 

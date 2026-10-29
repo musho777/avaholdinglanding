@@ -55,8 +55,12 @@ export default function CityMap() {
   const cardsRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isTouch, setIsTouch] = useState(false);
-  // Portal target for the phone card: sits above the sideways-scrolling map
-  const [mobileCardSlot, setMobileCardSlot] = useState<HTMLDivElement | null>(null);
+  // The phone card is portaled into <body>, which only exists after mount
+  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setPortalTarget(document.body);
+  }, []);
 
   useEffect(() => {
     const mobileQuery = window.matchMedia(MOBILE_QUERY);
@@ -157,7 +161,6 @@ export default function CityMap() {
         </button>
       </header>
 
-      <div className="city-map-mobile-slot" ref={setMobileCardSlot} />
 
       <div className="city-map-viewport">
         <div
@@ -233,12 +236,12 @@ export default function CityMap() {
 
       {isMobile &&
         activeLocation &&
-        mobileCardSlot &&
+        portalTarget &&
         createPortal(
           <div className="city-map-mobile-card" key={activeLocation.id}>
             {renderCard(activeLocation, true, false)}
           </div>,
-          mobileCardSlot
+          portalTarget
         )}
 
       {/* Same WhatsApp-style cursor as the location map above */}

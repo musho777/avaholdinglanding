@@ -4144,6 +4144,11 @@ img {
   bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
+  /* Full width: shrink-to-fit made it ~190px wide, wrapping the founder line
+     onto three lines that ran up into the title */
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -4167,6 +4172,11 @@ img {
   text-transform: uppercase;
   margin: 0;
   text-align: center;
+}
+
+/* Uppercase Armenian at the default line height runs its lines together */
+html[lang="am"] .century-founder-text {
+  line-height: 1.6;
 }
 
 @keyframes centuryScrollBounce {
@@ -4216,9 +4226,15 @@ img {
 }
 
 @media (max-width: 480px) {
+  /* Leaves ~10px between the title and the founded-by line under it */
   .century-content {
     padding: 0 1rem;
-    bottom: 6rem;
+    bottom: 5.2rem;
+  }
+
+  /* The Armenian founded-by line takes two lines on phones; lift the title one line */
+  html[lang="am"] .century-content {
+    bottom: 6.7rem;
   }
 
   .century-text-left,

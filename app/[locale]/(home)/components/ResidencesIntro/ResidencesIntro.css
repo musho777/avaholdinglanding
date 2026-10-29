@@ -93,8 +93,9 @@
    slides up over it. ResidencesIntro.tsx sets --exit-y on scroll */
 .residences-intro {
   z-index: 9;
-  transform: translate3d(0, var(--exit-y, 0px), 0);
-  will-change: transform;
+  /* 2D on purpose: Safari draws a translate3d element over later sections even
+     when they have a higher z-index, so the map would slide under the photo */
+  transform: translateY(var(--exit-y, 0px));
 }
 
 @media (min-width: 901px) {

@@ -8,6 +8,8 @@
 
   position: relative;
   z-index: 10;
+  /* Keeps the map, its pins and its cards one layer above the drifting intro */
+  isolation: isolate;
   width: 100%;
   overflow: hidden;
   background-color: var(--map-cream);

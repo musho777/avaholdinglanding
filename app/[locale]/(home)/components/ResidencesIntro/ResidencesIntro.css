@@ -96,7 +96,7 @@
     top: 0;
     z-index: 9;
     /* A pause: the intro stays alone on screen this long before the map arrives */
-    margin-bottom: 40vh;
+    margin-bottom: 15vh;
   }
 
   /* The pause gap shows the map's cream, so it reads as the map coming up */

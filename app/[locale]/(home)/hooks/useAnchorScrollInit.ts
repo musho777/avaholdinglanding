@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { getLenis } from "./useSmoothScrollInit";
 
 export function useAnchorScrollInit() {
   useEffect(() => {
@@ -17,11 +18,16 @@ export function useAnchorScrollInit() {
       if (targetElement) {
         e.preventDefault();
 
-        // Use native smooth scroll (lightweight, no custom animation)
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
+        // Glide through Lenis when it's running; otherwise native smooth scroll
+        const lenis = getLenis();
+        if (lenis) {
+          lenis.scrollTo(targetElement);
+        } else {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
 
         // Update URL
         if (window.history && window.history.pushState) {

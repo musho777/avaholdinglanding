@@ -1,4 +1,13 @@
 import { useEffect } from "react";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
+
+// The running Lenis instance, so other hooks (anchor links) can scroll through it
+let lenis: Lenis | null = null;
+
+export function getLenis() {
+  return lenis;
+}
 
 export function useSmoothScrollInit() {
   useEffect(() => {
@@ -14,65 +23,22 @@ export function useSmoothScrollInit() {
       return;
     }
 
-    // Custom smooth scroll with optimizations
     document.documentElement.style.scrollBehavior = "auto";
 
-    let current = window.scrollY;
-    let target = current;
-    const ease = 0.15; // Higher value = faster, smoother (was 0.09 before)
-    let rafId: number | null = null;
-
-    const lerp = (start: number, end: number, factor: number) => {
-      return start + (end - start) * factor;
-    };
-
-    const animate = () => {
-      const diff = Math.abs(target - current);
-
-      // Stop if close enough (performance optimization)
-      if (diff < 0.5) {
-        current = target;
-        window.scrollTo(0, current);
-        rafId = null;
-        return;
-      }
-
-      current = lerp(current, target, ease);
-      window.scrollTo(0, current);
-      rafId = requestAnimationFrame(animate);
-    };
-
-    const onWheel = (e: WheelEvent) => {
+    // Soft, gliding wheel scroll (Lenis defaults, as on 111w57.com)
+    lenis = new Lenis({
+      lerp: 0.1,
+      smoothWheel: true,
+      autoRaf: true,
       // Inner scroll areas marked with data-native-scroll scroll themselves, not the page
-      if (e.target instanceof Element && e.target.closest("[data-native-scroll]")) return;
-
-      e.preventDefault();
-      target += e.deltaY;
-      target = Math.max(0, Math.min(target, document.documentElement.scrollHeight - window.innerHeight));
-
-      // Only start animation if not already running
-      if (!rafId) {
-        rafId = requestAnimationFrame(animate);
-      }
-    };
-
-    const onScroll = () => {
-      // Sync on programmatic scrolls
-      if (!rafId) {
-        current = window.scrollY;
-        target = current;
-      }
-    };
-
-    window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("scroll", onScroll, { passive: true });
+      prevent: (node) => !!node.closest("[data-native-scroll]"),
+      // The menu and modals lock the page with body overflow: hidden; leave the wheel alone then
+      virtualScroll: () => document.body.style.overflow !== "hidden",
+    });
 
     return () => {
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("scroll", onScroll);
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
+      lenis?.destroy();
+      lenis = null;
     };
   }, []);
 }

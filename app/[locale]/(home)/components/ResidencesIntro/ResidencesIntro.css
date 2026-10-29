@@ -91,23 +91,24 @@
     aspect-ratio: 4 / 3;
   }
 
+  /* One logo height (846/800 of its width) of space above the logo, below it, and
+     under the address; no other padding adds to these */
   .residences-intro-panel {
-    padding: 0 1.5rem 4.5rem;
+    --logo-w: 7.5rem;
+    --logo-space: calc(var(--logo-w) * 846 / 800);
+    padding: 0 1.5rem var(--logo-space);
   }
 
-  .residences-intro-title {
-    margin: 2.5rem 0;
-  }
-
-  /* Clear space above and below the logo equal to its own height (846/800 of its
-     width); the panel has no top padding, so the space above is exactly that */
   .residences-intro-brand {
     padding: 0;
   }
 
   .residences-intro-logo {
-    --logo-w: 7.5rem;
     width: var(--logo-w);
-    margin-block: calc(var(--logo-w) * 846 / 800);
+    margin-block: var(--logo-space);
+  }
+
+  .residences-intro-title {
+    margin: 0 0 2.5rem;
   }
 }

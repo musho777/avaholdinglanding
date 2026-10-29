@@ -141,7 +141,7 @@
   .city-map-header {
     position: absolute;
     z-index: 5;
-    top: 26%;
+    top: 35%;
     left: 4%;
     flex-direction: column;
     align-items: flex-start;
@@ -155,11 +155,10 @@
   font-size: clamp(0.95rem, 1.5vw, 1.3rem);
 }
 
-/* Button in the palette so it sits on the cream header: dark brown,
-   with the terracotta sliding in on hover */
+/* Button in the palette: olive (#796d5b), with the terracotta sliding in on hover */
 .city-map .see-map-btn {
   flex-shrink: 0;
-  background: var(--map-brown);
+  background: var(--map-olive);
   color: var(--map-cream);
 }
 

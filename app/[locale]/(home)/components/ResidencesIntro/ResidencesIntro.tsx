@@ -26,7 +26,7 @@ export default function ResidencesIntro() {
 
   return (
     <section className="residences-intro" id="residences">
-      <div className="residences-intro-media reveal-mask">
+      <div className="residences-intro-media">
         <Image
           src="/assets/AVA2.webp"
           alt={t("imageAlt")}

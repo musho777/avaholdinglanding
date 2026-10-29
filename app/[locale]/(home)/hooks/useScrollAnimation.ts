@@ -5,9 +5,8 @@ import { useEffect } from "react";
 export function useScrollAnimation() {
   useEffect(() => {
     const observerOptions = {
-      threshold: 0.15,
-      // Wait until the element is a little way into the screen before revealing it
-      rootMargin: "0px 0px -8% 0px",
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -20,8 +19,8 @@ export function useScrollAnimation() {
       });
     }, observerOptions);
 
-    // Observe all elements with scroll-reveal (fade/rise) or reveal-mask (photo curtain)
-    const elements = document.querySelectorAll(".scroll-reveal, .reveal-mask");
+    // Observe all elements with scroll-reveal class
+    const elements = document.querySelectorAll(".scroll-reveal");
     elements.forEach((el) => observer.observe(el));
 
     return () => {

@@ -4144,6 +4144,11 @@ img {
   bottom: 3rem;
   left: 50%;
   transform: translateX(-50%);
+  /* Full width: shrink-to-fit made it ~190px wide, wrapping the founder line
+     onto three lines that ran up into the title */
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -4224,6 +4229,11 @@ html[lang="am"] .century-founder-text {
   .century-content {
     padding: 0 1rem;
     bottom: 6rem;
+  }
+
+  /* The Armenian founded-by line takes two lines on phones; lift the title one line */
+  html[lang="am"] .century-content {
+    bottom: 7.5rem;
   }
 
   .century-text-left,

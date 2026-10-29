@@ -130,6 +130,7 @@
 
 .city-map .map-title {
   margin: 0;
+  text-transform: uppercase;
 }
 
 /* Tablet and up: the header sits on the map, in its pin-free left band

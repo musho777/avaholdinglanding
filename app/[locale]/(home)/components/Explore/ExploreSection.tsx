@@ -16,10 +16,6 @@ export default function ExploreSection() {
   return (
     <section className="explore-section container-padding" id="explore">
       <div className="explore-header scroll-reveal">
-        <p className="explore-eyebrow">
-          <span className="explore-eyebrow-line" aria-hidden="true" />
-          {t("eyebrow")}
-        </p>
         <h2 className="explore-title">{t("title")}</h2>
       </div>
 

@@ -3,7 +3,8 @@
   z-index: 10;
   display: grid;
   grid-template-columns: 58fr 42fr;
-  height: clamp(480px, 72vh, 680px);
+  /* Grows with the panel's logo-height spacing; the photo stretches to match */
+  min-height: clamp(480px, 72vh, 680px);
   background: #e9e5db;
   color: #7b6d5c;
 }
@@ -23,11 +24,15 @@
   --font-residences: "Cosmetic", var(--font-serif);
   background: #ece9df; /* same cream as the map header */
   color: #796d5b;
+  /* One logo height (846/800 of its width) of space above the logo, below it, and
+     under the address; no other padding adds to these */
+  --logo-w: clamp(8rem, 11vw, 10.5rem);
+  --logo-space: calc(var(--logo-w) * 846 / 800);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: clamp(2.5rem, 7vh, 4rem) 2rem 1.75rem;
+  justify-content: center;
+  padding: 0 2rem var(--logo-space);
   text-align: center;
 }
 
@@ -35,17 +40,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem 0;
 }
 
 .residences-intro-logo {
   display: block;
-  width: clamp(8rem, 11vw, 10.5rem);
+  width: var(--logo-w);
   height: auto;
+  margin-block: var(--logo-space);
 }
 
 .residences-intro-title {
-  margin: 2rem 0;
+  margin: 0 0 2.5rem;
   font-family: var(--font-residences);
   font-weight: 400;
   font-size: clamp(1.9rem, 3vw, 2.8rem);
@@ -91,24 +96,8 @@
     aspect-ratio: 4 / 3;
   }
 
-  /* One logo height (846/800 of its width) of space above the logo, below it, and
-     under the address; no other padding adds to these */
   .residences-intro-panel {
     --logo-w: 7.5rem;
-    --logo-space: calc(var(--logo-w) * 846 / 800);
-    padding: 0 1.5rem var(--logo-space);
-  }
-
-  .residences-intro-brand {
-    padding: 0;
-  }
-
-  .residences-intro-logo {
-    width: var(--logo-w);
-    margin-block: var(--logo-space);
-  }
-
-  .residences-intro-title {
-    margin: 0 0 2.5rem;
+    padding-inline: 1.5rem;
   }
 }

@@ -146,7 +146,8 @@ export default function CityMap() {
       {/* Header above the map, with the location map's title styles and button */}
       <header className="city-map-header container-padding">
         <h2 className="map-title">
-          <span className="title-line scroll-reveal">{t("titleLine2")}</span>
+          <span className="title-line scroll-reveal">{t("titleLine1")}</span>
+          <span className="title-line scroll-reveal delay-1">{t("titleLine2")}</span>
         </h2>
         <button
           className="see-map-btn scroll-reveal delay-3"

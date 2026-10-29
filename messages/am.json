@@ -40,7 +40,9 @@
   "explore": {
     "eyebrow": "AVA Holding",
     "title": "ՆԱԽԱԳԾԵՐ",
-    "davitAnhakht": "Դավիթ Անհաղթի 17"
+    "archedBuilding": "Հայաստան, Երևան, Դավիթ Անհաղթի փողոց, 17",
+    "derenikDemirchyan": "Հայաստան, Երևան, Դերենիկ Դեմիրճյան փողոց, 2–4",
+    "karapetUlnetsi": "Հայաստան, Երևան, Կարապետ Ուլնեցի փողոց, 45/1"
   },
   "residencesIntro": {
     "imageAlt": "AVA Residences Դերենիկ Դեմիրճյան փողոցում",

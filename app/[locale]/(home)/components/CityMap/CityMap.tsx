@@ -89,6 +89,18 @@ export default function CityMap() {
     return () => clearTimeout(timer);
   }, [hoveredLocation]);
 
+  // Phones: the card is fixed to the screen, so scrolling the page hides it
+  // (sideways map scrolling isn't a page scroll and leaves it alone)
+  useEffect(() => {
+    if (!isMobile || hoveredLocation === null) return;
+    const startY = window.scrollY;
+    const onScroll = () => {
+      if (Math.abs(window.scrollY - startY) > 10) setHoveredLocation(null);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isMobile, hoveredLocation]);
+
   // Hovering a pin brings its card to the middle of the card column
   // (vertical column on desktop, horizontal strip on tablets)
   const scrollCardIntoCenter = (id: number) => {

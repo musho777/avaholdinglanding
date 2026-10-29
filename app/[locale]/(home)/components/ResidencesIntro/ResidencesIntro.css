@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1.5rem 0;
 }
 
 .residences-intro-logo {
@@ -98,7 +99,14 @@
     margin: 2.5rem 0;
   }
 
+  /* Clear space above and below the logo equal to its own height (846/800 of its width) */
+  .residences-intro-brand {
+    padding: 0;
+  }
+
   .residences-intro-logo {
-    width: 7.5rem;
+    --logo-w: 7.5rem;
+    width: var(--logo-w);
+    margin-block: calc(var(--logo-w) * 846 / 800);
   }
 }

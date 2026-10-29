@@ -132,6 +132,24 @@
   margin: 0;
 }
 
+/* Tablet and up: the header sits on the map, in its pin-free left band
+   (no pins between ~25% and 70% of the height, left of ~30% of the width).
+   The section is just the map once the header leaves the flow, so these
+   percentages track the map as it scales. */
+@media (min-width: 769px) {
+  .city-map-header {
+    position: absolute;
+    z-index: 5;
+    top: 26%;
+    left: 4%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
 .city-map .map-title .title-line {
   font-size: clamp(0.95rem, 1.5vw, 1.3rem);
 }

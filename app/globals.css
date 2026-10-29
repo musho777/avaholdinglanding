@@ -4355,11 +4355,11 @@ img {
   text-align-last: justify;
 }
 
-/* Armenian: the role is longer than the name and wraps, so centre its lines
-   (still within the name's width) instead of stretching them */
+/* Armenian: the role text is longer, so it is set a little smaller
+   (~0.29 x the name) to stay on one line within the name's width */
 html[lang="am"] .founder-text-role {
-  text-align: center;
-  text-align-last: center;
+  font-size: clamp(0.58rem, 1.45vw, 1.015rem);
+  white-space: nowrap;
 }
 
 /* Phones: the role wraps, so centre it instead of stretching each line */
@@ -4369,6 +4369,12 @@ html[lang="am"] .founder-text-role {
     font-size: 0.75rem;
     text-align: center;
     text-align-last: center;
+  }
+
+  /* Armenian stays on one line: ~40 characters' worth of width fits the
+     content box (100vw minus the section's side padding) */
+  html[lang="am"] .founder-text-role {
+    font-size: calc(2.5vw - 0.1rem);
   }
 }
 

@@ -104,7 +104,7 @@
 @media (min-width: 901px) {
   .residences-intro {
     /* A short pause before the map arrives */
-    margin-bottom: 50px;
+    margin-bottom: 120px;
   }
 
   /* The pause gap shows the map's cream, so it reads as the map coming up */

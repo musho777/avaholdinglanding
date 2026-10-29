@@ -26,7 +26,7 @@ export default function ResidencesIntro() {
   const t = useTranslations("residencesIntro");
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Exit drift: once the section's bottom passes the middle of the screen, its
+  // Exit drift: once the section's bottom reaches the bottom of the screen, its
   // content eases down by up to a quarter of the screen as it leaves
   useEffect(() => {
     const section = sectionRef.current;
@@ -39,7 +39,7 @@ export default function ResidencesIntro() {
       rafId = null;
       const vh = window.innerHeight;
       const bottom = section.getBoundingClientRect().bottom;
-      const progress = Math.min(Math.max((vh / 2 - bottom) / (vh / 2), 0), 1);
+      const progress = Math.min(Math.max((vh - bottom) / vh, 0), 1);
       const eased = progress * progress;
       section.style.setProperty("--exit-y", `${(eased * vh * 0.25).toFixed(1)}px`);
     };
